@@ -1,7 +1,8 @@
 site_name: TinyStacks Documentation
 theme:
   name: material
-  custom_dir: theme
+  features:
+    - navigation.sections
 
   # 404 page
   static_templates:
@@ -19,7 +20,8 @@ theme:
   favicon: assets/favicon.png
   icon:
     logo: logo
-plugins:
-  - search
-  - localsearch
-use_directory_urls: false
+
+nav:
+  - 'Introduction' : 'index.md'
+  - 'Get Started':
+    - 'Configure Your Account': 'configure.md'
