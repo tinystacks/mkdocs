@@ -1,6 +1,12 @@
 # TinyStacks Documentation
 
-Install mkdocs - pip install mkdocs
+## Installation
+```
+pip install mkdocs
+pip install mkdocs-material
+```
+
+## Making changes
 
 1. git checkout gh-pages
 2. git pull
