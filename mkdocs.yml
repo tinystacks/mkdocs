@@ -24,4 +24,11 @@ theme:
 nav:
   - 'Introduction' : 'index.md'
   - 'Get Started':
-    - 'Configure Your Account': 'configure.md'
+    - 'Create Your First Stack': 'create-stack.md'
+    - 'Deploy an Existing Application': 'existing.md'    
+  - 'How It Works':
+    - 'Architecture': 'architecture.md' 
+    - 'Concepts' : 'concepts.md'
+  - 'The TinyStacks Advantage':
+    - 'How TinyStacks Stacks Up': 'comparisons.md'
+
