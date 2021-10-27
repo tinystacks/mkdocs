@@ -15,7 +15,7 @@ By deploying with TinyStacks, your team can spend less time building out DevOps 
 
 Below are some of the benefits that applications gain by deploying with TinyStacks. 
 
-**Use Your Favorite Languages and Frameworks.** TinyStacks is language- and framework-agnostic. Our deployment processes will work as easily for Node.js developers as they will for Django and Express.js shops. 
+**Use Your Favorite Languages and Frameworks.** TinyStacks is language- and framework-agnostic. Our deployment processes will work with any application deployed via a Docker container. If your application currently isn’t Dockerized, we have pre-built template files for the Node.js, Django, Express, and Flask frameworks to get you started. 
 
 **Full-Stack Architecture.** TinyStacks creates everything your application requires to run on the cloud. It can even provision a Postgres database for data storage. 
 
