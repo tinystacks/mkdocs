@@ -1,0 +1,647 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
+    
+    
+      
+        <title>How TinyStacks Stacks Up - TinyStacks Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.db9e7362.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#amazon-web-services-aws" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="TinyStacks Documentation" class="md-header__button md-logo" aria-label="TinyStacks Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
+  <path d="M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z" />
+  <path d="M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z" style="fill-opacity: 0.5" />
+  <path d="M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z" />
+  <path d="M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z" style="fill-opacity: 0.25" />
+</svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TinyStacks Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              How TinyStacks Stacks Up
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="TinyStacks Documentation" class="md-nav__button md-logo" aria-label="TinyStacks Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
+  <path d="M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z" />
+  <path d="M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z" style="fill-opacity: 0.5" />
+  <path d="M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z" />
+  <path d="M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z" style="fill-opacity: 0.25" />
+</svg>
+
+    </a>
+    TinyStacks Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Get Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Get Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Get Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-stack/" class="md-nav__link">
+        Create Your First Stack
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../existing/" class="md-nav__link">
+        Deploy an Existing Application
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          How It Works
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="How It Works" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          How It Works
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concepts/" class="md-nav__link">
+        Concepts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          The TinyStacks Advantage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="The TinyStacks Advantage" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          The TinyStacks Advantage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          How TinyStacks Stacks Up
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        How TinyStacks Stacks Up
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-web-services-aws" class="md-nav__link">
+    Amazon Web Services (AWS)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-amplify" class="md-nav__link">
+    AWS Amplify
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-lightsail" class="md-nav__link">
+    Amazon Lightsail
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#heroku" class="md-nav__link">
+    Heroku
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#digitalocean" class="md-nav__link">
+    DigitalOcean
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#render" class="md-nav__link">
+    Render
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managed-kubernetes" class="md-nav__link">
+    Managed Kubernetes
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-web-services-aws" class="md-nav__link">
+    Amazon Web Services (AWS)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-amplify" class="md-nav__link">
+    AWS Amplify
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-lightsail" class="md-nav__link">
+    Amazon Lightsail
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#heroku" class="md-nav__link">
+    Heroku
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#digitalocean" class="md-nav__link">
+    DigitalOcean
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#render" class="md-nav__link">
+    Render
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managed-kubernetes" class="md-nav__link">
+    Managed Kubernetes
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>How TinyStacks Stacks Up</h1>
+                
+                <p>In today’s marketplace, you have no limit of choices when it comes to application deployment. We believe that TinyStacks offers the most transparent and flexible path for small shops and teams looking to grow up and out. </p>
+<p>Here’s a short summary of how we stack up (pun <em>absolutely</em> intended) against other solutions. </p>
+<h2 id="amazon-web-services-aws">Amazon Web Services (AWS)</h2>
+<p>We’re big fans of AWS at TinyStacks. Our founders are former engineering leaders at AWS. Our own service - and the services we deploy for customers - depend on it. In terms of features and scalability, AWS is the undisputed leader in public cloud technology. </p>
+<p>But while AWS is great, onboarding to AWS can be challenging - especially for smaller shops. Its web of overlapping features can take weeks or even months to understand, let alone master. Bringing an application onto AWS in a scalable, secure manner typically requires at least one dedicated DevOps engineer. </p>
+<p>AWS has taken numerous steps in response to complaints about its complexity. One of the most popular is its Cloud Development Kit (CDK), a set of command-line tools intended to ease onboarding to AWS. However, the CDK supposes an existing knowledge of AWS services. It also currently supports only a small number of languages. </p>
+<p>TinyStacks aims to simplify your team’s onboarding to AWS. Using TinyStacks, you can bring your existing app into the cloud in a matter of days or weeks as opposed to months. And, as your team’s knowledge of AWS grows, you’re free to incorporate the service’s rich features into your own applications - all while using TinyStacks to deploy and monitor your stacks easily. </p>
+<h2 id="aws-amplify">AWS Amplify</h2>
+<p>AWS Amplify is an AWS feature geared towards creating Web and mobile applications. Amplify supports creating both back-end resources - databases, authentication, and storage - along with static Web and mobile front ends that connect to them. </p>
+<p>Amplify may be the right choice for some projects. But it brings serious overhead that may inhibit its suitability for others. Amplify takes a walled garden approach to application development. It steers developers towards certain architectural choices - such as Amazon Cognito for authentication and DynamoDB for data storage - that may not be right for your app. Additionally, Amplify ships with a weighty (2MB) client library that could negatively impact application load times. Finally, AWS Amplify’s pricing model somehow manages to make AWS pricing even <strong>more</strong> complicated.</p>
+<p>Unlike Amplify, the TinyStacks DevOps workflow can be used with a variety of development stacks. We also don’t dictate critical architectural decisions such as data storage and authentication. </p>
+<h2 id="amazon-lightsail">Amazon Lightsail</h2>
+<p>Lightsail is Amazon’s Platform as a Service (PaaS) offering, enabling developers to deploy out- of-the-box packaged applications (like WordPress) and common development stacks with a few button clicks. Like other PaaS offerings, Lightsail works on a fixed-cost model, meaning that monthly charges are steady and predictable. </p>
+<p>However, Lightsail is only easy to use for the easy stuff. Lightsail deployments are based on creating individual Amazon EC2 instances. Lightsail deployments don’t implement horizontal scaling by default, meaning they won’t add new instances automatically to handle usage spikes. <a href="https://metablogue.com/load-balancer-lightsail/">Setting up a horizontal scaling deployment with a load balancer on Lightsail is almost as involved</a> as performing the same task on native AWS.</p>
+<p>TinyStacks combines ease of use with out-of-the-box scalability. A stack created by TinyStacks will always scale to meet the needs of your business. With a few clicks, you can deploy scalable architecture on AWS while only paying for what you use. </p>
+<h2 id="heroku">Heroku</h2>
+<p>Heroku is a PaaS provider, itself built on AWS, that makes it easy to deploy applications with low computational workloads. </p>
+<p>Teams that start with Heroku can have great success with the platform...for a while. But as your application grows and becomes more complex, it may start to outstrip the capabilities that Heroku offers. </p>
+<p>TinyStacks provides an easy-to-use bridge between services like Heroku and AWS. With TinyStacks, you can migrate your Heroku apps to the cloud and gain the following benefits:  </p>
+<ul>
+<li><strong>Performance</strong>. While Heroku performs well for small computational loads, many teams struggle with performance as their workloads and traffic increase. TinyStacks uses services such as Amazon ECS and API Gateway to ensure your application can scale to meet demand. </li>
+<li><strong>Services</strong>. Heroku only exposes a fraction of AWS’s rich feature set. TinyStacks provides the ease of use of a service like Heroku combined with the full power of AWS. You can start simple with your stack and slowly expand your application’s features to take advantage of the full range of services that AWS has to offer. </li>
+<li><strong>Cost</strong>. Heroku becomes increasingly expensive as your application scales out. TinyStacks works relentlessly to ensure you’re getting the most cost-effective solution with your AWS stack deployments, no matter your application’s size and scale. </li>
+</ul>
+<h2 id="digitalocean">DigitalOcean</h2>
+<p>Like Heroku, DigitalOcean can be a good choice for development teams when they start out. DigitalOcean’s App Platform simplifies code deployment. And its fixed-price pricing model is alluring for firms just dipping their toes into the cloud. </p>
+<p>However, like Heroku, DigitalOcean offers a minimalistic set of features. As your business grows, it’s likely you’ll outgrow DigitalOcean. Plus, DigitalOcean doesn’t provide any DevOps support or tools to manage application pipelines. If you want to have separate dev/test environments distinct from production or want to stand up a demo site for prospective customers, you’ll need to roll it yourself. </p>
+<p>TinyStacks provides the ease of use of a platform like DigitalOcean backed by the power of AWS. Additionally, we make it easy to create and manage a full DevOps pipeline with separate dev, test, and prod environments - all without needing to hire a full-time DevOps engineer. </p>
+<h2 id="render">Render</h2>
+<p>Render is a Heroku competitor that provides a streamlined experience for deploying apps for a wide variety of developer frameworks. The company offers multiple higher-level features, such as Content Delivery Network (CDN) support and HTTP health checks. </p>
+<p>Like Heroku, however, Render deploys cloud resources on your behalf. The lack of transparent access to an underlying cloud provider limits growth. Eventually, you will run into scenarios that require access to the full capabilities of a service such as AWS. </p>
+<p>TinyStacks was built to make cloud deployment easier - not to limit your application’s growth. Since TinyStacks applications run in your own AWS account, you retain full control and visibility over them. </p>
+<h2 id="managed-kubernetes">Managed Kubernetes</h2>
+<p>Another option your team might be weighing is a managed Kubernetes approach. Kubernetes (“k8s”) is a popular container orchestration and management system that works with Docker and other containerization technologies. It’s gained such a reputation for its scalability and reliability that every major cloud provider and many PaaS providers offer some form of managed Kubernetes hosting. </p>
+<p>The problem with Kubernetes? Complexity. For a team just transforming itself into a DevOps operation, Kubernetes has a daunting ramp-up time. It can take existing engineers months to ramp up on the system - and engineers with existing Kubernetes experience aren’t cheap.</p>
+<p>Some PaaS-style Kubernetes solutions have managed to tame the complexity issue (somewhat) for first-time k8s developers. However, making them production-ready is often still a complex task that involves understanding and configuring multiple pieces of networking, logging, and monitoring software. And most managed k8s solutions don’t solve the issue of standing up a full DevOps pipeline to flow changes between dev, test, and production. </p>
+<p>Finally, managed Kubernetes solutions tend to be pricey. For example, using AWS’s managed solution, Elastic Kubernetes Service (EKS), will add an additional hourly cost on top of the underlying EC2 capacity used. </p>
+<p>TinyStacks does more than just simplify deployment - it supports a full DevOps architecture for growing teams. With a few button clicks, your team can create multiple stacks and bring additional rigor and reliability to your release process.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../concepts/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Concepts" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Concepts
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.1e84347e.min.js"></script>
+      
+    
+  </body>
+</html>
