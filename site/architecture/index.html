@@ -1,0 +1,806 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://docs.tinystacks.com/architecture/">
+      
+      <link rel="icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
+    
+    
+      
+        <title>Architecture - TinyStacks Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.db9e7362.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#standard-scale-vs-hyperscale" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="TinyStacks Documentation" class="md-header__button md-logo" aria-label="TinyStacks Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
+  <path d="M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z" />
+  <path d="M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z" style="fill-opacity: 0.5" />
+  <path d="M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z" />
+  <path d="M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z" style="fill-opacity: 0.25" />
+</svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TinyStacks Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Architecture
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="TinyStacks Documentation" class="md-nav__button md-logo" aria-label="TinyStacks Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
+  <path d="M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z" />
+  <path d="M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z" style="fill-opacity: 0.5" />
+  <path d="M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z" />
+  <path d="M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z" style="fill-opacity: 0.25" />
+</svg>
+
+    </a>
+    TinyStacks Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Get Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Get Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Get Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-stack/" class="md-nav__link">
+        Create Your First Stack
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../existing/" class="md-nav__link">
+        Deploy an Existing Application
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          How It Works
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="How It Works" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          How It Works
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Architecture
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Architecture
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#standard-scale-vs-hyperscale" class="md-nav__link">
+    Standard Scale vs. Hyperscale
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-role-of-containers" class="md-nav__link">
+    The Role of Containers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architectural-components" class="md-nav__link">
+    Architectural Components
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-flow" class="md-nav__link">
+    Application Flow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-stack-creation" class="md-nav__link">
+    GitHub Stack Creation
+  </a>
+  
+    <nav class="md-nav" aria-label="GitHub Stack Creation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#continuous-integration-with-code-pipeline" class="md-nav__link">
+    Continuous Integration with Code Pipeline
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pushing-changes-to-amazon-ecr-and-amazon-ecs" class="md-nav__link">
+    Pushing Changes to Amazon ECR and Amazon ECS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managed-api-endpoints" class="md-nav__link">
+    Managed API Endpoints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-cloudwatch-for-auto-scaling" class="md-nav__link">
+    Amazon CloudWatch for Auto Scaling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-of-a-tinystacks-stack" class="md-nav__link">
+    Cost of a TinyStacks Stack
+  </a>
+  
+    <nav class="md-nav" aria-label="Cost of a TinyStacks Stack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#traffic-costs" class="md-nav__link">
+    Traffic Costs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-ecs-cluster-costs" class="md-nav__link">
+    Amazon ECS Cluster Costs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concepts/" class="md-nav__link">
+        Concepts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          The TinyStacks Advantage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="The TinyStacks Advantage" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          The TinyStacks Advantage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comparisons/" class="md-nav__link">
+        How TinyStacks Stacks Up
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#standard-scale-vs-hyperscale" class="md-nav__link">
+    Standard Scale vs. Hyperscale
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-role-of-containers" class="md-nav__link">
+    The Role of Containers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architectural-components" class="md-nav__link">
+    Architectural Components
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-flow" class="md-nav__link">
+    Application Flow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-stack-creation" class="md-nav__link">
+    GitHub Stack Creation
+  </a>
+  
+    <nav class="md-nav" aria-label="GitHub Stack Creation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#continuous-integration-with-code-pipeline" class="md-nav__link">
+    Continuous Integration with Code Pipeline
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pushing-changes-to-amazon-ecr-and-amazon-ecs" class="md-nav__link">
+    Pushing Changes to Amazon ECR and Amazon ECS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managed-api-endpoints" class="md-nav__link">
+    Managed API Endpoints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-cloudwatch-for-auto-scaling" class="md-nav__link">
+    Amazon CloudWatch for Auto Scaling
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-of-a-tinystacks-stack" class="md-nav__link">
+    Cost of a TinyStacks Stack
+  </a>
+  
+    <nav class="md-nav" aria-label="Cost of a TinyStacks Stack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#traffic-costs" class="md-nav__link">
+    Traffic Costs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-ecs-cluster-costs" class="md-nav__link">
+    Amazon ECS Cluster Costs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Architecture</h1>
+                
+                <p>When you create a new stack with TinyStacks, we stand up a number of resources in your AWS account. This section describes how each AWS resource fits into your stack, as well as the average costs for each AWS resource. </p>
+<h3 id="standard-scale-vs-hyperscale">Standard Scale vs. Hyperscale</h3>
+<p>Most cloud developers have the same goal: deploying scalable applications at the best price point. To help you meet these goals, TinyStacks provides support for two separate application patterns: </p>
+<ul>
+<li><strong>Standard scale</strong> applications that serve less than one million requests a month. </li>
+<li><strong>Hyperscale applications</strong> applications that exceed one million requests a month. </li>
+</ul>
+<p>Both configurations will scale to meet user demand while avoiding site downtime. A standard scale configuration will be the most cost-efficient solution below the one million requests/month trheshold. Once you exceed that threshold, a hyperscale configuration will yield the lowest spend. </p>
+<p>In the explanation that follows, we will discuss the points where you are offered a choice between standard scale and hyperscale configurations and detail how this influences your overall stack costs. </p>
+<h3 id="the-role-of-containers">The Role of Containers</h3>
+<p>The heart of a TinyStacks application is a Docker container, a lightweight virtualized operating system that runs on top of other operating systems such as Linux or Windows. </p>
+<p>Before Docker, deploying applications at scale was fraught with difficulty. To run successfully, an application requires the correct configuration - the right version of its programming language runtime, shared libraries, and local state (environment variables, file system permissions, etc.). But system administrators were often forced to deploy applications across multiple servers with mismatched configurations. </p>
+<p>Docker simplifies deployment by packaging an application in a virtualized operating system that contains everything the application needs to run successfully, virtually eliminating the dependency issue. Once an application is verified to run successfully in its container, you can deploy as many running copies as you need to support your users at scale. You can also avoid bloat by shipping the application with <strong>exactly</strong> the dependencies it needs and nothing more. </p>
+<p>TinyStacks can deploy your Dockerized application easily. (If your application isn’t Dockerized yet, no to worry -  we have guides to assist you.) To run your container, we take advantage of two features in AWS: </p>
+<p><strong>Amazon Elastic Container Registry (ECR)</strong> facilitates the storage and retrieval of Docker containers. Storing your Docker images in Amazon ECR makes it easy to deploy running instances of the image. It also provides a historical repository of images that simplifies version rollback. </p>
+<p><strong>Amazon Elastic Container Service (ECS)</strong> is a container orchestration service that enables running Docker containers quickly and easily. Containers can be run on a set of virtual machines (a cluster) that you run and manage in your own account. Alternatively, they may be run using <a href="https://aws.amazon.com/fargate">AWS Fargate</a>, a serverless component of Amazon ECS that runs containers on computing capacity managed by AWS. For most deployments, TinyStacks manages its own ECS clusters on behalf of our customers. </p>
+<h3 id="architectural-components">Architectural Components</h3>
+<p>A stack consists of an application written on a specific application framework (such as Express, Flask, Django, Spring, etc.) packaged inside of a Docker container. TinyStacks creates the necessary architecture inside of your AWS account to run this Dockerized application in a scalable and highly available architecture on AWS. </p>
+<p>The following diagram shows the major architectural components in a stack. </p>
+<p><strong><a href="https://github.com">GitHub</a></strong>. A source code repository application based on the source control program Git. Stores the code for your application as well as some ancillary files needed in the stack deployment process. (TinyStacks also supports using <a href="https://about.gitlab.com/">GitLab</a> as one’s repository.)</p>
+<p><strong><a href="https://aws.amazon.com/codepipeline/">AWS CodePipeline</a></strong>. A continuous integration and continuous deployment service. Responsible for coordinating the build and deployment of the Docker container. </p>
+<p><strong><a href="https://aws.amazon.com/codebuild/">AWS CodeBuild</a></strong>. A managed continuous integration service that builds source code into deployable applications. Comprises the steps in the CodePipeline. </p>
+<p><strong><a href="https://aws.amazon.com/ecr/">Amazon Elastic Container Registry (ECR)</a></strong>. Docker container storage service. Stores the Dockerized version of the application. </p>
+<p><strong><a href="https://aws.amazon.com/ecs/">Amazon Elastic Container Service (ECS)</a></strong>. Docker container orchestration service. Runs the latest version of the application. </p>
+<p><strong><a href="https://aws.amazon.com/cloudwatch/">Amazon CloudWatch</a></strong>. Amazon’s metrics, monitoring, and alerting service. Provides some basic alerts around application health and build/release status. </p>
+<p><strong><a href="https://aws.amazon.com/api-gateway/">Amazon API Gateway</a></strong>. A service for creating managed Application Programming Interfaces (API) at scale. Creates endpoints to the API functions defined by the application residing in the Docker container. </p>
+<h3 id="application-flow">Application Flow</h3>
+<h3 id="github-stack-creation">GitHub Stack Creation</h3>
+<p>When you create a new stack in TinyStacks, you can choose whether to use a starter project or use an existing project already defined in your GitHub account. </p>
+<p>When you use a starter project, TinyStacks creates a new repository in your GitHub account that contains a basic Create/Read/Update/Delete (CRUD) data application with a handful of REST API endpoints. It also creates two YAML files that are used by TinyStacks for the AWS CodePipeline portion of the deployment:</p>
+<p><strong>build.yml</strong>. Builds the Docker container and pushes it into the Amazon ECR instance. 
+<strong>release.yml</strong>. Updates the running service in your Amazon ECS cluster. </p>
+<p>If you use an existing GitHub project, you will need to find the build.yml and release.yml files in the relevant TinyStacks template in Github and check them into your existing Github repository. </p>
+<h4 id="continuous-integration-with-code-pipeline">Continuous Integration with Code Pipeline</h4>
+<p>Your GitHub repository is connected to an AWS CodePipeline project. TinyStacks uses AWS CodePipeline to enable: </p>
+<ul>
+<li><strong>Continuous integration</strong>, which ensures that your project is always built, packaged, and ready to be deployed. </li>
+<li><strong>Continuous deployment</strong>, which deploys the latest package of your running project into the target environment. </li>
+</ul>
+<p>When you create a stack, you specify which branch of your GitHub repository you wish to connect to your AWS CodePipeline project. Whenever you commit a change to this branch, an AWS Lambda function does a full clone of the repository, creates a new ZIP file for the application, and uploads it to an Amazon S3 bucket. This change to the key in Amazon S3 triggers AWS CodePipeline to build and deploy your latest changes. </p>
+<h4 id="pushing-changes-to-amazon-ecr-and-amazon-ecs">Pushing Changes to Amazon ECR and Amazon ECS</h4>
+<p>Your running application is hosted in Amazon ECS using an image stored in an Amazon ECR registry. TinyStacks creates both of these resources for you when it stands up your stack. </p>
+<p>Your ECS configuration consists of <a href="https://aws.amazon.com/blogs/compute/building-blocks-of-amazon-ecs/">the following building blocks</a>: </p>
+<p>An ECS <strong>cluster</strong>, a collection of virtual machines on which containers are run. TinyStacks manages its own ECS clusters on behalf of our customers’ deployments.
+A <strong>task definition</strong> that specifies the container to run for your service. 
+One or more running <strong>tasks</strong>, which correspond to a running instance of your container. 
+A <strong>service</strong>, which ensures that a set number of running tasks are always accepting requests. By default, TinyStacks creates a single task for your service. However, this may be increased automatically up to five running tasks if your API is subject to high demand. (See below for more information on auto scaling.) </p>
+<p>Deployments through ECR and ECS are driven by your AWS CodePipeline project. This project contains two AWS CodeBuild projects: </p>
+<ul>
+<li>Build (specified by your project’s build.yaml file). The Build project runs first and compiles a new Docker image containing your application’s latest changes. It then pushes this new image up to the Amazon ECR container repository that TinyStacks created for your project.  </li>
+<li>Release (specified by your project’s release.yml file). After Build has run successfully, the Release project downloads and re-labels the current image pushed by the Build project to Amazon ECR. It then updates the running task definition on your Amazon Fargate cluster to ensure that your application is using the latest image. </li>
+</ul>
+<p>The output of both of these projects is available in the AWS CodePipeline console. TinyStacks also stores this output in Amazon CloudWatch Logs.</p>
+<h4 id="managed-api-endpoints">Managed API Endpoints</h4>
+<p>By default, your Amazon ECS container is hosted on an instance in a public subnet. However, the instance itself does not have a public IP address. TinyStacks uses Amazon API Gateway or Application Load Balancer to provide a publicly accessible endpoint onto your container’s REST API methods. </p>
+<p>Amazon API Gateway provides you with fine-grained control over your REST API with support for configuring authorization, usage throttling, and advanced request routing, among other features. Application Load Balancer also provides routing support in addition to balancing requests across resource targets to avoid overwhelming any single resource. </p>
+<p>When you create a stack, you have a choice to use either API Gateway or Application Load Balancer. In general, applications receiving less than one million requests per month (standard scale applications) will find better price and performance using API Gateway. Applications serving more than one million requests per month (hyperscale applications) will receive better price/performance from using API Gateway. For more details, <a href="https://blog.tinystacks.com/battle-of-the-serverless-api-routers-alb-vs-api-gateway-feature-comparison">see our blog post comparing API Gateway with Application Load Balancer</a>. </p>
+<h4 id="amazon-cloudwatch-for-auto-scaling">Amazon CloudWatch for Auto Scaling</h4>
+<p>As mentioned earlier, TinyStacks runs two instances of your Amazon ECS container by default. However, if your application is under heavy load, these instances may not be enough to handle the demand. </p>
+<p>TinyStacks uses the auto scaling feature of Amazon ECS to ensure your application can still run under heavy demand. Your stack defines several AWS CloudWatch alarms that monitor CPU utilization on the running containers associated with your task definition. If aggregate utilization for all running containers exceeds 75%, another container is launched, up to a maximum of five. </p>
+<p>Note that the scalability of a container is dependent upon good programming practices. Your application code should avoid storing state on disk or in memory on any given container, as you cannot predict which running container instance will service a given request. </p>
+<h3 id="cost-of-a-tinystacks-stack">Cost of a TinyStacks Stack</h3>
+<p><em>Note: Prices based on pricing of services in the US East (Virginia) data center as of July 2021. Pricing is subject to change without notice. Prices do not include any relevant taxes.</em></p>
+<p>The TinyStacks stack is designed, not just for reliability and scalability, but for cost-effectiveness as well. We estimate that running a typical stack in a development capacity will cost around $46 per month.</p>
+<p>Note that your actual costs may vary based on a couple of factors: </p>
+<ul>
+<li><strong>Free Tier</strong>. If you have a new AWS account, you can consume a set amount of key AWS services for free every month for the first 12 months of your account’s lifetime. If you exceed the free tier limits, you will incur additional charges and your costs will exceed those documented here. </li>
+<li><strong>Usage</strong>. The estimates cited above assume light usage in a development/test environment. High-volume, production applications will incur higher costs. </li>
+</ul>
+<p>As end user usage of your application increases, costs will increase concomitantly. This is because the cloud services that support your application will automatically scale up and out to meet the increased demand, thus using additional computing resources. The two factors driving costs are the amount of traffic your application handles and the number of virtual machines required in your Amazon ECS cluster.</p>
+<h4 id="traffic-costs">Traffic Costs</h4>
+<p>TinyStacks supports both standard scale (using Amazon API Gateway) and hyperscale (using Application Load Balancer) configurations. Your costs will scale differently on each configuration as your usage increases. In general, a hyperscale configuration will prove more cost-effective at a volume of 500,000 or more application requests per month.</p>
+<p>In a standard scale application, API Gateway costs will increase by around $1 for every additional million requests your application handles. </p>
+<p>In a hyperscale application, your costs will vary based on the number of Load Balancer Capacity Units (LCUs) your application consumes. LCUs are a complex metric, with a single LCU providing the following resources: </p>
+<ul>
+<li>25 new connections per second</li>
+<li>3,000 active connections every minute</li>
+<li>1 GB of data sent to the Amazon EC2 instances in your Amazon ECS cluster</li>
+<li>1,000 rules evaluated every second</li>
+</ul>
+<p>If your application exceeds any of these resource limits, you will pay for another LCU at a cost of around USD $0.008 per hour. You will pay for the largest number of LCUs required to accommodate your most demanding resource. </p>
+<p>For example, say that your application is receiving an average of 10,000 new connections every minute and is processing 3 GB of data every hour. In this instance, three LCUs would be enough to cover 3 GB of data. However, you will need 6.68 LCUs to cover 10,000 connections every minute (around 167 connections/second). According to the <a href="https://calculator.aws/">AWS Pricing Calculator</a>, this would bring your LCU charges in us-east-1 up to around $40/month. </p>
+<p>Note that, in the above example, an application using API Gateway would be serving around 432 million connections per month for a total additional cost of $432/month. This makes it clear how much more economical it is to use Application Load Balancer when running at hyperscale.</p>
+<h4 id="amazon-ecs-cluster-costs">Amazon ECS Cluster Costs</h4>
+<p>All Docker containers are hosted in an Amazon ECS cluster in your AWS account. An ECS cluster contains one or more instances of an Amazon EC2 virtual machine. By default, Tinystacks runs once EC2 instance in your cluster. As demand on your application grows, we will scale out and create a new cluster instance when the average CPU utilization across all cluster instances exceeds 70% for five minutes or longer. </p>
+<p>You can configure what instance size to use for your application when you create your stack. For standard scale applications, the t3.micro size is a good starter size that will limit your AWS spend (t3.micro instances will only run around USD $8/month). For hyperscale applications serving over 1 million requests/month, select m3.medium or m3.large depending on how CPU-intensive your workload is. </p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../existing/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Deploy an Existing Application" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Deploy an Existing Application
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../concepts/" class="md-footer__link md-footer__link--next" aria-label="Next: Concepts" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Concepts
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.1e84347e.min.js"></script>
+      
+    
+  </body>
+</html>

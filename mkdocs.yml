@@ -1,4 +1,5 @@
 site_name: TinyStacks Documentation
+site_url: https://docs.tinystacks.com
 theme:
   name: material
   features:
