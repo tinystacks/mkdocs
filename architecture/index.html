@@ -642,10 +642,10 @@
 <h3 id="standard-scale-vs-hyperscale">Standard Scale vs. Hyperscale</h3>
 <p>Most cloud developers have the same goal: deploying scalable applications at the best price point. To help you meet these goals, TinyStacks provides support for two separate application patterns: </p>
 <ul>
-<li><strong>Standard scale</strong> applications that serve less than one million requests a month. </li>
-<li><strong>Hyperscale applications</strong> applications that exceed one million requests a month. </li>
+<li><strong>Standard scale</strong> applications that serve less than one million requests a day. </li>
+<li><strong>Hyperscale applications</strong> applications that exceed one million requests a day. </li>
 </ul>
-<p>Both configurations will scale to meet user demand while avoiding site downtime. A standard scale configuration will be the most cost-efficient solution below the one million requests/month trheshold. Once you exceed that threshold, a hyperscale configuration will yield the lowest spend. </p>
+<p>Both configurations will scale to meet user demand while avoiding site downtime. A standard scale configuration will be the most cost-efficient solution below the one million requests/day threshold. Once you exceed that threshold, a hyperscale configuration will yield the lowest spend. </p>
 <p>In the explanation that follows, we will discuss the points where you are offered a choice between standard scale and hyperscale configurations and detail how this influences your overall stack costs. </p>
 <h3 id="the-role-of-containers">The Role of Containers</h3>
 <p>The heart of a TinyStacks application is a Docker container, a lightweight virtualized operating system that runs on top of other operating systems such as Linux or Windows. </p>
@@ -694,7 +694,7 @@ A <strong>service</strong>, which ensures that a set number of running tasks are
 <h4 id="managed-api-endpoints">Managed API Endpoints</h4>
 <p>By default, your Amazon ECS container is hosted on an instance in a public subnet. However, the instance itself does not have a public IP address. TinyStacks uses Amazon API Gateway or Application Load Balancer to provide a publicly accessible endpoint onto your container’s REST API methods. </p>
 <p>Amazon API Gateway provides you with fine-grained control over your REST API with support for configuring authorization, usage throttling, and advanced request routing, among other features. Application Load Balancer also provides routing support in addition to balancing requests across resource targets to avoid overwhelming any single resource. </p>
-<p>When you create a stack, you have a choice to use either API Gateway or Application Load Balancer. In general, applications receiving less than one million requests per month (standard scale applications) will find better price and performance using API Gateway. Applications serving more than one million requests per month (hyperscale applications) will receive better price/performance from using API Gateway. For more details, <a href="https://blog.tinystacks.com/battle-of-the-serverless-api-routers-alb-vs-api-gateway-feature-comparison">see our blog post comparing API Gateway with Application Load Balancer</a>. </p>
+<p>When you create a stack, you have a choice to use either API Gateway or Application Load Balancer. In general, applications receiving less than one million requests per day (standard scale applications) will find better price and performance using API Gateway. Applications serving more than one million requests per day (hyperscale applications) will receive better price/performance from using API Gateway. For more details, <a href="https://blog.tinystacks.com/battle-of-the-serverless-api-routers-alb-vs-api-gateway-feature-comparison">see our blog post comparing API Gateway with Application Load Balancer</a>. </p>
 <h4 id="amazon-cloudwatch-for-auto-scaling">Amazon CloudWatch for Auto Scaling</h4>
 <p>As mentioned earlier, TinyStacks runs two instances of your Amazon ECS container by default. However, if your application is under heavy load, these instances may not be enough to handle the demand. </p>
 <p>TinyStacks uses the auto scaling feature of Amazon ECS to ensure your application can still run under heavy demand. Your stack defines several AWS CloudWatch alarms that monitor CPU utilization on the running containers associated with your task definition. If aggregate utilization for all running containers exceeds 75%, another container is launched, up to a maximum of five. </p>
