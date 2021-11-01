@@ -4,10 +4,10 @@ When you create a new stack with TinyStacks, we stand up a number of resources i
 
 Most cloud developers have the same goal: deploying scalable applications at the best price point. To help you meet these goals, TinyStacks provides support for two separate application patterns: 
 
-* **Standard scale** applications that serve less than one million requests a month. 
-* **Hyperscale applications** applications that exceed one million requests a month. 
+* **Standard scale** applications that serve less than one million requests a day. 
+* **Hyperscale applications** applications that exceed one million requests a day. 
 
-Both configurations will scale to meet user demand while avoiding site downtime. A standard scale configuration will be the most cost-efficient solution below the one million requests/month trheshold. Once you exceed that threshold, a hyperscale configuration will yield the lowest spend. 
+Both configurations will scale to meet user demand while avoiding site downtime. A standard scale configuration will be the most cost-efficient solution below the one million requests/day threshold. Once you exceed that threshold, a hyperscale configuration will yield the lowest spend. 
 
 In the explanation that follows, we will discuss the points where you are offered a choice between standard scale and hyperscale configurations and detail how this influences your overall stack costs. 
 
@@ -91,7 +91,7 @@ By default, your Amazon ECS container is hosted on an instance in a public subne
 
 Amazon API Gateway provides you with fine-grained control over your REST API with support for configuring authorization, usage throttling, and advanced request routing, among other features. Application Load Balancer also provides routing support in addition to balancing requests across resource targets to avoid overwhelming any single resource. 
 
-When you create a stack, you have a choice to use either API Gateway or Application Load Balancer. In general, applications receiving less than one million requests per month (standard scale applications) will find better price and performance using API Gateway. Applications serving more than one million requests per month (hyperscale applications) will receive better price/performance from using API Gateway. For more details, [see our blog post comparing API Gateway with Application Load Balancer](https://blog.tinystacks.com/battle-of-the-serverless-api-routers-alb-vs-api-gateway-feature-comparison). 
+When you create a stack, you have a choice to use either API Gateway or Application Load Balancer. In general, applications receiving less than one million requests per day (standard scale applications) will find better price and performance using API Gateway. Applications serving more than one million requests per day (hyperscale applications) will receive better price/performance from using API Gateway. For more details, [see our blog post comparing API Gateway with Application Load Balancer](https://blog.tinystacks.com/battle-of-the-serverless-api-routers-alb-vs-api-gateway-feature-comparison). 
 
 #### Amazon CloudWatch for Auto Scaling
 
