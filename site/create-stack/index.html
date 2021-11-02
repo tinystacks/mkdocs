@@ -270,31 +270,32 @@
     Configure Git Connection
   </a>
   
-    <nav class="md-nav" aria-label="Configure Git Connection">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#github" class="md-nav__link">
-    GitHub
-  </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#gitlab" class="md-nav__link">
-    GitLab
+      
+        <li class="md-nav__item">
+  <a href="#configure-aws-account" class="md-nav__link">
+    Configure AWS Account
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#select-a-starter-project" class="md-nav__link">
     Select a Starter Project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customize-your-deployment" class="md-nav__link">
+    Customize Your Deployment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-your-stack" class="md-nav__link">
+    Testing Your Stack
   </a>
   
 </li>
@@ -477,31 +478,32 @@
     Configure Git Connection
   </a>
   
-    <nav class="md-nav" aria-label="Configure Git Connection">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#github" class="md-nav__link">
-    GitHub
-  </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#gitlab" class="md-nav__link">
-    GitLab
+      
+        <li class="md-nav__item">
+  <a href="#configure-aws-account" class="md-nav__link">
+    Configure AWS Account
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#select-a-starter-project" class="md-nav__link">
     Select a Starter Project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customize-your-deployment" class="md-nav__link">
+    Customize Your Deployment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-your-stack" class="md-nav__link">
+    Testing Your Stack
   </a>
   
 </li>
@@ -529,13 +531,94 @@
                   <h1>Create Your First Stack</h1>
                 
                 <p>When you first log in to TinyStacks, you’ll need to wire up a supported Git repository account as well as an AWS account. TinyStacks supports using Git repositories hosted on GitHub or GitLab. </p>
-<p>[TBD: Screenshot of new UI]</p>
-<h3 id="configure-git-connection">Configure Git Connection</h3>
-<h4 id="github">GitHub</h4>
-<h4 id="gitlab">GitLab</h4>
+<p><img alt="TinyStacks Create First Stack screen" src="../img/tinystacks-create-1.jpg" /></p>
+<h2 id="configure-git-connection">Configure Git Connection</h2>
+<p>Select which Git service you plan to use: GitHub or Gitlab. A separate window will open. If you are not logged in to your selected service, you will be prompted to log in now. </p>
+<p><img alt="TinyStacks add git account prompt" src="../img/tinystacks-create-2.jpg" /></p>
+<p>Once logged in, you will need to grant authorization for TinyStacks to access your GitHub or GitLab account. This will allow us to add a repository to your account (if you use one of our starter projects) or read an existing repository (if you use your own project). </p>
+<h2 id="configure-aws-account">Configure AWS Account</h2>
+<p>Once you've authorized your Git account, you will be prompted to authorize an AWS account. This account will host all of the cloud resources required by your application. </p>
+<p><img alt="TinyStacks connect to AWS prompt" src="../img/tinystacks-create-3.jpg" /></p>
+<p>If you have not logged in to your AWS account recently, you will be prompted to do so. </p>
+<p>Once you have logged in to AWS, you will see the following screen, which prompts you to create an AWS CloudFormation stack in your AWS account. This step is <strong>necessary</strong> in order to proceed and fully connect your account. This CloudFormation template will create an AWS Identity and Access Management (IAM) role that TinyStacks will assume in order to create resources in your account.</p>
+<p><img alt="Create TinyStacks role in AWS account" src="../img/tinystacks-create-4.jpg" /></p>
+<p>(<em>Note</em>: Some elements of the screen above have been blurred out for security reasons.)</p>
+<p>To create this stack, select the box <strong>I acknowledge that AWS CloudFormation might create IAM resources</strong>. Then, click the <strong>Create Stack</strong> button. </p>
+<p>After creating the stack, tab back to the previous tab containing the TinyStacks window. Once the stack has completed creating, TinyStacks will automatically detect this and move you to the next step in the stack creation process. Once you see the screen below, you can proceed. </p>
+<p><img alt="TinyStacks - select a project" src="../img/tinystacks-create-5.jpg" /></p>
 <h2 id="select-a-starter-project">Select a Starter Project</h2>
+<p>Next, you'll be prompted to select a project. You can either select a TinyStacks starter project or use your own project. For this guide, we'll be using a starter project, so go ahead and click the <strong>Starter projects</strong> button.</p>
+<p>The TinyStacks starter projects are simple Create/Read/Update/Delete (CRUD) database applications written in the application framework of your choice. You can click the name of any starter project in the window below to see its repository on GitHub and check out its README, which gives a detailed description of the app's code and deployment architecture.</p>
+<p><img alt="TinyStacks - select a starter project" src="../img/tinystacks-create-6.jpg" /></p>
+<p>Once you select a project, TinyStacks will copy its code into your Git account, where you can use it as a basis for further development. </p>
+<p>For this guide, let's create <a href="https://github.com/tinystacks/aws-docker-templates-express">an Express project</a>. Next to Express in the window above, click <strong>Deploy</strong>. </p>
+<p>On the next screen, you'll be prompted to give your project a name. Choose a simple, short name that's 20 characters or less. (The name will be used as a prefix for some of the resources in your AWS account, so we want to keep it short to avoid going over naming length limits in AWS.)</p>
+<p><img alt="TinyStacks - Enter a project name" src="../img/tinystacks-create-7.jpg" /></p>
+<h2 id="customize-your-deployment">Customize Your Deployment</h2>
+<p>You have one more step to go and then you're ready to launch your stack! After clicking <strong>Deploy</strong>, you'll see the screen below, which enables you to fine-tune multiple settings for the first stage of your stack. </p>
+<p><img alt="TinyStacks - configure stack" src="../img/tinystacks-create-8.jpg" /></p>
+<p>This screen visualizes all of the AWS resources that TinyStacks will use or create on your behalf. These components and what they contribute to your stack are discussed in detail <a href="architecture.html">in our architectural guide</a>. Briefly, they include: </p>
+<ul>
+<li>Your <strong>Git repo</strong> (either GitHub or GitLab) that holds your application code. </li>
+<li><strong>AWS CodeBuild</strong> to build and deploy your project as a Docker container. </li>
+<li>An <strong>Amazon Elastic Container Repository (ECR) repo</strong> for storing your Docker container's versions. </li>
+<li>An <strong>Amazon Elastic Container Service (ECS) cluster</strong> for hosting your running Docker containers. </li>
+<li><strong>Amazon API Gateway</strong> for routing traffic to your application's exposed endpoints. </li>
+<li><strong>Amazon CloudWatch</strong> for monitoring performance and storing application logs.</li>
+<li>An optional <strong>database</strong> for storing application data. </li>
+</ul>
+<p>Additionally, you can see and configure several additional options: </p>
+<ul>
+<li>The <strong>AWS pricing breakdown</strong> gives you a sense of what you'll per month for your stack in its current configuration. </li>
+<li>You can define <strong>Environment variables</strong> as name-value pairs that will be exposed as environment variables to your running application's Docker container. </li>
+</ul>
+<p>If a tile has a gear icon in the upper right corner, you can click it to configure advanced options for that tile. Configurable options include: </p>
+<ul>
+<li><strong>Database</strong>. Click <strong>Enable</strong> to create an Amazon RDS Postgres database for your account. Use the settings option to select an existing database instead and to configure other database-related options. </li>
+<li><strong>Amazon ECS</strong>. Configure build and scale settings for your Amazon ECS cluster, such as the size of the Amazon EC2 instances used in your cluster. </li>
+<li><strong>Amazon API Gateway</strong>. Choose between using Amazon API Gateway or Application Load Balancer for front end application routing. </li>
+</ul>
+<p>You can change any of these options now or change them later, after your original deployment. Your stack will also build as is, without any additional configuration. For now, start the creation of your first stack by clicking <strong>Build</strong>.</p>
+<h2 id="testing-your-stack">Testing Your Stack</h2>
+<p>Your stack will take a few minutes to build. Once it's done, you'll be taken to the <strong>Stacks</strong> page on your TinyStacks account, where you can see your running stack listed. </p>
+<p><img alt="TinyStacks - list of stacks in your account" src="../img/tinystacks-create-12.jpg" /></p>
+<p>Click on your stack's name to navigate to the Stack Details page. </p>
+<p><img alt="TinyStacks - stack details page" src="../img/tinystacks-create-13.jpg" /></p>
+<p>This page shows your stack and all of the stages you've defined. The initial stack creation process creates a single stage named <code>dev</code>. You can use the <strong>Add stage</strong> button to add more stages at any time.</p>
+<p>For now, let's tets out the dev stack and ensure it's working. On the lower right corner of the <code>dev</code> box, click <strong>Copy endpoint</strong>. Then, open a new tab in your Web browser, paste in the copied URL, and press <code>Enter</code>. You should navigate to the Express application's ping page, which should return a string reading <code>Healthy connection</code>.</p>
+<p><img alt="TinyStacks - ping application" src="../img/tinystacks-create-14.jpg" /></p>
+<p>You can also test other endpoints of the API as defined by the Express app README. For example, to add an item to the application's memory, you can use the following command on Linux systems. Be sure to replace <code>my-domain-name</code> with the domain portion of your application's URL, which will be of the form <code>unique-id.execute-api.us-east-1.amazonaws.com</code>: </p>
+<pre><code>curl -H &quot;Content-Type: application/json&quot; -X PUT -d '{&quot;title&quot;:&quot;my title&quot;, &quot;content&quot; : &quot;my content&quot;}' &quot;https://my-domain-name/item&quot;
+</code></pre>
+<p>On Windows Powershell, use the following command: </p>
+<pre><code>$item = @{
+    title=&quot;my title&quot;
+    content=&quot;my content&quot;
+}
+$json = $item |convertto-json
+$response = Invoke-WebRequest 'https://my-domain-name/local-item' -Method Put -Body $json -ContentType 'application/json' -UseBasicParsing
+</code></pre>
+<p>If everything is configured correctly, you'll receive a 200 HTTP response status code for the operation. </p>
+<p>Congratulations - you've deployed your first stack!</p>
 <h2 id="push-your-first-commit">Push Your First Commit</h2>
-<p>-</p>
+<p>Your stack is configured to deploy any changes you make to your code automatically to your dev stage. To see this in action, let's make a small change to your code. </p>
+<p>Navigate to your Git repo. You can do this easily by clicking on the GitHub or GitLab icon on your stack's tile on the Stack Details page.</p>
+<p><img alt="TinyStacks - navigate to GitHub or GitLab repo" src="../img/tinystacks-create-15.jpg" /></p>
+<p>In the repository, navigate to the file <code>src/server.ts</code>. Copy the <code>/ping</code> method and create a new method called <code>/pong</code>. Return a custom message from the method in the response: </p>
+<pre><code>app.get(&quot;/ping&quot;, (req, res) =&gt; {
+  res.status(200).send(&quot;Setting a custom message&quot;);
+});
+</code></pre>
+<p>Next, commit your change. In the GitHub UI, you can do this by clicking the <strong>Commit changes</strong> button at the bottom of the page you're editing. </p>
+<p><img alt="TinyStacks - commit change to GitHub" src="../img/tinystacks-create-17.jpg" /></p>
+<p>Return to TinyStacks and to the Stack Details page for your stack. Within a couple of minutes, you should see that TinyStacks has picked up the change to your application and is applying the changes to your stack.</p>
+<p><img alt="TinyStacks - building changes" src="../img/tinystacks-create-18.jpg" /></p>
+<p>The first tile will spin while it is building your changes into a new Docker container. Then, you will see the <code>dev</code> stage update as the change is deployed. Wait until the change has propagated to your dev stage. Then, test the <code>/pong</code> URL with cUrl to see your new endpoint. On Linux, run the following command:</p>
+<pre><code>curl https://my-domain-name/pong
+</code></pre>
+<p>On Windows Powershell, use: </p>
+<pre><code>curl https://my-domain-name/pong -UseBasicParsing
+</code></pre>
                 
               
               
