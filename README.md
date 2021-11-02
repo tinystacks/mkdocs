@@ -2,11 +2,11 @@
 
 Install mkdocs and the mkdocs-material stylesheets:
 
-`
+```
 pip install mkdocs
 
 pip install mkdocs-material 
-`
+```
 
 1. git checkout gh-pages
 1. git pull
