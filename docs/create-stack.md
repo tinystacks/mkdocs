@@ -1,8 +1,17 @@
+The following guide is for first-time TinyStacks users. Follow these instructions to launch one of our sample applications on AWS in under 15 minutes!
+
+## Prerequisites
+
+You will need the following resources set up before you start using TinyStacks: 
+
+* A Git account with either <a href="https://github.com" target="_blank">GitHub</a> or <a href="https://gitlab.com" target="_blank">GitLab</a>.
+* <a href="https://aws.amazon.com" target="_blank">An AWS account</a>. All of the resources TinyStacks creates for you will be hosted in an AWS account that you own. Don't worry - you cna get started without any previous knowledge of AWS!
+
+## Configure Git connection
+
 When you first log in to TinyStacks, you’ll need to wire up a supported Git repository account as well as an AWS account. TinyStacks supports using Git repositories hosted on GitHub or GitLab. 
 
 ![TinyStacks Create First Stack screen](img/tinystacks-create-1.jpg)
-
-## Configure Git Connection
 
 Select which Git service you plan to use: GitHub or Gitlab. A separate window will open. If you are not logged in to your selected service, you will be prompted to log in now. 
 
@@ -10,7 +19,7 @@ Select which Git service you plan to use: GitHub or Gitlab. A separate window wi
 
 Once logged in, you will need to grant authorization for TinyStacks to access your GitHub or GitLab account. This will allow us to add a repository to your account (if you use one of our starter projects) or read an existing repository (if you use your own project). 
 
-## Configure AWS Account 
+## Configure AWS account 
 
 Once you've authorized your Git account, you will be prompted to authorize an AWS account. This account will host all of the cloud resources required by your application. 
 
@@ -30,7 +39,7 @@ After creating the stack, tab back to the previous tab containing the TinyStacks
 
 ![TinyStacks - select a project](img/tinystacks-create-5.jpg)
 
-## Select a Starter Project
+## Select a starter project
 
 Next, you'll be prompted to select a project. You can either select a TinyStacks starter project or use your own project. For this guide, we'll be using a starter project, so go ahead and click the **Starter projects** button.
 
@@ -40,19 +49,19 @@ The TinyStacks starter projects are simple Create/Read/Update/Delete (CRUD) data
 
 Once you select a project, TinyStacks will copy its code into your Git account, where you can use it as a basis for further development. 
 
-For this guide, let's create [an Express project](https://github.com/tinystacks/aws-docker-templates-express). Next to Express in the window above, click **Deploy**. 
+For this guide, let's create <a href="https://github.com/tinystacks/aws-docker-templates-express" target="_blank">an Express project</a>. Next to Express in the window above, click **Deploy**. 
 
 On the next screen, you'll be prompted to give your project a name. Choose a simple, short name that's 20 characters or less. (The name will be used as a prefix for some of the resources in your AWS account, so we want to keep it short to avoid going over naming length limits in AWS.)
 
 ![TinyStacks - Enter a project name](img/tinystacks-create-7.jpg)
 
-## Customize Your Deployment
+## Customize your deployment
 
 You have one more step to go and then you're ready to launch your stack! After clicking **Deploy**, you'll see the screen below, which enables you to fine-tune multiple settings for the first stage of your stack. 
 
 ![TinyStacks - configure stack](img/tinystacks-create-8.jpg)
 
-This screen visualizes all of the AWS resources that TinyStacks will use or create on your behalf. These components and what they contribute to your stack are discussed in detail [in our architectural guide](architecture/). Briefly, they include: 
+This screen visualizes all of the AWS resources that TinyStacks will use or create on your behalf. These components and what they contribute to your stack are discussed in detail [in our architectural guide](/architecture/). Briefly, they include: 
 
 * Your **Git repo** (either GitHub or GitLab) that holds your application code. 
 * **AWS CodeBuild** to build and deploy your project as a Docker container. 
@@ -75,7 +84,7 @@ If a tile has a gear icon in the upper right corner, you can click it to configu
 
 You can change any of these options now or change them later, after your original deployment. Your stack will also build as is, without any additional configuration. For now, start the creation of your first stack by clicking **Build**.
 
-## Testing Your Stack
+## Testing your stack
 
 Your stack will take a few minutes to build. Once it's done, you'll be taken to the **Stacks** page on your TinyStacks account, where you can see your running stack listed. 
 
@@ -104,7 +113,7 @@ $item = @{
     title="my title"
     content="my content"
 }
-$json = $item |convertto-json
+$json = $item | ConvertTo-Json
 $response = Invoke-WebRequest 'https://my-domain-name/local-item' -Method Put -Body $json -ContentType 'application/json' -UseBasicParsing
 ```
 
@@ -112,7 +121,7 @@ If everything is configured correctly, you'll receive a 200 HTTP response status
 
 Congratulations - you've deployed your first stack!
 
-## Push Your First Commit
+## Push your first commit
 
 Your stack is configured to deploy any changes you make to your code automatically to your dev stage. To see this in action, let's make a small change to your code. 
 
