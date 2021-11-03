@@ -612,9 +612,9 @@
                 
                   <h1>Deploy an Existing Application</h1>
                 
-                <p>In our guide to <a href="./create-stack/">creating your first stack</a>, we showed you how to launch one of our sample applications as a fully scalable deployment on the cloud. But it's just as easy to package and deploy an existing application! </p>
+                <p>In our guide to <a href="../create-stack/">creating your first stack</a>, we showed you how to launch one of our sample applications as a fully scalable deployment on the cloud. But it's just as easy to package and deploy an existing application! </p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>This guide assumes you have set up connections to your Git and AWS accounts in TinyStacks. If you haven't done this yet, <a href="./create-stack/">follow the instructions for creating your first stack</a>.</p>
+<p>This guide assumes you have set up connections to your Git and AWS accounts in TinyStacks. If you haven't done this yet, <a href="../create-stack/">follow the instructions for creating your first stack</a>.</p>
 <p>Your Git account should contain a repository with the application code you wish to deploy. The application does not have to be containerized already (i.e., have a Dockerfile); we will provide a sample Dockerfile for you and some advice on containerizing your application in this guide. </p>
 <h2 id="create-a-new-stack">Create a new stack</h2>
 <p><a href="https://tinystacks.com/stacks/" target="_blank">From your Stacks page</a>, click <strong>New Stack</strong>. </p>
@@ -628,7 +628,7 @@
 <li>A <code>build.yml</code> file, which AWS CodeDeploy will use to create the latest version of your Docker container and store it in an Amazon Elastic Code Repository (ECR) repo in your AWS account. </li>
 <li>A <code>release.yml</code> file, which AWS CodeDeploy will use to run your Docker container on an Amazon Elastic Container Service (ECS) cluster hosted in your AWS account. </li>
 </ul>
-<p>For more details on the elements of a TinyStacks deployment, <a href="./architecture/">see our architecture page</a>.</p>
+<p>For more details on the elements of a TinyStacks deployment, <a href="../architecture/">see our architecture page</a>.</p>
 <p>Since your Docker container must contain the framework required by your application, it's important that you click the <strong>Framework</strong> dropdown and select whatever framework your application uses. This will ensure that the <code>Dockerfile</code> that you download can successfully run your application. </p>
 <p><img alt="TinyStacks - select framework" src="../img/tinystacks-existing-2.jpg" /></p>
 <p>Once you've selected the correct framework, click <strong>download all files</strong> at the bottom of the page to download all three files as a zip file. Unzip this file and check in all of the missing files for your application to the root of your repository. </p>
@@ -643,7 +643,7 @@
 <p>When you're done, click <strong>Next</strong>.</p>
 <h2 id="finalizing-deployment-options">Finalizing deployment options</h2>
 <p>On the next screen, you will be asked to review your infrastructure before launching your application on TinyStacks. Click <strong>Review infrastructure</strong> to see the infrastructure that TinyStacks will create in your AWS account and to set any additional options. </p>
-<p>The options on this page are the same ones <a href="./create-stack/">discussed in the guide to creating your first stack</a>. Please review that document for a full description of the available options. </p>
+<p>The options on this page are the same ones <a href="../create-stack/">discussed in the guide to creating your first stack</a>. Please review that document for a full description of the available options. </p>
 <p>For users launching an existing application, the Review Infrastructure page is a good time to consider what runtime configuration your application requires to run successfully. In particular, you should consider: </p>
 <ul>
 <li><strong>Data storage</strong>. You can create a new Postgres database in the <strong>Databases</strong> tile. If you need to use a different database, you can create or import an existing database into an Amazon RDS instance and then select it on this screen. </li>
@@ -660,7 +660,7 @@
 <p>You can use this base URL to access a valid page or REST API call in your application. If everything is configured correctly, you should see your application return an appropriate response to your request.</p>
 <h2 id="properly-containerizing-your-application">Properly containerizing your application</h2>
 <p>By following the steps above, your application should deploy and run in the cloud. However, you may notice some issues running your code if you haven't prepared your application to run in a container. </p>
-<p><a href="/architecture/">As explained in our architectural overview</a>, a Docker container is a virtualized operating system that contains all of the executable files, scripts, shared libraries, configuration files and other dependencies required for your application to run. In order to scale your application to handle upwards of millions of requests, your AWS account will need to run multiple copies of this container across multiple virtual machines. </p>
+<p><a href="../architecture/">As explained in our architectural overview</a>, a Docker container is a virtualized operating system that contains all of the executable files, scripts, shared libraries, configuration files and other dependencies required for your application to run. In order to scale your application to handle upwards of millions of requests, your AWS account will need to run multiple copies of this container across multiple virtual machines. </p>
 <p>If your application has been designed as a monolithic application, it may make certain assumptions about its runtime environment that won't hold true after your application is containerized. If you are seeing errors or strange behavior in your application, here are a few things to consider. </p>
 <h3 id="filesystem-storage">Filesystem storage</h3>
 <p>Each running Docker container instance has its own virtualized filesystem. Data written to this filesystem in one running container instance won't be visible to other running instances. Ensure that any data that all container instances must access is written to a shared location - e.g., a database, a cloud storage service like Amazon S3, or an in-memory cache server like <a href="https://aws.amazon.com/elasticache/" target="_blank">Amazon ElastiCache</a>.</p>
