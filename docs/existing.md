@@ -1,8 +1,8 @@
-In our guide to [creating your first stack](/create-stack/), we showed you how to launch one of our sample applications as a fully scalable deployment on the cloud. But it's just as easy to package and deploy an existing application! 
+In our guide to [creating your first stack](create-stack.md), we showed you how to launch one of our sample applications as a fully scalable deployment on the cloud. But it's just as easy to package and deploy an existing application! 
 
 ## Prerequisites
 
-This guide assumes you have set up connections to your Git and AWS accounts in TinyStacks. If you haven't done this yet, [follow the instructions for creating your first stack](/create-stack/).
+This guide assumes you have set up connections to your Git and AWS accounts in TinyStacks. If you haven't done this yet, [follow the instructions for creating your first stack](create-stack.md).
 
 Your Git account should contain a repository with the application code you wish to deploy. The application does not have to be containerized already (i.e., have a Dockerfile); we will provide a sample Dockerfile for you and some advice on containerizing your application in this guide. 
 
@@ -24,7 +24,7 @@ When you choose to deploy code from an existing repository, TinyStacks checks yo
 * A `build.yml` file, which AWS CodeDeploy will use to create the latest version of your Docker container and store it in an Amazon Elastic Code Repository (ECR) repo in your AWS account. 
 * A `release.yml` file, which AWS CodeDeploy will use to run your Docker container on an Amazon Elastic Container Service (ECS) cluster hosted in your AWS account. 
 
-For more details on the elements of a TinyStacks deployment, [see our architecture page](/architecture/).
+For more details on the elements of a TinyStacks deployment, [see our architecture page](architecture.md).
 
 Since your Docker container must contain the framework required by your application, it's important that you click the **Framework** dropdown and select whatever framework your application uses. This will ensure that the `Dockerfile` that you download can successfully run your application. 
 
@@ -54,7 +54,7 @@ When you're done, click **Next**.
 
 On the next screen, you will be asked to review your infrastructure before launching your application on TinyStacks. Click **Review infrastructure** to see the infrastructure that TinyStacks will create in your AWS account and to set any additional options. 
 
-The options on this page are the same ones [discussed in the guide to creating your first stack](/create-stack/). Please review that document for a full description of the available options. 
+The options on this page are the same ones [discussed in the guide to creating your first stack](create-stack.md). Please review that document for a full description of the available options. 
 
 For users launching an existing application, the Review Infrastructure page is a good time to consider what runtime configuration your application requires to run successfully. In particular, you should consider: 
 
@@ -83,7 +83,7 @@ You can use this base URL to access a valid page or REST API call in your applic
 
 By following the steps above, your application should deploy and run in the cloud. However, you may notice some issues running your code if you haven't prepared your application to run in a container. 
 
-[As explained in our architectural overview](/architecture/), a Docker container is a virtualized operating system that contains all of the executable files, scripts, shared libraries, configuration files and other dependencies required for your application to run. In order to scale your application to handle upwards of millions of requests, your AWS account will need to run multiple copies of this container across multiple virtual machines. 
+[As explained in our architectural overview](architecture.md), a Docker container is a virtualized operating system that contains all of the executable files, scripts, shared libraries, configuration files and other dependencies required for your application to run. In order to scale your application to handle upwards of millions of requests, your AWS account will need to run multiple copies of this container across multiple virtual machines. 
 
 If your application has been designed as a monolithic application, it may make certain assumptions about its runtime environment that won't hold true after your application is containerized. If you are seeing errors or strange behavior in your application, here are a few things to consider. 
 

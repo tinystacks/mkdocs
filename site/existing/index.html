@@ -62,6 +62,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#prerequisites" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -253,9 +258,99 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Deploy an Existing Application
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Deploy an Existing Application
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-stack" class="md-nav__link">
+    Create a new stack
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-the-deployment-template-files-into-your-git-repository" class="md-nav__link">
+    Check the deployment template files into your Git repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#name-your-project-and-select-the-deployment-branch" class="md-nav__link">
+    Name your project and select the deployment branch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finalizing-deployment-options" class="md-nav__link">
+    Finalizing deployment options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-your-stack" class="md-nav__link">
+    Testing your stack
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properly-containerizing-your-application" class="md-nav__link">
+    Properly containerizing your application
+  </a>
+  
+    <nav class="md-nav" aria-label="Properly containerizing your application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filesystem-storage" class="md-nav__link">
+    Filesystem storage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -326,6 +421,34 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tinystacks-how-do-i/" class="md-nav__link">
+        How Do I...?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-guide/" class="md-nav__link">
+        User Interface Guide
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -389,6 +512,98 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-stack" class="md-nav__link">
+    Create a new stack
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-the-deployment-template-files-into-your-git-repository" class="md-nav__link">
+    Check the deployment template files into your Git repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#name-your-project-and-select-the-deployment-branch" class="md-nav__link">
+    Name your project and select the deployment branch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finalizing-deployment-options" class="md-nav__link">
+    Finalizing deployment options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-your-stack" class="md-nav__link">
+    Testing your stack
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properly-containerizing-your-application" class="md-nav__link">
+    Properly containerizing your application
+  </a>
+  
+    <nav class="md-nav" aria-label="Properly containerizing your application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filesystem-storage" class="md-nav__link">
+    Filesystem storage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -397,7 +612,60 @@
                 
                   <h1>Deploy an Existing Application</h1>
                 
-                
+                <p>In our guide to <a href="../create-stack/">creating your first stack</a>, we showed you how to launch one of our sample applications as a fully scalable deployment on the cloud. But it's just as easy to package and deploy an existing application! </p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This guide assumes you have set up connections to your Git and AWS accounts in TinyStacks. If you haven't done this yet, <a href="../create-stack/">follow the instructions for creating your first stack</a>.</p>
+<p>Your Git account should contain a repository with the application code you wish to deploy. The application does not have to be containerized already (i.e., have a Dockerfile); we will provide a sample Dockerfile for you and some advice on containerizing your application in this guide. </p>
+<h2 id="create-a-new-stack">Create a new stack</h2>
+<p><a href="https://tinystacks.com/stacks/" target="_blank">From your Stacks page</a>, click <strong>New Stack</strong>. </p>
+<p>On the <strong>Create your stack</strong> page, select <strong>My projects</strong>. You should see a list of all of the repositories available in your Git account. Find the repository whose code you are going to deploy and click <strong>Prepare to deploy</strong>.</p>
+<p><img alt="TinyStacks - select a project for your stack" src="../img/tinystacks-existing-1.jpg" /></p>
+<p>You should now be on the <strong>Prepare your repository</strong> page. </p>
+<h2 id="check-the-deployment-template-files-into-your-git-repository">Check the deployment template files into your Git repository</h2>
+<p>When you choose to deploy code from an existing repository, TinyStacks checks your repo to see if it contains three files: </p>
+<ul>
+<li>A <code>Dockerfile</code>. This file contains the instructions for preparing your Docker container, which will run your application code. Your container will need to contain your application framework (Express, Flask, Django, etc.), as well as any configuration files and environment variables necessary to run your application. </li>
+<li>A <code>build.yml</code> file, which AWS CodeDeploy will use to create the latest version of your Docker container and store it in an Amazon Elastic Code Repository (ECR) repo in your AWS account. </li>
+<li>A <code>release.yml</code> file, which AWS CodeDeploy will use to run your Docker container on an Amazon Elastic Container Service (ECS) cluster hosted in your AWS account. </li>
+</ul>
+<p>For more details on the elements of a TinyStacks deployment, <a href="../architecture/">see our architecture page</a>.</p>
+<p>Since your Docker container must contain the framework required by your application, it's important that you click the <strong>Framework</strong> dropdown and select whatever framework your application uses. This will ensure that the <code>Dockerfile</code> that you download can successfully run your application. </p>
+<p><img alt="TinyStacks - select framework" src="../img/tinystacks-existing-2.jpg" /></p>
+<p>Once you've selected the correct framework, click <strong>download all files</strong> at the bottom of the page to download all three files as a zip file. Unzip this file and check in all of the missing files for your application to the root of your repository. </p>
+<p>The root directory of your repo should look something like the example below after you are done:</p>
+<p><img alt="TinyStacks - root of repository with all required files present" src="../img/tinystacks-existing-3.jpg" /></p>
+<p>(<em>Note</em>: This example is for an Express app - your project may have different files if it is using a different framework. The important thing is that these three files are checked into the root of your repository.)</p>
+<p>Once you are done, click <strong>Next</strong>. </p>
+<h2 id="name-your-project-and-select-the-deployment-branch">Name your project and select the deployment branch</h2>
+<p>Next, give your project a name. Since this name will be used as a prefix for many of your AWS resources, keep it to 20 characters or less. </p>
+<p>You will also need to select a deployment branch. This is the branch of your Git repository on which new check ins will trigger a new deployment. </p>
+<p><img alt="TinyStacks - name your project and select deployment branch" src="../img/tinystacks-existing-4.jpg" /></p>
+<p>When you're done, click <strong>Next</strong>.</p>
+<h2 id="finalizing-deployment-options">Finalizing deployment options</h2>
+<p>On the next screen, you will be asked to review your infrastructure before launching your application on TinyStacks. Click <strong>Review infrastructure</strong> to see the infrastructure that TinyStacks will create in your AWS account and to set any additional options. </p>
+<p>The options on this page are the same ones <a href="../create-stack/">discussed in the guide to creating your first stack</a>. Please review that document for a full description of the available options. </p>
+<p>For users launching an existing application, the Review Infrastructure page is a good time to consider what runtime configuration your application requires to run successfully. In particular, you should consider: </p>
+<ul>
+<li><strong>Data storage</strong>. You can create a new Postgres database in the <strong>Databases</strong> tile. If you need to use a different database, you can create or import an existing database into an Amazon RDS instance and then select it on this screen. </li>
+<li><strong>Environment variables</strong>. If you're using a database outside of AWS or need to specify additional configuration information for your application, use the Environment Variables link on this page to define simple name-value pairs. These variables will be exposed as Linux environment variables to your application running in its Docker container.</li>
+</ul>
+<p>Once you're ready, click the <strong>Build</strong> button to build your Docker container and deploy it to AWS. </p>
+<h2 id="testing-your-stack">Testing your stack</h2>
+<p>Your stack will take a few minutes to build. Once it's done, you'll be taken to the <strong>Stacks</strong> page on your TinyStacks account, where you can see your running stack listed. </p>
+<p><img alt="TinyStacks - list of stacks in your account" src="../img/tinystacks-create-12.jpg" /></p>
+<p>Click on your stack's name to navigate to the Stack Details page. </p>
+<p><img alt="TinyStacks - stack details page" src="../img/tinystacks-create-13.jpg" /></p>
+<p>This page shows your stack and all of the stages you've defined. The initial stack creation process creates a single stage named <code>dev</code>. You can use the <strong>Add stage</strong> button to add more stages at any time.</p>
+<p>For now, let's tets out the dev stack and ensure it's working. On the lower right corner of the <code>dev</code> box, click <strong>Copy endpoint</strong>. </p>
+<p>You can use this base URL to access a valid page or REST API call in your application. If everything is configured correctly, you should see your application return an appropriate response to your request.</p>
+<h2 id="properly-containerizing-your-application">Properly containerizing your application</h2>
+<p>By following the steps above, your application should deploy and run in the cloud. However, you may notice some issues running your code if you haven't prepared your application to run in a container. </p>
+<p><a href="../architecture/">As explained in our architectural overview</a>, a Docker container is a virtualized operating system that contains all of the executable files, scripts, shared libraries, configuration files and other dependencies required for your application to run. In order to scale your application to handle upwards of millions of requests, your AWS account will need to run multiple copies of this container across multiple virtual machines. </p>
+<p>If your application has been designed as a monolithic application, it may make certain assumptions about its runtime environment that won't hold true after your application is containerized. If you are seeing errors or strange behavior in your application, here are a few things to consider. </p>
+<h3 id="filesystem-storage">Filesystem storage</h3>
+<p>Each running Docker container instance has its own virtualized filesystem. Data written to this filesystem in one running container instance won't be visible to other running instances. Ensure that any data that all container instances must access is written to a shared location - e.g., a database, a cloud storage service like Amazon S3, or an in-memory cache server like <a href="https://aws.amazon.com/elasticache/" target="_blank">Amazon ElastiCache</a>.</p>
+<h3 id="configuration">Configuration</h3>
+<p>Each running container instance will need its own copies of whatever configuration files your application might need. If you need to update any of these configuration files, you will need either to push changes through Git, or store the configuration in a location that all of your running container instances can access dynamically (such as Amazon S3). </p>
                 
               
               

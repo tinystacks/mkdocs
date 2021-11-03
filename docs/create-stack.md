@@ -61,7 +61,7 @@ You have one more step to go and then you're ready to launch your stack! After c
 
 ![TinyStacks - configure stack](img/tinystacks-create-8.jpg)
 
-This screen visualizes all of the AWS resources that TinyStacks will use or create on your behalf. These components and what they contribute to your stack are discussed in detail [in our architectural guide](/architecture/). Briefly, they include: 
+This screen visualizes all of the AWS resources that TinyStacks will use or create on your behalf. These components and what they contribute to your stack are discussed in detail [in our architectural guide](architecture.md). Briefly, they include: 
 
 * Your **Git repo** (either GitHub or GitLab) that holds your application code. 
 * **AWS CodeBuild** to build and deploy your project as a Docker container. 
