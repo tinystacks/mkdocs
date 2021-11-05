@@ -365,6 +365,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pass-custom-variables-to-my-application" class="md-nav__link">
+    ...pass custom variables to my application?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#change-my-database-and-scale-settings" class="md-nav__link">
     ...change my database and scale settings?
   </a>
@@ -374,13 +381,6 @@
         <li class="md-nav__item">
   <a href="#connect-to-my-postgres-database-from-my-application" class="md-nav__link">
     ...connect to my Postgres database from my application?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pass-custom-variables-to-my-application" class="md-nav__link">
-    ...pass custom variables to my application?
   </a>
   
 </li>
@@ -396,6 +396,40 @@
   <a href="#deploy-an-application-that-uses-a-framework-not-directly-supported-by-tinystacks" class="md-nav__link">
     ...deploy an application that uses a framework not directly supported by TinyStacks?
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#push-custom-amazon-cloudwatch-metrics-from-my-application" class="md-nav__link">
+    ....push custom Amazon CloudWatch metrics from my application?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#give-my-application-permission-to-access-other-aws-services" class="md-nav__link">
+    ...give my application permission to access other AWS services?
+  </a>
+  
+    <nav class="md-nav" aria-label="...give my application permission to access other AWS services?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pass-aws-credentials-as-environment-variables" class="md-nav__link">
+    Pass AWS Credentials as Environment Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modify-the-iam-role-for-your-application" class="md-nav__link">
+    Modify the IAM Role for Your Application
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -509,6 +543,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pass-custom-variables-to-my-application" class="md-nav__link">
+    ...pass custom variables to my application?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#change-my-database-and-scale-settings" class="md-nav__link">
     ...change my database and scale settings?
   </a>
@@ -518,13 +559,6 @@
         <li class="md-nav__item">
   <a href="#connect-to-my-postgres-database-from-my-application" class="md-nav__link">
     ...connect to my Postgres database from my application?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pass-custom-variables-to-my-application" class="md-nav__link">
-    ...pass custom variables to my application?
   </a>
   
 </li>
@@ -543,6 +577,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#push-custom-amazon-cloudwatch-metrics-from-my-application" class="md-nav__link">
+    ....push custom Amazon CloudWatch metrics from my application?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#give-my-application-permission-to-access-other-aws-services" class="md-nav__link">
+    ...give my application permission to access other AWS services?
+  </a>
+  
+    <nav class="md-nav" aria-label="...give my application permission to access other AWS services?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pass-aws-credentials-as-environment-variables" class="md-nav__link">
+    Pass AWS Credentials as Environment Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modify-the-iam-role-for-your-application" class="md-nav__link">
+    Modify the IAM Role for Your Application
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -558,14 +626,50 @@
                 
                   <h1>How Do I...?</h1>
                 
-                <p>So you've got your first stack up and running. </p>
+                <p>So you've got your first stack up and running. Now, it's time to tailor your stack to meet your team's needs. The following guide addresses the most common use cases for maintaining and expanding your stack. </p>
 <h2 id="add-a-new-stage">...add a new stage?</h2>
-<h2 id="change-my-database-and-scale-settings">...change my database and scale settings?</h2>
-<h2 id="connect-to-my-postgres-database-from-my-application">...connect to my Postgres database from my application?</h2>
+<p>When TinyStacks created your stack, we created a single stage for you called <code>dev</code>. As discussed <a href="../concepts/">in our concepts documentation</a>, your team will likely want at least two stages - one for development and one for production. This allows you to test changes in your dev stage before releasing them to customers. </p>
+<p>To add a second stage, <a href="https://tinystacks.com/stacks">navigate to your Stacks page</a> and select your stack by clicking on its name. </p>
+<p><img alt="TinyStacks - select stack" src="../img/tinystacks-add-stage-1.jpg" /></p>
+<p>The next page will show all of the stages currently defined for your stack. To add a new stage, click the <strong>Add stage</strong> button.</p>
+<p><img alt="TinyStacks - add stage button" src="../img/tinystacks-add-stage-2.jpg" /></p>
+<p>On the <strong>New stack stage</strong> screen, you can configure your new stage. In the next screenshot, we've supplied a sample dialog for a <code>prod</code> stage that we explain in detail below:</p>
+<p><img alt="TinyStacks - add stack stage dialog" src="../img/tinystacks-add-stage-3.jpg" /></p>
+<ul>
+<li><strong>Stage name</strong>. Must be unique within this stack. Should indicate the role that this stage plays in your stack - e.g., dev, test, staging, prod, etc. In this case, we use the name <code>prod</code> to represent our production stage. </li>
+<li><strong>Database</strong>. Enables adding a new Postgres database or another existing Amazon RDS database to your stack. For now, we'll leave this option blank.</li>
+<li><strong>Require manual approval</strong>. By default, if a change checked into a branch is built and deployed successfully by one stage, it will propagate automatically to the next stage. In most cases, however, your team will want to test and approve changes manually before pushing them into production. Since we're creating a production stage here, we'll check this box. </li>
+<li><strong>Amazon API Gateway vs. Application Load Balancer</strong>. Here, you can choose how you want to route requests to your application based on whether you expect your application will need to operate at standard scale or hyperscale. For now, we'll leave this to the default of Amazon API Gateway. For more information on scale settings, <a href="../architecture/">consult our architectural overview</a>.</li>
+<li><strong>Enable caching</strong>. Whether to cache responses through API Gateway. This option is only available if using Amazon API Gateway. </li>
+</ul>
+<p>Once you've configured your stage to suit your needs, click <strong>Create new stage</strong>. The new stage will run and create, building the code that you most recently checked in to the stack's associated Git branch.</p>
 <h2 id="pass-custom-variables-to-my-application">...pass custom variables to my application?</h2>
+<p>It's likely that your application will need various runtime variables set in order to run. For example, you may need to supply credentials to a data store, such as DynamoDB, or information on how to connect to other microservices on which the application depends. </p>
+<p>TinyStacks makes it easy to set runtime variables on your application that are unique to each stage. This enables you to have different configuration settings for your application depending on whether it's in dev, test, or production. </p>
+<p>To add or change runtime variables, <a href="https://tinystacks.com/stacks/">go to your Stacks page</a>. For the stack you want to modify, click the gear icon in the lower right corner. </p>
+<p><img alt="TinyStacks - change stage settings" src="../img/tinystacks-runtime-vars-1.jpg" /></p>
+<p>In the <strong>Stage</strong> dropdown on the left hand navigation menu, make sure you select the stage of your stack that you want to modify. Then, to see your runtime variables, click <strong>Runtime variables</strong>.</p>
+<p><img alt="TinyStacks - runtime variables configuration for stack" src="../img/tinystacks-runtime-vars-2.jpg" /></p>
+<p><em>Note</em>: If you had TinyStacks create a database for your stage, you may already see some variables for connecting to your database defined here. </p>
+<p>You can add any key-value pair you wish to your stage. When done, click <strong>Save runtime variables</strong> to save your changes. </p>
+<p>Setting new runtime variables will trigger a rebuild of your stack's stage. Once the rebuild and redeploy is complete, the key-value pairs you defined will be exposed as environment variables on your Docker container. Your application code should be able to access these values the same as it would any other environment variable (e.g., <a href="https://nodejs.dev/learn/how-to-read-environment-variables-from-nodejs" target="_blank"><code>process.env</code> in Node.js</a> or <a href="https://www.nylas.com/blog/making-use-of-environment-variables-in-python/" target="_blank"><code>os.environ.get()</code> in Python</a>).</p>
+<h2 id="change-my-database-and-scale-settings">...change my database and scale settings?</h2>
+<p>When you create a stage, you can specify whether you want your application to use a database as well as your scale settings. If you need to change these at any time, you can do so through the stage's <strong>Stage settings</strong> page.</p>
+<p><a href="https://tinystacks.com/stacks/">Go to your Stacks page</a> and, for the stack you want to modify, click the gear icon in the lower right corner. From here, you can click <strong>Endpoint</strong> to change how your application's endpoints are routed and load balanced on AWS. If you're currently using Amazon API Gateway but are beginning to handle more than 1 million requests/day, consider changing to Application Load Balancer instead.</p>
+<p><img alt="TinyStacks - change endpoint settings" src="../img/tinystacks-change-scale-1.jpg" /></p>
+<p>You may also desire to change the size of the Amazon EC2 instances used in your Amazon ECS cluster. </p>
+<p>To change your database settings, click <strong>Database</strong>.</p>
+<p><em>Note</em>: Saving your changes will trigger a rebuild of your stage. Your application may not be accessible on this stage until the rebuild and redeploy has completed.</p>
+<h2 id="connect-to-my-postgres-database-from-my-application">...connect to my Postgres database from my application?</h2>
 <h2 id="change-configuration-data-by-stage">...change configuration data by stage?</h2>
 <h2 id="deploy-an-application-that-uses-a-framework-not-directly-supported-by-tinystacks">...deploy an application that uses a framework not directly supported by TinyStacks?</h2>
 <p>While TinyStacks contains sample code for several popular application frameworks, our service is framework-agnostic. So long as your application can be packaged into a Docker container, it can run on TinyStacks!</p>
+<h2 id="push-custom-amazon-cloudwatch-metrics-from-my-application">....push custom Amazon CloudWatch metrics from my application?</h2>
+<h2 id="give-my-application-permission-to-access-other-aws-services">...give my application permission to access other AWS services?</h2>
+<p>As you grow your application, you will likely want to incorporate access to other AWS services. Common examples include DynamoDB for NoSQL data storage and Amazon S3 for storing blobs and other large data. </p>
+<p>Currently, there are two ways to do this on TinyStacks: </p>
+<h3 id="pass-aws-credentials-as-environment-variables">Pass AWS Credentials as Environment Variables</h3>
+<h3 id="modify-the-iam-role-for-your-application">Modify the IAM Role for Your Application</h3>
                 
               
               
