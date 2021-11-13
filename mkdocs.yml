@@ -31,7 +31,6 @@ nav:
     - 'Architecture': 'architecture.md' 
     - 'Concepts' : 'concepts.md'
     - 'How Do I...?': 'tinystacks-how-do-i.md'
-    - 'User Interface Guide' : 'ui-guide.md'
   - 'The TinyStacks Advantage':
     - 'How TinyStacks Stacks Up': 'comparisons.md'
 
