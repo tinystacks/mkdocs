@@ -1,6 +1,8 @@
 So you've got your first stack up and running. Now, it's time to tailor your stack to meet your team's needs. The following guide addresses the most common use cases for maintaining and expanding your stack. 
 
-## ...add a new stage?
+## Basic How Do I 
+
+### ...add a new stage?
 
 When TinyStacks created your stack, we created a single stage for you called `dev`. As discussed [in our concepts documentation](concepts.md), your team will likely want at least two stages - one for development and one for production. This allows you to test changes in your dev stage before releasing them to customers. 
 
@@ -24,9 +26,9 @@ On the **New stack stage** screen, you can configure your new stage. In the next
 
 Once you've configured your stage to suit your needs, click **Create new stage**. The new stage will run and create, building the code that you most recently checked in to the stack's associated Git branch.
 
-## ...pass custom variables to my application? 
+### ...pass custom variables and configuration data to each stage?
 
-It's likely that your application will need various runtime variables set in order to run. For example, you may need to supply credentials to a data store, such as DynamoDB, or information on how to connect to other microservices on which the application depends. 
+It's likely that your application will need various runtime variables set in order to run. For example, you may need to supply credentials to a data store, such as DynamoDB, or information on how to connect to other microservices on which the application depends. Each stage of your application will likely need its own custom runtime variables, as the configuration and the resources to which your application connects will vary by stage. 
 
 TinyStacks makes it easy to set runtime variables on your application that are unique to each stage. This enables you to have different configuration settings for your application depending on whether it's in dev, test, or production. 
 
@@ -44,7 +46,7 @@ You can add any key-value pair you wish to your stage. When done, click **Save r
 
 Setting new runtime variables will trigger a rebuild of your stack's stage. Once the rebuild and redeploy is complete, the key-value pairs you defined will be exposed as environment variables on your Docker container. Your application code should be able to access these values the same as it would any other environment variable (e.g., <a href="https://nodejs.dev/learn/how-to-read-environment-variables-from-nodejs" target="_blank">`process.env` in Node.js</a> or <a href="https://www.nylas.com/blog/making-use-of-environment-variables-in-python/" target="_blank">`os.environ.get()` in Python</a>).
 
-## ...change my scale settings? 
+### ...change my scale settings? 
 
 When you create a stage, you can specify how you want your application to scale. If you need to change these at any time, you can do so through the stage's **Settings** page.
 
@@ -87,7 +89,7 @@ For more information on scaling of EC2 instances, <a href="https://docs.aws.amaz
 
 *Note*: Saving settings changes will trigger a rebuild of your stage. Your application may not be accessible on this stage until the rebuild and redeploy has completed. Changing any of the settings in this section may result in increased AWS service costs. 
 
-## ...change my stage's database settings? 
+### ...change my stage's database settings? 
 
 [Go to your Stacks page](https://tinystacks.com/stacks/) and, for the stack you want to modify, click the gear icon in the lower right corner. This will open the ***Settings** page. In the left hand column, under **Stage**, select the stage to which you want to add a database. Then, from the same column, select **Database**. 
 
@@ -101,7 +103,9 @@ If your stage currently has no database, you will see the following screen. You 
 
 *Note*: Saving your changes will trigger a rebuild of your stage. Your application may not be accessible on this stage until the rebuild and redeploy has completed. 
 
-## ...connect to my Postgres database from my application? 
+![TinyStacks - delete stack](img/tinystacks-delete-1.jpg)
+
+### ...connect to my Postgres database from my application? 
 
 When you have TinyStacks create a Postgres database for you, we push all information about the database - including username and password - into a set of runtime variables. These are exposed to your application as environment variables in your Docker container instances. 
 
@@ -114,7 +118,29 @@ The variables pushed include:
 
 Your application code should be able to access these values the same as it would any other environment variable (e.g., <a href="https://nodejs.dev/learn/how-to-read-environment-variables-from-nodejs" target="_blank">`process.env` in Node.js</a> or <a href="https://www.nylas.com/blog/making-use-of-environment-variables-in-python/" target="_blank">`os.environ.get()` in Python</a>).
 
-## ...connect to my Postgres database from outside of my application? 
+### ...delete a stack? 
+
+To delete a stack, [go to your Stacks page](https://tinystacks.com/stacks/) and, for the stack you want to modify, click the gear icon in the lower right corner. This will land you on the **Stack settings** page. There, you will find a **Delete** button. Click it, and type `delete` in the dialog box when prompted to confirm the operation. 
+
+### ...delete a stage? 
+
+To delete a stack, [go to your Stacks page](https://tinystacks.com/stacks/) and, for the stack you want to modify, click the gear icon in the lower right corner. This will land you on the **Stack settings** page. On the left hand navigation menu, under **Stage settings**, select the stage you want to delete. 
+
+After this, select the **Stage details** link on the left hand navigation menu. There, you will find a **Delete Stage** button. Click it and, when prompted, enter `delete` to confirm the operation. 
+
+![TinyStacks - delete stage](img/tinystacks-delete-stage-1.jpg)
+
+## Advanced How Do I 
+
+### ...change the exposed port for my application? 
+
+TinyStacks needs to know which port your application is serving HTTP traffic over in order to configure your Amazon ECS tasks properly. If you are using a port besides the standard port 80, you will need to change it in TinyStacks. 
+
+To change your port, [go to your Stacks page](https://tinystacks.com/stacks/). For the stack you want to modify, click the gear icon in the lower right corner. On the **Stack Settings** page, under **Port**, input the number of the port on which your Docker container is exposing its services.
+
+![TinyStacks - change port](img/tinystacks-port-1.jpg)
+
+### ...connect to my Postgres database from outside of my application? 
 
 On top of pushing Postgres database connection information to your application as runtime variables, Tinystacks stores your credentials securely in your AWS account using <a href="https://console.aws.amazon.com/secretsmanager/" target="_blank">AWS Secrets Manager</a>. You can see these secrets by navigating to AWS Secrets Manager in your AWS account. 
 
@@ -137,33 +163,39 @@ If you need to retrieve these values programmatically, you can do so using the A
 aws secretsmanager list-secrets --region us-east-1 --filters Key=tag-key Values=aws:cloudformation:stack-name Key=tag-value,Values=test-django2 | jq '.[][] | select(.Name|test("^dev"))
 ```
 
-## ...reset the password for my Postgres database? 
+### ...pass custom data to the build process? 
 
+Your `build.yml` file controls how your container is built and then stored in Amazon ECR. Sometimes, you may need to pass custom data at build time when building your Docker image. You can accomplish this by defining build variables for your stack. 
 
+To define build variables, [go to your Stacks page](https://tinystacks.com/stacks/). For the stack you want to modify, click the gear icon in the lower right corner. On the **Stack Settings** page, click **Build variables**. Here you can define name-value pairs that you can refernece in your `build.yml` file. 
 
-## ...change configuration data by stage? 
+![TinyStacks - build variables](img/tinystacks-build-variables-1.jpg)
 
-
-
-## ...deploy an application that uses a framework not directly supported by TinyStacks? 
+### ...deploy an application that uses a framework not directly supported by TinyStacks? 
 
 While TinyStacks contains sample code for several popular application frameworks, our service is framework-agnostic. So long as your application can be packaged into a Docker container, it can run on TinyStacks!
 
-## ....push custom Amazon CloudWatch metrics from my application? 
+### ....push custom Amazon CloudWatch logs from my application? 
 
+By default, TinyStacks creates a CloudWatch Logs log group for you. Any application output written to standard output (e.g., `console.log()` in Node.js) will appear in this log. 
 
-
-## ...give my application permission to access other AWS services? 
+### ...give my application permission to access other AWS services? 
 
 As you grow your application, you will likely want to incorporate access to other AWS services. Common examples include DynamoDB for NoSQL data storage and Amazon S3 for storing blobs and other large data. 
 
-Currently, there are two ways to do this on TinyStacks: 
+Currently, there are two ways to do this on TinyStacks. Note that both operations require knowledge of AWS Identity and Access Management (IAM). 
 
-### Pass AWS Credentials as Environment Variables
+### Pass AWS credentials as runtime variables
 
+You can create an AWS access key and secret key and pass these variables as runtime variables as described above in <a href="#pass-custom-variables-and-configuration-data-to-each-stage">passing runtime variables to a stage.</a>
 
+Note that, if you do this, anyone with access to your TinyStacks account has access to these variables, and thus to your underlying AWS account. Please proceed with caution. 
 
-### Modify the IAM Role for Your Application
+### Modify the IAM role for your application
 
-## ...delete a stack? 
+Your Amazon ECS tasks all run with an IAM task role that determines their AWS permissions. The task role name is a combination of the stack name, the stage name, and the phrase "TaskRoleDefaultPolicy". For example, below is the IAM role for the dev stage for a stack named `test-django2`. 
+
+![TinyStacks - editing your IAM role](img/tinystacks-iam-role-1.jpg)
+
+By default, this role only has permission to push events to your Amazon CloudWatch Logs log group. You can modify it with a valid IAm policy to grant it access to additional AWS resources. 
 
