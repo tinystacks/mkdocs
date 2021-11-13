@@ -469,20 +469,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#pass-aws-credentials-as-runtime-variables" class="md-nav__link">
-    Pass AWS credentials as runtime variables
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modify-the-iam-role-for-your-application" class="md-nav__link">
-    Modify the IAM role for your application
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -688,20 +674,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#pass-aws-credentials-as-runtime-variables" class="md-nav__link">
-    Pass AWS credentials as runtime variables
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modify-the-iam-role-for-your-application" class="md-nav__link">
-    Modify the IAM role for your application
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -828,10 +800,10 @@
 <h3 id="give-my-application-permission-to-access-other-aws-services">...give my application permission to access other AWS services?</h3>
 <p>As you grow your application, you will likely want to incorporate access to other AWS services. Common examples include DynamoDB for NoSQL data storage and Amazon S3 for storing blobs and other large data. </p>
 <p>Currently, there are two ways to do this on TinyStacks. Note that both operations require knowledge of AWS Identity and Access Management (IAM). </p>
-<h3 id="pass-aws-credentials-as-runtime-variables">Pass AWS credentials as runtime variables</h3>
+<p><strong>Pass AWS credentials as runtime variables</strong></p>
 <p>You can create an AWS access key and secret key and pass these variables as runtime variables as described above in <a href="#pass-custom-variables-and-configuration-data-to-each-stage">passing runtime variables to a stage.</a></p>
 <p>Note that, if you do this, anyone with access to your TinyStacks account has access to these variables, and thus to your underlying AWS account. Please proceed with caution. </p>
-<h3 id="modify-the-iam-role-for-your-application">Modify the IAM role for your application</h3>
+<p><strong>Modify the IAM role for your application</strong></p>
 <p>Your Amazon ECS tasks all run with an IAM task role that determines their AWS permissions. The task role name is a combination of the stack name, the stage name, and the phrase "TaskRoleDefaultPolicy". For example, below is the IAM role for the dev stage for a stack named <code>test-django2</code>. </p>
 <p><img alt="TinyStacks - editing your IAM role" src="../img/tinystacks-iam-role-1.jpg" /></p>
 <p>By default, this role only has permission to push events to your Amazon CloudWatch Logs log group. You can modify it with a valid IAm policy to grant it access to additional AWS resources. </p>

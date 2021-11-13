@@ -185,13 +185,13 @@ As you grow your application, you will likely want to incorporate access to othe
 
 Currently, there are two ways to do this on TinyStacks. Note that both operations require knowledge of AWS Identity and Access Management (IAM). 
 
-### Pass AWS credentials as runtime variables
+**Pass AWS credentials as runtime variables**
 
 You can create an AWS access key and secret key and pass these variables as runtime variables as described above in <a href="#pass-custom-variables-and-configuration-data-to-each-stage">passing runtime variables to a stage.</a>
 
 Note that, if you do this, anyone with access to your TinyStacks account has access to these variables, and thus to your underlying AWS account. Please proceed with caution. 
 
-### Modify the IAM role for your application
+**Modify the IAM role for your application**
 
 Your Amazon ECS tasks all run with an IAM task role that determines their AWS permissions. The task role name is a combination of the stack name, the stage name, and the phrase "TaskRoleDefaultPolicy". For example, below is the IAM role for the dev stage for a stack named `test-django2`. 
 
