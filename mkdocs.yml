@@ -21,6 +21,9 @@ theme:
   favicon: assets/favicon.png
   icon:
     logo: logo
+markdown_extensions:
+  - attr_list
+  - md_in_html
 
 nav:
   - 'Introduction' : 'index.md'

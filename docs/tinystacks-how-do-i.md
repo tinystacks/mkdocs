@@ -8,15 +8,15 @@ When TinyStacks created your stack, we created a single stage for you called `de
 
 To add a second stage, [navigate to your Stacks page](https://tinystacks.com/stacks) and select your stack by clicking on its name. 
 
-![TinyStacks - select stack](img/tinystacks-add-stage-1.jpg)
+![TinyStacks - select stack](img/tinystacks-add-stage-1.png){ width="75%"}
 
 The next page will show all of the stages currently defined for your stack. To add a new stage, click the **Add stage** button.
 
-![TinyStacks - add stage button](img/tinystacks-add-stage-2.jpg)
+![TinyStacks - add stage button](img/tinystacks-add-stage-2.png)
 
 On the **New stack stage** screen, you can configure your new stage. In the next screenshot, we've supplied a sample dialog for a `prod` stage that we explain in detail below:
 
-![TinyStacks - add stack stage dialog](img/tinystacks-add-stage-3.jpg)
+![TinyStacks - add stack stage dialog](img/tinystacks-add-stage-3.png){ width="75%"}
 
 * **Stage name**. Must be unique within this stack. Should indicate the role that this stage plays in your stack - e.g., dev, test, staging, prod, etc. In this case, we use the name `prod` to represent our production stage. 
 * **Database**. Enables adding a new Postgres database or another existing Amazon RDS database to your stack. For now, we'll leave this option blank.
@@ -34,7 +34,7 @@ TinyStacks makes it easy to set runtime variables on your application that are u
 
 To add or change runtime variables, [go to your Stacks page](https://tinystacks.com/stacks/). For the stack you want to modify, click the gear icon in the lower right corner. 
 
-![TinyStacks - change stage settings](img/tinystacks-runtime-vars-1.jpg)
+![TinyStacks - change stage settings](img/tinystacks-runtime-vars-1.png)
 
 In the **Stage** dropdown on the left hand navigation menu, make sure you select the stage of your stack that you want to modify. Then, to see your runtime variables, click **Runtime variables**.
 
@@ -54,7 +54,7 @@ When you create a stage, you can specify how you want your application to scale.
 
 You have two choices for adjusting scaling for your application. Click **Endpoint** to change how your application's endpoints are routed and load balanced on AWS. If you're currently using Amazon API Gateway but are beginning to handle more than 1 million requests/day, consider changing to Application Load Balancer instead.
 
-![TinyStacks - change endpoint settings](img/tinystacks-change-scale-1.jpg)
+![TinyStacks - change endpoint settings](img/tinystacks-change-scale-1.png)
 
 You may also desire to change how your Amazon ECS cluster scales. By default, TinyStacks will start two Amazon EC2 instances in your ECS cluster. We also define Amazon CloudWatch rules that implement the following behavior: 
 
@@ -65,7 +65,7 @@ You may need to change these defaults if your application is either using too ma
 
 To change scale settings, select **Build and scale** from the navigation menu on the **Settings** page. 
 
-![TinyStacks - change ECS cluster scaling settings](img/tinystacks-change-scale-2.jpg)
+![TinyStacks - change ECS cluster scaling settings](img/tinystacks-change-scale-2.png)
 
 Here, you can change several settings. The first is your application's **instance sizing**. You can upgrade instance sizing if you are spinning up new ECS cluster instances too quickly. If you are currently using a t3.micro instance size, consider upgrading to an m3.medium or an m3.large.
 
@@ -95,15 +95,15 @@ For more information on scaling of EC2 instances, <a href="https://docs.aws.amaz
 
 You will see two different screens here depending on whether your stage currently has a database or not. If it has a database, you will see a screen that enables you to change the instance type for your database as well as the amount of disk storage used. 
 
-![TinyStacks - change database settings for a stack](img/tinystacks-database-1.jpg)
+![TinyStacks - change database settings for a stack](img/tinystacks-database-1.png)
 
 If your stage currently has no database, you will see the following screen. You can either add a new Postgres database, or add another existing AWS database to your stack. 
 
-![TinyStacks - change database settings for a stack](img/tinystacks-database-2.jpg)
+![TinyStacks - change database settings for a stack](img/tinystacks-database-2.png)
 
 *Note*: Saving your changes will trigger a rebuild of your stage. Your application may not be accessible on this stage until the rebuild and redeploy has completed. 
 
-![TinyStacks - delete stack](img/tinystacks-delete-1.jpg)
+![TinyStacks - delete stack](img/tinystacks-delete-1.png)
 
 ### ...connect to my Postgres database from my application? 
 
@@ -128,7 +128,7 @@ To delete a stack, [go to your Stacks page](https://tinystacks.com/stacks/) and,
 
 After this, select the **Stage details** link on the left hand navigation menu. There, you will find a **Delete Stage** button. Click it and, when prompted, enter `delete` to confirm the operation. 
 
-![TinyStacks - delete stage](img/tinystacks-delete-stage-1.jpg)
+![TinyStacks - delete stage](img/tinystacks-delete-stage-1.png)
 
 ## Advanced How Do I 
 
@@ -138,7 +138,7 @@ TinyStacks needs to know which port your application is serving HTTP traffic ove
 
 To change your port, [go to your Stacks page](https://tinystacks.com/stacks/). For the stack you want to modify, click the gear icon in the lower right corner. On the **Stack Settings** page, under **Port**, input the number of the port on which your Docker container is exposing its services.
 
-![TinyStacks - change port](img/tinystacks-port-1.jpg)
+![TinyStacks - change port](img/tinystacks-port-1.png)
 
 ### ...connect to my Postgres database from outside of my application? 
 
@@ -169,7 +169,7 @@ Your `build.yml` file controls how your container is built and then stored in Am
 
 To define build variables, [go to your Stacks page](https://tinystacks.com/stacks/). For the stack you want to modify, click the gear icon in the lower right corner. On the **Stack Settings** page, click **Build variables**. Here you can define name-value pairs that you can refernece in your `build.yml` file. 
 
-![TinyStacks - build variables](img/tinystacks-build-variables-1.jpg)
+![TinyStacks - build variables](img/tinystacks-build-variables-1.png)
 
 ### ...deploy an application that uses a framework not directly supported by TinyStacks? 
 
