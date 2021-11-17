@@ -4,8 +4,6 @@ theme:
   name: material
   features:
     - navigation.sections
-
-  # 404 page
   static_templates:
     - 404.html
 
@@ -18,13 +16,24 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
-  favicon: assets/favicon.png
-  icon:
-    logo: logo
+  favicon: assets/tinystacks.png
+  logo: assets/tinystacks.png
 markdown_extensions:
-  - attr_list
-  - md_in_html
-
+- attr_list
+- md_in_html
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/solid/home
+      link: https://www.tinystacks.com
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/channel/UC21VAvNozfMxrcappmJ8EBA
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/Tiny_Stacks
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/tinystacks
+    - icon: fontawesome/brands/github
+      link: https://github.com/tinystacks
 nav:
   - 'Introduction' : 'index.md'
   - 'Get Started':
