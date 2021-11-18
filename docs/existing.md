@@ -2,15 +2,48 @@ In our guide to [creating your first stack](create-stack.md), we showed you how 
 
 ## Prerequisites
 
-This guide assumes you have set up connections to your Git and AWS accounts in TinyStacks. If you haven't done this yet, [follow the instructions for creating your first stack](create-stack.md).
+You will need the following resources set up before you start using TinyStacks: 
 
-Your Git account should contain a repository with the application code you wish to deploy. The application does not have to be containerized already (i.e., have a Dockerfile); we will provide a sample Dockerfile for you and some advice on containerizing your application in this guide. 
+* A Git account with either <a href="https://github.com" target="_blank">GitHub</a> or <a href="https://gitlab.com" target="_blank">GitLab</a>.
+* <a href="https://aws.amazon.com" target="_blank">An AWS account</a>. All of the resources TinyStacks creates for you will be hosted in an AWS account that you own. Don't worry - you cna get started without any previous knowledge of AWS!
+
+## Configure Git connection
+
+When you first log in to TinyStacks, you’ll need to wire up a supported Git repository account as well as an AWS account. TinyStacks supports using Git repositories hosted on GitHub or GitLab. 
+
+![TinyStacks Create First Stack screen](img/tinystacks-create-1.jpg)
+
+Select which Git service you plan to use: GitHub or Gitlab. A separate window will open. If you are not logged in to your selected service, you will be prompted to log in now. 
+
+![TinyStacks add git account prompt](img/tinystacks-create-2.jpg)
+
+Once logged in, you will need to grant authorization for TinyStacks to access your GitHub or GitLab account. This will allow us to add a repository to your account (if you use one of our starter projects) or read an existing repository (if you use your own project). 
+
+## Configure AWS account 
+
+Once you've authorized your Git account, you will be prompted to authorize an AWS account. This account will host all of the cloud resources required by your application. 
+
+![TinyStacks connect to AWS prompt](img/tinystacks-create-3.jpg)
+
+If you have not logged in to your AWS account recently, you will be prompted to do so. 
+
+Once you have logged in to AWS, you will see the following screen, which prompts you to create an AWS CloudFormation stack in your AWS account. This step is **necessary** in order to proceed and fully connect your account. This CloudFormation template will create an AWS Identity and Access Management (IAM) role that TinyStacks will assume in order to create resources in your account.
+
+![Create TinyStacks role in AWS account](img/tinystacks-create-4.jpg)
+
+(*Note*: Some elements of the screen above have been blurred out for security reasons.)
+
+To create this stack, select the box **I acknowledge that AWS CloudFormation might create IAM resources**. Then, click the **Create Stack** button. 
+
+After creating the stack, tab back to the previous tab containing the TinyStacks window. Once the stack has completed creating, TinyStacks will automatically detect this and move you to the next step in the stack creation process. Once you see the screen below, you can proceed. 
+
+![TinyStacks - select a project](img/tinystacks-create-5.jpg)
 
 ## Create a new stack
 
-<a href="https://tinystacks.com/stacks/" target="_blank">From your Stacks page</a>, click **New Stack**. 
+Next, you'll be prompted to select a project. You can either select a TinyStacks starter project or use your own project. For this guide, we'll be using your own project. 
 
-On the **Create your stack** page, select **My projects**. You should see a list of all of the repositories available in your Git account. Find the repository whose code you are going to deploy and click **Prepare to deploy**.
+Select **My projects**. You should see a list of all of the repositories available in your Git account. Find the repository whose code you are going to deploy and click **Prepare to deploy**.
 
 ![TinyStacks - select a project for your stack](img/tinystacks-existing-1.jpg)
 
@@ -25,6 +58,8 @@ When you choose to deploy code from an existing repository, TinyStacks checks yo
 * A `release.yml` file, which AWS CodeDeploy will use to run your Docker container on an Amazon Elastic Container Service (ECS) cluster hosted in your AWS account. 
 
 For more details on the elements of a TinyStacks deployment, [see our architecture page](architecture.md).
+
+**Note**: If your app is already Dockerized (has a Dockerfile), you **do not** need to replace it with our Dockerfile. We only provide a Dockerfile for the benefit of teams who have no yet containerized their applications. 
 
 Since your Docker container must contain the framework required by your application, it's important that you click the **Framework** dropdown and select whatever framework your application uses. This will ensure that the `Dockerfile` that you download can successfully run your application. 
 
