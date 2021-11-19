@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://docs.tinystacks.com/existing/">
       
       <link rel="icon" href="../assets/tinystacks.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a57b2b03.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.db9e7362.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -256,8 +256,6 @@
       </a>
       
         
-
-
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -272,6 +270,20 @@
         <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-git-connection" class="md-nav__link">
+    Configure Git connection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-aws-account" class="md-nav__link">
+    Configure AWS account
   </a>
   
 </li>
@@ -493,8 +505,6 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-
-
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -509,6 +519,20 @@
         <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-git-connection" class="md-nav__link">
+    Configure Git connection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-aws-account" class="md-nav__link">
+    Configure AWS account
   </a>
   
 </li>
@@ -592,11 +616,30 @@
                 
                 <p>In our guide to <a href="../create-stack/">creating your first stack</a>, we showed you how to launch one of our sample applications as a fully scalable deployment on the cloud. But it's just as easy to package and deploy an existing application! </p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>This guide assumes you have set up connections to your Git and AWS accounts in TinyStacks. If you haven't done this yet, <a href="../create-stack/">follow the instructions for creating your first stack</a>.</p>
-<p>Your Git account should contain a repository with the application code you wish to deploy. The application does not have to be containerized already (i.e., have a Dockerfile); we will provide a sample Dockerfile for you and some advice on containerizing your application in this guide. </p>
+<p>You will need the following resources set up before you start using TinyStacks: </p>
+<ul>
+<li>A Git account with either <a href="https://github.com" target="_blank">GitHub</a> or <a href="https://gitlab.com" target="_blank">GitLab</a>.</li>
+<li><a href="https://aws.amazon.com" target="_blank">An AWS account</a>. All of the resources TinyStacks creates for you will be hosted in an AWS account that you own. Don't worry - you cna get started without any previous knowledge of AWS!</li>
+</ul>
+<h2 id="configure-git-connection">Configure Git connection</h2>
+<p>When you first log in to TinyStacks, you’ll need to wire up a supported Git repository account as well as an AWS account. TinyStacks supports using Git repositories hosted on GitHub or GitLab. </p>
+<p><img alt="TinyStacks Create First Stack screen" src="../img/tinystacks-create-1.jpg" /></p>
+<p>Select which Git service you plan to use: GitHub or Gitlab. A separate window will open. If you are not logged in to your selected service, you will be prompted to log in now. </p>
+<p><img alt="TinyStacks add git account prompt" src="../img/tinystacks-create-2.jpg" /></p>
+<p>Once logged in, you will need to grant authorization for TinyStacks to access your GitHub or GitLab account. This will allow us to add a repository to your account (if you use one of our starter projects) or read an existing repository (if you use your own project). </p>
+<h2 id="configure-aws-account">Configure AWS account</h2>
+<p>Once you've authorized your Git account, you will be prompted to authorize an AWS account. This account will host all of the cloud resources required by your application. </p>
+<p><img alt="TinyStacks connect to AWS prompt" src="../img/tinystacks-create-3.jpg" /></p>
+<p>If you have not logged in to your AWS account recently, you will be prompted to do so. </p>
+<p>Once you have logged in to AWS, you will see the following screen, which prompts you to create an AWS CloudFormation stack in your AWS account. This step is <strong>necessary</strong> in order to proceed and fully connect your account. This CloudFormation template will create an AWS Identity and Access Management (IAM) role that TinyStacks will assume in order to create resources in your account.</p>
+<p><img alt="Create TinyStacks role in AWS account" src="../img/tinystacks-create-4.jpg" /></p>
+<p>(<em>Note</em>: Some elements of the screen above have been blurred out for security reasons.)</p>
+<p>To create this stack, select the box <strong>I acknowledge that AWS CloudFormation might create IAM resources</strong>. Then, click the <strong>Create Stack</strong> button. </p>
+<p>After creating the stack, tab back to the previous tab containing the TinyStacks window. Once the stack has completed creating, TinyStacks will automatically detect this and move you to the next step in the stack creation process. Once you see the screen below, you can proceed. </p>
+<p><img alt="TinyStacks - select a project" src="../img/tinystacks-create-5.jpg" /></p>
 <h2 id="create-a-new-stack">Create a new stack</h2>
-<p><a href="https://tinystacks.com/stacks/" target="_blank">From your Stacks page</a>, click <strong>New Stack</strong>. </p>
-<p>On the <strong>Create your stack</strong> page, select <strong>My projects</strong>. You should see a list of all of the repositories available in your Git account. Find the repository whose code you are going to deploy and click <strong>Prepare to deploy</strong>.</p>
+<p>Next, you'll be prompted to select a project. You can either select a TinyStacks starter project or use your own project. For this guide, we'll be using your own project. </p>
+<p>Select <strong>My projects</strong>. You should see a list of all of the repositories available in your Git account. Find the repository whose code you are going to deploy and click <strong>Prepare to deploy</strong>.</p>
 <p><img alt="TinyStacks - select a project for your stack" src="../img/tinystacks-existing-1.jpg" /></p>
 <p>You should now be on the <strong>Prepare your repository</strong> page. </p>
 <h2 id="check-the-deployment-template-files-into-your-git-repository">Check the deployment template files into your Git repository</h2>
@@ -607,6 +650,7 @@
 <li>A <code>release.yml</code> file, which AWS CodeDeploy will use to run your Docker container on an Amazon Elastic Container Service (ECS) cluster hosted in your AWS account. </li>
 </ul>
 <p>For more details on the elements of a TinyStacks deployment, <a href="../architecture/">see our architecture page</a>.</p>
+<p><strong>Note</strong>: If your app is already Dockerized (has a Dockerfile), you <strong>do not</strong> need to replace it with our Dockerfile. We only provide a Dockerfile for the benefit of teams who have no yet containerized their applications. </p>
 <p>Since your Docker container must contain the framework required by your application, it's important that you click the <strong>Framework</strong> dropdown and select whatever framework your application uses. This will ensure that the <code>Dockerfile</code> that you download can successfully run your application. </p>
 <p><img alt="TinyStacks - select framework" src="../img/tinystacks-existing-2.jpg" /></p>
 <p>Once you've selected the correct framework, click <strong>download all files</strong> at the bottom of the page to download all three files as a zip file. Unzip this file and check in all of the missing files for your application to the root of your repository. </p>
@@ -760,10 +804,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.b1047164.min.js"></script>
+      <script src="../assets/javascripts/bundle.1e84347e.min.js"></script>
       
     
   </body>
