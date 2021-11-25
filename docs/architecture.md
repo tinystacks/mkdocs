@@ -31,6 +31,8 @@ A stack consists of an application written on a specific application framework (
 
 The following diagram shows the major architectural components in a stack. 
 
+![TinyStacks - architectural diagram](img/architecture-diagram.png)
+
 **[GitHub](https://github.com)**. A source code repository application based on the source control program Git. Stores the code for your application as well as some ancillary files needed in the stack deployment process. (TinyStacks also supports using [GitLab](https://about.gitlab.com/) as one’s repository.)
 
 **[AWS CodePipeline](https://aws.amazon.com/codepipeline/)**. A continuous integration and continuous deployment service. Responsible for coordinating the build and deployment of the Docker container. 
