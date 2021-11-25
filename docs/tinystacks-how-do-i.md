@@ -103,8 +103,6 @@ If your stage currently has no database, you will see the following screen. You 
 
 *Note*: Saving your changes will trigger a rebuild of your stage. Your application may not be accessible on this stage until the rebuild and redeploy has completed. 
 
-![TinyStacks - delete stack](img/tinystacks-delete-1.png)
-
 ### ...connect to my Postgres database from my application? 
 
 When you have TinyStacks create a Postgres database for you, we push all information about the database - including username and password - into a set of runtime variables. These are exposed to your application as environment variables in your Docker container instances. 
@@ -167,7 +165,7 @@ aws secretsmanager list-secrets --region us-east-1 --filters Key=tag-key Values=
 
 Your `build.yml` file controls how your container is built and then stored in Amazon ECR. Sometimes, you may need to pass custom data at build time when building your Docker image. You can accomplish this by defining build variables for your stack. 
 
-To define build variables, [go to your Stacks page](https://tinystacks.com/stacks/). For the stack you want to modify, click the gear icon in the lower right corner. On the **Stack Settings** page, click **Build variables**. Here you can define name-value pairs that you can refernece in your `build.yml` file. 
+To define build variables, [go to your Stacks page](https://tinystacks.com/stacks/). For the stack you want to modify, click the gear icon in the lower right corner. On the **Stack Settings** page, click **Build variables**. Here you can define name-value pairs that you can reference in your `build.yml` file. 
 
 ![TinyStacks - build variables](img/tinystacks-build-variables-1.png)
 
