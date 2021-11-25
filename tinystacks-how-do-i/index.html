@@ -741,7 +741,6 @@
 <p>If your stage currently has no database, you will see the following screen. You can either add a new Postgres database, or add another existing AWS database to your stack. </p>
 <p><img alt="TinyStacks - change database settings for a stack" src="../img/tinystacks-database-2.png" /></p>
 <p><em>Note</em>: Saving your changes will trigger a rebuild of your stage. Your application may not be accessible on this stage until the rebuild and redeploy has completed. </p>
-<p><img alt="TinyStacks - delete stack" src="img/tinystacks-delete-1.png" /></p>
 <h3 id="connect-to-my-postgres-database-from-my-application">...connect to my Postgres database from my application?</h3>
 <p>When you have TinyStacks create a Postgres database for you, we push all information about the database - including username and password - into a set of runtime variables. These are exposed to your application as environment variables in your Docker container instances. </p>
 <p>The variables pushed include: </p>
