@@ -45,7 +45,7 @@ Next, you'll be prompted to select a project. You can either select a TinyStacks
 
 Select **My projects**. You should see a list of all of the repositories available in your Git account. Find the repository whose code you are going to deploy and click **Prepare to deploy**.
 
-![TinyStacks - select a project for your stack](img/tinystacks-existing-1.jpg)
+![TinyStacks - select a project for your stack](img/tinystacks-existing-1.png)
 
 You should now be on the **Prepare your repository** page. 
 
@@ -63,13 +63,13 @@ For more details on the elements of a TinyStacks deployment, [see our architectu
 
 Since your Docker container must contain the framework required by your application, it's important that you click the **Framework** dropdown and select whatever framework your application uses. This will ensure that the `Dockerfile` that you download can successfully run your application. 
 
-![TinyStacks - select framework](img/tinystacks-existing-2.jpg)
+![TinyStacks - select framework](img/tinystacks-existing-2.png)
 
 Once you've selected the correct framework, click **download all files** at the bottom of the page to download all three files as a zip file. Unzip this file and check in all of the missing files for your application to the root of your repository. 
 
 The root directory of your repo should look something like the example below after you are done:
 
-![TinyStacks - root of repository with all required files present](img/tinystacks-existing-3.jpg)
+![TinyStacks - root of repository with all required files present](img/tinystacks-existing-3.png)
 
 (*Note*: This example is for an Express app - your project may have different files if it is using a different framework. The important thing is that these three files are checked into the root of your repository.)
 
@@ -81,7 +81,12 @@ Next, give your project a name. Since this name will be used as a prefix for man
 
 You will also need to select a deployment branch. This is the branch of your Git repository on which new check ins will trigger a new deployment. 
 
-![TinyStacks - name your project and select deployment branch](img/tinystacks-existing-4.jpg)
+![TinyStacks - name your project and select deployment branch](img/tinystacks-existing-4.png)
+
+There are two other settings on this page you can optionally configure: 
+
+* **Port**: If the application in your Docker container is using a port other than the default (80) to serve traffic, enter it here. 
+* **Custom health check**: AWS services such as Application Load Balancer use health checks to determine if an instance of your application is running correctly. Instances that fail a health check are destroyed and replaced with healthy instances. By default, Tinystacks uses the endpoint `/ping` to check application health. If you use a different endpoint, specify it here. 
 
 When you're done, click **Next**.
 

@@ -640,7 +640,7 @@
 <h2 id="create-a-new-stack">Create a new stack</h2>
 <p>Next, you'll be prompted to select a project. You can either select a TinyStacks starter project or use your own project. For this guide, we'll be using your own project. </p>
 <p>Select <strong>My projects</strong>. You should see a list of all of the repositories available in your Git account. Find the repository whose code you are going to deploy and click <strong>Prepare to deploy</strong>.</p>
-<p><img alt="TinyStacks - select a project for your stack" src="../img/tinystacks-existing-1.jpg" /></p>
+<p><img alt="TinyStacks - select a project for your stack" src="../img/tinystacks-existing-1.png" /></p>
 <p>You should now be on the <strong>Prepare your repository</strong> page. </p>
 <h2 id="check-the-deployment-template-files-into-your-git-repository">Check the deployment template files into your Git repository</h2>
 <p>When you choose to deploy code from an existing repository, TinyStacks checks your repo to see if it contains three files: </p>
@@ -652,16 +652,21 @@
 <p>For more details on the elements of a TinyStacks deployment, <a href="../architecture/">see our architecture page</a>.</p>
 <p><strong>Note</strong>: If your app is already Dockerized (has a Dockerfile), you <strong>do not</strong> need to replace it with our Dockerfile. We only provide a Dockerfile for the benefit of teams who have no yet containerized their applications. </p>
 <p>Since your Docker container must contain the framework required by your application, it's important that you click the <strong>Framework</strong> dropdown and select whatever framework your application uses. This will ensure that the <code>Dockerfile</code> that you download can successfully run your application. </p>
-<p><img alt="TinyStacks - select framework" src="../img/tinystacks-existing-2.jpg" /></p>
+<p><img alt="TinyStacks - select framework" src="../img/tinystacks-existing-2.png" /></p>
 <p>Once you've selected the correct framework, click <strong>download all files</strong> at the bottom of the page to download all three files as a zip file. Unzip this file and check in all of the missing files for your application to the root of your repository. </p>
 <p>The root directory of your repo should look something like the example below after you are done:</p>
-<p><img alt="TinyStacks - root of repository with all required files present" src="../img/tinystacks-existing-3.jpg" /></p>
+<p><img alt="TinyStacks - root of repository with all required files present" src="../img/tinystacks-existing-3.png" /></p>
 <p>(<em>Note</em>: This example is for an Express app - your project may have different files if it is using a different framework. The important thing is that these three files are checked into the root of your repository.)</p>
 <p>Once you are done, click <strong>Next</strong>. </p>
 <h2 id="name-your-project-and-select-the-deployment-branch">Name your project and select the deployment branch</h2>
 <p>Next, give your project a name. Since this name will be used as a prefix for many of your AWS resources, keep it to 20 characters or less. </p>
 <p>You will also need to select a deployment branch. This is the branch of your Git repository on which new check ins will trigger a new deployment. </p>
-<p><img alt="TinyStacks - name your project and select deployment branch" src="../img/tinystacks-existing-4.jpg" /></p>
+<p><img alt="TinyStacks - name your project and select deployment branch" src="../img/tinystacks-existing-4.png" /></p>
+<p>There are two other settings on this page you can optionally configure: </p>
+<ul>
+<li><strong>Port</strong>: If the application in your Docker container is using a port other than the default (80) to serve traffic, enter it here. </li>
+<li><strong>Custom health check</strong>: AWS services such as Application Load Balancer use health checks to determine if an instance of your application is running correctly. Instances that fail a health check are destroyed and replaced with healthy instances. By default, Tinystacks uses the endpoint <code>/ping</code> to check application health. If you use a different endpoint, specify it here. </li>
+</ul>
 <p>When you're done, click <strong>Next</strong>.</p>
 <h2 id="finalizing-deployment-options">Finalizing deployment options</h2>
 <p>On the next screen, you will be asked to review your infrastructure before launching your application on TinyStacks. Click <strong>Review infrastructure</strong> to see the infrastructure that TinyStacks will create in your AWS account and to set any additional options. </p>
