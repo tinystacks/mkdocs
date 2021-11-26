@@ -659,6 +659,7 @@
 <h3 id="architectural-components">Architectural Components</h3>
 <p>A stack consists of an application written on a specific application framework (such as Express, Flask, Django, Spring, etc.) packaged inside of a Docker container. TinyStacks creates the necessary architecture inside of your AWS account to run this Dockerized application in a scalable and highly available architecture on AWS. </p>
 <p>The following diagram shows the major architectural components in a stack. </p>
+<p><img alt="TinyStacks - architectural diagram" src="../img/architecture-diagram.png" /></p>
 <p><strong><a href="https://github.com">GitHub</a></strong>. A source code repository application based on the source control program Git. Stores the code for your application as well as some ancillary files needed in the stack deployment process. (TinyStacks also supports using <a href="https://about.gitlab.com/">GitLab</a> as one’s repository.)</p>
 <p><strong><a href="https://aws.amazon.com/codepipeline/">AWS CodePipeline</a></strong>. A continuous integration and continuous deployment service. Responsible for coordinating the build and deployment of the Docker container. </p>
 <p><strong><a href="https://aws.amazon.com/codebuild/">AWS CodeBuild</a></strong>. A managed continuous integration service that builds source code into deployable applications. Comprises the steps in the CodePipeline. </p>
