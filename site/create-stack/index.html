@@ -555,31 +555,31 @@
 </ul>
 <h2 id="configure-git-connection">Configure Git connection</h2>
 <p>When you first log in to TinyStacks, you’ll need to wire up a supported Git repository account as well as an AWS account. TinyStacks supports using Git repositories hosted on GitHub or GitLab. </p>
-<p><img alt="TinyStacks Create First Stack screen" src="../img/tinystacks-create-1.jpg" /></p>
+<p><img alt="TinyStacks Create First Stack screen" src="../img/tinystacks-create-1.png" /></p>
 <p>Select which Git service you plan to use: GitHub or Gitlab. A separate window will open. If you are not logged in to your selected service, you will be prompted to log in now. </p>
-<p><img alt="TinyStacks add git account prompt" src="../img/tinystacks-create-2.jpg" /></p>
+<p><img alt="TinyStacks add git account prompt" src="../img/tinystacks-create-2.png" /></p>
 <p>Once logged in, you will need to grant authorization for TinyStacks to access your GitHub or GitLab account. This will allow us to add a repository to your account (if you use one of our starter projects) or read an existing repository (if you use your own project). </p>
 <h2 id="configure-aws-account">Configure AWS account</h2>
 <p>Once you've authorized your Git account, you will be prompted to authorize an AWS account. This account will host all of the cloud resources required by your application. </p>
-<p><img alt="TinyStacks connect to AWS prompt" src="../img/tinystacks-create-3.jpg" /></p>
+<p><img alt="TinyStacks connect to AWS prompt" src="../img/tinystacks-create-3.png" /></p>
 <p>If you have not logged in to your AWS account recently, you will be prompted to do so. </p>
 <p>Once you have logged in to AWS, you will see the following screen, which prompts you to create an AWS CloudFormation stack in your AWS account. This step is <strong>necessary</strong> in order to proceed and fully connect your account. This CloudFormation template will create an AWS Identity and Access Management (IAM) role that TinyStacks will assume in order to create resources in your account.</p>
-<p><img alt="Create TinyStacks role in AWS account" src="../img/tinystacks-create-4.jpg" /></p>
+<p><img alt="Create TinyStacks role in AWS account" src="../img/tinystacks-create-4.png" /></p>
 <p>(<em>Note</em>: Some elements of the screen above have been blurred out for security reasons.)</p>
 <p>To create this stack, select the box <strong>I acknowledge that AWS CloudFormation might create IAM resources</strong>. Then, click the <strong>Create Stack</strong> button. </p>
 <p>After creating the stack, tab back to the previous tab containing the TinyStacks window. Once the stack has completed creating, TinyStacks will automatically detect this and move you to the next step in the stack creation process. Once you see the screen below, you can proceed. </p>
-<p><img alt="TinyStacks - select a project" src="../img/tinystacks-create-5.jpg" /></p>
+<p><img alt="TinyStacks - select a project" src="../img/tinystacks-create-5.png" /></p>
 <h2 id="select-a-starter-project">Select a starter project</h2>
 <p>Next, you'll be prompted to select a project. You can either select a TinyStacks starter project or use your own project. For this guide, we'll be using a starter project, so go ahead and click the <strong>Starter projects</strong> button.</p>
 <p>The TinyStacks starter projects are simple Create/Read/Update/Delete (CRUD) database applications written in the application framework of your choice. You can click the name of any starter project in the window below to see its repository on GitHub and check out its README, which gives a detailed description of the app's code and deployment architecture.</p>
-<p><img alt="TinyStacks - select a starter project" src="../img/tinystacks-create-6.jpg" /></p>
+<p><img alt="TinyStacks - select a starter project" src="../img/tinystacks-create-6.png" /></p>
 <p>Once you select a project, TinyStacks will copy its code into your Git account, where you can use it as a basis for further development. </p>
 <p>For this guide, let's create <a href="https://github.com/tinystacks/aws-docker-templates-express" target="_blank">an Express project</a>. Next to Express in the window above, click <strong>Deploy</strong>. </p>
 <p>On the next screen, you'll be prompted to give your project a name. Choose a simple, short name that's 20 characters or less. (The name will be used as a prefix for some of the resources in your AWS account, so we want to keep it short to avoid going over naming length limits in AWS.)</p>
-<p><img alt="TinyStacks - Enter a project name" src="../img/tinystacks-create-7.jpg" /></p>
+<p><img alt="TinyStacks - Enter a project name" src="../img/tinystacks-create-7.png" /></p>
 <h2 id="customize-your-deployment">Customize your deployment</h2>
 <p>You have one more step to go and then you're ready to launch your stack! After clicking <strong>Deploy</strong>, you'll see the screen below, which enables you to fine-tune multiple settings for the first stage of your stack. </p>
-<p><img alt="TinyStacks - configure stack" src="../img/tinystacks-create-8.jpg" /></p>
+<p><img alt="TinyStacks - configure stack" src="../img/tinystacks-create-8.png" /></p>
 <p>This screen visualizes all of the AWS resources that TinyStacks will use or create on your behalf. These components and what they contribute to your stack are discussed in detail <a href="../architecture/">in our architectural guide</a>. Briefly, they include: </p>
 <ul>
 <li>Your <strong>Git repo</strong> (either GitHub or GitLab) that holds your application code. </li>
