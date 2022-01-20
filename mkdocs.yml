@@ -34,6 +34,8 @@ extra:
       link: https://www.linkedin.com/company/tinystacks
     - icon: fontawesome/brands/github
       link: https://github.com/tinystacks
+    - icon: fontawesome/solid/envelope
+      link: mailto:support@tinystacks.com
 nav:
   - 'Introduction' : 'index.md'
   - 'Get Started':
