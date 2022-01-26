@@ -23,6 +23,9 @@ markdown_extensions:
 - md_in_html
 extra:
   generator: false
+  analytics:
+    provider: google
+    property: UA-176124935-1
   social:
     - icon: fontawesome/solid/home
       link: https://www.tinystacks.com
