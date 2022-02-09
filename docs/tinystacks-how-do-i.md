@@ -130,7 +130,7 @@ After this, select the **Stage details** link on the left hand navigation menu. 
 
 ## Advanced How Do I 
 
-### ...add multiple images to my stack?
+### ...add multiple Docker images to my stack?
 
 TinyStacks supports multiple Docker images in your stack. 
 
@@ -140,8 +140,8 @@ To add a second Docker image, after you create your stack, navigate to the **Sta
 
 You can use two different methods to add a new service: 
 
-* Specify a Git repository. TinyStacks will look for the same files it requires when building a Docker image for your primary stack. 
-* Use an existing Docker image URL. The repository containing the image must either be public or a repository in an AWS account [to which you have given TinyStacks access](create-stack.md).
+* **Repository**. Specify a Git repository. TinyStacks will look for the same files it requires when building a Docker image for your primary stack. 
+* **Image URL**. Use an existing Docker image URL. The repository containing the image must either be public or a repository in an AWS account [to which you have given TinyStacks access](create-stack.md). Alternatively, instead of a URL, you can specify the image name and version of an image in the Docker public repository(e.g., `python:3.9`). 
 
 Once you're done, click **Create new service**. 
 
