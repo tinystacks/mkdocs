@@ -47,6 +47,41 @@ The following diagram shows the major architectural components in a stack.
 
 **[Amazon API Gateway](https://aws.amazon.com/api-gateway/)**. A service for creating managed Application Programming Interfaces (API) at scale. Creates endpoints to the API functions defined by the application residing in the Docker container. 
 
+### Networking
+
+One of the most technically complex aspects of setting up infrastructure on AWS is creating your virtual private network, or VPC. 
+
+A VPC defines a set of IP address ranges using logical groupings called subnets. Subnets can be either public (i.e., they allow traffic to flow to and from the external Internet) or private (traffic is allowed only within the subnet and/or out to the Internet). By using a combination of private and public subnets, application developers can create a secure hosting environment that reduces an application's surface attack area and minimizes the risk of intrusion. 
+
+Designing and deploying a secure VPC usually requires a solid knowledge of networking and of AWS. TinyStacks eliminates this requirement by deploying every stack with a secure VPC by default.
+
+Each TinyStacks VPC consists of: 
+
+* **Three public subnets**. These subnets contain any public-facing infrastructure (e.g., your Application Load Balancer or API Gateway endpoints).
+* **Three isolated subnets**. Your isolated subnets contain your ECS cluster instances and your database (if you provisioned it with TinyStacks). 
+
+Both sets of public and private subnets are spread across different AWS [Availability Zones](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/). Critical resources are hosted across three separate subnets and Availability Zones. This helps protect against unexpected outages by placing the pieces your infrastructure in geographically isolated data centers on AWS. For example, if you launch three Amazon ECS instances in your ECS cluster, we spread these evenly across all three availability zones. This means your application can still keep serving traffic if a single availability zone goes down. 
+
+How we connect your ECS cluster instances to the Internet depends on the scaling option you choose.  If you use Application Load Balancer, the ALB can forward requests to your container instances by virtue of running in the same VPC. 
+
+![TinyStacks VPC diagram for Application Load Balancer](img/tinystacks-vpc-alb.png)
+
+If you use API Gateway as your application front end, TinyStacks creates a VPC Link so that API Gateway can securely forward requests to your Docker container instances running on your cluster instances.
+
+![TinyStacks VPC diagram for API Gateway](img/tinystacks-vpc-apig.png)
+
+#### Security Groups
+
+Security groups in AWS define which resources on AWS or the public Internet can access certain AWS resources. We define security groups that restrict access to protected resources. For example, ECS cluster instances can only be accessed by your API Gateway or Application Load Balancer front ends at the specific port that you specify at stack creation time. Likewise, only the ECS cluster instances can talk to the database (unless you create a bastion host, as described below), and only on a single dedicated port.
+
+This architecture reduces your application's potential attack surface by only publicly exposing the minimal surface area required for your application to operate. 
+
+#### Bastion Host
+
+By default, we do not allow any Internet connectivity directly to your database. However, your team may need to access the database outside of your application (e.g., to run ad hoc queries or troubleshoot issues). 
+
+To facilitate this, TinyStacks supports creating a [bastion host](https://aws.amazon.com/premiumsupport/knowledge-center/rds-connect-using-bastion-host-linux/) for your database. The bastion host is an Amazon EC2 instance that sits in one of your public subnets and to which you can connect via SSH using a cryptographic key. Once on the bastion host, you can connect directly to your database in its isolated subnets. 
+
 ### Application Flow
 
 ### GitHub Stack Creation
