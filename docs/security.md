@@ -1,15 +1,19 @@
-At Tinystacks, we design all of our solutions with security in mind. In this article, we describe the measures that Tinystacks takes to ensure the security of your stack. We also discuss the permissions required by Tinystacks to operate on your connected accounts. 
+At TinyStacks, we design all of our solutions with security in mind. In this article, we describe the measures that TinyStacks takes to ensure the security of your stack. We also discuss the permissions required by TinyStacks to operate on your connected accounts. 
 
-### Stack Security 
+## Stack Security 
 
 Every stack in TinyStacks is created with a secure architecture. The security measures we've taken include: 
 
-**Hosting your stack in a VPC with public/private subnets**. You can host your stack with one of two patterns: 
+**Hosting your stack in a VPC with public/isolated subnets**. TinyStacks hosts your stack with three private subnets and three isolated subnets. We place your (optional) PostgreSQL database and ECS cluster compute instances in the isolated subnets for additional protection. 
 
-* Three public subnets and two private subnets. We use VPC Link to establish a peer into the public subnets. 
-* Three private subnets and three isolated subnets. We use VPC Link to establish a peer into the private subnets. 
+As discussed [in our architecture overview](architecture.md), we use one of two methods to provide public access to your application, depending on the scaling option you're using:
 
-**Secure database access**. When TinyStacks creates a PostgreSQL database for your application, we create it inside one of your private subnets. This secures your database against intrusion attempts from outside your VPC. You can also optionally create a bastion host, which will enable secure SSH tunneling to your VPC in case your team requires direct database access. 
+* **Application Load Balancer**: Your ALB is hosted in your public subnets. Since it's located in the same VPC as your isolated subnets, it can interact freely with your containers over your container's exposed ports.
+* **API Gateway**: If you use API Gateway, we create a VPC link between API Gateway and your isolated subnets. This allows for secure communication between your API endpoints and your containers without traffic flowing over the public Internet. 
+
+**Security groups**. We define security groups on all components of your architecture that restrict communications to trusted entities. For example, our security group rules ensure that only your containers running in your isolated subnets can connect to the appropriate port on your TinyStacks-provisioned PostgreSQL database (and, optionally, your database bastion host if you create one). Similarly, if you use Application Load Balancer for your API endpoints, your containers restrict access to their exposed port(s) to the ALB instance running in your VPC. 
+
+**Secure database access**. When TinyStacks creates a PostgreSQL database for your application, we create it inside your isolated subnets. This secures your database against access from outside your VPC. You can also optionally create a bastion host, which will enable secure SSH tunneling to your VPC in case your team requires direct database access. 
 
 **Encrypting secrets**. All secrets used by your stack (such as your database connection information and credentials) are stored in encrypted format in [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/). For example, when you ask TinyStacks to create a PostgreSQL database for your stack, TinyStacks stores the database name, hostname, username, password, and other sensitive access information in an entry in AWS Secrets Manager.
 
@@ -17,17 +21,17 @@ Your team can access AWS Secrets Manager secrets securely through the AWS Consol
 
 **Environment variables**. If you have secrets you need to pass to your application (e.g., an access key/secret for AWS account access), you can pass them via your Docker containers using environment variables. This eliminates the need to hard-code security credentials into your code base or plain-text configuration files. 
 
-### AWS Permissions Required by Tinystacks
+## AWS Permissions Required by TinyStacks
 
 TinyStacks only makes calls to your AWS account for the purposes of creating or reclaiming stack  infrastructure at your request. 
 
-In order to create a stack in your AWS account, Tinystacks first spins up an AWS CloudFormation template. This template takes three actions: 
+In order to create a stack in your AWS account, TinyStacks first spins up an AWS CloudFormation template. This template takes three actions: 
 
-* Creates an AWS Identity and Access M nagement (IAM) role in your account. 
-* Gives the Tinystacks service role (tinystacks-service-role) the permission to assume this role. 
-* Informs Tinystacks (via an AWS Lambda callback) that the role is correctly configured for your account. 
+* Creates an AWS Identity and Access Management (IAM) role in your account. 
+* Gives the TinyStacks service role (tinystacks-service-role) the permission to assume this role. 
+* Informs TinyStacks (via an AWS Lambda callback) that the role is correctly configured for your account. 
 
-The role that Tinystacks creates gives the Tinystacks service role full access to the following services in your AWS account: 
+The role that TinyStacks creates gives the TinyStacks service role full access to the following services in your AWS account: 
 
 * **API Gateway**
 * **Application Autoscaling**
@@ -43,7 +47,7 @@ The role that Tinystacks creates gives the Tinystacks service role full access t
 * **Amazon Simple Notification Service (SNS)**
 * **Amazon S3**
 
-The role also gives Tinystacks the following access to your AWS account: 
+The role also gives TinyStacks the following access to your AWS account: 
 
 * **IAM**: Create role, assume role
 * **Cloudfront**: Create/get distribution, tag resource, put event selectors
@@ -56,8 +60,22 @@ The role also gives Tinystacks the following access to your AWS account:
 * **AWS Secrets Manager**: Get/put secret value, create/delete secret, get random password, get service quota
 * **AWS Systems Manager**: Get/create/put parameters
 
-The CloudFormation template deployment that TinyStacks creates begins with the name **TinyStacksRole**. If you wish to revoke Tinystacks' access to your AWS account, you can delete this deployment at any time. Note that, once deleted, Tinystacks will no longer be able to stand up stacks in your AWS account unless you re-deploy it.
+The CloudFormation template deployment that TinyStacks creates begins with the name **TinyStacksRole**. If you wish to revoke TinyStacks' access to your AWS account, you can delete this deployment at any time. Note that, once deleted, TinyStacks will no longer be able to stand up stacks in your AWS account unless you re-deploy it.
 
-### Git Repository Permissions Required by TinyStacks
+## Git Repository Permissions Required by TinyStacks
 
-In order to access your Git account, TinyStacks will request 
+In order to access your Git account, TinyStacks will request permissions for your Git repositories residing in GitHub or GitLab. 
+
+GitHub permissions requested include: 
+
+* Read access to organizational metadata
+* Administrator access to repositories. You can either allow access to all repositories or restrict GitHub to accessing select repositories only
+* Read/write access to administration, checks, code, commit statuses, deployments, discussions, packages, and pull requests
+
+GitLab permissions requested include:
+
+* Read access to organizational metadata
+* Administrator access to projects
+* Read/write access to administration (CRUD operations on repositories), checks, commit statuses, contents, deployments, discussions, packages, and pull requests.
+
+The exact permissions requested from GitHub and GitLab may change over time.
