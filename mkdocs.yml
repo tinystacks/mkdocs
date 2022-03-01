@@ -25,7 +25,7 @@ extra:
   generator: false
   analytics:
     provider: google
-    property: UA-176124935-1
+    property: G-ZGJ7S5GYW6
   social:
     - icon: fontawesome/solid/home
       link: https://www.tinystacks.com
