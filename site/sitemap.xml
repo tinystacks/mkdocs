@@ -2,37 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.tinystacks.com/</loc>
-         <lastmod>2022-01-20</lastmod>
+         <lastmod>2022-03-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/architecture/</loc>
-         <lastmod>2022-01-20</lastmod>
+         <lastmod>2022-03-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/comparisons/</loc>
-         <lastmod>2022-01-20</lastmod>
+         <lastmod>2022-03-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/concepts/</loc>
-         <lastmod>2022-01-20</lastmod>
+         <lastmod>2022-03-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/create-stack/</loc>
-         <lastmod>2022-01-20</lastmod>
+         <lastmod>2022-03-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/existing/</loc>
-         <lastmod>2022-01-20</lastmod>
+         <lastmod>2022-03-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/tinystacks-how-do-i/</loc>
-         <lastmod>2022-01-20</lastmod>
+         <lastmod>2022-03-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
