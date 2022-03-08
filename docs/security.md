@@ -38,7 +38,7 @@ The role that TinyStacks creates gives the TinyStacks service role the following
 * **CDK Role and Permissions**
     - There are a basic set of permissions created when your account is boostrapped by AWS's Cloud Development Kit.  We grant our role the ability to assume the IAM role created through this process as well as full access to a CDK specific S3 Bucket, and read-only permission to CDK specific SSM Parameters.
 * **Amazon API Gateway**
-    - Ragging capabilities for all API Gateway resources
+    - Tagging capabilities for all API Gateway resources
     - POST, GET, PUT, PATCH, DELETE
 * **Application Autoscaling**
     - Describe and tagging capabilities for all Application Autoscaling resources
