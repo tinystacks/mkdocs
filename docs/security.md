@@ -33,34 +33,166 @@ In order to create a stack in your AWS account, TinyStacks first spins up an AWS
 * Gives the TinyStacks service role (tinystacks-service-role) the permission to assume this role. 
 * Informs TinyStacks (via an AWS Lambda callback) that the role is correctly configured for your account. 
 
-The role that TinyStacks creates gives the TinyStacks service role full access to the following services in your AWS account: 
+The role that TinyStacks creates gives the TinyStacks service role the following access in your AWS account:
 
-* **API Gateway**
+* **CDK Role and Permissions**
+    - There are a basic set of permissions created when your account is boostrapped by AWS's Cloud Development Kit.  We grant our role the ability to assume the IAM role created through this process as well as full access to a CDK specific S3 Bucket, and read-only permission to CDK specific SSM Parameters.
+* **Amazon API Gateway**
+    - Ragging capabilities for all API Gateway resources
+    - POST, GET, PUT, PATCH, DELETE
 * **Application Autoscaling**
-* **Cloudwatch**
-* **CodeBuild**
-* **CodePipeline**
+    - Describe and tagging capabilities for all Application Autoscaling resources
+    - Register and deregister Scalable Targets
+    - Put and delete Scaling Policies
+    - Put and delete Scheduled Actions
+* **Autoscaling**
+    - Describe and tagging capabilities for all Autoscaling resources
+    - Create, get, update, and delete Scaling Plans
+    - Create, get, update, and delete Scaling Plans
+    - Create and delete Launch Configurations
+    - Create, update, delete, and terminate Auto Scaling Groups
+    - Delete Scheduled Actions
+* **Amazon CloudFront**
+    - tagging capabilities for all CloudFront resources
+    - Create and get CloudFront Distributions
+* **AWS CloudFormation**
+    - Full access for all CloudFormation capabilities
+        * Note that while this allows us to call a particular action in CloudFormation, the access to the specific action and resource is still controlled by the other permissions listed here.
+* **AWS CloudMap**
+    - Get and tagging capabilities for all CloudMap resources
+    - Create and delete Serivces for service discovery
+    - Create and delete Private DNS Namespaces for service discovery
+* **AWS CloudTrail**
+    - Describe and tagging capabilities for all CloudTrail resources
+    - Start Logging
+    - Put Event Selectors
+    - Create and delete Trails
+* **AWS CloudWatch**
+    - Tagging capabilities for all CloudWatch resources
+    - Put, list, get, and ddlete Dashboards
+* **AWS CloudWatch Logs**
+    - Get, describe, and tagging capabilities for all CloudWatch Logs resources
+    - Create, update, list, and delete Log Deliveries
+    - Create Log Groups
+    - Create Log Streams
+    - Put Log Events
+    - Put Resource Policies
+    - Put Retention Policies
+* **AWS CodeBuild**
+    - Tagging capabilities for all CodeBuild resources
+    - Create, update, list, get, and delete Projects
+    - Get Builds
+* **AWS CodePipeline**
+    - List, get, and tagging capabilities for all CodePipeline resources
+    - Create, update, and delete Pipelines
+    - Start and stop Pipeline Executions
+* **AWS Cost Explorer**
+    - Full access for all Cost Explorer capabilities
 * **Amazon Elastic Container Service (ECS)**
+    - List, describe, and tagging capabilities for all ECS resources
+    - Create, update, and delete Clusters
+    - Create, update, and delete Services
+    - Create, update, delete, register, and deregister Task Definitions
+    - Create, update, delete, and describe Capacity Providers
+    - Put Cluster Capacity Providers
+
+* **Amazon Elastic Container Registry (ECR)**
+    - Get and tagging capabilities for all ECR resources
+    - Create, describe, and delete Repositories
+    - Put Image Scanning Configuration
 * **Amazon EC2**
+    - Describe and tagging capabilities for all EC2 resources
+    - Create, copy, import, export, register, and deregister Images
+    - Start, stop, run, reboot, and terminate EC2 Instances
+    - Create and delete NAT Gateways
+    - Create, replace, and delete Routes
+    - Create, replace, delete, associate, and disassociate Route Tables
+    - Create and delete Security Groups
+    - Authorize and revoke Security Group Ingress and Egress
+    - Associate and disassociate Subnet Cidr Blocks
+    - Create and delete Subnets and Default Subnets
+    - Create, get, and delete Subnet Cidr Reservations
+    - Modify Subnet Attributes
+    - Create and delete Virtual Private Clouds (VPC)
+    - Modify VPC attributes
+    - Create, modify, delete, accept and reject Transit Gateway Vpc Attachment
+    - Create, modify, delete, accept and reject 
+    - Allocate, release, associate, and disassociate Addresses (Elasitc IPs)
+    - Modify and reset Address Attributes
+    - Allocate Hosts
 * **Elastic Load Balancer**
-* **Key Management Service**
+    - Describe and tagging capabilities for all Elastic Load Balancing resources
+    - Create, modify, and delete Listeners
+    - Create and delete Load Balancers
+    - Create, modify, and delete Target Groups
+    - Modify Target Group Attributes
+    - Modify Load Balancer Attributes
+* **Amazon EventBridge**
+    - Tagging capabilities for all EventBridge resources
+    - Put and remove Event Targets
+    - Put, describe, and delete Event Rules
+* **AWS Identity and Access Management**
+    - List, get, tag, and untag capabilities for all IAM resources
+    - Create, delete, add role, and remove role for Instance Profiles
+    - Create and delete Polcies
+    - Create, update, pass and delete Roles
+    - Put, delete, attach, detach, and update Role Policy
+
+* **Key Management Service (KMS)**
+    - Tagging capabilities for all KMS resources
+    - Decrypt capability for KMS resources
 * **AWS Lambda**
+    - List, get, and tagging capabilities for all Lambda resources
+    - Create, update, invoke, and delete Lambda Functions
+    - Add and remove permissions
+    - Put and delete function concurrency
+    - Put, update, and delete function code signing config
+    - Put, update, and delete function event config
+    - Update function code
+    - Update function configuration
+    - Publish and delete layer versions
+    - Add and remove layer version permissions
+* **Amazon Relational Database Service (RDS)**
+    - Desribe and tagging capabilities for all RDS resources
+    - Create and delete Subnet Groups
+    - Create, modify, and delete Database Instances
+    - Create and promote Read Replicas
 * **Amazon Route 53**
+    - Get, list and tagging capabilities for all Route53 resources
+    - Create and delete Hosted Zones
+    - Assoicate and disassociate VPC with Hosted Zones
+    - Enable and disable Hosted Zone DNS Security Extensions (DNSSEC)
+    - Update Hosted Zone Comments
+* **AWS Secrets Manager**
+    - Tagging capabilities for all Secrets Manager resources
+    - Create and delete Secrets
+    - Get and put Secret Values
+    - Get random passwords
+* **AWS Systems Manager**
+    - Tagging capabilities for all Systems Manager resources
+    - Put, get, and delete Parameters
 * **Amazon Simple Notification Service (SNS)**
-* **Amazon S3**
-
-The role also gives TinyStacks the following access to your AWS account: 
-
-* **IAM**: Create role, assume role
-* **Cloudfront**: Create/get distribution, tag resource, put event selectors
-* **Cloudtrail**: Create trail, delete trail
-* **Amazon Elastic Container Repository (ECR)**: Get lifecycle policy, create repository, list tags, get repository policy, describe repository policy
-* **Amazon EventBridge**: Delete rule, put targets, remove targets, put rule, describe rule
-* **Cloudwatch Logs**: Delete log delivery, list log deliveries, create log delivery, create group, describe log groups & streams, put retention policy
-* **Amazon RDS**: Create/delete DB subnet group, create/delete instance, describe instances, describe subnet groups
-* **AWS Service Discovery**: Get/create/delete service, get operation, get/create/delete private DNS namespace
-* **AWS Secrets Manager**: Get/put secret value, create/delete secret, get random password, get service quota
-* **AWS Systems Manager**: Get/create/put parameters
+    - List, get and tagging capabilities for all SNS resources
+    - Create and delete Topics
+    - Subscribe and Unsubscribe from Topics
+    - Confirm Topic Subscriptions
+    - Set Subscription attributes
+* **Amazon Simple Storage Service (S3)**
+    - Get, list and tagging capabilities for all S3 resources
+    - Create and delete Buckets
+    - Put and delete Bucket Policies
+    - Put Encryption Configuration
+    - Put Bucket Versioning
+    - Put Bucket Public Access Block
+    - Put Bucket Access control list
+    - Put, delete, replicate, and restore Objects
+    - Delete Object versions
+    - Override Object Owner To Bucket Owner
+    - Put Bucket Object Lock Configuration
+    - Put Object Access control list
+    - Put Object Verion Access control list
+    - Put Object legal hold
+    - Put Object retention
 
 The CloudFormation template deployment that TinyStacks creates begins with the name **TinyStacksRole**. If you wish to revoke TinyStacks' access to your AWS account, you can delete this deployment at any time. Note that, once deleted, TinyStacks will no longer be able to stand up, modify, or present the status of stacks in your AWS account unless you re-deploy it.
 
