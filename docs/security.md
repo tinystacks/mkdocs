@@ -4,7 +4,7 @@ At TinyStacks, we design all of our solutions with security in mind. In this art
 
 Every stack in TinyStacks is created with a secure architecture. The security measures we've taken include: 
 
-**Hosting your stack in a VPC with public/isolated subnets**. TinyStacks hosts your stack with three private subnets and three isolated subnets. We place your (optional) PostgreSQL database and ECS cluster compute instances in the isolated subnets for additional protection. 
+**Hosting your stack in a VPC with public/isolated subnets**. TinyStacks hosts your stack with three public subnets and three isolated subnets. We place your (optional) PostgreSQL database and ECS cluster compute instances in the isolated subnets for additional protection.
 
 As discussed [in our architecture overview](architecture.md), we use one of two methods to provide public access to your application, depending on the scaling option you're using:
 
@@ -15,15 +15,17 @@ As discussed [in our architecture overview](architecture.md), we use one of two 
 
 **Secure database access**. When TinyStacks creates a PostgreSQL database for your application, we create it inside your isolated subnets. This secures your database against access from outside your VPC. You can also optionally create a bastion host, which will enable secure SSH tunneling to your VPC in case your team requires direct database access. 
 
-**Encrypting secrets**. All secrets used by your stack (such as your database connection information and credentials) are stored in encrypted format in [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/). For example, when you ask TinyStacks to create a PostgreSQL database for your stack, TinyStacks stores the database name, hostname, username, password, and other sensitive access information in an entry in AWS Secrets Manager.
+**Encrypting secrets**. All secrets used by your stack (such as your database connection information and credentials) are stored in encrypted format in [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/). For example, when you ask TinyStacks to create a PostgreSQL database for your stack, TinyStacks stores the database name, hostname, username, password, and other sensitive access information in an entry in AWS Secrets Manager. TinyStacks does not store encryption keys or plaintext secrets for secrets hosted in customer accounts.
 
 Your team can access AWS Secrets Manager secrets securely through the AWS Console. Your application can also access these values using the AWS Command Line Interface (CLI) or the AWS SDK of your choice. 
 
 **Environment variables**. If you have secrets you need to pass to your application (e.g., an access key/secret for AWS account access), you can pass them via your Docker containers using environment variables. This eliminates the need to hard-code security credentials into your code base or plain-text configuration files. 
 
+**S3**. S3 buckets are created for each region in a stack. These buckets are used to store access logs, build artifacts, and other supporting assets required to run stacks. S3 buckets are configured as private and they are versioned.
+
 ## AWS Permissions Required by TinyStacks
 
-TinyStacks only makes calls to your AWS account for the purposes of creating or reclaiming stack  infrastructure at your request. 
+TinyStacks makes calls to your AWS account for the purposes of creating or reclaiming stack infrastructure at your request. Also for maintenance, monitor, and report status back.
 
 In order to create a stack in your AWS account, TinyStacks first spins up an AWS CloudFormation template. This template takes three actions: 
 
@@ -60,7 +62,7 @@ The role also gives TinyStacks the following access to your AWS account:
 * **AWS Secrets Manager**: Get/put secret value, create/delete secret, get random password, get service quota
 * **AWS Systems Manager**: Get/create/put parameters
 
-The CloudFormation template deployment that TinyStacks creates begins with the name **TinyStacksRole**. If you wish to revoke TinyStacks' access to your AWS account, you can delete this deployment at any time. Note that, once deleted, TinyStacks will no longer be able to stand up stacks in your AWS account unless you re-deploy it.
+The CloudFormation template deployment that TinyStacks creates begins with the name **TinyStacksRole**. If you wish to revoke TinyStacks' access to your AWS account, you can delete this deployment at any time. Note that, once deleted, TinyStacks will no longer be able to stand up, modify, or present the status of stacks in your AWS account unless you re-deploy it.
 
 ## Git Repository Permissions Required by TinyStacks
 
@@ -70,7 +72,7 @@ GitHub permissions requested include:
 
 * Read access to organizational metadata
 * Administrator access to repositories. You can either allow access to all repositories or restrict GitHub to accessing select repositories only
-* Read/write access to administration, checks, code, commit statuses, deployments, discussions, packages, and pull requests
+* Read/write access to administration, checks, code, commit statuses, deployments, discussions, packages, pull requests, and webhooks.
 
 GitLab permissions requested include:
 
