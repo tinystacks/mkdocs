@@ -95,7 +95,6 @@ The role that TinyStacks creates gives the TinyStacks service role the following
     - Create, update, delete, register, and deregister Task Definitions
     - Create, update, delete, and describe Capacity Providers
     - Put Cluster Capacity Providers
-
 * **Amazon Elastic Container Registry (ECR)**
     - Get and tagging capabilities for all ECR resources
     - Create, describe, and delete Repositories
@@ -137,7 +136,6 @@ The role that TinyStacks creates gives the TinyStacks service role the following
     - Create and delete Polcies
     - Create, update, pass and delete Roles
     - Put, delete, attach, detach, and update Role Policy
-
 * **Key Management Service (KMS)**
     - Tagging capabilities for all KMS resources
     - Decrypt capability for KMS resources
