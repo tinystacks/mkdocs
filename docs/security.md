@@ -38,104 +38,74 @@ The role that TinyStacks creates gives the TinyStacks service role the following
 * **CDK Role and Permissions**
     - There are a basic set of permissions created when your account is boostrapped by AWS's Cloud Development Kit.  We grant our role the ability to assume the IAM role created through this process as well as full access to a CDK specific S3 Bucket, and read-only permission to CDK specific SSM Parameters.
 * **Amazon API Gateway**
-    - Tagging capabilities for all API Gateway resources
-    - POST, GET, PUT, PATCH, DELETE
+    - Describe and tagging capabilities for all API Gateway resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
 * **Application Autoscaling**
-    - Describe and tagging capabilities for all Application Autoscaling resources
-    - Register and deregister Scalable Targets
-    - Put and delete Scaling Policies
-    - Put and delete Scheduled Actions
+    - Describe and tagging capabilities for all resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
 * **Autoscaling**
-    - Describe and tagging capabilities for all Autoscaling resources
-    - Create, get, update, and delete Scaling Plans
-    - Create, get, update, and delete Scaling Plans
-    - Create and delete Launch Configurations
-    - Create, update, delete, and terminate Auto Scaling Groups
-    - Delete Scheduled Actions
+    - Describe and tagging capabilities for all resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
 * **Amazon CloudFront**
-    - tagging capabilities for all CloudFront resources
-    - Create and get CloudFront Distributions
+    - Tagging capabilities for all CloudFront resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
 * **AWS CloudFormation**
     - Full access for all CloudFormation capabilities
         * Note that while this allows us to call a particular action in CloudFormation, the access to the specific action and resource is still controlled by the other permissions listed here.
 * **AWS CloudMap**
-    - Get and tagging capabilities for all CloudMap resources
-    - Create and delete Serivces for service discovery
-    - Create and delete Private DNS Namespaces for service discovery
+    - Describe and tagging capabilities for all resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
 * **AWS CloudTrail**
-    - Describe and tagging capabilities for all CloudTrail resources
+    - Describe and tagging capabilities for all resources
     - Start Logging
-    - Put Event Selectors
-    - Create and delete Trails
+    - Limited permissions for other operations
 * **AWS CloudWatch**
     - Tagging capabilities for all CloudWatch resources
-    - Put, list, get, and ddlete Dashboards
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
 * **AWS CloudWatch Logs**
-    - Get, describe, and tagging capabilities for all CloudWatch Logs resources
-    - Create, update, list, and delete Log Deliveries
-    - Create Log Groups
-    - Create Log Streams
-    - Put Log Events
-    - Put Resource Policies
-    - Put Retention Policies
+    - Describe and tagging capabilities for all resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
 * **AWS CodeBuild**
-    - Tagging capabilities for all CodeBuild resources
-    - Create, update, list, get, and delete Projects
-    - Get Builds
+    - Tagging capabilities for all resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
 * **AWS CodePipeline**
-    - List, get, and tagging capabilities for all CodePipeline resources
-    - Create, update, and delete Pipelines
-    - Start and stop Pipeline Executions
+    - Describe and tagging capabilities for all resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
 * **AWS Cost Explorer**
     - Full access for all Cost Explorer capabilities
 * **Amazon Elastic Container Service (ECS)**
-    - List, describe, and tagging capabilities for all ECS resources
-    - Create, update, and delete Clusters
-    - Create, update, and delete Services
-    - Create, update, delete, register, and deregister Task Definitions
-    - Create, update, delete, and describe Capacity Providers
-    - Put Cluster Capacity Providers
+    - Describe and tagging capabilities for all resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
 * **Amazon Elastic Container Registry (ECR)**
-    - Get and tagging capabilities for all ECR resources
-    - Create, describe, and delete Repositories
-    - Put Image Scanning Configuration
+    - Describe and tagging capabilities for all resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
 * **Amazon EC2**
-    - Describe and tagging capabilities for all EC2 resources
-    - Create, copy, import, export, register, and deregister Images
-    - Start, stop, run, reboot, and terminate EC2 Instances
-    - Create and delete NAT Gateways
-    - Create, replace, and delete Routes
-    - Create, replace, delete, associate, and disassociate Route Tables
-    - Create and delete Security Groups
-    - Authorize and revoke Security Group Ingress and Egress
-    - Associate and disassociate Subnet Cidr Blocks
-    - Create and delete Subnets and Default Subnets
-    - Create, get, and delete Subnet Cidr Reservations
-    - Modify Subnet Attributes
-    - Create and delete Virtual Private Clouds (VPC)
-    - Modify VPC attributes
-    - Create, modify, delete, accept and reject Transit Gateway Vpc Attachment
-    - Create, modify, delete, accept and reject 
-    - Allocate, release, associate, and disassociate Addresses (Elasitc IPs)
-    - Modify and reset Address Attributes
-    - Allocate Hosts
+    - Describe and tagging capabilities for all resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
 * **Elastic Load Balancer**
-    - Describe and tagging capabilities for all Elastic Load Balancing resources
-    - Create, modify, and delete Listeners
-    - Create and delete Load Balancers
-    - Create, modify, and delete Target Groups
-    - Modify Target Group Attributes
-    - Modify Load Balancer Attributes
+    - Describe and tagging capabilities for all resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
 * **Amazon EventBridge**
-    - Tagging capabilities for all EventBridge resources
-    - Put and remove Event Targets
-    - Put, describe, and delete Event Rules
+    - Tagging capabilities for all resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
 * **AWS Identity and Access Management**
-    - List, get, tag, and untag capabilities for all IAM resources
-    - Create, delete, add role, and remove role for Instance Profiles
-    - Create and delete Polcies
-    - Create, update, pass and delete Roles
-    - Put, delete, attach, detach, and update Role Policy
+    - Describe and tagging capabilities for all resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
 * **Key Management Service (KMS)**
     - Tagging capabilities for all KMS resources
     - Decrypt capability for KMS resources
