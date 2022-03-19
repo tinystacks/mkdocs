@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://docs.tinystacks.com/architecture/">
       
       <link rel="icon" href="../assets/tinystacks.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a57b2b03.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.db9e7362.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -40,6 +40,17 @@
     
     
       
+
+  
+
+
+  
+
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-176124935-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
 
 
     
@@ -306,8 +317,6 @@
       </a>
       
         
-
-
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -337,6 +346,33 @@
   <a href="#architectural-components" class="md-nav__link">
     Architectural Components
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networking" class="md-nav__link">
+    Networking
+  </a>
+  
+    <nav class="md-nav" aria-label="Networking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-groups" class="md-nav__link">
+    Security Groups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bastion-host" class="md-nav__link">
+    Bastion Host
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -520,8 +556,6 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-
-
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -551,6 +585,33 @@
   <a href="#architectural-components" class="md-nav__link">
     Architectural Components
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networking" class="md-nav__link">
+    Networking
+  </a>
+  
+    <nav class="md-nav" aria-label="Networking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-groups" class="md-nav__link">
+    Security Groups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bastion-host" class="md-nav__link">
+    Bastion Host
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -671,6 +732,32 @@
 <p><strong><a href="https://aws.amazon.com/ecs/">Amazon Elastic Container Service (ECS)</a></strong>. Docker container orchestration service. Runs the latest version of the application. </p>
 <p><strong><a href="https://aws.amazon.com/cloudwatch/">Amazon CloudWatch</a></strong>. Amazon’s metrics, monitoring, and alerting service. Provides some basic alerts around application health and build/release status. </p>
 <p><strong><a href="https://aws.amazon.com/api-gateway/">Amazon API Gateway</a></strong>. A service for creating managed Application Programming Interfaces (API) at scale. Creates endpoints to the API functions defined by the application residing in the Docker container. </p>
+<h3 id="networking">Networking</h3>
+<p>One of the most technically complex aspects of setting up infrastructure on AWS is creating your virtual private network, or VPC. </p>
+<p>A VPC defines a set of IP address ranges using logical groupings called subnets. Subnets can be one of three types: </p>
+<ul>
+<li><strong>Public</strong>: Traffic is allowed in from and out to the Internet and between subnets within the VPC. Inbound traffic is still often restricted to specific ports (e.g., prots 80 and 443 for Web apps). </li>
+<li><strong>Private</strong>: Traffic is allowed between subnets within the VPC. Requests can be made out to the public Internet via a NAT gateway. </li>
+<li><strong>Isolated</strong>: Traffic is allowed between subnets within the VPC. There is no defined route for Internet requests.</li>
+</ul>
+<p>By using a combination of private/isolated and public subnets, application developers can create a secure hosting environment that reduces an application's surface attack area and minimizes the risk of intrusion. </p>
+<p>Designing and deploying a secure VPC usually requires a solid knowledge of networking and of AWS. TinyStacks eliminates this requirement by deploying every stack with a secure VPC by default.</p>
+<p>Each TinyStacks VPC consists of: </p>
+<ul>
+<li><strong>Three public subnets</strong>. These subnets contain any public-facing infrastructure (e.g., your Application Load Balancer or API Gateway endpoints).</li>
+<li><strong>Three isolated or private subnets</strong>. These subnets contain your ECS cluster instances and your database (if you provisioned it with TinyStacks). During stack creation process, we ask you if you want to add a NAT Gateway to your subnets. If you choose to add a NAT Gateway, the subnets are private. If you choose not to add a NAT Gateway, they are isolated.</li>
+</ul>
+<p>Both sets of subnets are spread across different AWS <a href="https://aws.amazon.com/about-aws/global-infrastructure/regions_az/">Availability Zones</a>. Critical resources are hosted across three separate subnets and Availability Zones. This helps protect against unexpected outages by placing the pieces your infrastructure in geographically isolated data centers on AWS. For example, if you launch three Amazon ECS instances in your ECS cluster, we spread these evenly across all three availability zones. This means your application can still keep serving traffic if a single availability zone goes down. </p>
+<p>How we connect your ECS cluster instances to the Internet depends on the scaling option you choose.  If you use Application Load Balancer, the ALB can forward requests to your container instances by virtue of running in the same VPC. </p>
+<p><img alt="TinyStacks VPC diagram for Application Load Balancer" src="../img/tinystacks-vpc-alb.png" /></p>
+<p>If you use API Gateway as your application front end, TinyStacks creates a VPC Link so that API Gateway can securely forward requests to your Docker container instances running on your cluster instances.</p>
+<p><img alt="TinyStacks VPC diagram for API Gateway" src="../img/tinystacks-vpc-apig.png" /></p>
+<h4 id="security-groups">Security Groups</h4>
+<p>Security groups in AWS define which resources on AWS or the public Internet can access certain AWS resources. We define security groups that restrict access to protected resources. For example, ECS cluster instances can only be accessed by your API Gateway or Application Load Balancer front ends at the specific port that you specify at stack creation time. Likewise, only the ECS cluster instances can talk to the database (unless you create a bastion host, as described below), and only on a single dedicated port.</p>
+<p>This architecture reduces your application's potential attack surface by only publicly exposing the minimal surface area required for your application to operate. </p>
+<h4 id="bastion-host">Bastion Host</h4>
+<p>By default, we do not allow any Internet connectivity directly to your database. However, your team may need to access the database outside of your application (e.g., to run ad hoc queries or troubleshoot issues). </p>
+<p>To facilitate this, TinyStacks supports creating a <a href="https://aws.amazon.com/premiumsupport/knowledge-center/rds-connect-using-bastion-host-linux/">bastion host</a> for your database. The bastion host is an Amazon EC2 instance that sits in one of your public subnets and to which you can connect via SSH using a cryptographic key. Once on the bastion host, you can connect directly to your database in its isolated subnets. </p>
 <h3 id="application-flow">Application Flow</h3>
 <h3 id="github-stack-creation">GitHub Stack Creation</h3>
 <p>When you create a new stack in TinyStacks, you can choose whether to use a starter project or use an existing project already defined in your GitHub account. </p>
@@ -853,10 +940,10 @@ A <strong>service</strong>, which ensures that a set number of running tasks are
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.b1047164.min.js"></script>
+      <script src="../assets/javascripts/bundle.1e84347e.min.js"></script>
       
     
   </body>

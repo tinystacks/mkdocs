@@ -49,20 +49,26 @@ The following diagram shows the major architectural components in a stack.
 
 ### Networking
 
-One of the most technically complex aspects of setting up infrastructure on AWS is creating your virtual private network, or VPC. 
+One of the most technically complex aspects of setting up infrastructure on AWS is creating your virtual private network, or VPC. A VPC establishes the IP address ranges available to your application in its own isolated address space, defines routing between your applications and other VPCs and the public Internet, and sets out security rules that control how others can interact with your network.
 
-A VPC defines a set of IP address ranges using logical groupings called subnets. Subnets can be either public (i.e., they allow traffic to flow to and from the external Internet) or private (traffic is allowed only within the subnet and/or out to the Internet). By using a combination of private and public subnets, application developers can create a secure hosting environment that reduces an application's surface attack area and minimizes the risk of intrusion. 
+A VPC defines a set of IP address ranges using logical groupings called subnets. Subnets can be one of three types: 
+
+* **Public**: Traffic is allowed in from and out to the Internet and between subnets within the VPC. Inbound traffic is still often restricted to specific ports (e.g., ports 80 and 443 for Web apps). 
+* **Private**: Traffic is allowed between subnets within the VPC. Requests can be made out to the public Internet via a NAT gateway. 
+* **Isolated**: Traffic is allowed between subnets within the VPC. There is no defined route for Internet requests.
+
+By using a combination of private/isolated and public subnets, application developers can create a secure hosting environment that reduces an application's surface attack area and minimizes the risk of intrusion. 
 
 Designing and deploying a secure VPC usually requires a solid knowledge of networking and of AWS. TinyStacks eliminates this requirement by deploying every stack with a secure VPC by default.
 
 Each TinyStacks VPC consists of: 
 
 * **Three public subnets**. These subnets contain any public-facing infrastructure (e.g., your Application Load Balancer or API Gateway endpoints).
-* **Three isolated subnets**. Your isolated subnets contain your ECS cluster instances and your database (if you provisioned it with TinyStacks). 
+* **Three isolated or private subnets**. These subnets contain your ECS cluster instances and your database (if you provisioned it with TinyStacks). During stack creation process, we ask you if you want to add a NAT Gateway to your subnets. If you choose to add a NAT Gateway, the subnets are private. If you choose not to add a NAT Gateway, they are isolated.
 
-Both sets of public and private subnets are spread across different AWS [Availability Zones](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/). Critical resources are hosted across three separate subnets and Availability Zones. This helps protect against unexpected outages by placing the pieces your infrastructure in geographically isolated data centers on AWS. For example, if you launch three Amazon ECS instances in your ECS cluster, we spread these evenly across all three availability zones. This means your application can still keep serving traffic if a single availability zone goes down. 
+Both sets of subnets are spread across different AWS [Availability Zones](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/). Critical resources are hosted across three separate subnets and Availability Zones. This helps protect against unexpected outages by placing the pieces of your infrastructure in geographically isolated data centers on AWS. For example, if you launch three Amazon ECS instances in your ECS cluster, we spread these evenly across all three availability zones This means your application can still keep serving traffic if a single availability zone goes down. 
 
-How we connect your ECS cluster instances to the Internet depends on the scaling option you choose.  If you use Application Load Balancer, the ALB can forward requests to your container instances by virtue of running in the same VPC. 
+How we connect your ECS cluster instances to the Internet depends on the scaling option you choose. If you use Application Load Balancer, the ALB can forward requests to your container instances by virtue of running in the same VPC. 
 
 ![TinyStacks VPC diagram for Application Load Balancer](img/tinystacks-vpc-alb.png)
 

@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://docs.tinystacks.com/tinystacks-how-do-i/">
       
       <link rel="icon" href="../assets/tinystacks.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a57b2b03.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.db9e7362.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -40,6 +40,17 @@
     
     
       
+
+  
+
+
+  
+
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-176124935-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
 
 
     
@@ -334,8 +345,6 @@
       </a>
       
         
-
-
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -416,6 +425,13 @@
   
     <nav class="md-nav" aria-label="Advanced How Do I">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-multiple-docker-images-to-my-stack" class="md-nav__link">
+    ...add multiple Docker images to my stack?
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#change-the-exposed-port-for-my-application" class="md-nav__link">
@@ -541,8 +557,6 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-
-
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -623,6 +637,13 @@
   
     <nav class="md-nav" aria-label="Advanced How Do I">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-multiple-docker-images-to-my-stack" class="md-nav__link">
+    ...add multiple Docker images to my stack?
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#change-the-exposed-port-for-my-application" class="md-nav__link">
@@ -762,6 +783,18 @@
 <p>After this, select the <strong>Stage details</strong> link on the left hand navigation menu. There, you will find a <strong>Delete Stage</strong> button. Click it and, when prompted, enter <code>delete</code> to confirm the operation. </p>
 <p><img alt="TinyStacks - delete stage" src="../img/tinystacks-delete-stage-1.png" /></p>
 <h2 id="advanced-how-do-i">Advanced How Do I</h2>
+<h3 id="add-multiple-docker-images-to-my-stack">...add multiple Docker images to my stack?</h3>
+<p>TinyStacks supports multiple Docker images in your stack. </p>
+<p>To add a second Docker image, after you create your stack, navigate to the <strong>Stack settings</strong> page via the gear icon from the Stacks dashboard. Under Stack settings, click the dropdown next to <strong>Service: <your service name></strong>, and click <strong>Create new service</strong>.</p>
+<p><img alt="TinyStacks - create new service" src="../img/tinystacks-multi-image-create-service.png" /></p>
+<p>You can use two different methods to add a new service: </p>
+<ul>
+<li><strong>Repository</strong>. Specify a Git repository. TinyStacks will look for the same files it requires when building a Docker image for your primary stack. </li>
+<li><strong>Image URL</strong>. Use an existing Docker image URL. The repository containing the image must either be public or a repository in an AWS account <a href="../create-stack/">to which you have given TinyStacks access</a>. Alternatively, instead of a URL, you can specify the image name and version of an image in the Docker public repository(e.g., <code>python:3.9</code>). </li>
+</ul>
+<p>Once you're done, click <strong>Create new service</strong>. </p>
+<p>When the stack rebuilds, it will deploy your second container side by side on the same EC2 instances as your other running tasks. </p>
+<p>The images will scale together as you change your auto-scale settings. If you add an additional EC2 instance to your ECS cluster, we will create a new instance of each image on this new ECS cluster node. Memory and CPU resources on the instance are evenly split between all running container images.</p>
 <h3 id="change-the-exposed-port-for-my-application">...change the exposed port for my application?</h3>
 <p>TinyStacks needs to know which port your application is serving HTTP traffic over in order to configure your Amazon ECS tasks properly. If you are using a port besides the standard port 80, you will need to change it in TinyStacks. </p>
 <p>To change your port, <a href="https://tinystacks.com/stacks/">go to your Stacks page</a>. For the stack you want to modify, click the gear icon in the lower right corner. On the <strong>Stack Settings</strong> page, under <strong>Port</strong>, input the number of the port on which your Docker container is exposing its services.</p>
@@ -920,10 +953,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.b1047164.min.js"></script>
+      <script src="../assets/javascripts/bundle.1e84347e.min.js"></script>
       
     
   </body>

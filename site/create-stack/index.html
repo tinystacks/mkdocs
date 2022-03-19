@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://docs.tinystacks.com/create-stack/">
       
       <link rel="icon" href="../assets/tinystacks.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a57b2b03.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.db9e7362.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -40,6 +40,17 @@
     
     
       
+
+  
+
+
+  
+
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-176124935-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
 
 
     
@@ -242,8 +253,6 @@
       </a>
       
         
-
-
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -287,6 +296,40 @@
   <a href="#customize-your-deployment" class="md-nav__link">
     Customize your deployment
   </a>
+  
+    <nav class="md-nav" aria-label="Customize your deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-your-vpc" class="md-nav__link">
+    Configure Your VPC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-database" class="md-nav__link">
+    Add a Database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-ecs" class="md-nav__link">
+    Amazon ECS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-routing" class="md-nav__link">
+    Application Routing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -473,8 +516,6 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-
-
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -518,6 +559,40 @@
   <a href="#customize-your-deployment" class="md-nav__link">
     Customize your deployment
   </a>
+  
+    <nav class="md-nav" aria-label="Customize your deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-your-vpc" class="md-nav__link">
+    Configure Your VPC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-database" class="md-nav__link">
+    Add a Database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-ecs" class="md-nav__link">
+    Amazon ECS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-routing" class="md-nav__link">
+    Application Routing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -599,12 +674,20 @@
 <li>The <strong>AWS pricing breakdown</strong> gives you a sense of what you'll per month for your stack in its current configuration. </li>
 <li>You can define <strong>Environment variables</strong> as name-value pairs that will be exposed as environment variables to your running application's Docker container. </li>
 </ul>
-<p>If a tile has a gear icon in the upper right corner, you can click it to configure advanced options for that tile. Configurable options include: </p>
-<ul>
-<li><strong>Database</strong>. Click <strong>Enable</strong> to create an Amazon RDS Postgres database for your account. Use the settings option to select an existing database instead and to configure other database-related options. </li>
-<li><strong>Amazon ECS</strong>. Configure build and scale settings for your Amazon ECS cluster, such as the size of the Amazon EC2 instances used in your cluster. </li>
-<li><strong>Amazon API Gateway</strong>. Choose between using Amazon API Gateway or Application Load Balancer for front end application routing. </li>
-</ul>
+<p>If a tile has a gear icon in the upper right corner, you can click it to configure advanced options for that tile. Configurable options include the following. </p>
+<h3 id="configure-your-vpc">Configure Your VPC</h3>
+<p>By default, TinyStacks will create a new, secure VPC with three public and three isolated subnets. Your application will run into the isolated subnets. </p>
+<p><img alt="TinyStacks - configure VPC" src="../img/tinystacks-vpc-config.png" /></p>
+<p>You can click the gear icon to opt instead to use your own pre-created VPC from your AWS account. You can use your own VPC that you created or a VPC that TinyStacks created for one of your other stacks. </p>
+<p><img alt="TinyStacks - configure VPC" src="../img/tinystacks-vpc-select-existing.png" /></p>
+<p>You can also option to turn the isolated subnets into private subnets by adding a NAT Gateway. This will enable applications running in these subnets to make calls out to the public Internet. You should enable this if your application has an external dependency, such as on a publicly hosted Web service. (Note: You will incur an hourly charge for your NAT Gateway as well as data transfer charges for every 1GB of data that flows to the Internet or to compute capacity in a different Availability Zone. See the <a href="https://aws.amazon.com/vpc/pricing/">AWS NAT Gateway Pricing page</a> for more details.)</p>
+<p><img alt="TinyStacks - configure VPC" src="../img/tinystacks-vpc-select-existing.png" /></p>
+<h3 id="add-a-database">Add a Database</h3>
+<p>Click <strong>Enable</strong> to create an Amazon RDS Postgres database for your account. Use the settings option to select an existing database instead and to configure other database-related options. </p>
+<h3 id="amazon-ecs">Amazon ECS</h3>
+<p>Configure build and scale settings for your Amazon ECS cluster, such as the size of the Amazon EC2 instances used in your cluster. </p>
+<h3 id="application-routing">Application Routing</h3>
+<p>Choose between using Amazon API Gateway or Application Load Balancer for front end application routing. </p>
 <p>You can change any of these options now or change them later, after your original deployment. Your stack will also build as is, without any additional configuration. For now, start the creation of your first stack by clicking <strong>Build</strong>.</p>
 <h2 id="testing-your-stack">Testing your stack</h2>
 <p>Your stack will take a few minutes to build. Once it's done, you'll be taken to the <strong>Stacks</strong> page on your TinyStacks account, where you can see your running stack listed. </p>
@@ -768,10 +851,10 @@ $response = Invoke-WebRequest 'https://my-domain-name/local-item' -Method Put -B
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.b1047164.min.js"></script>
+      <script src="../assets/javascripts/bundle.1e84347e.min.js"></script>
       
     
   </body>
