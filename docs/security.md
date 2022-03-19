@@ -100,67 +100,43 @@ The role that TinyStacks creates gives the TinyStacks service role the following
     - Limited permissions for other operations
 * **Amazon EventBridge**
     - Tagging capabilities for all resources
-    - Basic read/update/delete permissions
+    - Basic create/update/delete permissions
     - Limited permissions for other operations
 * **AWS Identity and Access Management**
     - Describe and tagging capabilities for all resources
-    - Basic read/update/delete permissions
+    - Basic create/update/delete permissions
     - Limited permissions for other operations
 * **Key Management Service (KMS)**
     - Tagging capabilities for all KMS resources
     - Decrypt capability for KMS resources
 * **AWS Lambda**
-    - List, get, and tagging capabilities for all Lambda resources
-    - Create, update, invoke, and delete Lambda Functions
-    - Add and remove permissions
-    - Put and delete function concurrency
-    - Put, update, and delete function code signing config
-    - Put, update, and delete function event config
-    - Update function code
-    - Update function configuration
-    - Publish and delete layer versions
-    - Add and remove layer version permissions
+    - Describe capabilities for all resources
+    - Basic create/update/delete permissions
+    - Limited permissions for other operations
 * **Amazon Relational Database Service (RDS)**
-    - Desribe and tagging capabilities for all RDS resources
-    - Create and delete Subnet Groups
-    - Create, modify, and delete Database Instances
-    - Create and promote Read Replicas
+    - Describe and tagging capabilities for all resources
+    - Basic create/update/delete permissions
+    - Limited permissions for other operations
 * **Amazon Route 53**
-    - Get, list and tagging capabilities for all Route53 resources
-    - Create and delete Hosted Zones
-    - Assoicate and disassociate VPC with Hosted Zones
-    - Enable and disable Hosted Zone DNS Security Extensions (DNSSEC)
-    - Update Hosted Zone Comments
+    - Describe and tagging capabilities for all resources
+    - Basic create/update/delete permissions
+    - Limited permissions for other operations
 * **AWS Secrets Manager**
-    - Tagging capabilities for all Secrets Manager resources
-    - Create and delete Secrets
-    - Get and put Secret Values
-    - Get random passwords
+    - Describe capabilities for all resources
+    - Basic create/update/delete permissions
+    - Limited permissions for other operations
 * **AWS Systems Manager**
-    - Tagging capabilities for all Systems Manager resources
-    - Put, get, and delete Parameters
+    - Tagging capabilities for all resources
+    - Basic create/update/delete permissions
+    - Limited permissions for other operations
 * **Amazon Simple Notification Service (SNS)**
-    - List, get and tagging capabilities for all SNS resources
-    - Create and delete Topics
-    - Subscribe and Unsubscribe from Topics
-    - Confirm Topic Subscriptions
-    - Set Subscription attributes
+    - Describe and tagging capabilities for all resources
+    - Basic create/update/delete permissions
+    - Limited permissions for other operations
 * **Amazon Simple Storage Service (S3)**
-    - Get, list and tagging capabilities for all S3 resources
-    - Create and delete Buckets
-    - Put and delete Bucket Policies
-    - Put Encryption Configuration
-    - Put Bucket Versioning
-    - Put Bucket Public Access Block
-    - Put Bucket Access control list
-    - Put, delete, replicate, and restore Objects
-    - Delete Object versions
-    - Override Object Owner To Bucket Owner
-    - Put Bucket Object Lock Configuration
-    - Put Object Access control list
-    - Put Object Verion Access control list
-    - Put Object legal hold
-    - Put Object retention
+    - Describe and tagging capabilities for all resources
+    - Basic create/update/delete permissions
+    - Limited permissions for other operations
 
 The CloudFormation template deployment that TinyStacks creates begins with the name **TinyStacksRole**. If you wish to revoke TinyStacks' access to your AWS account, you can delete this deployment at any time. Note that, once deleted, TinyStacks will no longer be able to stand up, modify, or present the status of stacks in your AWS account unless you re-deploy it.
 
