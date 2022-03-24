@@ -77,17 +77,41 @@ Additionally, you can see and configure several additional options:
 * The **AWS pricing breakdown** gives you a sense of what you'll per month for your stack in its current configuration. 
 * You can define **Environment variables** as name-value pairs that will be exposed as environment variables to your running application's Docker container. 
 
-If a tile has a gear icon in the upper right corner, you can click it to configure advanced options for that tile. Configurable options include: 
+If a tile has a gear icon in the upper right corner, you can click it to configure advanced options for that tile. Configurable options include the following. 
 
-* **Database**. Click **Enable** to create an Amazon RDS Postgres database for your account. Use the settings option to select an existing database instead and to configure other database-related options. 
-* **Amazon ECS**. Configure build and scale settings for your Amazon ECS cluster, such as the size of the Amazon EC2 instances used in your cluster. 
-* **Amazon API Gateway**. Choose between using Amazon API Gateway or Application Load Balancer for front end application routing. 
+### Configure Your VPC
+
+By default, TinyStacks will create a new, secure VPC with three public and three isolated subnets. Your application will run into the isolated subnets. 
+
+![TinyStacks - configure VPC](img/tinystacks-vpc-config.png)
+
+You can click the gear icon to opt instead to use your own pre-created VPC from your AWS account. You can use your own VPC that you created or a VPC that TinyStacks created for one of your other stacks. 
+
+![TinyStacks - configure VPC](img/tinystacks-vpc-select-existing.png)
+
+You can also option to turn the isolated subnets into private subnets by adding a NAT Gateway. This will enable applications running in these subnets to make calls out to the public Internet. You should enable this if your application has an external dependency, such as on a publicly hosted Web service. (Note: You will incur an hourly charge for your NAT Gateway as well as data transfer charges for every 1GB of data that flows to the Internet or to compute capacity in a different Availability Zone. See the [AWS NAT Gateway Pricing page](https://aws.amazon.com/vpc/pricing/) for more details.)
+
+![TinyStacks - configure VPC](img/tinystacks-vpc-nat-gateway.png)
+
+### Add a Database
+
+Click **Enable** to create an Amazon RDS Postgres database for your account. Use the settings option to select an existing database instead and to configure other database-related options. 
+
+### Amazon ECS 
+
+Configure build and scale settings for your Amazon ECS cluster, such as the size of the Amazon EC2 instances used in your cluster. 
+
+### Front-End Routing 
+
+Choose between using Amazon API Gateway or Application Load Balancer for front end application routing. 
 
 You can change any of these options now or change them later, after your original deployment. Your stack will also build as is, without any additional configuration. For now, start the creation of your first stack by clicking **Build**.
 
 ## Testing your stack
 
-Your stack will take a few minutes to build. Once it's done, you'll be taken to the **Stacks** page on your TinyStacks account, where you can see your running stack listed. 
+Your application's environment will take a few minutes to build. We'll present detailed status updates in the upper-right corner of this as we build out your stack.
+
+Once it's done, you'll be taken to the **Stacks** page on your TinyStacks account, where you can see your running stack listed. 
 
 ![TinyStacks - list of stacks in your account](img/tinystacks-create-12.jpg)
 
