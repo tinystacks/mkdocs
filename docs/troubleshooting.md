@@ -8,7 +8,7 @@ When TinyStacks attempts to enable logging on your stack, you may see the follow
 Cannot enable logging. Policy document length breaking Cloudwatch Logs Constraints, either < 1 or > 5120 (Service: AmazonApiGatewayV2; Status Code: 400; Error Code: BadRequestException;
 ```
 
-To resolve this, run the following AWS CLI command. (You will need to have [the AWS CLI installed and configured for use](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html) with your AWS account.)
+To resolve this, run the following AWS CLI command. You can run this command on the [AWS CloudShell](https://aws.amazon.com/cloudshell/), which has the CLI pre-installed and pre-authenticates you directly from the AWS Console. (Alternative, you can run this on your local computer if you have [the AWS CLI installed and configured for use](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html) with your AWS account.)
 
 ```
 aws logs put-resource-policy --policy-name AWSLogDeliveryWrite20150319 --policy-document "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"AWSLogDeliveryWrite\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"delivery.logs.amazonaws.com\"},\"Action\":[\"logs:CreateLogStream\",\"logs:PutLogEvents\"],\"Resource\":[\"*\"]}]}"
