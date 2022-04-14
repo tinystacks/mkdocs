@@ -1,4 +1,26 @@
-When using TinyStacks, you may run into the following issues. Most customers have resolved these issues with the tips below. If a given resolution doesn't work for you, please contact us and we'll help you out. 
+When using TinyStacks, you may run into the following issues. Most customers have resolved these issues with the tips below. If a given resolution doesn't work for you, [please contact us on our Discord channel](https://discord.com/channels/825074552085413966/825074552085413969) and we'll help you out. 
+
+## Launch is stuck for several minutes
+
+On occasion, you may see a stack launched stuck in one of its status states for several minutes. In these situations, it's possible that the stack has encountered an error that's preventing it from launching. 
+
+Here are a few things you can check or try: 
+
+### Check for CloudFormation errors
+
+Sign in to the AWS Management Console and check the CloudFormation template's **Events** tab for any errors. (The template name will begin with the name of your stack.) It's possible the stack encountered an error in creating the Amazon ECS cluster, in which case the detailed error message should provide actionable information. 
+
+### Drop the service's desired task count in ECS
+
+If you're just standing up your initial infrastructure, there may be an issue with the application on your Docker container that's preventing your service from starting on ECS. Dropping your task count down to zero in the Amazon ECS Management Console can help skip over any such errors and ensure your stack finishes creating correctly. 
+
+Find the ECS cluster with the same name as your stack and click on it. From there, click on the name of your service under **Services**. Click the **Edit** button and set the field **Desired tasks** to 0.
+
+![TinyStacks - set desired tasks to zero](img/service-desired-tasks-zero.png)
+
+### Turn off the application's health check
+
+
 
 ## Error When Enabling Logging: "Policy document length breaking CloudWatch Log Constraints"
 
