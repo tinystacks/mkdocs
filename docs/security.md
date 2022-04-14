@@ -62,6 +62,8 @@ The role also gives TinyStacks the following access to your AWS account:
 
 The CloudFormation template deployment that TinyStacks creates begins with the name **TinyStacksRole**. If you wish to revoke TinyStacks' access to your AWS account, you can delete this deployment at any time. Note that, once deleted, TinyStacks will no longer be able to stand up stacks in your AWS account unless you re-deploy it.
 
+You can see the full role in your AWS account's IAM dashboard. You can also view it [on our IAM Policy page](iam-policy.md).
+
 ## Git Repository Permissions Required by TinyStacks
 
 In order to access your Git account, TinyStacks will request permissions for your Git repositories residing in GitHub or GitLab. 
