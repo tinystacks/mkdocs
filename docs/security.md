@@ -33,34 +33,110 @@ In order to create a stack in your AWS account, TinyStacks first spins up an AWS
 * Gives the TinyStacks service role (tinystacks-service-role) the permission to assume this role. 
 * Informs TinyStacks (via an AWS Lambda callback) that the role is correctly configured for your account. 
 
-The role that TinyStacks creates gives the TinyStacks service role full access to the following services in your AWS account: 
+The role that TinyStacks creates gives the TinyStacks service role the following access in your AWS account:
 
-* **API Gateway**
+* **CDK Role and Permissions**
+    - There are a basic set of permissions created when your account is boostrapped by AWS's Cloud Development Kit.  We grant our role the ability to assume the IAM role created through this process as well as full access to a CDK specific S3 Bucket, and read-only permission to CDK specific SSM Parameters.
+* **Amazon API Gateway**
+    - Describe and tagging capabilities for all API Gateway resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
 * **Application Autoscaling**
-* **Cloudwatch**
-* **CodeBuild**
-* **CodePipeline**
+    - Describe and tagging capabilities for all resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
+* **Autoscaling**
+    - Describe and tagging capabilities for all resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
+* **Amazon CloudFront**
+    - Tagging capabilities for all CloudFront resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
+* **AWS CloudFormation**
+    - Full access for all CloudFormation capabilities
+        * Note that while this allows us to call a particular action in CloudFormation, the access to the specific action and resource is still controlled by the other permissions listed here.
+* **AWS CloudMap**
+    - Describe and tagging capabilities for all resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
+* **AWS CloudTrail**
+    - Describe and tagging capabilities for all resources
+    - Start Logging
+    - Limited permissions for other operations
+* **AWS CloudWatch**
+    - Tagging capabilities for all CloudWatch resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
+* **AWS CloudWatch Logs**
+    - Describe and tagging capabilities for all resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
+* **AWS CodeBuild**
+    - Tagging capabilities for all resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
+* **AWS CodePipeline**
+    - Describe and tagging capabilities for all resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
+* **AWS Cost Explorer**
+    - Full access for all Cost Explorer capabilities
 * **Amazon Elastic Container Service (ECS)**
+    - Describe and tagging capabilities for all resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
+* **Amazon Elastic Container Registry (ECR)**
+    - Describe and tagging capabilities for all resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
 * **Amazon EC2**
+    - Describe and tagging capabilities for all resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
 * **Elastic Load Balancer**
-* **Key Management Service**
+    - Describe and tagging capabilities for all resources
+    - Basic read/update/delete permissions
+    - Limited permissions for other operations
+* **Amazon EventBridge**
+    - Tagging capabilities for all resources
+    - Basic create/update/delete permissions
+    - Limited permissions for other operations
+* **AWS Identity and Access Management**
+    - Describe and tagging capabilities for all resources
+    - Basic create/update/delete permissions
+    - Limited permissions for other operations
+* **Key Management Service (KMS)**
+    - Tagging capabilities for all KMS resources
+    - Decrypt capability for KMS resources
 * **AWS Lambda**
+    - Describe capabilities for all resources
+    - Basic create/update/delete permissions
+    - Limited permissions for other operations
+* **Amazon Relational Database Service (RDS)**
+    - Describe and tagging capabilities for all resources
+    - Basic create/update/delete permissions
+    - Limited permissions for other operations
 * **Amazon Route 53**
+    - Describe and tagging capabilities for all resources
+    - Basic create/update/delete permissions
+    - Limited permissions for other operations
+* **AWS Secrets Manager**
+    - Describe capabilities for all resources
+    - Basic create/update/delete permissions
+    - Limited permissions for other operations
+* **AWS Systems Manager**
+    - Tagging capabilities for all resources
+    - Basic create/update/delete permissions
+    - Limited permissions for other operations
 * **Amazon Simple Notification Service (SNS)**
-* **Amazon S3**
-
-The role also gives TinyStacks the following access to your AWS account: 
-
-* **IAM**: Create role, assume role
-* **Cloudfront**: Create/get distribution, tag resource, put event selectors
-* **Cloudtrail**: Create trail, delete trail
-* **Amazon Elastic Container Repository (ECR)**: Get lifecycle policy, create repository, list tags, get repository policy, describe repository policy
-* **Amazon EventBridge**: Delete rule, put targets, remove targets, put rule, describe rule
-* **Cloudwatch Logs**: Delete log delivery, list log deliveries, create log delivery, create group, describe log groups & streams, put retention policy
-* **Amazon RDS**: Create/delete DB subnet group, create/delete instance, describe instances, describe subnet groups
-* **AWS Service Discovery**: Get/create/delete service, get operation, get/create/delete private DNS namespace
-* **AWS Secrets Manager**: Get/put secret value, create/delete secret, get random password, get service quota
-* **AWS Systems Manager**: Get/create/put parameters
+    - Describe and tagging capabilities for all resources
+    - Basic create/update/delete permissions
+    - Limited permissions for other operations
+* **Amazon Simple Storage Service (S3)**
+    - Describe and tagging capabilities for all resources
+    - Basic create/update/delete permissions
+    - Limited permissions for other operations
 
 The CloudFormation template deployment that TinyStacks creates begins with the name **TinyStacksRole**. If you wish to revoke TinyStacks' access to your AWS account, you can delete this deployment at any time. Note that, once deleted, TinyStacks will no longer be able to stand up, modify, or present the status of stacks in your AWS account unless you re-deploy it.
 
