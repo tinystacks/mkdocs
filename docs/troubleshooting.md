@@ -20,7 +20,7 @@ Find the ECS cluster with the same name as your stack and click on it. From ther
 
 ### Turn off the application's health check
 
-
+If your application is failing its health check, this will stop the deployment from registering as completed. To do this, remove any custom health check setting. Navigate to **Settings** -> **Stack Settings** and then, under your service, select **Settings** to view and change your health check URL.
 
 ## Error When Enabling Logging: "Policy document length breaking CloudWatch Log Constraints"
 
