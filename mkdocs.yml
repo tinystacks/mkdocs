@@ -6,7 +6,8 @@ theme:
     - navigation.sections
   static_templates:
     - 404.html
-
+  palette:
+      scheme: slate
   # Necessary for search to work properly
   include_search_page: false
   search_index_only: true
@@ -25,9 +26,9 @@ extra:
   generator: false
   analytics:
     provider: google
-    property: UA-176124935-1
+    property: G-ZGJ7S5GYW6
   social:
-    - icon: fontawesome/solid/home
+    - icon: fontawesome/solid/house
       link: https://www.tinystacks.com
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/channel/UC21VAvNozfMxrcappmJ8EBA
@@ -50,6 +51,7 @@ nav:
     - 'How Do I...?': 'tinystacks-how-do-i.md'
     - 'How We Secure Your Stack': 'security.md' 
     - 'Full AWS IAM Policy Used by TinyStacks': 'iam-policy.md' 
+    - 'Troubleshooting': 'troubleshooting.md'
   - 'The TinyStacks Advantage':
     - 'How TinyStacks Stacks Up': 'comparisons.md'
 
