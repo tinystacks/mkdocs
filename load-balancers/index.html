@@ -516,28 +516,21 @@
       
         <li class="md-nav__item">
   <a href="#standard-scale-applications-and-hyperscale-applications" class="md-nav__link">
-    Standard scale applications and hyperscale applications
+    Standard Scale Applications and Hyperscale Applications
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#changing-your-load-balancer" class="md-nav__link">
-    Changing your load balancer
+    Changing Your Load Balancer
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#enabling-caching-on-endpoint-requests" class="md-nav__link">
-    Enabling caching on endpoint requests
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#adding-custom-domain-names" class="md-nav__link">
-    Adding custom domain names
+    Enabling Caching on Endpoint Requests
   </a>
   
 </li>
@@ -573,20 +566,6 @@
     <li class="md-nav__item">
       <a href="../logging-monitoring/" class="md-nav__link">
         Logging and Monitoring
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../domain-names-https/" class="md-nav__link">
-        Domain Names and HTTPS
       </a>
     </li>
   
@@ -728,7 +707,7 @@
 <p>TinyStacks enables customers to choose one of two technologies for exposing the application endpoint: <strong>Amazon API Gateway</strong>, AWS's REST API management service, or <strong>Amazon Application Load Balancer</strong> (ALB), a more general-purpose load balancer suited to a large variety of Web applications. </p>
 <p>Both technologies help provide secure access to your application. As discussed in <a href="../networking/">Networking</a>, TinyStacks doesn't expose your application directly on the Internet. Instead, we use API Gateway or ALB to expose only the port required for your application. This gives the virtual machines running in your ECS cluster additional protection against attack and attempted intrusion. </p>
 <p>As its name suggests, ALB also provides load balancing services. This means that requests to your service are balanced across the different instances of your containers running on your ECS cluster.</p>
-<h3 id="standard-scale-applications-and-hyperscale-applications">Standard scale applications and hyperscale applications</h3>
+<h3 id="standard-scale-applications-and-hyperscale-applications">Standard Scale Applications and Hyperscale Applications</h3>
 <p>The primary decision between choosing API Gateway versus ALB is how much traffic you expect your application to handle. We like to distinguish between two types of scale: </p>
 <ul>
 <li><strong>Standard scale</strong>: Applications serving under one million requests a day. </li>
@@ -736,16 +715,13 @@
 </ul>
 <p>In general, standard scale applications will find better price and performance using API Gateway. Hyperscale applications) will receive better price/performance from using API Gateway. </p>
 <p>For more details, <a href="https://blog.tinystacks.com/battle-of-the-serverless-api-routers-alb-vs-api-gateway-feature-comparison" target="_blank">see our blog post comparing API Gateway with Application Load Balancer</a>.</p>
-<h3 id="changing-your-load-balancer">Changing your load balancer</h3>
+<h3 id="changing-your-load-balancer">Changing Your Load Balancer</h3>
 <p>You can change the load balancer your application uses at any time. This can be useful if your application's usage has increased from a standard scale to a hyperscale pattern. </p>
 <p>To change your load balancer, go to <strong>Stack Settings</strong> (the gear icon next to your stack on the TinyStacks dashboard) and select <strong>Endpoint</strong>. From there, you can switch your endpoint technology between API Gateway and ALB.</p>
-<p>Note that, if you switch your endpoint technology, you will also have to update your custom domain names, as domain name routing works differently between API Gateway and ALB. For more, see <a href="../domain-names-https/">Domain Names and HTTPS</a>.</p>
 <p><img alt="TinyStacks - change endpoint" src="../img/endpoint-change.png" /></p>
-<h3 id="enabling-caching-on-endpoint-requests">Enabling caching on endpoint requests</h3>
+<h2 id="enabling-caching-on-endpoint-requests">Enabling Caching on Endpoint Requests</h2>
 <p>You can alternatively elect to enable caching on all endpoint requests. Enabling caching is best done for sites and services that act mostly as informational services or other scenarios where the return results are largely static.</p>
 <p>On API Gateway, caching is enabled directly as a feature on the API Gateway service. For Application Load Balancer, TinyStacks implements its own caching mechanism.</p>
-<h3 id="adding-custom-domain-names">Adding custom domain names</h3>
-<p>You can add custom domain names to your application no matter which technology you use for hosting. For more information, see <a href="../domain-names-https/">Domain Names and HTTPS</a>. </p>
                 
               
               
