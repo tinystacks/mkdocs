@@ -3,7 +3,8 @@ site_url: https://docs.tinystacks.com
 theme:
   name: material
   features:
-    - navigation.sections
+    - toc.integrate
+    - toc.expand
   static_templates:
     - 404.html
   palette:
@@ -28,7 +29,7 @@ extra:
     provider: google
     property: G-ZGJ7S5GYW6
   social:
-    - icon: fontawesome/solid/house
+    - icon: fontawesome/solid/home
       link: https://www.tinystacks.com
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/channel/UC21VAvNozfMxrcappmJ8EBA
@@ -48,10 +49,22 @@ nav:
   - 'How It Works':
     - 'Architecture': 'architecture.md' 
     - 'Concepts' : 'concepts.md'
-    - 'How Do I...?': 'tinystacks-how-do-i.md'
     - 'How We Secure Your Stack': 'security.md' 
     - 'Full AWS IAM Policy Used by TinyStacks': 'iam-policy.md' 
-    - 'Troubleshooting': 'troubleshooting.md'
+  - 'Features':
+    - 'Basic Settings' : 'basic-settings.md'
+    - 'Builds and Releases': 'builds-releases.md'  
+    - 'Compute': 'compute.md'
+    - 'Networking': 'networking.md'
+    - 'Database': 'database.md'
+    - 'Stages': 'stages.md'
+    - 'Environment Variables': 'environment-variables.md'
+    - 'Load Balancers': 'load-balancers.md'
+    - 'Sidecars' : 'sidecars.md'
+    - 'Logging and Monitoring': 'logging-monitoring.md'
+    - 'Customizing Your Stacks': 'customizing.md'
+  - 'Troubleshooting':
+    - 'Troubleshooting Guide': 'troubleshooting.md'  
   - 'The TinyStacks Advantage':
     - 'How TinyStacks Stacks Up': 'comparisons.md'
 

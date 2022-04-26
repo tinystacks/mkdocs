@@ -8,7 +8,7 @@ To deploy an application, development teams must define two major components. Fi
 
 Before the advent of the cloud, companies had to stand up physical infrastructure - servers in data centers connected to high-speed networks - in order to deploy Web-based applications. This changed with the advent of cloud service providers such as AWS, which provide computing capacity on demand. Instead of standing up permanent capacity, companies could now rent what they needed, shut it down when they were finished, and pay for only what they used. 
 
-Cloud computing capacity can be activated manually - e.g., via the AWS Management Console. It can also be activated automatically - via a programming language such as Python, or a declarative language such as [AWS CloudFormation](https://aws.amazon.com/cloudformation/). This paves the way for **infrastructure as code**: the ability to provision the computing capacity an application requires in an automated, repeatable fashion. 
+Cloud computing capacity can be activated manually - e.g., via the AWS Management Console. It can also be activated automatically - via a programming language such as Python, or a declarative language such as <a href="https://aws.amazon.com/cloudformation/" target="_blank">AWS CloudFormation</a>. This paves the way for **infrastructure as code**: the ability to provision the computing capacity an application requires in an automated, repeatable fashion. 
 
 With infrastructure as code, a development team can deploy multiple releases of their application using the same template. Additionally, they can stand up and shut down environments with ease: a test environment can be spun up to verify an application’s integrity, and then shut down at the end of the testing run to conserve costs. A team can also deploy multiple types of environments - from an environment for developers to a full production-ready deployment - using the same code. 
 
@@ -47,4 +47,4 @@ A release pipeline typically consists of multiple stages. Development teams use 
 * A **staging** or **preprod** (pre-production) stage that mimics production and is used by internal employees and select customers to vet the final release. 
 * A **prod** (production) stage that hosts the customer-facing version of your application. 
 
-A check-in to a stack’s Git repository will flow through each stage in the order shown on the TinyStacks Dashboard. Each stage will build and deploy the checked-in changes to that stage’s stack. If the build and deployment are successful, the changes flow to the next stage, where they are also built and deployed. If an error occurs, the change will not flow to the next stage. 
+For more on how to configure and manage stages, see [Stages](stages.md).
