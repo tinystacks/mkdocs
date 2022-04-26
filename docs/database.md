@@ -1,4 +1,4 @@
-TinyStacks supports creating a Postgres database as part of your stack. You can also choose to pass in a database 
+TinyStacks supports creating a Postgres database as part of your stack. You can also choose to pass in a database you have already created in your AWS account. 
 
 ### Changing your stack's database settings
 
