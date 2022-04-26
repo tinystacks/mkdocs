@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://docs.tinystacks.com/create-stack/">
+        <link rel="canonical" href="https://docs.tinystacks.com/load-balancers/">
       
       <link rel="icon" href="../assets/tinystacks.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
     
     
       
-        <title>Create Your First Stack - TinyStacks Documentation</title>
+        <title>Load Balancers - TinyStacks Documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#prerequisites" class="md-skip">
+        <a href="#standard-scale-applications-and-hyperscale-applications" class="md-skip">
           Skip to content
         </a>
       
@@ -105,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Create Your First Stack
+              Load Balancers
             
           </span>
         </div>
@@ -206,14 +206,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
       
       
@@ -234,123 +232,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Create Your First Stack
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../create-stack/" class="md-nav__link">
         Create Your First Stack
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-git-connection" class="md-nav__link">
-    Configure Git connection
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-aws-account" class="md-nav__link">
-    Configure AWS account
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#select-a-starter-project" class="md-nav__link">
-    Select a starter project
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#customize-your-deployment" class="md-nav__link">
-    Customize your deployment
-  </a>
-  
-    <nav class="md-nav" aria-label="Customize your deployment">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#configure-your-vpc" class="md-nav__link">
-    Configure Your VPC
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#add-a-database" class="md-nav__link">
-    Add a Database
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#amazon-ecs" class="md-nav__link">
-    Amazon ECS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#front-end-routing" class="md-nav__link">
-    Front-End Routing
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing-your-stack" class="md-nav__link">
-    Testing your stack
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#push-your-first-commit" class="md-nav__link">
-    Push your first commit
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -472,12 +358,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -596,11 +484,68 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../load-balancers/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Load Balancers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Load Balancers
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#standard-scale-applications-and-hyperscale-applications" class="md-nav__link">
+    Standard scale applications and hyperscale applications
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-your-load-balancer" class="md-nav__link">
+    Changing your load balancer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enabling-caching-on-endpoint-requests" class="md-nav__link">
+    Enabling caching on endpoint requests
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-custom-domain-names" class="md-nav__link">
+    Adding custom domain names
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -777,113 +722,30 @@
               
                 
                 
-                  <h1>Create Your First Stack</h1>
+                  <h1>Load Balancers</h1>
                 
-                <p>The following guide is for first-time TinyStacks users. Follow these instructions to launch one of our sample applications on AWS in under 15 minutes!</p>
-<h2 id="prerequisites">Prerequisites</h2>
-<p>You will need the following resources set up before you start using TinyStacks: </p>
+                <p>To access your application, it needs to have a publicly available domain name, or <strong>endpoint</strong>. </p>
+<p>TinyStacks enables customers to choose one of two technologies for exposing the application endpoint: <strong>Amazon API Gateway</strong>, AWS's REST API management service, or <strong>Amazon Application Load Balancer</strong> (ALB), a more general-purpose load balancer suited to a large variety of Web applications. </p>
+<p>Both technologies help provide secure access to your application. As discussed in <a href="../networking/">Networking</a>, TinyStacks doesn't expose your application directly on the Internet. Instead, we use API Gateway or ALB to expose only the port required for your application. This gives the virtual machines running in your ECS cluster additional protection against attack and attempted intrusion. </p>
+<p>As its name suggests, ALB also provides load balancing services. This means that requests to your service are balanced across the different instances of your containers running on your ECS cluster.</p>
+<h3 id="standard-scale-applications-and-hyperscale-applications">Standard scale applications and hyperscale applications</h3>
+<p>The primary decision between choosing API Gateway versus ALB is how much traffic you expect your application to handle. We like to distinguish between two types of scale: </p>
 <ul>
-<li>A Git account with either <a href="https://github.com" target="_blank">GitHub</a> or <a href="https://gitlab.com" target="_blank">GitLab</a>.</li>
-<li><a href="https://aws.amazon.com" target="_blank">An AWS account</a>. All of the resources TinyStacks creates for you will be hosted in an AWS account that you own. Don't worry - you cna get started without any previous knowledge of AWS!</li>
+<li><strong>Standard scale</strong>: Applications serving under one million requests a day. </li>
+<li><strong>Hyperscale</strong>: Applications serving over one million requests.</li>
 </ul>
-<h2 id="configure-git-connection">Configure Git connection</h2>
-<p>When you first log in to TinyStacks, you’ll need to wire up a supported Git repository account as well as an AWS account. TinyStacks supports using Git repositories hosted on GitHub or GitLab. </p>
-<p><img alt="TinyStacks Create First Stack screen" src="../img/tinystacks-create-1.png" /></p>
-<p>Select which Git service you plan to use: GitHub or Gitlab. A separate window will open. If you are not logged in to your selected service, you will be prompted to log in now. </p>
-<p><img alt="TinyStacks add git account prompt" src="../img/tinystacks-create-2.png" /></p>
-<p>Once logged in, you will need to grant authorization for TinyStacks to access your GitHub or GitLab account. This will allow us to add a repository to your account (if you use one of our starter projects) or read an existing repository (if you use your own project). </p>
-<h2 id="configure-aws-account">Configure AWS account</h2>
-<p>Once you've authorized your Git account, you will be prompted to authorize an AWS account. This account will host all of the cloud resources required by your application. </p>
-<p><img alt="TinyStacks connect to AWS prompt" src="../img/tinystacks-create-3.png" /></p>
-<p>If you have not logged in to your AWS account recently, you will be prompted to do so. </p>
-<p>Once you have logged in to AWS, you will see the following screen, which prompts you to create an AWS CloudFormation stack in your AWS account. This step is <strong>necessary</strong> in order to proceed and fully connect your account. This CloudFormation template will create an AWS Identity and Access Management (IAM) role that TinyStacks will assume in order to create resources in your account.</p>
-<p><img alt="Create TinyStacks role in AWS account" src="../img/tinystacks-create-4.png" /></p>
-<p>(<em>Note</em>: Some elements of the screen above have been blurred out for security reasons.)</p>
-<p>To create this stack, select the box <strong>I acknowledge that AWS CloudFormation might create IAM resources</strong>. Then, click the <strong>Create Stack</strong> button. </p>
-<p>After creating the stack, tab back to the previous tab containing the TinyStacks window. Once the stack has completed creating, TinyStacks will automatically detect this and move you to the next step in the stack creation process. Once you see the screen below, you can proceed. </p>
-<p><img alt="TinyStacks - select a project" src="../img/tinystacks-create-5.png" /></p>
-<h2 id="select-a-starter-project">Select a starter project</h2>
-<p>Next, you'll be prompted to select a project. You can either select a TinyStacks starter project or use your own project. For this guide, we'll be using a starter project, so go ahead and click the <strong>Starter projects</strong> button.</p>
-<p>The TinyStacks starter projects are simple Create/Read/Update/Delete (CRUD) database applications written in the application framework of your choice. You can click the name of any starter project in the window below to see its repository on GitHub and check out its README, which gives a detailed description of the app's code and deployment architecture.</p>
-<p><img alt="TinyStacks - select a starter project" src="../img/tinystacks-create-6.png" /></p>
-<p>Once you select a project, TinyStacks will copy its code into your Git account, where you can use it as a basis for further development. </p>
-<p>For this guide, let's create <a href="https://github.com/tinystacks/aws-docker-templates-express" target="_blank">an Express project</a>. Next to Express in the window above, click <strong>Deploy</strong>. </p>
-<p>On the next screen, you'll be prompted to give your project a name. Choose a simple, short name that's 20 characters or less. (The name will be used as a prefix for some of the resources in your AWS account, so we want to keep it short to avoid going over naming length limits in AWS.)</p>
-<p><img alt="TinyStacks - Enter a project name" src="../img/tinystacks-create-7.png" /></p>
-<h2 id="customize-your-deployment">Customize your deployment</h2>
-<p>You have one more step to go and then you're ready to launch your stack! After clicking <strong>Deploy</strong>, you'll see the screen below, which enables you to fine-tune multiple settings for the first stage of your stack. </p>
-<p><img alt="TinyStacks - configure stack" src="../img/tinystacks-create-8.png" /></p>
-<p>This screen visualizes all of the AWS resources that TinyStacks will use or create on your behalf. These components and what they contribute to your stack are discussed in detail <a href="../architecture/">in our architectural guide</a>. Briefly, they include: </p>
-<ul>
-<li>Your <strong>Git repo</strong> (either GitHub or GitLab) that holds your application code. </li>
-<li><strong>AWS CodeBuild</strong> to build and deploy your project as a Docker container. </li>
-<li>An <strong>Amazon Elastic Container Repository (ECR) repo</strong> for storing your Docker container's versions. </li>
-<li>An <strong>Amazon Elastic Container Service (ECS) cluster</strong> for hosting your running Docker containers. </li>
-<li><strong>Amazon API Gateway</strong> for routing traffic to your application's exposed endpoints. </li>
-<li><strong>Amazon CloudWatch</strong> for monitoring performance and storing application logs.</li>
-<li>An optional <strong>database</strong> for storing application data. </li>
-</ul>
-<p>Additionally, you can see and configure several additional options: </p>
-<ul>
-<li>The <strong>AWS pricing breakdown</strong> gives you a sense of what you'll per month for your stack in its current configuration. </li>
-<li>You can define <strong>Environment variables</strong> as name-value pairs that will be exposed as environment variables to your running application's Docker container. </li>
-</ul>
-<p>If a tile has a gear icon in the upper right corner, you can click it to configure advanced options for that tile. Configurable options include the following. </p>
-<h3 id="configure-your-vpc">Configure Your VPC</h3>
-<p>By default, TinyStacks will create a new, secure VPC with three public and three isolated subnets. Your application will run into the isolated subnets. </p>
-<p><img alt="TinyStacks - configure VPC" src="../img/tinystacks-vpc-config.png" /></p>
-<p>You can click the gear icon to opt instead to use your own pre-created VPC from your AWS account. You can use your own VPC that you created or a VPC that TinyStacks created for one of your other stacks. </p>
-<p><img alt="TinyStacks - configure VPC" src="../img/tinystacks-vpc-select-existing.png" /></p>
-<p>You can also option to turn the isolated subnets into private subnets by adding a NAT Gateway. This will enable applications running in these subnets to make calls out to the public Internet. You should enable this if your application has an external dependency, such as on a publicly hosted Web service. (Note: You will incur an hourly charge for your NAT Gateway as well as data transfer charges for every 1GB of data that flows to the Internet or to compute capacity in a different Availability Zone. See the <a href="https://aws.amazon.com/vpc/pricing/">AWS NAT Gateway Pricing page</a> for more details.)</p>
-<p><img alt="TinyStacks - configure VPC" src="../img/tinystacks-vpc-nat-gateway.png" /></p>
-<h3 id="add-a-database">Add a Database</h3>
-<p>Click <strong>Enable</strong> to create an Amazon RDS Postgres database for your account. Use the settings option to select an existing database instead and to configure other database-related options. </p>
-<h3 id="amazon-ecs">Amazon ECS</h3>
-<p>Configure build and scale settings for your Amazon ECS cluster, such as the size of the Amazon EC2 instances used in your cluster. </p>
-<h3 id="front-end-routing">Front-End Routing</h3>
-<p>Choose between using Amazon API Gateway or Application Load Balancer for front end application routing. </p>
-<p>You can change any of these options now or change them later, after your original deployment. Your stack will also build as is, without any additional configuration. For now, start the creation of your first stack by clicking <strong>Build</strong>.</p>
-<h2 id="testing-your-stack">Testing your stack</h2>
-<p>Your application's environment will take a few minutes to build. We'll present detailed status updates in the upper-right corner of this as we build out your stack.</p>
-<p>Once it's done, you'll be taken to the <strong>Stacks</strong> page on your TinyStacks account, where you can see your running stack listed. </p>
-<p><img alt="TinyStacks - list of stacks in your account" src="../img/tinystacks-create-12.jpg" /></p>
-<p>Click on your stack's name to navigate to the Stack Details page. </p>
-<p><img alt="TinyStacks - stack details page" src="../img/tinystacks-create-13.jpg" /></p>
-<p>This page shows your stack and all of the stages you've defined. The initial stack creation process creates a single stage named <code>dev</code>. You can use the <strong>Add stage</strong> button to add more stages at any time.</p>
-<p>For now, let's tets out the dev stack and ensure it's working. On the lower right corner of the <code>dev</code> box, click <strong>Copy endpoint</strong>. Then, open a new tab in your Web browser, paste in the copied URL, and press <code>Enter</code>. You should navigate to the Express application's ping page, which should return a string reading <code>Healthy connection</code>.</p>
-<p><img alt="TinyStacks - ping application" src="../img/tinystacks-create-14.jpg" /></p>
-<p>You can also test other endpoints of the API as defined by the Express app README. For example, to add an item to the application's memory, you can use the following command on Linux systems. Be sure to replace <code>my-domain-name</code> with the domain portion of your application's URL, which will be of the form <code>unique-id.execute-api.us-east-1.amazonaws.com</code>: </p>
-<pre><code>curl -H &quot;Content-Type: application/json&quot; -X PUT -d '{&quot;title&quot;:&quot;my title&quot;, &quot;content&quot; : &quot;my content&quot;}' &quot;https://my-domain-name/item&quot;
-</code></pre>
-<p>On Windows Powershell, use the following command: </p>
-<pre><code>$item = @{
-    title=&quot;my title&quot;
-    content=&quot;my content&quot;
-}
-$json = $item | ConvertTo-Json
-$response = Invoke-WebRequest 'https://my-domain-name/local-item' -Method Put -Body $json -ContentType 'application/json' -UseBasicParsing
-</code></pre>
-<p>If everything is configured correctly, you'll receive a 200 HTTP response status code for the operation. </p>
-<p>Congratulations - you've deployed your first stack!</p>
-<h2 id="push-your-first-commit">Push your first commit</h2>
-<p>Your stack is configured to deploy any changes you make to your code automatically to your dev stage. To see this in action, let's make a small change to your code. </p>
-<p>Navigate to your Git repo. You can do this easily by clicking on the GitHub or GitLab icon on your stack's tile on the Stack Details page.</p>
-<p><img alt="TinyStacks - navigate to GitHub or GitLab repo" src="../img/tinystacks-create-15.jpg" /></p>
-<p>In the repository, navigate to the file <code>src/server.ts</code>. Copy the <code>/ping</code> method and create a new method called <code>/pong</code>. Return a custom message from the method in the response: </p>
-<pre><code>app.get(&quot;/ping&quot;, (req, res) =&gt; {
-  res.status(200).send(&quot;Setting a custom message&quot;);
-});
-</code></pre>
-<p>Next, commit your change. In the GitHub UI, you can do this by clicking the <strong>Commit changes</strong> button at the bottom of the page you're editing. </p>
-<p><img alt="TinyStacks - commit change to GitHub" src="../img/tinystacks-create-17.jpg" /></p>
-<p>Return to TinyStacks and to the Stack Details page for your stack. Within a couple of minutes, you should see that TinyStacks has picked up the change to your application and is applying the changes to your stack.</p>
-<p><img alt="TinyStacks - building changes" src="../img/tinystacks-create-18.jpg" /></p>
-<p>The first tile will spin while it is building your changes into a new Docker container. Then, you will see the <code>dev</code> stage update as the change is deployed. Wait until the change has propagated to your dev stage. Then, test the <code>/pong</code> URL with cUrl to see your new endpoint. On Linux, run the following command:</p>
-<pre><code>curl https://my-domain-name/pong
-</code></pre>
-<p>On Windows Powershell, use: </p>
-<pre><code>curl https://my-domain-name/pong -UseBasicParsing
-</code></pre>
+<p>In general, standard scale applications will find better price and performance using API Gateway. Hyperscale applications) will receive better price/performance from using API Gateway. </p>
+<p>For more details, <a href="https://blog.tinystacks.com/battle-of-the-serverless-api-routers-alb-vs-api-gateway-feature-comparison" target="_blank">see our blog post comparing API Gateway with Application Load Balancer</a>.</p>
+<h3 id="changing-your-load-balancer">Changing your load balancer</h3>
+<p>You can change the load balancer your application uses at any time. This can be useful if your application's usage has increased from a standard scale to a hyperscale pattern. </p>
+<p>To change your load balancer, go to <strong>Stack Settings</strong> (the gear icon next to your stack on the TinyStacks dashboard) and select <strong>Endpoint</strong>. From there, you can switch your endpoint technology between API Gateway and ALB.</p>
+<p>Note that, if you switch your endpoint technology, you will also have to update your custom domain names, as domain name routing works differently between API Gateway and ALB. For more, see <a href="../domain-names-https/">Domain Names and HTTPS</a>.</p>
+<p><img alt="TinyStacks - change endpoint" src="../img/endpoint-change.png" /></p>
+<h3 id="enabling-caching-on-endpoint-requests">Enabling caching on endpoint requests</h3>
+<p>You can alternatively elect to enable caching on all endpoint requests. Enabling caching is best done for sites and services that act mostly as informational services or other scenarios where the return results are largely static.</p>
+<p>On API Gateway, caching is enabled directly as a feature on the API Gateway service. For Application Load Balancer, TinyStacks implements its own caching mechanism.</p>
+<h3 id="adding-custom-domain-names">Adding custom domain names</h3>
+<p>You can add custom domain names to your application no matter which technology you use for hosting. For more information, see <a href="../domain-names-https/">Domain Names and HTTPS</a>. </p>
                 
               
               
@@ -903,7 +765,7 @@ $response = Invoke-WebRequest 'https://my-domain-name/local-item' -Method Put -B
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction" rel="prev">
+        <a href="../environment-variables/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Environment Variables" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -912,20 +774,20 @@ $response = Invoke-WebRequest 'https://my-domain-name/local-item' -Method Put -B
               <span class="md-footer__direction">
                 Previous
               </span>
-              Introduction
+              Environment Variables
             </div>
           </div>
         </a>
       
       
         
-        <a href="../existing/" class="md-footer__link md-footer__link--next" aria-label="Next: Deploy an Existing Application" rel="next">
+        <a href="../sidecars/" class="md-footer__link md-footer__link--next" aria-label="Next: Sidecars" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Deploy an Existing Application
+              Sidecars
             </div>
           </div>
           <div class="md-footer__button md-icon">
