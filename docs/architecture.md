@@ -25,6 +25,8 @@ TinyStacks can deploy your Dockerized application easily. (If your application i
 
 **Amazon Elastic Container Service (ECS)** is a container orchestration service that enables running Docker containers quickly and easily. Containers can be run on a set of virtual machines (a cluster) that you run and manage in your own account. Alternatively, they may be run using [AWS Fargate](https://aws.amazon.com/fargate), a serverless component of Amazon ECS that runs containers on computing capacity managed by AWS. For most deployments, TinyStacks manages its own ECS clusters on behalf of our customers. 
 
+For more information on how to control cluster configuration and scaling, see [Compute](compute.md).
+
 ### Architectural Components
 
 A stack consists of an application written on a specific application framework (such as Express, Flask, Django, Spring, etc.) packaged inside of a Docker container. TinyStacks creates the necessary architecture inside of your AWS account to run this Dockerized application in a scalable and highly available architecture on AWS. 
@@ -47,46 +49,13 @@ The following diagram shows the major architectural components in a stack.
 
 **[Amazon API Gateway](https://aws.amazon.com/api-gateway/)**. A service for creating managed Application Programming Interfaces (API) at scale. Creates endpoints to the API functions defined by the application residing in the Docker container. 
 
+**[Amazon Application Load Balancer]()**. An alternative to API Gateway that is more suitable for applications serving over one million requests/month. 
+
 ### Networking
 
-One of the most technically complex aspects of setting up infrastructure on AWS is creating your virtual private network, or VPC. A VPC establishes the IP address ranges available to your application in its own isolated address space, defines routing between your applications and other VPCs and the public Internet, and sets out security rules that control how others can interact with your network.
+AWS resources run in virtual networks called Virtual Private Clouds (VPCs). TinyStacks builds its own VPC for your application that is secure by default. Alternatively, you can use your own VPC that already exists in your AWS account, assuming it meets certain criteria.
 
-A VPC defines a set of IP address ranges using logical groupings called subnets. Subnets can be one of three types: 
-
-* **Public**: Traffic is allowed in from and out to the Internet and between subnets within the VPC. Inbound traffic is still often restricted to specific ports (e.g., ports 80 and 443 for Web apps). 
-* **Private**: Traffic is allowed between subnets within the VPC. Requests can be made out to the public Internet via a NAT gateway. 
-* **Isolated**: Traffic is allowed between subnets within the VPC. There is no defined route for Internet requests.
-
-By using a combination of private/isolated and public subnets, application developers can create a secure hosting environment that reduces an application's surface attack area and minimizes the risk of intrusion. 
-
-Designing and deploying a secure VPC usually requires a solid knowledge of networking and of AWS. TinyStacks eliminates this requirement by deploying every stack with a secure VPC by default.
-
-Each TinyStacks VPC consists of: 
-
-* **Three public subnets**. These subnets contain any public-facing infrastructure (e.g., your Application Load Balancer or API Gateway endpoints).
-* **Three isolated or private subnets**. These subnets contain your ECS cluster instances and your database (if you provisioned it with TinyStacks). During stack creation process, we ask you if you want to add a NAT Gateway to your subnets. If you choose to add a NAT Gateway, the subnets are private. If you choose not to add a NAT Gateway, they are isolated.
-
-Both sets of subnets are spread across different AWS [Availability Zones](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/). Critical resources are hosted across three separate subnets and Availability Zones. This helps protect against unexpected outages by placing the pieces of your infrastructure in geographically isolated data centers on AWS. For example, if you launch three Amazon ECS instances in your ECS cluster, we spread these evenly across all three availability zones This means your application can still keep serving traffic if a single availability zone goes down. 
-
-How we connect your ECS cluster instances to the Internet depends on the scaling option you choose. If you use Application Load Balancer, the ALB can forward requests to your container instances by virtue of running in the same VPC. 
-
-![TinyStacks VPC diagram for Application Load Balancer](img/tinystacks-vpc-alb.png)
-
-If you use API Gateway as your application front end, TinyStacks creates a VPC Link so that API Gateway can securely forward requests to your Docker container instances running on your cluster instances.
-
-![TinyStacks VPC diagram for API Gateway](img/tinystacks-vpc-apig.png)
-
-#### Security Groups
-
-Security groups in AWS define which resources on AWS or the public Internet can access certain AWS resources. We define security groups that restrict access to protected resources. For example, ECS cluster instances can only be accessed by your API Gateway or Application Load Balancer front ends at the specific port that you specify at stack creation time. Likewise, only the ECS cluster instances can talk to the database (unless you create a bastion host, as described below), and only on a single dedicated port.
-
-This architecture reduces your application's potential attack surface by only publicly exposing the minimal surface area required for your application to operate. 
-
-#### Bastion Host
-
-By default, we do not allow any Internet connectivity directly to your database. However, your team may need to access the database outside of your application (e.g., to run ad hoc queries or troubleshoot issues). 
-
-To facilitate this, TinyStacks supports creating a [bastion host](https://aws.amazon.com/premiumsupport/knowledge-center/rds-connect-using-bastion-host-linux/) for your database. The bastion host is an Amazon EC2 instance that sits in one of your public subnets and to which you can connect via SSH using a cryptographic key. Once on the bastion host, you can connect directly to your database in its isolated subnets. 
+For more information, see [Networking](networking.md).
 
 ### Application Flow
 
@@ -100,6 +69,8 @@ When you use a starter project, TinyStacks creates a new repository in your GitH
 **release.yml**. Updates the running service in your Amazon ECS cluster. 
 
 If you use an existing GitHub project, you will need to find the build.yml and release.yml files in the relevant TinyStacks template in Github and check them into your existing Github repository. 
+
+For more information, including information on how to manage "monorepos" (repositories containing multiple releases and multiple build/release files), see [Builds and Releases](builds-releases.md).
 
 #### Continuous Integration with Code Pipeline 
 
@@ -134,7 +105,7 @@ By default, your Amazon ECS container is hosted on an instance in a public subne
 
 Amazon API Gateway provides you with fine-grained control over your REST API with support for configuring authorization, usage throttling, and advanced request routing, among other features. Application Load Balancer also provides routing support in addition to balancing requests across resource targets to avoid overwhelming any single resource. 
 
-When you create a stack, you have a choice to use either API Gateway or Application Load Balancer. In general, applications receiving less than one million requests per day (standard scale applications) will find better price and performance using API Gateway. Applications serving more than one million requests per day (hyperscale applications) will receive better price/performance from using API Gateway. For more details, [see our blog post comparing API Gateway with Application Load Balancer](https://blog.tinystacks.com/battle-of-the-serverless-api-routers-alb-vs-api-gateway-feature-comparison). 
+When you create a stack, you have a choice to use either API Gateway or Application Load Balancer. For more details on the differences, which to choose, and how this effects your application, see [Load Balancers](load-balancers.md). 
 
 #### Amazon CloudWatch for Auto Scaling
 
