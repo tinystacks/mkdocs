@@ -48,8 +48,7 @@ nav:
     - 'Deploy an Existing Application': 'existing.md'    
   - 'How It Works':
     - 'Architecture': 'architecture.md' 
-    - 'Concepts' : 'concepts.md'    
-    - 'How Do I...?': 'tinystacks-how-do-i.md'
+    - 'Concepts' : 'concepts.md'
     - 'How We Secure Your Stack': 'security.md' 
     - 'Full AWS IAM Policy Used by TinyStacks': 'iam-policy.md' 
   - 'Features':
