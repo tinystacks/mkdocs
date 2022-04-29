@@ -2,43 +2,7 @@ The following guide is for first-time TinyStacks users. Follow these instruction
 
 ## Prerequisites
 
-You will need the following resources set up before you start using TinyStacks: 
-
-* A Git account with either <a href="https://github.com" target="_blank">GitHub</a> or <a href="https://gitlab.com" target="_blank">GitLab</a>.
-* <a href="https://aws.amazon.com" target="_blank">An AWS account</a>. All of the resources TinyStacks creates for you will be hosted in an AWS account that you own. Don't worry - you cna get started without any previous knowledge of AWS!
-
-## Configure Git connection
-
-When you first log in to TinyStacks, you’ll need to wire up a supported Git repository account as well as an AWS account. TinyStacks supports using Git repositories hosted on GitHub or GitLab. 
-
-![TinyStacks Create First Stack screen](img/tinystacks-create-1.png)
-
-Select which Git service you plan to use: GitHub or Gitlab. A separate window will open. If you are not logged in to your selected service, you will be prompted to log in now. 
-
-![TinyStacks add git account prompt](img/tinystacks-create-2.png)
-
-Once logged in, you will need to grant authorization for TinyStacks to access your GitHub or GitLab account. This will allow us to add a repository to your account (if you use one of our starter projects) or read an existing repository (if you use your own project). 
-
-## Configure AWS account 
-
-Once you've authorized your Git account, you will be prompted to authorize an AWS account. This account will host all of the cloud resources required by your application. 
-
-![TinyStacks connect to AWS prompt](img/tinystacks-create-3.png)
-
-
-If you have not logged in to your AWS account recently, you will be prompted to do so. 
-
-Once you have logged in to AWS, you will see the following screen, which prompts you to create an AWS CloudFormation stack in your AWS account. This step is **necessary** in order to proceed and fully connect your account. This CloudFormation template will create an AWS Identity and Access Management (IAM) role that TinyStacks will assume in order to create resources in your account.
-
-![Create TinyStacks role in AWS account](img/tinystacks-create-4.png)
-
-(*Note*: Some elements of the screen above have been blurred out for security reasons.)
-
-To create this stack, select the box **I acknowledge that AWS CloudFormation might create IAM resources**. Then, click the **Create Stack** button. 
-
-After creating the stack, tab back to the previous tab containing the TinyStacks window. Once the stack has completed creating, TinyStacks will automatically detect this and move you to the next step in the stack creation process. Once you see the screen below, you can proceed. 
-
-![TinyStacks - select a project](img/tinystacks-create-5.png)
+Before you begin this guide, make sure you have set up your AWS and Git service connections as outlined in [Configure AWS and Git service connections](service-connections.md).
 
 ## Select a starter project
 
@@ -101,6 +65,8 @@ Click **Enable** to create an Amazon RDS Postgres database for your account. Use
 
 Configure build and scale settings for your Amazon ECS cluster, such as the size of the Amazon EC2 instances used in your cluster. 
 
+![TinyStacks - configure ECS scale settings](img/create-stack-ecs-scale-settings.png)
+
 ### Front-End Routing 
 
 Choose between using Amazon API Gateway or Application Load Balancer for front end application routing. 
@@ -111,7 +77,7 @@ You can change any of these options now or change them later, after your origina
 
 Your application's environment will take a few minutes to build. We'll present detailed status updates in the upper-right corner of this as we build out your stack.
 
-Once it's done, you'll be taken to the **Stacks** page on your TinyStacks account, where you can see your running stack listed. 
+Once it's done, you'll be taken to the **Stacks** page on your TinyStacks account, where you can see your running stack listed. You can also set the minimum and maximum number of instances of your container that ECS should run in response to scale out and scale in events. (For more information, see [Autoscaling](autoscaling.md).)
 
 ![TinyStacks - list of stacks in your account](img/tinystacks-create-12.jpg)
 

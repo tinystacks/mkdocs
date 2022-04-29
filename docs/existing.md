@@ -2,10 +2,7 @@ In our guide to [creating your first stack](create-stack.md), we showed you how 
 
 ## Prerequisites
 
-You will need the following resources set up before you start using TinyStacks: 
-
-* A Git account with either <a href="https://github.com" target="_blank">GitHub</a> or <a href="https://gitlab.com" target="_blank">GitLab</a>.
-* <a href="https://aws.amazon.com" target="_blank">An AWS account</a>. All of the resources TinyStacks creates for you will be hosted in an AWS account that you own. Don't worry - you cna get started without any previous knowledge of AWS!
+Before you begin this guide, make sure you have set up your AWS and Git service connections as outlined in [Configure AWS and Git service connections](service-connections.md).
 
 ## Configure Git connection
 

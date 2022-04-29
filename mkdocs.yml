@@ -44,27 +44,30 @@ extra:
 nav:
   - 'Introduction' : 'index.md'
   - 'Get Started':
-    - 'Create Your First Stack': 'create-stack.md'
-    - 'Deploy an Existing Application': 'existing.md'    
+    - 'Configure AWS and Git service connections': 'service-connections.md'
+    - 'Create your first stack': 'create-stack.md'
+    - 'Deploy an existing application': 'existing.md'    
   - 'How It Works':
     - 'Architecture': 'architecture.md' 
     - 'Concepts' : 'concepts.md'
-    - 'How We Secure Your Stack': 'security.md' 
-    - 'Full AWS IAM Policy Used by TinyStacks': 'iam-policy.md' 
+    - 'How we secure your stack': 'security.md' 
+    - 'Full AWS IAM Policy used by TinyStacks': 'iam-policy.md' 
   - 'Features':
-    - 'Basic Settings' : 'basic-settings.md'
-    - 'Builds and Releases': 'builds-releases.md'  
+    - 'Basic settings' : 'basic-settings.md'
+    - 'Builds and releases': 'builds-releases.md'  
     - 'Compute': 'compute.md'
+    - 'Autoscaling': 'autoscaling.md'
     - 'Networking': 'networking.md'
     - 'Database': 'database.md'
     - 'Stages': 'stages.md'
-    - 'Environment Variables': 'environment-variables.md'
-    - 'Load Balancers': 'load-balancers.md'
+    - 'Environment variables': 'environment-variables.md'
+    - 'Load balancers': 'load-balancers.md'
+    - 'Domain names and HTTPS': 'domain-names-https.md'
     - 'Sidecars' : 'sidecars.md'
-    - 'Logging and Monitoring': 'logging-monitoring.md'
-    - 'Customizing Your Stacks': 'customizing.md'
+    - 'Logging and monitoring': 'logging-monitoring.md'
+    - 'Customizing your stacks': 'customizing.md'
   - 'Troubleshooting':
-    - 'Troubleshooting Guide': 'troubleshooting.md'  
+    - 'Troubleshooting guide': 'troubleshooting.md'  
   - 'The TinyStacks Advantage':
-    - 'How TinyStacks Stacks Up': 'comparisons.md'
+    - 'How TinyStacks stacks up': 'comparisons.md'
 

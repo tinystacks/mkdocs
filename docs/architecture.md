@@ -109,11 +109,7 @@ When you create a stack, you have a choice to use either API Gateway or Applicat
 
 #### Amazon CloudWatch for Auto Scaling
 
-As mentioned earlier, TinyStacks runs two instances of your Amazon ECS container by default. However, if your application is under heavy load, these instances may not be enough to handle the demand. 
-
-TinyStacks uses the auto scaling feature of Amazon ECS to ensure your application can still run under heavy demand. Your stack defines several AWS CloudWatch alarms that monitor CPU utilization on the running containers associated with your task definition. If aggregate utilization for all running containers exceeds 75%, another container is launched, up to a maximum of five. 
-
-Note that the scalability of a container is dependent upon good programming practices. Your application code should avoid storing state on disk or in memory on any given container, as you cannot predict which running container instance will service a given request. 
+TinyStacks uses Amazon CloudWatch to set up metrics and alerts to help scale out and scale in your application in proportion to the traffic it's receiving. For more information, see [Autoscaling](autoscaling.md).
 
 ### Cost of a TinyStacks Stack
 
