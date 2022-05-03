@@ -20,11 +20,15 @@ On the next screen, you'll be prompted to give your project a name. Choose a sim
 
 ![TinyStacks - Enter a project name](img/tinystacks-create-7.png)
 
-## Customize your deployment
+## Choosing serverless or container deployment
 
-You have one more step to go and then you're ready to launch your stack! After clicking **Deploy**, you'll see the screen below, which enables you to fine-tune multiple settings for the first stage of your stack. 
+You have one more step to go and then you're ready to launch your stack! After clicking **Deploy**, you'll see the screen below. Here, you need to select whether to launch your application using either serverless or container architecture. 
 
 ![TinyStacks - configure stack](img/tinystacks-create-8.png)
+
+To keep costs low for this initial walkthrough, select **Serverless**. (For more information on which architecture to choose for production applications, see [Architecture](architecture.md) and [Serverless](serverless.md).)
+
+## Further customizing your deployment
 
 This screen visualizes all of the AWS resources that TinyStacks will use or create on your behalf. These components and what they contribute to your stack are discussed in detail [in our architectural guide](architecture.md). Briefly, they include: 
 
@@ -43,9 +47,9 @@ Additionally, you can see and configure several additional options:
 
 If a tile has a gear icon in the upper right corner, you can click it to configure advanced options for that tile. Configurable options include the following. 
 
-### Configure Your VPC
+### Configure Your VPC (optional for serverless)
 
-By default, TinyStacks will create a new, secure VPC with three public and three isolated subnets. Your application will run into the isolated subnets. 
+If you choose container architecture, TinyStacks will by default create a new, secure VPC with three public and three isolated subnets. Your application will run into the isolated subnets. 
 
 ![TinyStacks - configure VPC](img/tinystacks-vpc-config.png)
 
@@ -57,15 +61,23 @@ You can also option to turn the isolated subnets into private subnets by adding 
 
 ![TinyStacks - configure VPC](img/tinystacks-vpc-nat-gateway.png)
 
+Note that serverless applications, by default, do not run in a VPC. You can, however, opt to run them in a VPC that's already defined in your AWS account. 
+
 ### Add a Database
 
 Click **Enable** to create an Amazon RDS Postgres database for your account. Use the settings option to select an existing database instead and to configure other database-related options. 
 
-### Amazon ECS 
+### Amazon ECS (container architecture only)
 
-Configure build and scale settings for your Amazon ECS cluster, such as the size of the Amazon EC2 instances used in your cluster. 
+Configure build and scale settings for your Amazon ECS cluster, such as the size of the Amazon EC2 instances used in your cluster. (If you're not familiar with these settings, you can leave them as the default for now.)
 
 ![TinyStacks - configure ECS scale settings](img/create-stack-ecs-scale-settings.png)
+
+### AWS Lambda (serverless architecture only) 
+
+Configure scale settings for your AWS Lambda function, including the memory available to your application and the runtime timeout setting. (If you're not familiar with these settings, you can leave them as the default for now.)
+
+![TinyStacks - select serverless](img/serverless-settings.png)
 
 ### Front-End Routing 
 
