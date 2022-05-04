@@ -1,39 +1,45 @@
 When you create a new stack with TinyStacks, we stand up a number of resources in your AWS account. This section describes how each AWS resource fits into your stack, as well as the average costs for each AWS resource. 
 
-### Standard Scale vs. Hyperscale
+### The role of containers
 
-Most cloud developers have the same goal: deploying scalable applications at the best price point. To help you meet these goals, TinyStacks provides support for two separate application patterns: 
-
-* **Standard scale** applications that serve less than one million requests a day. 
-* **Hyperscale applications** applications that exceed one million requests a day. 
-
-Both configurations will scale to meet user demand while avoiding site downtime. A standard scale configuration will be the most cost-efficient solution below the one million requests/day threshold. Once you exceed that threshold, a hyperscale configuration will yield the lowest spend. 
-
-In the explanation that follows, we will discuss the points where you are offered a choice between standard scale and hyperscale configurations and detail how this influences your overall stack costs. 
-
-### The Role of Containers
-
-The heart of a TinyStacks application is a Docker container, a lightweight virtualized operating system that runs on top of other operating systems such as Linux or Windows. 
+A Docker container is a lightweight virtualized operating system that runs on top of other operating systems such as Linux or Windows. 
 
 Before Docker, deploying applications at scale was fraught with difficulty. To run successfully, an application requires the correct configuration - the right version of its programming language runtime, shared libraries, and local state (environment variables, file system permissions, etc.). But system administrators were often forced to deploy applications across multiple servers with mismatched configurations. 
 
 Docker simplifies deployment by packaging an application in a virtualized operating system that contains everything the application needs to run successfully, virtually eliminating the dependency issue. Once an application is verified to run successfully in its container, you can deploy as many running copies as you need to support your users at scale. You can also avoid bloat by shipping the application with **exactly** the dependencies it needs and nothing more. 
 
-TinyStacks can deploy your Dockerized application easily. (If your application isn’t Dockerized yet, no to worry -  we have guides to assist you.) To run your container, we take advantage of two features in AWS: 
+### Two ways to run your application
 
-**Amazon Elastic Container Registry (ECR)** facilitates the storage and retrieval of Docker containers. Storing your Docker images in Amazon ECR makes it easy to deploy running instances of the image. It also provides a historical repository of images that simplifies version rollback. 
+TinyStacks stores your built application as a container in 
+**Amazon Elastic Container Registry (ECR)**. Storing your Docker images in Amazon ECR makes it easy to deploy running instances of the image. It also provides a historical repository of images that simplifies version rollback. 
 
-**Amazon Elastic Container Service (ECS)** is a container orchestration service that enables running Docker containers quickly and easily. Containers can be run on a set of virtual machines (a cluster) that you run and manage in your own account. Alternatively, they may be run using [AWS Fargate](https://aws.amazon.com/fargate), a serverless component of Amazon ECS that runs containers on computing capacity managed by AWS. For most deployments, TinyStacks manages its own ECS clusters on behalf of our customers. 
+From there, you have a choice as to how to deploy your application. 
+
+#### Serverless 
+
+A "serverless" application is one that doesn't require you to provision computing resources (such as Amazon EC2 instances) in your own AWS account. Instead, AWS simply takes your code (in this case, packaged as a Docker container) and runs it on an available computing instance that it maintains for you behind the scenes. 
+
+TinyStacks serverless stacks run your application using AWS's original serverless technology, <a href="https://aws.amazon.com/lambda/" target="_blank">AWS Lambda</a>. Serverless is a great option for pre-production stacks (dev stacks) as well as for production applications with bursting usage patterns - i.e., apps with punctuated periods of high and low activity.
+
+For more information, see [Serverless](serverless.md).
+
+#### Elastic Container Service (ECS)
+
+ECS is a container orchestration service that enables running Docker containers quickly and easily. Containers can be run on a set of virtual machines (a cluster) that you run and manage in your own account. Alternatively, they may be run using [AWS Fargate](https://aws.amazon.com/fargate), a serverless component of Amazon ECS that runs containers on computing capacity managed by AWS. For most deployments, TinyStacks manages its own ECS clusters on behalf of our customers. 
 
 For more information on how to control cluster configuration and scaling, see [Compute](compute.md).
 
-### Architectural Components
+### Architectural components
 
 A stack consists of an application written on a specific application framework (such as Express, Flask, Django, Spring, etc.) packaged inside of a Docker container. TinyStacks creates the necessary architecture inside of your AWS account to run this Dockerized application in a scalable and highly available architecture on AWS. 
 
-The following diagram shows the major architectural components in a stack. 
+The following diagram shows the major architectural components in a stack for a container architecture:
 
-![TinyStacks - architectural diagram](img/architecture-diagram.png)
+![TinyStacks - architectural diagram for container apps](img/arch-diagram-containers.png)
+
+Following are the components used for serverless architectures: 
+
+![TinyStacks - architectural diagram for serverless apps](img/arch-diagram-serverless.png)
 
 **[GitHub](https://github.com)**. A source code repository application based on the source control program Git. Stores the code for your application as well as some ancillary files needed in the stack deployment process. (TinyStacks also supports using [GitLab](https://about.gitlab.com/) as one’s repository.)
 
@@ -45,11 +51,13 @@ The following diagram shows the major architectural components in a stack.
 
 **[Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/)**. Docker container orchestration service. Runs the latest version of the application. 
 
+**[AWS Lambda](https://aws.amazon.com/lambda/)**. Serverless execution technology for running code directly in the AWS cloud without standing up compute directly in your AWS account. 
+
 **[Amazon CloudWatch](https://aws.amazon.com/cloudwatch/)**. Amazon’s metrics, monitoring, and alerting service. Provides some basic alerts around application health and build/release status. 
 
 **[Amazon API Gateway](https://aws.amazon.com/api-gateway/)**. A service for creating managed Application Programming Interfaces (API) at scale. Creates endpoints to the API functions defined by the application residing in the Docker container. 
 
-**[Amazon Application Load Balancer]()**. An alternative to API Gateway that is more suitable for applications serving over one million requests/month. 
+**[Amazon Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html)**. An alternative to API Gateway that is more suitable for applications serving over one million requests/month. 
 
 ### Networking
 
@@ -57,9 +65,9 @@ AWS resources run in virtual networks called Virtual Private Clouds (VPCs). Tiny
 
 For more information, see [Networking](networking.md).
 
-### Application Flow
+### Application flow
 
-### GitHub Stack Creation
+### GitHub stack creation
 
 When you create a new stack in TinyStacks, you can choose whether to use a starter project or use an existing project already defined in your GitHub account. 
 
@@ -81,7 +89,7 @@ Your GitHub repository is connected to an AWS CodePipeline project. TinyStacks u
 
 When you create a stack, you specify which branch of your GitHub repository you wish to connect to your AWS CodePipeline project. Whenever you commit a change to this branch, an AWS Lambda function does a full clone of the repository, creates a new ZIP file for the application, and uploads it to an Amazon S3 bucket. This change to the key in Amazon S3 triggers AWS CodePipeline to build and deploy your latest changes. 
 
-#### Pushing Changes to Amazon ECR and Amazon ECS
+#### Pushing changes to Amazon ECR and Amazon ECS
 
 Your running application is hosted in Amazon ECS using an image stored in an Amazon ECR registry. TinyStacks creates both of these resources for you when it stands up your stack. 
 
@@ -99,7 +107,7 @@ Deployments through ECR and ECS are driven by your AWS CodePipeline project. Thi
 
 The output of both of these projects is available in the AWS CodePipeline console. TinyStacks also stores this output in Amazon CloudWatch Logs.
 
-#### Managed API Endpoints
+#### Managed API endpoints
 
 By default, your Amazon ECS container is hosted on an instance in a public subnet. However, the instance itself does not have a public IP address. TinyStacks uses Amazon API Gateway or Application Load Balancer to provide a publicly accessible endpoint onto your container’s REST API methods. 
 
@@ -107,15 +115,11 @@ Amazon API Gateway provides you with fine-grained control over your REST API wit
 
 When you create a stack, you have a choice to use either API Gateway or Application Load Balancer. For more details on the differences, which to choose, and how this effects your application, see [Load Balancers](load-balancers.md). 
 
-#### Amazon CloudWatch for Auto Scaling
+#### Amazon CloudWatch for auto scaling
 
-As mentioned earlier, TinyStacks runs two instances of your Amazon ECS container by default. However, if your application is under heavy load, these instances may not be enough to handle the demand. 
+TinyStacks uses Amazon CloudWatch to set up metrics and alerts to help scale out and scale in your application in proportion to the traffic it's receiving. For more information, see [Autoscaling](autoscaling.md).
 
-TinyStacks uses the auto scaling feature of Amazon ECS to ensure your application can still run under heavy demand. Your stack defines several AWS CloudWatch alarms that monitor CPU utilization on the running containers associated with your task definition. If aggregate utilization for all running containers exceeds 75%, another container is launched, up to a maximum of five. 
-
-Note that the scalability of a container is dependent upon good programming practices. Your application code should avoid storing state on disk or in memory on any given container, as you cannot predict which running container instance will service a given request. 
-
-### Cost of a TinyStacks Stack
+### Cost of a TinyStacks stack
 
 *Note: Prices based on pricing of services in the US East (Virginia) data center as of July 2021. Pricing is subject to change without notice. Prices do not include any relevant taxes.*
 
@@ -128,7 +132,7 @@ Note that your actual costs may vary based on a couple of factors:
 
 As end user usage of your application increases, costs will increase concomitantly. This is because the cloud services that support your application will automatically scale up and out to meet the increased demand, thus using additional computing resources. The two factors driving costs are the amount of traffic your application handles and the number of virtual machines required in your Amazon ECS cluster.
 
-#### Traffic Costs
+#### Traffic costs
 
 TinyStacks supports both standard scale (using Amazon API Gateway) and hyperscale (using Application Load Balancer) configurations. Your costs will scale differently on each configuration as your usage increases. In general, a hyperscale configuration will prove more cost-effective at a volume of 500,000 or more application requests per month.
 
@@ -147,7 +151,7 @@ For example, say that your application is receiving an average of 10,000 new con
 
 Note that, in the above example, an application using API Gateway would be serving around 432 million connections per month for a total additional cost of $432/month. This makes it clear how much more economical it is to use Application Load Balancer when running at hyperscale.
 
-#### Amazon ECS Cluster Costs
+#### Amazon ECS cluster costs
 
 All Docker containers are hosted in an Amazon ECS cluster in your AWS account. An ECS cluster contains one or more instances of an Amazon EC2 virtual machine. By default, Tinystacks runs once EC2 instance in your cluster. As demand on your application grows, we will scale out and create a new cluster instance when the average CPU utilization across all cluster instances exceeds 70% for five minutes or longer. 
 

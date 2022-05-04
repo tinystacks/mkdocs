@@ -2,43 +2,7 @@ The following guide is for first-time TinyStacks users. Follow these instruction
 
 ## Prerequisites
 
-You will need the following resources set up before you start using TinyStacks: 
-
-* A Git account with either <a href="https://github.com" target="_blank">GitHub</a> or <a href="https://gitlab.com" target="_blank">GitLab</a>.
-* <a href="https://aws.amazon.com" target="_blank">An AWS account</a>. All of the resources TinyStacks creates for you will be hosted in an AWS account that you own. Don't worry - you cna get started without any previous knowledge of AWS!
-
-## Configure Git connection
-
-When you first log in to TinyStacks, you’ll need to wire up a supported Git repository account as well as an AWS account. TinyStacks supports using Git repositories hosted on GitHub or GitLab. 
-
-![TinyStacks Create First Stack screen](img/tinystacks-create-1.png)
-
-Select which Git service you plan to use: GitHub or Gitlab. A separate window will open. If you are not logged in to your selected service, you will be prompted to log in now. 
-
-![TinyStacks add git account prompt](img/tinystacks-create-2.png)
-
-Once logged in, you will need to grant authorization for TinyStacks to access your GitHub or GitLab account. This will allow us to add a repository to your account (if you use one of our starter projects) or read an existing repository (if you use your own project). 
-
-## Configure AWS account 
-
-Once you've authorized your Git account, you will be prompted to authorize an AWS account. This account will host all of the cloud resources required by your application. 
-
-![TinyStacks connect to AWS prompt](img/tinystacks-create-3.png)
-
-
-If you have not logged in to your AWS account recently, you will be prompted to do so. 
-
-Once you have logged in to AWS, you will see the following screen, which prompts you to create an AWS CloudFormation stack in your AWS account. This step is **necessary** in order to proceed and fully connect your account. This CloudFormation template will create an AWS Identity and Access Management (IAM) role that TinyStacks will assume in order to create resources in your account.
-
-![Create TinyStacks role in AWS account](img/tinystacks-create-4.png)
-
-(*Note*: Some elements of the screen above have been blurred out for security reasons.)
-
-To create this stack, select the box **I acknowledge that AWS CloudFormation might create IAM resources**. Then, click the **Create Stack** button. 
-
-After creating the stack, tab back to the previous tab containing the TinyStacks window. Once the stack has completed creating, TinyStacks will automatically detect this and move you to the next step in the stack creation process. Once you see the screen below, you can proceed. 
-
-![TinyStacks - select a project](img/tinystacks-create-5.png)
+Before you begin this guide, make sure you have set up your AWS and Git service connections as outlined in [Configure AWS and Git service connections](service-connections.md).
 
 ## Select a starter project
 
@@ -56,11 +20,15 @@ On the next screen, you'll be prompted to give your project a name. Choose a sim
 
 ![TinyStacks - Enter a project name](img/tinystacks-create-7.png)
 
-## Customize your deployment
+## Choosing serverless or container deployment
 
-You have one more step to go and then you're ready to launch your stack! After clicking **Deploy**, you'll see the screen below, which enables you to fine-tune multiple settings for the first stage of your stack. 
+You have one more step to go and then you're ready to launch your stack! After clicking **Deploy**, you'll see the screen below. Here, you need to select whether to launch your application using either serverless or container architecture. 
 
 ![TinyStacks - configure stack](img/tinystacks-create-8.png)
+
+To keep costs low for this initial walkthrough, select **Serverless**. (For more information on which architecture to choose for production applications, see [Architecture](architecture.md) and [Serverless](serverless.md).)
+
+## Further customizing your deployment
 
 This screen visualizes all of the AWS resources that TinyStacks will use or create on your behalf. These components and what they contribute to your stack are discussed in detail [in our architectural guide](architecture.md). Briefly, they include: 
 
@@ -79,9 +47,9 @@ Additionally, you can see and configure several additional options:
 
 If a tile has a gear icon in the upper right corner, you can click it to configure advanced options for that tile. Configurable options include the following. 
 
-### Configure Your VPC
+### Configure Your VPC (optional for serverless)
 
-By default, TinyStacks will create a new, secure VPC with three public and three isolated subnets. Your application will run into the isolated subnets. 
+If you choose container architecture, TinyStacks will by default create a new, secure VPC with three public and three isolated subnets. Your application will run into the isolated subnets. 
 
 ![TinyStacks - configure VPC](img/tinystacks-vpc-config.png)
 
@@ -93,13 +61,23 @@ You can also option to turn the isolated subnets into private subnets by adding 
 
 ![TinyStacks - configure VPC](img/tinystacks-vpc-nat-gateway.png)
 
+Note that serverless applications, by default, do not run in a VPC. You can, however, opt to run them in a VPC that's already defined in your AWS account. 
+
 ### Add a Database
 
 Click **Enable** to create an Amazon RDS Postgres database for your account. Use the settings option to select an existing database instead and to configure other database-related options. 
 
-### Amazon ECS 
+### Amazon ECS (container architecture only)
 
-Configure build and scale settings for your Amazon ECS cluster, such as the size of the Amazon EC2 instances used in your cluster. 
+Configure build and scale settings for your Amazon ECS cluster, such as the size of the Amazon EC2 instances used in your cluster. (If you're not familiar with these settings, you can leave them as the default for now.)
+
+![TinyStacks - configure ECS scale settings](img/create-stack-ecs-scale-settings.png)
+
+### AWS Lambda (serverless architecture only) 
+
+Configure scale settings for your AWS Lambda function, including the memory available to your application and the runtime timeout setting. (If you're not familiar with these settings, you can leave them as the default for now.)
+
+![TinyStacks - select serverless](img/serverless-settings.png)
 
 ### Front-End Routing 
 
@@ -111,7 +89,7 @@ You can change any of these options now or change them later, after your origina
 
 Your application's environment will take a few minutes to build. We'll present detailed status updates in the upper-right corner of this as we build out your stack.
 
-Once it's done, you'll be taken to the **Stacks** page on your TinyStacks account, where you can see your running stack listed. 
+Once it's done, you'll be taken to the **Stacks** page on your TinyStacks account, where you can see your running stack listed. You can also set the minimum and maximum number of instances of your container that ECS should run in response to scale out and scale in events. (For more information, see [Autoscaling](autoscaling.md).)
 
 ![TinyStacks - list of stacks in your account](img/tinystacks-create-12.jpg)
 

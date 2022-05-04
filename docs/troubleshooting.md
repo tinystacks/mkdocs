@@ -75,3 +75,7 @@ To change which repositories TinyStacks can access, go to <a href="https://githu
 From there, click **Configure** next to **TinyStacks**. From there, you can either allow all repositories or select additional repositories to make available to TinyStacks. 
 
 ![TinyStacks - configure available GitHub repos 2](img/github-configure-repos-2.png)
+
+### Can't connect to bastion host
+
+Occasionally, your bastion host needs to be re-provisioned or swapped out for another instance. This can cause your bastion endpoint to change. 
