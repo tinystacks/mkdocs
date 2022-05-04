@@ -2,107 +2,122 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.tinystacks.com/</loc>
-         <lastmod>2022-04-26</lastmod>
+         <lastmod>2022-05-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/architecture/</loc>
-         <lastmod>2022-04-26</lastmod>
+         <lastmod>2022-05-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/autoscaling/</loc>
+         <lastmod>2022-05-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/basic-settings/</loc>
-         <lastmod>2022-04-26</lastmod>
+         <lastmod>2022-05-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/builds-releases/</loc>
-         <lastmod>2022-04-26</lastmod>
+         <lastmod>2022-05-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/comparisons/</loc>
-         <lastmod>2022-04-26</lastmod>
+         <lastmod>2022-05-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/compute/</loc>
-         <lastmod>2022-04-26</lastmod>
+         <lastmod>2022-05-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/concepts/</loc>
-         <lastmod>2022-04-26</lastmod>
+         <lastmod>2022-05-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/create-stack/</loc>
-         <lastmod>2022-04-26</lastmod>
+         <lastmod>2022-05-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/customizing/</loc>
-         <lastmod>2022-04-26</lastmod>
+         <lastmod>2022-05-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/database/</loc>
-         <lastmod>2022-04-26</lastmod>
+         <lastmod>2022-05-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/domain-names-https/</loc>
-         <lastmod>2022-04-26</lastmod>
+         <lastmod>2022-05-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/environment-variables/</loc>
-         <lastmod>2022-04-26</lastmod>
+         <lastmod>2022-05-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/existing/</loc>
-         <lastmod>2022-04-26</lastmod>
+         <lastmod>2022-05-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/iam-policy/</loc>
-         <lastmod>2022-04-26</lastmod>
+         <lastmod>2022-05-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/load-balancers/</loc>
-         <lastmod>2022-04-26</lastmod>
+         <lastmod>2022-05-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/logging-monitoring/</loc>
-         <lastmod>2022-04-26</lastmod>
+         <lastmod>2022-05-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/networking/</loc>
-         <lastmod>2022-04-26</lastmod>
+         <lastmod>2022-05-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/security/</loc>
-         <lastmod>2022-04-26</lastmod>
+         <lastmod>2022-05-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/serverless/</loc>
+         <lastmod>2022-05-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/service-connections/</loc>
+         <lastmod>2022-05-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/sidecars/</loc>
-         <lastmod>2022-04-26</lastmod>
+         <lastmod>2022-05-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/stages/</loc>
-         <lastmod>2022-04-26</lastmod>
+         <lastmod>2022-05-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/troubleshooting/</loc>
-         <lastmod>2022-04-26</lastmod>
+         <lastmod>2022-05-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
