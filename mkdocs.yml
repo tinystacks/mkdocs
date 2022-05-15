@@ -67,6 +67,7 @@ nav:
     - 'Sidecars' : 'sidecars.md'
     - 'Logging and monitoring': 'logging-monitoring.md'
     - 'Customizing your stacks': 'customizing.md'
+    - 'Integrations': 'integrations.md'    
   - 'Troubleshooting':
     - 'Troubleshooting guide': 'troubleshooting.md'  
   - 'The TinyStacks Advantage':
