@@ -37,7 +37,7 @@ On the **New stack stage** screen, you can configure your new stage. In the next
 ![TinyStacks - add stack stage dialog](img/tinystacks-add-stage-3.png)
 
 * **Stage name**. Must be unique within this stack. Should indicate the role that this stage plays in your stack - e.g., dev, test, staging, prod, etc. In this case, we use the name `prod` to represent our production stage. 
-* **Database**. Enables adding a new Postgres database or another existing Amazon RDS database to your stack. For now, we'll leave this option blank.
+* **Database**. Enables adding a new database or another existing Amazon RDS database to your stack. For now, we'll leave this option blank.
 * **Require manual approval**. Since we're creating a production stage here, we'll check this box. 
 * **Amazon API Gateway vs. Application Load Balancer**. Here, you can choose how you want to route requests to your application based on whether you expect your application will need to operate at standard scale or hyperscale. For now, we'll leave this to the default of Amazon API Gateway. For more information on scale settings, [consult our architectural overview](architecture.md).
 * **Enable caching**. Whether to cache responses through API Gateway. This option is only available if using Amazon API Gateway. 

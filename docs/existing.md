@@ -100,7 +100,7 @@ Note that serverless applications, by default, do not run in a VPC. You can, how
 
 ### Add a Database
 
-Click **Enable** to create an Amazon RDS Postgres database for your account. Use the settings option to select an existing database instead and to configure other database-related options. 
+Click **Enable** to create an Amazon RDS Postgres or MySQL database for your account. Use the settings option to select an existing database instead and to configure other database-related options. 
 
 ### Amazon ECS (container architecture only)
 
