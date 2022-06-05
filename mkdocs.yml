@@ -29,7 +29,7 @@ extra:
     provider: google
     property: G-ZGJ7S5GYW6
   social:
-    - icon: fontawesome/solid/house
+    - icon: fontawesome/solid/home
       link: https://www.tinystacks.com
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/channel/UC21VAvNozfMxrcappmJ8EBA
@@ -67,6 +67,7 @@ nav:
     - 'Sidecars' : 'sidecars.md'
     - 'Logging and monitoring': 'logging-monitoring.md'
     - 'Customizing your stacks': 'customizing.md'
+    - 'Data retention': 'data-retention.md'    
   - 'Troubleshooting':
     - 'Troubleshooting guide': 'troubleshooting.md'  
   - 'The TinyStacks Advantage':

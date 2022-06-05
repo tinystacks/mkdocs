@@ -37,3 +37,7 @@ Using this, you can find CloudWatch Logs groups (and other TinyStacks-deployed a
 ### Monitoring Dashboard
 
 TinyStacks also supplies a monitoring dashboard as part of your stack's deployment. You can monitor multiple runtime metrics for your application, including request rate, latency, CPU utilization of your underlying ECS cluster instances, 400/500 errors, and more. 
+
+### Data retention policies
+
+For information on data retention policies for TinyStacks-related data and services, see [Data retention](data-retention.md).
