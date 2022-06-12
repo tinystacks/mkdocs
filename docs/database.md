@@ -55,14 +55,12 @@ Once downloaded, place your private key somewhere on your computer where you can
 
 The ssh command provided doesn't connect you directly to the bastion. Rather, it connects you to your database, using the bastion host as a tunnel. The various arguments to the command have the following meaning: 
 
-* `-i`: Ensures the connection is made using a private key that matches to a public key on the server
+* `-i`: Ensures the connection is made using a private key that matches to a public key on the server.
 * `-L`: Designates the connection as a tunnel. The argument specifies a localhost port, the bastion endpoint, and the port on the RDS database. This port will differ if you use different database systems (5403 for Postgres, 3306 for MySQL, etc.). 
 * `-f`: Forces the SSH connection into the background. 
 * `-N`: Prohibits remote command execution on the bastion - the connection can only forward commands to the Amazon RDS database. 
 
 After you open this tunnel, you can use your sql client or CLI to connect to the database using the credentials found in AWS Secrets Manager (see below). Instead of using the RDS endpoint as host, you specify `localhost`. 
-
-The command displayed in this box will enable you to connect to your bastion via the command line, where you can use command-line Postgres or MySQL tools to query your database. You will need to login using the credentials for the instance stored in AWS Secrets Manager (see below). 
 
 If you prefer to use a visual tool, like MySQL Workbench, <a href="https://dev.mysql.com/doc/workbench/en/wb-mysql-connections-methods-ssh.html" target="_blank">you can configure the tool to connect to your database via an SSH tunnel</a> using your connection information and your SSH private key. Consult your tool's documentation for detailed constructions on configuring SSH tunnels.
 

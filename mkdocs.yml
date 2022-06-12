@@ -29,7 +29,7 @@ extra:
     provider: google
     property: G-ZGJ7S5GYW6
   social:
-    - icon: fontawesome/solid/house
+    - icon: fontawesome/solid/home
       link: https://www.tinystacks.com
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/channel/UC21VAvNozfMxrcappmJ8EBA
