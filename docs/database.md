@@ -56,7 +56,7 @@ Once downloaded, place your private key somewhere on your computer where you can
 The ssh command provided doesn't connect you directly to the bastion. Rather, it connects you to your database, using the bastion host as a tunnel. The various arguments to the command have the following meaning: 
 
 * `-i`: Ensures the connection is made using a private key that matches to a public key on the server.
-* `-L`: Designates the connection as a tunnel. The argument specifies a localhost port, the bastion endpoint, and the port on the RDS database. This port will differ if you use different database systems (5403 for Postgres, 3306 for MySQL, etc.). 
+* `-L`: Designates the connection as a tunnel. The argument specifies a localhost port, the bastion endpoint, and the port on the RDS database. This port will differ if you use different database systems (5432 for Postgres, 3306 for MySQL, etc.). 
 * `-f`: Forces the SSH connection into the background. 
 * `-N`: Prohibits remote command execution on the bastion - the connection can only forward commands to the Amazon RDS database. 
 
