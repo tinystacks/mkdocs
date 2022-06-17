@@ -15,6 +15,8 @@ Select which Git service you plan to use: GitHub or Gitlab. A separate window wi
 
 Once logged in, you will need to grant authorization for TinyStacks to access your GitHub or GitLab account. This will allow us to add a repository to your account (if you use one of our starter projects) or read an existing repository (if you use your own project). 
 
+For more information on administering service connections, in your account, see [Managing service connections](connections-manage.md).
+
 ## Configure AWS account 
 
 Once you've authorized your Git account, you will be prompted to authorize an AWS account. This account will host all of the cloud resources required by your application. 

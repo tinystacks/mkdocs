@@ -2,6 +2,7 @@ site_name: TinyStacks Documentation
 site_url: https://docs.tinystacks.com
 theme:
   name: material
+  custom_dir: overrides
   features:
     - toc.integrate
     - toc.expand
@@ -9,6 +10,7 @@ theme:
     - 404.html
   palette:
       scheme: slate
+      primary: black
   # Necessary for search to work properly
   include_search_page: false
   search_index_only: true
@@ -25,11 +27,9 @@ markdown_extensions:
 - md_in_html
 extra:
   generator: false
-  analytics:
-    provider: google
-    property: G-ZGJ7S5GYW6
+  homepage: https://www.tinystacks.com
   social:
-    - icon: fontawesome/solid/house
+    - icon: fontawesome/solid/home
       link: https://www.tinystacks.com
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/channel/UC21VAvNozfMxrcappmJ8EBA
@@ -67,7 +67,8 @@ nav:
     - 'Sidecars' : 'sidecars.md'
     - 'Logging and monitoring': 'logging-monitoring.md'
     - 'Customizing your stacks': 'customizing.md'
-    - 'Integrations': 'integrations.md'    
+    - 'Data retention': 'data-retention.md'
+    - 'Managing service connections': 'connections-manage.md'
   - 'Troubleshooting':
     - 'Troubleshooting guide': 'troubleshooting.md'  
   - 'The TinyStacks Advantage':

@@ -4,18 +4,18 @@ At TinyStacks, we design all of our solutions with security in mind. In this art
 
 Every stack in TinyStacks is created with a secure architecture. The security measures we've taken include: 
 
-**Hosting your stack in a VPC with public/isolated subnets**. TinyStacks hosts your stack with three public subnets and three isolated subnets. We place your (optional) PostgreSQL database and ECS cluster compute instances in the isolated subnets for additional protection.
+**Hosting your stack in a VPC with public/isolated subnets**. TinyStacks hosts your stack with three public subnets and three isolated subnets. We place your (optional) database and ECS cluster compute instances in the isolated subnets for additional protection.
 
 As discussed [in our architecture overview](architecture.md), we use one of two methods to provide public access to your application, depending on the scaling option you're using:
 
 * **Application Load Balancer**: Your ALB is hosted in your public subnets. Since it's located in the same VPC as your isolated subnets, it can interact freely with your containers over your container's exposed ports.
 * **API Gateway**: If you use API Gateway, we create a VPC link between API Gateway and your isolated subnets. This allows for secure communication between your API endpoints and your containers without traffic flowing over the public Internet. 
 
-**Security groups**. We define security groups on all components of your architecture that restrict communications to trusted entities. For example, our security group rules ensure that only your containers running in your isolated subnets can connect to the appropriate port on your TinyStacks-provisioned PostgreSQL database (and, optionally, your database bastion host if you create one). Similarly, if you use Application Load Balancer for your API endpoints, your containers restrict access to their exposed port(s) to the ALB instance running in your VPC. 
+**Security groups**. We define security groups on all components of your architecture that restrict communications to trusted entities. For example, our security group rules ensure that only your containers running in your isolated subnets can connect to the appropriate port on your TinyStacks-provisioned database (and, optionally, your database bastion host if you create one). Similarly, if you use Application Load Balancer for your API endpoints, your containers restrict access to their exposed port(s) to the ALB instance running in your VPC. 
 
-**Secure database access**. When TinyStacks creates a PostgreSQL database for your application, we create it inside your isolated subnets. This secures your database against access from outside your VPC. You can also optionally create a bastion host, which will enable secure SSH tunneling to your VPC in case your team requires direct database access. 
+**Secure database access**. When TinyStacks creates a database for your application, we create it inside your isolated subnets. This secures your database against access from outside your VPC. You can also optionally create a bastion host, which will enable secure SSH tunneling to your VPC in case your team requires direct database access. 
 
-**Encrypting secrets**. All secrets used by your stack (such as your database connection information and credentials) are stored in encrypted format in [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/). For example, when you ask TinyStacks to create a PostgreSQL database for your stack, TinyStacks stores the database name, hostname, username, password, and other sensitive access information in an entry in AWS Secrets Manager. TinyStacks does not store encryption keys or plaintext secrets for secrets hosted in customer accounts.
+**Encrypting secrets**. All secrets used by your stack (such as your database connection information and credentials) are stored in encrypted format in [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/). For example, when you ask TinyStacks to create a database for your stack, TinyStacks stores the database name, hostname, username, password, and other sensitive access information in an entry in AWS Secrets Manager. TinyStacks does not store encryption keys or plaintext secrets for secrets hosted in customer accounts.
 
 Your team can access AWS Secrets Manager secrets securely through the AWS Console. Your application can also access these values using the AWS Command Line Interface (CLI) or the AWS SDK of your choice. 
 
