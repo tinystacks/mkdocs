@@ -25,7 +25,7 @@ To change your load balancer, go to **Stack Settings** (the gear icon next to yo
 
 ![TinyStacks - change endpoint](img/endpoint-change.png)
 
-## Enabling Caching on Endpoint Requests
+### Enabling Caching on Endpoint Requests
 
 You can alternatively elect to enable caching on all endpoint requests. Enabling caching is best done for sites and services that act mostly as informational services or other scenarios where the return results are largely static.
 

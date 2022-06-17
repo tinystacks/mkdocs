@@ -67,7 +67,8 @@ nav:
     - 'Sidecars' : 'sidecars.md'
     - 'Logging and monitoring': 'logging-monitoring.md'
     - 'Customizing your stacks': 'customizing.md'
-    - 'Managing service connections': 'connections-manage.md' 
+    - 'Data retention': 'data-retention.md'
+    - 'Managing service connections': 'connections-manage.md'
   - 'Troubleshooting':
     - 'Troubleshooting guide': 'troubleshooting.md'  
   - 'The TinyStacks Advantage':
