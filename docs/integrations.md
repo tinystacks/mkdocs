@@ -4,7 +4,7 @@ TinyStacks can be used as a standalone solution. It can also be integrated with 
 
 By default, TinyStacks automates building and releasing of your application code. Builds are handled via a build.yml file that is used by AWS CodeBuild. Our standard build script is fairly straightforward: it runs a Docker build on your code base and tags the resulting image in an Amazon Elastic Container Repository (ECR) repo in your AWS account. (For an example, [see the build.yml file](https://github.com/tinystacks/aws-docker-templates-express/blob/main/build.yml) in our Express sample deployment template.)
 
-For more complex build needs, you can leverage CI/CD solutions outside of TinyStacks. For example, you may need to construct your own base Docker image that includes components from other teams or partners. In this case, you can run your existing CI/CD pipeline and, at the end, merge any custom changes to your build.yml and release.yml into the branch of your repository that you asked TinyStacks to monitor. Once this check-in completes, TinyStacks will kick off its build and release process using the build.yml and release.yml files it finds in that branch. 
+For more complex build needs, you can leverage CI/CD solutions outside of TinyStacks. For example, you may need to construct your own base Docker image that includes components from other teams or partners. In this case, you can run your existing CI/CD pipeline and, at the end, merge the output into a branch monitored by TinyStacks. that you asked TinyStacks to monitor. Once this check-in completes, TinyStacks will kick off its build and release process as with any other check-in.
 
 ### Integrating New Relic for application monitoring
 
