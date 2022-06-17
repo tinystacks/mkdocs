@@ -27,6 +27,26 @@ Your container is defined using a <a href="https://docs.aws.amazon.com/AmazonECS
 
 When you publish a new version of your application, TinyStacks creates a new version of the task definition and publishes it to the service. Your service will gradually spin down instances of its old container and spin up instances of the new one in order to prevent any service interruptions. 
 
+#### Accessing container task instances
+
+You may need to access your container task instances for troubleshooting purposes. You can do this using the command `aws ecs execute-command` from the AWS Command Line Interface (CLI). 
+
+To use this feature, first ensure you have <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html" target="_blank">installed and configured the AWS CLI</a>. You will also need to configure <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html" target="_blank">the AWS Systems Manager Session Manager plugin</a>.
+
+Once installed, you can find the command for logging into your stage's instances on the TinyStacks dashboard. On the page for your stack, find the stage whose instances you need to access and click the gear icon. Under **Stage settings**, select **Stage details**. There, you will see a button that lets you select one of your running tasks. 
+
+![TinyStacks - select ECS task](img/select-ecs-task.png)
+
+Once you select a task, TinyStacks will display the exact syntax of the `aws ecs execute-command` command you need. Copy this text to your clipboard. 
+
+![TinyStacks - ECS execute command](img/ecs-task-command.png)
+
+Finally, run this command at a command prompt on your operating system. (Either Windows or Linux command prompts will work; Windows Powershell is shown below.) If your AWS CLI credentials are set for a different AWS region than your cluster is in, use the `--region` parameter as shown below to force the command to run in the same AWS region as your stage. 
+
+Once run, you will be connected to an interactive Linux prompt for your stack. From there, you can run any Linux command required to check on the status of your task instance and its environment. The example below shows using the `printenv` command to inspect environment variables.
+
+![TinyStacks - ECS execute command](img/ecs-command-execution.png)
+
 ### Scaling
 
 You can configure your application to scale to handle increased load in one of two ways: 

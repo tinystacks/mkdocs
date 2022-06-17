@@ -22,6 +22,10 @@ Find the ECS cluster with the same name as your stack and click on it. From ther
 
 If your application is failing its health check, this will stop the deployment from registering as completed. To do this, remove any custom health check setting. Navigate to **Settings** -> **Stack Settings** and then, under your service, select **Settings** to view and change your health check URL.
 
+### Debugging issues with containers instances
+
+If you need to inspect your application's running environment, you can connect to a container task instance using the `aws ecs execute-command` command. For instructions, see [Accessing container tasks instances](compute.md#accessing-container-task-instances) on the Compute page.
+
 ### Error When Enabling Logging: "Policy document length breaking CloudWatch Log Constraints"
 
 When TinyStacks attempts to enable logging on your stack, you may see the following error in the console: 

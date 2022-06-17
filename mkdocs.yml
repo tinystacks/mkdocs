@@ -29,7 +29,7 @@ extra:
   generator: false
   homepage: https://www.tinystacks.com
   social:
-    - icon: fontawesome/solid/house
+    - icon: fontawesome/solid/home
       link: https://www.tinystacks.com
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/channel/UC21VAvNozfMxrcappmJ8EBA
