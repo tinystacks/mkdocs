@@ -27,8 +27,6 @@ If you use API Gateway as your application front end, TinyStacks creates a VPC L
 
 ![TinyStacks VPC diagram for API Gateway](img/tinystacks-vpc-apig.png)
 
-For 
-
 #### Security Groups
 
 Security groups in AWS define which resources on AWS or the public Internet can access certain AWS resources. We define security groups that restrict access to protected resources. For example, ECS cluster instances can only be accessed by your API Gateway or Application Load Balancer front ends at the specific port that you specify at stack creation time. Likewise, only the ECS cluster instances can talk to the database (unless you create a bastion host, as described below), and only on a single dedicated port.

@@ -1,8 +1,24 @@
 In our guide to [creating your first stack](create-stack.md), we showed you how to launch one of our sample applications as a fully scalable deployment on the cloud. But it's just as easy to package and deploy an existing application! 
 
+## Framework support
+
+TinyStacks directly supports projects the following languages and frameworks: 
+
+* Node.js
+* Python
+* Java
+* PHP
+* Ruby
+
+If your project uses one of these languages or frameworks, congratulations! Your code will run as is on TinyStacks with no manual intervention required. 
+
+You can also run any other framework or language (e.g., .NET Core, Rust, Go, etc.) by building it into a Docker container. This will require adding a few files to your repository. If you're unfamiliar with Docker, [check out our walk-through for creating a Dockerfile](https://www.tinystacks.com/blog-post/hello-world-express-app-with-docker/) on the TinyStacks blog. 
+
 ## Prerequisites
 
 Before you begin this guide, make sure you have set up your AWS and Git service connections as outlined in [Configure AWS and Git service connections](service-connections.md).
+
+As discussed above, if your framework or language is currently not supported directly by TinyStacks, you will need to have a Dockerfile in the root of your repository.
 
 ## Create a new stack
 
@@ -10,50 +26,54 @@ After you configure your connections, you'll be prompted to select a project. Yo
 
 Select **My projects**. You should see a list of all of the repositories available in your Git account. Find the repository whose code you are going to deploy and click **Prepare to deploy**.
 
-![TinyStacks - select a project for your stack](img/tinystacks-existing-1.png)
+![TinyStacks - select a project for your stack](img/tinystacks-existing-select-project.png)
 
-You should now be on the **Prepare your repository** page. 
+You should now be on the **Configure your stack page**. 
 
-## Check the deployment template files into your Git repository
+## Configure your stack
 
-When you choose to deploy code from an existing repository, TinyStacks checks your repo to see if it contains three files: 
+On the **Configure your stack** page, you will be able to set a few parameters for your stack:
 
-* A `Dockerfile`. This file contains the instructions for preparing your Docker container, which will run your application code. Your container will need to contain your application framework (Express, Flask, Django, etc.), as well as any configuration files and environment variables necessary to run your application. 
+* **Project name**. Give your project an easily identifiable name. Since we will use this name when creating various components of your infrastructure, it's best to keep it short. We recommend using 20 characters or less.
+* **Branch**. The Git branch from which to build your code. For a production deployment, this is typically **main** or **master**. 
+* **Port**: If the application in your Docker container is using a port other than the default (8000) to serve traffic, enter it here. 
+* **Custom health check**: AWS services such as Application Load Balancer use health checks to determine if an instance of your application is running correctly. Instances that fail a health check are destroyed and replaced with healthy instances. By default, TinyStacks uses the endpoint `/healthy` to check application health. If you use a different endpoint, specify it here. 
+
+![TinyStacks - configure your stack](img/tinystacks-existing-configure-your-stack.png)
+
+When ready, click **Next**. 
+
+## Select your framework
+
+On the next page, you'll be asked to confirm your settings. You will also need to select your application framework and framework version. 
+
+If you choose a supported framework like Node.js, Python, etc. (i.e., anything other than Docker), you will have several fields where you can customize the root directory of your app. You will also need to specify the Build and Run commands. For example, for a Django app, you would specify `pip3 install -r requirements.txt` to install all required Python packages and `gunicorn --worker-tmp-dir /dev/shm mysite.wsgi` to start Gunicorn and run your Django app. 
+
+![TinyStacks - configure your stack](img/tinystacks-existing-configure-supported-frameworks.png)
+
+If you choose Docker as your application framework, we'll ask you to provide the relative path of your directory where your Dockerfile resides in your repository.
+
+![TinyStacks - configure your stack](img/tinystacks-existing-configure-framework.png)
+
+Once you are done, click **Set up infrastructure**. 
+
+### Docker apps: additional instructions
+
+*Note*: This section only applies if you select **Docker** as your framework. All other supported frameworks require no manual intervention. 
+
+If you choose Docker, on the next screen we will give you a set of files to download and add to your Git repository: 
+
+* A `Dockerfile`. This file contains the instructions for preparing your Docker container, which will run your application code. Your container will need to contain your application framework, as well as any configuration files and environment variables necessary to run your application. 
 * A `build.yml` file, which AWS CodeDeploy will use to create the latest version of your Docker container and store it in an Amazon Elastic Code Repository (ECR) repo in your AWS account. 
 * A `release.yml` file, which AWS CodeDeploy will use to run your Docker container on an Amazon Elastic Container Service (ECS) cluster hosted in your AWS account. 
 
-For more details on the elements of a TinyStacks deployment, [see our architecture page](architecture.md).
-
-**Note**: If your app is already Dockerized (has a Dockerfile), you **do not** need to replace it with our Dockerfile. We only provide a Dockerfile for the benefit of teams who have no yet containerized their applications. 
-
-Since your Docker container must contain the framework required by your application, it's important that you click the **Framework** dropdown and select whatever framework your application uses. This will ensure that the `Dockerfile` that you download can successfully run your application. 
-
-![TinyStacks - select framework](img/tinystacks-existing-2.png)
-
-Once you've selected the correct framework, click **download all files** at the bottom of the page to download all three files as a zip file. Unzip this file and check in all of the missing files for your application to the root of your repository. 
+For more details on these files and the elements of a TinyStacks deployment, [see our architecture page](architecture.md).
 
 The root directory of your repo should look something like the example below after you are done:
 
 ![TinyStacks - root of repository with all required files present](img/tinystacks-existing-3.png)
 
-(*Note*: This example is for an Express app - your project may have different files if it is using a different framework. The important thing is that these three files are checked into the root of your repository.)
-
 Once you are done, click **Next**. 
-
-## Name your project and select the deployment branch
-
-Next, give your project a name. Since this name will be used as a prefix for many of your AWS resources, keep it to 20 characters or less. 
-
-You will also need to select a deployment branch. This is the branch of your Git repository on which new check ins will trigger a new deployment. 
-
-![TinyStacks - name your project and select deployment branch](img/tinystacks-existing-4.png)
-
-There are two other settings on this page you can optionally configure: 
-
-* **Port**: If the application in your Docker container is using a port other than the default (80) to serve traffic, enter it here. 
-* **Custom health check**: AWS services such as Application Load Balancer use health checks to determine if an instance of your application is running correctly. Instances that fail a health check are destroyed and replaced with healthy instances. By default, Tinystacks uses the endpoint `/ping` to check application health. If you use a different endpoint, specify it here. 
-
-When you're done, click **Next**.
 
 ## Choosing serverless or container deployment
 
@@ -61,7 +81,7 @@ You have one more step to go and then you're ready to launch your stack! After c
 
 ![TinyStacks - configure stack](img/tinystacks-create-8.png)
 
-To keep costs low for this initial walkthrough, select **Serverless**. (For more information on which architecture to choose for production applications, see (Architecture)[architecture.md] and (Serverless)[serverless.md].)
+To keep costs low for this initial walk-through, select **Serverless**. (For more information on which architecture to choose for production applications, see (Architecture)[architecture.md] and (Serverless)[serverless.md].)
 
 ## Further customizing your deployment
 
@@ -77,7 +97,7 @@ This screen visualizes all of the AWS resources that TinyStacks will use or crea
 
 Additionally, you can see and configure several additional options: 
 
-* The **AWS pricing breakdown** gives you a sense of what you'll per month for your stack in its current configuration. 
+* The **AWS pricing breakdown** gives you a sense of what you'll spend per month for your stack in its current configuration. 
 * You can define **Environment variables** as name-value pairs that will be exposed as environment variables to your running application's Docker container. 
 
 If a tile has a gear icon in the upper right corner, you can click it to configure advanced options for that tile. Configurable options include the following. 
@@ -100,7 +120,7 @@ Note that serverless applications, by default, do not run in a VPC. You can, how
 
 ### Add a Database
 
-Click **Enable** to create an Amazon RDS Postgres or MySQL database for your account. Use the settings option to select an existing database instead and to configure other database-related options. 
+Click **Enable** to create an Amazon RDS Postgres or MySQL database for your account. Use the settings option to select an existing database inside of your AWS account instead and to configure other database-related options. 
 
 ### Amazon ECS (container architecture only)
 
@@ -134,7 +154,7 @@ Click on your stack's name to navigate to the Stack Details page.
 
 This page shows your stack and all of the stages you've defined. The initial stack creation process creates a single stage named `dev`. You can use the **Add stage** button to add more stages at any time.
 
-For now, let's tets out the dev stack and ensure it's working. On the lower right corner of the `dev` box, click **Copy endpoint**. 
+For now, let's test out the dev stack and ensure it's working. On the lower right corner of the `dev` box, click **Copy endpoint**. 
 
 You can use this base URL to access a valid page or REST API call in your application. If everything is configured correctly, you should see your application return an appropriate response to your request.
 
@@ -142,7 +162,7 @@ You can use this base URL to access a valid page or REST API call in your applic
 
 By following the steps above, your application should deploy and run in the cloud. However, you may notice some issues running your code if you haven't prepared your application to run in a container. 
 
-[As explained in our architectural overview](architecture.md), a Docker container is a virtualized operating system that contains all of the executable files, scripts, shared libraries, configuration files and other dependencies required for your application to run. In order to scale your application to handle upwards of millions of requests, your AWS account will need to run multiple copies of this container across multiple virtual machines. 
+[As explained in our architectural overview](architecture.md), a Docker container is a virtualized operating system that contains all of the executable files, scripts, shared libraries, configuration files and other dependencies required for your application to run. In order to scale your application to handle upwards of millions of requests, your AWS account will need to run multiple copies of this container across multiple nodes in an Amazon ECS cluster. 
 
 If your application has been designed as a monolithic application, it may make certain assumptions about its runtime environment that won't hold true after your application is containerized. If you are seeing errors or strange behavior in your application, here are a few things to consider. 
 
@@ -153,3 +173,11 @@ Each running Docker container instance has its own virtualized filesystem. Data 
 ### Configuration
 
 Each running container instance will need its own copies of whatever configuration files your application might need. If you need to update any of these configuration files, you will need either to push changes through Git, or store the configuration in a location that all of your running container instances can access dynamically (such as Amazon S3). 
+
+### Shared memory
+
+A monolithic application running on a large server or virtual machine may cache some values in memory. This lightens the load on the application's database and can speed up responses to user requests. 
+
+However, naive caching won't work in a scenario where multiple instances of your application are running. Additionally, in serverless applications, AWS will shut down instances of your application if they don't receive traffic within a given time period.
+
+If you are running with a Container framework, you can mitigate this issue in the short term by constraining your application to launch only a single instance of your container. In the long term, you can integrate a shared memory cache such as <a href="https://aws.amazon.com/elasticache/" target="_blank">Amazon ElastiCache</a> into your application. 
