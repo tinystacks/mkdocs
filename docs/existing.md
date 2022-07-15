@@ -12,7 +12,7 @@ TinyStacks directly supports projects the following languages and frameworks:
 
 If your project uses one of these languages or frameworks, congratulations! Your code will run as is on TinyStacks with no manual intervention required. 
 
-You can also run any other framework or language (e.g., .NET Core, Rust, Go, etc.) by building it into a Docker container. If you're unfamiliar with Docker, [check out our walk-through for creating a Dockerfile](https://www.tinystacks.com/blog-post/hello-world-express-app-with-docker/) on the TinyStacks blog. TinyStacks can compile and ship any application source base that contains a working Dockerfile. 
+You can also run any other framework or language (e.g., .NET Core, Rust, Go, etc.) by building it into a Docker container. This will require adding a few files to your repository. If you're unfamiliar with Docker, [check out our walk-through for creating a Dockerfile](https://www.tinystacks.com/blog-post/hello-world-express-app-with-docker/) on the TinyStacks blog. 
 
 ## Prerequisites
 
