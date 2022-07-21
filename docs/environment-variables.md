@@ -1,10 +1,10 @@
 TinyStacks supports customizing your deployments through environment variables. We support two types of environment variables: build and runtime. 
 
-### Build environment variables
+## Build environment variables
 
 Build environment variables are passed to your [build.yml file](builds-releases.md) as part of the container build process. You can use build environment variables to 
 
-#### Adding and using build environment variables
+### Adding and using build environment variables
 
 To add a build environment variable, you must first add it to your stack. On the TinyStacks dashboard, click the gear icon for your stack to go to its **Stack Settings** page. Under Build variables, you can add a new key-value pair by clicking the + button.
 
@@ -12,7 +12,7 @@ To add a build environment variable, you must first add it to your stack. On the
 
 After you've defined the build environment variable here, you can pass it into your build.yml file to customize the build. 
 
-#### Example: Defining a build in a monorepo
+### Example: Defining a build in a monorepo
 
 For example, say that you wanted to use a monorepo architecture, in which you deploy multiple services from a single Git repository. 
 
@@ -30,7 +30,7 @@ Then, simply use this variable as the path to your Dockerfile by editing the bui
 
 By defining a different path for each stack, you can use the same build.yml and release.yml files in a repo to deploy multiple services. 
 
-### Runtime environment variables
+## Runtime environment variables
 
 Runtime variables are set on your Docker container images. They are copied over with each container image as a new image is run in response to an application scale event. 
 
@@ -38,7 +38,7 @@ Runtime variables are essential to adding additional functionality to your appli
 
 TinyStacks makes it easy to set runtime variables on your application that are unique to each stage. This enables you to have different configuration settings for your application depending on whether it's in dev, test, or production. 
 
-#### Adding or changing runtime variables per stage
+### Adding or changing runtime variables per stage
 
 Adding a new runtime environment variable is a two-step process.
 

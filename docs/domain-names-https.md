@@ -1,8 +1,8 @@
-### Using your domain name
+## Using your domain name
 
 You can use your own domain name for your application's endpoint. How you set it up depends on whether you use API Gateway or Application Load Balancer (ALB) as your [endpoint technology](load-balancers.md).
 
-#### Application Load Balancer
+### Application Load Balancer
 
 For ALB, you need only create a single DNS record pointing to the ALB's public endpoint. Use the following steps to set up DNS records for a domain whose DNS is managed by AWS. 
 
@@ -32,7 +32,7 @@ The last value is your ALB endpoint. You can copy this from the **Copy endpoint*
 
 Note that you can also create an A record as an alias to Application Load Balancer <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-elb-load-balancer.html" target="_blank">as discussed in the official AWS documentation</a>. We recommend using SRV records if you are running multiple images (e.g., [sidecars](sidecars.md)) in your stack, as SRV allows you to create domain entries that route traffic to different ports on the same host. 
 
-#### API Gateway
+### API Gateway
 
 There are a few additional steps for attaching your domain to an API Gateway endpoint. 
 
@@ -64,7 +64,7 @@ The last step is to create an A record for your domain that maps your domain nam
 
 You should now be able to navigate to your domain. Since your domain is hosted in AWS API Gateway, it uses HTTPS by default, so make sure to prefix your domain name with `https://` when typing it into a Web browser.
 
-### HTTPS for your stack
+## HTTPS for your stack
 
 Users of API Gateway get HTTPS connectivity by default. You can use your own domain with HTTPS by following the process outlined above for using a custom domain name with API Gateway. 
 

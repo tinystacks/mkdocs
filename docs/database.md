@@ -1,6 +1,6 @@
 TinyStacks supports creating a database as part of your stack. You can also choose to pass in a database you have already created in your AWS account. 
 
-### Changing your stack's database settings
+## Changing your stack's database settings
 
 <a href="https://tinystacks.com/stacks/" target="_blank">Go to your Stacks page</a> and, for the stack you want to modify, click the gear icon in the lower right corner. This will open the **Settings** page. In the left hand column, under **Stage**, select the stage to which you want to add a database. Then, from the same column, select **Database**. 
 
@@ -14,7 +14,7 @@ If your stage currently has no database, you will see the following screen. You 
 
 *Note*: Saving your changes will trigger a rebuild of your stage. Your application may not be accessible on this stage until the rebuild and redeploy has completed. 
 
-### Connecting to your database from your application
+## Connecting to your database from your application
 
 When you have TinyStacks create a database for you, we push all information about the database - including username and password - into a set of runtime variables. These are exposed to your application as environment variables in your Docker container instances. 
 
@@ -35,17 +35,17 @@ For MySQL, the variables are:
 Your application code should be able to access these values the same as it would any other environment variable (e.g., <a href="https://nodejs.dev/learn/how-to-read-environment-variables-from-nodejs" target="_blank">`process.env` in Node.js</a> or <a href="https://www.nylas.com/blog/making-use-of-environment-variables-in-python/" target="_blank">`os.environ.get()` in Python</a>).
 
 
-### Using a bastion host
+## Using a bastion host
 
 By default, your database is only accessible [from the same VPC](networking.md) in which your application runs. However, many teams will want to connect directly to their databases to run queries with tools like MySQL Workbench. 
 
 To enable these scenarios, you need to create <a href="https://aws.amazon.com/premiumsupport/knowledge-center/rds-connect-using-bastion-host-linux/" target="_blank">a **bastion host**</a>. The bastion host is an Amazon EC2 instance that sits in your VPC and creates a secure SSH tunnel so you can connect to your database. The SSH connection requires using public key cryptography, which prevents unauthorized users from connecting to your bastion and attempting to access your database. 
 
-#### Creating a bastion host
+### Creating a bastion host
 
 You can create a bastion host when you initially launch your stack and configure your database. If you didn't add a database to your stack yet, you can navigate to Stack Settings for your stack and add it under **Stage settings** -> **Database**.
 
-#### Connecting to your bastion host 
+### Connecting to your bastion host 
 
 To connect to your database, navigate to your stack's **Stack settings** page. Under **Stage settings** -> **Database**, you'll see a box labeled **Bastion connection information**. Here, you can download the private key you'll need to connect to your database. 
 
@@ -64,7 +64,7 @@ After you open this tunnel, you can use your sql client or CLI to connect to the
 
 If you prefer to use a visual tool, like MySQL Workbench, <a href="https://dev.mysql.com/doc/workbench/en/wb-mysql-connections-methods-ssh.html" target="_blank">you can configure the tool to connect to your database via an SSH tunnel</a> using your connection information and your SSH private key. Consult your tool's documentation for detailed constructions on configuring SSH tunnels.
 
-#### Accessing your database's credentials (username and password)
+### Accessing your database's credentials (username and password)
 
 You will, of course, still need your database's username and password to connect to it!
 
