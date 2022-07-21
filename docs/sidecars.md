@@ -17,7 +17,7 @@ When the stack rebuilds, it will deploy your second container side by side on th
 
 The images will scale together as you change your auto-scale settings. If you add an additional EC2 instance to your ECS cluster, we will create a new instance of each image on this new ECS cluster node. Memory and CPU resources on the instance are evenly split between all running container images.
 
-### Sidecar Settings
+## Sidecar Settings
 
 You can set basic settings for your sidecar by navigating to your stack's **Stack settings** page. Underneath **Stack settings**, you will see a service drop-down. Click this to select your sidecar service from the list. 
 

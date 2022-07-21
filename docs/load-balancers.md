@@ -6,7 +6,7 @@ Both technologies help provide secure access to your application. As discussed i
 
 As its name suggests, ALB also provides load balancing services. This means that requests to your service are balanced across the different instances of your containers running on your ECS cluster.
 
-### Standard Scale Applications and Hyperscale Applications
+## Standard Scale Applications and Hyperscale Applications
 
 The primary decision between choosing API Gateway versus ALB is how much traffic you expect your application to handle. We like to distinguish between two types of scale: 
 
@@ -17,7 +17,7 @@ In general, standard scale applications will find better price and performance u
 
 For more details, <a href="https://blog.tinystacks.com/battle-of-the-serverless-api-routers-alb-vs-api-gateway-feature-comparison" target="_blank">see our blog post comparing API Gateway with Application Load Balancer</a>.
 
-### Changing Your Load Balancer
+## Changing Your Load Balancer
 
 You can change the load balancer your application uses at any time. This can be useful if your application's usage has increased from a standard scale to a hyperscale pattern. 
 
@@ -25,7 +25,7 @@ To change your load balancer, go to **Stack Settings** (the gear icon next to yo
 
 ![TinyStacks - change endpoint](img/endpoint-change.png)
 
-### Enabling Caching on Endpoint Requests
+## Enabling Caching on Endpoint Requests
 
 You can alternatively elect to enable caching on all endpoint requests. Enabling caching is best done for sites and services that act mostly as informational services or other scenarios where the return results are largely static.
 

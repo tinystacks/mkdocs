@@ -1,6 +1,6 @@
 As discussed on our [Architecture](architecture.md) page, TinyStacks uses Amazon Elastic Container Service (ECS) to host your application's Docker containers. 
 
-### Your ECS Cluster 
+## Your ECS Cluster 
 
 On AWS, containers can be hosted in one of two ways: 
 
@@ -11,7 +11,7 @@ Fargate still runs your container on clusters of EC2 instances. However, these i
 
 TinyStacks uses EC2 clusters hosted in your own AWS account. The primary considering behind this decision was cost. Our own experiments showed that <a href="https://blog.tinystacks.com/ecs-serverless-or-not-fargate-vs-ec2-clusters" target="_blank">using EC2 instances resulted in a 40% cost savings</a> to our customers. 
 
-### ECS services
+## ECS services
 
 There are two ways to run containers on ECS. One is to run individual tasks, or running instances of your container. The other is to run your container as a service. An ECS service runs a specified number of instances of your container on your cluster. 
 
@@ -21,13 +21,13 @@ TinyStacks uses the `REPLICA` service scheduler strategy, which spreads task ins
 
 For more information, <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html" target="_blank">see the AWS documentation on services</a>.
 
-#### Running and updating your container
+### Running and updating your container
 
 Your container is defined using a <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html" target="_blank">task definition</a>, a versioned specification that defines various parameters for your running container. 
 
 When you publish a new version of your application, TinyStacks creates a new version of the task definition and publishes it to the service. Your service will gradually spin down instances of its old container and spin up instances of the new one in order to prevent any service interruptions. 
 
-#### Accessing container task instances
+### Accessing container task instances
 
 You may need to access your container task instances for troubleshooting purposes. You can do this using the command `aws ecs execute-command` from the AWS Command Line Interface (CLI). 
 
@@ -47,7 +47,7 @@ Once run, you will be connected to an interactive Linux prompt for your stack. F
 
 ![TinyStacks - ECS execute command](img/ecs-command-execution.png)
 
-### Scaling
+## Scaling
 
 You can configure your application to scale to handle increased load in one of two ways: 
 

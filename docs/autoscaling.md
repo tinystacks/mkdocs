@@ -4,7 +4,7 @@ TinyStacks uses the auto scaling feature of Amazon ECS to ensure your applicatio
 
 Note that the scalability of a container is dependent upon good programming practices. Your application code should avoid storing state on disk or in memory on any given container, as you cannot predict which running container instance will service a given request. 
 
-### Changing your cluster scale settings
+## Changing your cluster scale settings
 
 When you [create a stage](stages.md), you can specify how you want your application to scale. If you need to change these at any time, you can do so through the stage's **Settings** page.
 
@@ -21,11 +21,11 @@ To change scale settings, select **Build and scale** from the navigation menu on
 
 ![TinyStacks - change ECS cluster scaling settings](img/tinystacks-change-scale-2.png)
 
-#### Change EC2 instance sizing settings 
+### Change EC2 instance sizing settings 
 
 Here, you can change several settings. The first is your application's **instance sizing**. You can upgrade instance sizing if you are spinning up new ECS cluster instances too quickly. If you are currently using a t3.micro instance size, consider upgrading to an m3.medium or an m3.large.
 
-#### Change cluster scale settings
+### Change cluster scale settings
 
 You can also control how many EC2 instances your cluster runs. You can control the following three  settings. 
 
