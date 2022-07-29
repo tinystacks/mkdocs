@@ -1,6 +1,6 @@
 TinyStacks supports creating a database as part of your stack. You can also choose to pass in a database you have already created in your AWS account. 
 
-### Changing your stack's database settings
+## Changing your stack's database settings
 
 <a href="https://tinystacks.com/stacks/" target="_blank">Go to your Stacks page</a> and, for the stack you want to modify, click the gear icon in the lower right corner. This will open the **Settings** page. In the left hand column, under **Stage**, select the stage to which you want to add a database. Then, from the same column, select **Database**. 
 
@@ -14,7 +14,7 @@ If your stage currently has no database, you will see the following screen. You 
 
 *Note*: Saving your changes will trigger a rebuild of your stage. Your application may not be accessible on this stage until the rebuild and redeploy has completed. 
 
-### Connecting to your database from your application
+## Connecting to your database from your application
 
 When you have TinyStacks create a database for you, we push all information about the database - including username and password - into a set of runtime variables. These are exposed to your application as environment variables in your Docker container instances. 
 
@@ -34,18 +34,43 @@ For MySQL, the variables are:
 
 Your application code should be able to access these values the same as it would any other environment variable (e.g., <a href="https://nodejs.dev/learn/how-to-read-environment-variables-from-nodejs" target="_blank">`process.env` in Node.js</a> or <a href="https://www.nylas.com/blog/making-use-of-environment-variables-in-python/" target="_blank">`os.environ.get()` in Python</a>).
 
+## Creating a read replica
 
-### Using a bastion host
+When you [add a new stage](stages.md) to a stack, you have the option of adding a read replica, a read-only version of your database. 
+
+Read replicas are useful for offloading read activity from your main database. The majority of Web applications see far more data reads than they do data writes. (Consider how many people browse a product catalog versus actually making a purchase.) By offloading reads, you reduce the risk of overloading your primary database and improve overall application performance and stability. 
+
+Read replicas can also help with application performance. By placing read replicas in different AWS regions, you can reduce latency between your application and database. 
+
+Finally, you can promote a read replica to primary in the event your primary suffers a service disruption (e.g., the Availability Zone hosting it becomes unavailable). This helps ensure continuity of business.
+
+For more information on read replicas on AWS, <a href="https://aws.amazon.com/rds/features/read-replicas/" target="_blank">check out the documentation on AWS's web site</a>. 
+
+### Creating a read replica
+
+You can create a read replica in every new stage in a stack. Read replicas can exist in any AWS region supported by TinyStacks. For example, if your application serves the US market primarily, you could create your main production stack in us-east-2 and then a regional deployment with a read replica in us-west-2. If you then expand to the Asia market, you could create another regional deployment with read replica in ap-northeast-1. 
+
+To add a read replica to a stack, navigate to your stack and click the **New stage** button. On the New Stage dialog, you'll have the option to create a database for the stage. Select **Read Replica**.
+
+![TinyStacks - add read replica](img/add-read-replica.png)
+
+### Connecting to your replica vs. connecting to your primary
+
+To effectively use read replicas, your application will need to route database requests to the appropriate endpoint. To enable this, TinyStacks adds an additional set of runtime variables to your application's Docker container. These are `PG_READER_HOST` and `PG_READER_PORT` for a PostgreSQL database and `MYSQL_READER_HOST` and `MYSQL_READER_PORT` for a MySQL database. 
+
+You will then need to alter your application code to be aware of the replica and route read operations to it. How you do this will differ based on what application framework you use. Some packages, such as the ORM library Sequelize, <a href="https://sequelize.org/docs/v6/other-topics/read-replication/" target="_blank">have built-in support for read replicas</a>.
+
+## Using a bastion host
 
 By default, your database is only accessible [from the same VPC](networking.md) in which your application runs. However, many teams will want to connect directly to their databases to run queries with tools like MySQL Workbench. 
 
 To enable these scenarios, you need to create <a href="https://aws.amazon.com/premiumsupport/knowledge-center/rds-connect-using-bastion-host-linux/" target="_blank">a **bastion host**</a>. The bastion host is an Amazon EC2 instance that sits in your VPC and creates a secure SSH tunnel so you can connect to your database. The SSH connection requires using public key cryptography, which prevents unauthorized users from connecting to your bastion and attempting to access your database. 
 
-#### Creating a bastion host
+### Creating a bastion host
 
 You can create a bastion host when you initially launch your stack and configure your database. If you didn't add a database to your stack yet, you can navigate to Stack Settings for your stack and add it under **Stage settings** -> **Database**.
 
-#### Connecting to your bastion host 
+### Connecting to your bastion host 
 
 To connect to your database, navigate to your stack's **Stack settings** page. Under **Stage settings** -> **Database**, you'll see a box labeled **Bastion connection information**. Here, you can download the private key you'll need to connect to your database. 
 
@@ -64,13 +89,13 @@ After you open this tunnel, you can use your sql client or CLI to connect to the
 
 If you prefer to use a visual tool, like MySQL Workbench, <a href="https://dev.mysql.com/doc/workbench/en/wb-mysql-connections-methods-ssh.html" target="_blank">you can configure the tool to connect to your database via an SSH tunnel</a> using your connection information and your SSH private key. Consult your tool's documentation for detailed constructions on configuring SSH tunnels.
 
-#### Accessing your database's credentials (username and password)
+### Accessing your database's credentials (username and password)
 
 You will, of course, still need your database's username and password to connect to it!
 
 Your database username and password are stored securely in your AWS account using <a href="https://console.aws.amazon.com/secretsmanager/" target="_blank">AWS Secrets Manager</a>. You can see these secrets by navigating to AWS Secrets Manager in your AWS account. 
 
-![TinyStacks - see secrets for Postgres](img/tinystacks-secrets-1.jpg)
+![TinyStacks - see secrets for Postgres](img/tinystacks-secrets-1.png)
 
 You can identify the correct secret for your application from the AWS Console in two ways: 
 
@@ -81,7 +106,7 @@ If you have multiple stages, you will have multiple secrets. You can distinguish
 
 In the AWS Console, you can see the information stored in this secret by expanding the **Secret value** dropdown. There, you can see all of the information required to connect to your database. 
 
-![TinyStacks - expand secret values for Postgres](img/tinystacks-secrets-2.jpg)
+![TinyStacks - expand secret values for Postgres](img/tinystacks-secrets-2.png)
 
 If you need to retrieve these values programmatically, you can do so using the AWS Command Line Interface (CLI) or any of the APIs available for programmatic access. For example, using the AWS CLI, you can retrieve the secret you need by searching for all secrets where the tag `aws:cloudformation:stack-name` matches your stack name. You can then use the command `jq` to filter out the return values to get the correct database for your stage. 
 
