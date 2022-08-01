@@ -1,4 +1,12 @@
-At TinyStacks, we design all of our solutions with security in mind. In this article, we describe the measures that TinyStacks takes to ensure the security of your stack. We also discuss the permissions required by TinyStacks to operate on your connected accounts. 
+At TinyStacks, we design all of our solutions with security in mind.
+
+In this article, we describe the measures that TinyStacks takes to ensure the security of your stack. We also discuss the permissions required by TinyStacks to operate on your connected accounts. 
+
+## Security compliance standards
+
+[TinyStacks has achieved SOC 2 Type I compliance](https://www.tinystacks.com/blog-post/tinystacks-completes-soc-2-type-i-data-security-audit/) in accordance with American Institute of Certified Public Accountants (AICPA) standards for SOC for Service Organizations, also known as SSAE 18. TinyStacks, Inc. was audited by <a href="https://www.prescientassurance.com/" target="_blank">Prescient Assurance</a>, a leader in security and compliance attestation for B2B, SAAS companies worldwide.
+
+An unqualified opinion on a SOC 2 Type I audit report demonstrates to TinyStacks, Inc.’s current and future customers that they manage their data with the highest standard of security and compliance. 
 
 ## Stack Security 
 
