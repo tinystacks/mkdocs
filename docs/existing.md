@@ -112,7 +112,7 @@ You can click the gear icon to opt instead to use your own pre-created VPC from 
 
 ![TinyStacks - configure VPC](img/tinystacks-vpc-select-existing.png)
 
-You can also option to turn the isolated subnets into private subnets by adding a NAT Gateway. This will enable applications running in these subnets to make calls out to the public Internet. You should enable this if your application has an external dependency, such as on a publicly hosted Web service. (Note: You will incur an hourly charge for your NAT Gateway as well as data transfer charges for every 1GB of data that flows to the Internet or to compute capacity in a different Availability Zone. See the [AWS NAT Gateway Pricing page](https://aws.amazon.com/vpc/pricing/) for more details.)
+You can also option to turn the isolated subnets into private subnets by adding a NAT Gateway. This will enable applications running in these subnets to make calls out to the public Internet. You should enable this if your application has an external dependency, such as on a publicly hosted Web service. (Note: You will incur an hourly charge for your NAT Gateway as well as data transfer charges for every 1GB of data that flows to the Internet or to compute capacity in a different Availability Zone. See the <a href="https://aws.amazon.com/vpc/pricing/" target="_blank">AWS NAT Gateway Pricing page</a> for more details.)
 
 ![TinyStacks - configure VPC](img/tinystacks-vpc-nat-gateway.png)
 
