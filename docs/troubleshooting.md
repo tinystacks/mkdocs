@@ -1,16 +1,16 @@
 When using TinyStacks, you may run into the following issues. Most customers have resolved these issues with the tips below. If a given resolution doesn't work for you, [please contact us on our Discord channel](https://discord.com/channels/825074552085413966/825074552085413969) and we'll help you out. 
 
-### Launch is stuck for several minutes
+## Launch is stuck for several minutes
 
 On occasion, you may see a stack launched stuck in one of its status states for several minutes. In these situations, it's possible that the stack has encountered an error that's preventing it from launching. 
 
 Here are a few things you can check or try: 
 
-#### Check for CloudFormation errors
+### Check for CloudFormation errors
 
 Sign in to the AWS Management Console and check the CloudFormation template's **Events** tab for any errors. (The template name will begin with the name of your stack.) It's possible the stack encountered an error in creating the Amazon ECS cluster, in which case the detailed error message should provide actionable information. 
 
-#### Drop the service's desired task count in ECS
+### Drop the service's desired task count in ECS
 
 If you're just standing up your initial infrastructure, there may be an issue with the application on your Docker container that's preventing your service from starting on ECS. Dropping your task count down to zero in the Amazon ECS Management Console can help skip over any such errors and ensure your stack finishes creating correctly. 
 
@@ -18,15 +18,15 @@ Find the ECS cluster with the same name as your stack and click on it. From ther
 
 ![TinyStacks - set desired tasks to zero](img/service-desired-tasks-zero.png)
 
-#### Turn off the application's health check
+### Turn off the application's health check
 
 If your application is failing its health check, this will stop the deployment from registering as completed. To do this, remove any custom health check setting. Navigate to **Settings** -> **Stack Settings** and then, under your service, select **Settings** to view and change your health check URL.
 
-### Debugging issues with containers instances
+## Debugging issues with containers instances
 
 If you need to inspect your application's running environment, you can connect to a container task instance using the `aws ecs execute-command` command. For instructions, see [Accessing container tasks instances](compute.md#accessing-container-task-instances) on the Compute page.
 
-### Error When Enabling Logging: "Policy document length breaking CloudWatch Log Constraints"
+## Error When Enabling Logging: "Policy document length breaking CloudWatch Log Constraints"
 
 When TinyStacks attempts to enable logging on your stack, you may see the following error in the console: 
 
@@ -40,7 +40,7 @@ To resolve this, run the following AWS CLI command. You can run this command on 
 aws logs put-resource-policy --policy-name AWSLogDeliveryWrite20150319 --policy-document "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"AWSLogDeliveryWrite\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"delivery.logs.amazonaws.com\"},\"Action\":[\"logs:CreateLogStream\",\"logs:PutLogEvents\"],\"Resource\":[\"*\"]}]}"
 ```
 
-### Error When Downloading Public Containers from Docker: "You have reached your rate pull limit"
+## Error When Downloading Public Containers from Docker: "You have reached your rate pull limit"
 
 When building your stack, the build may fail with the following message in the Build Log: 
 
@@ -68,7 +68,7 @@ FROM public.ecr.aws/bitnami/node:latest
 
 We have modified the TinyStacks sample Docker applications to use these images from the ECR Public Gallery.
 
-### Cannot see certain repositories in TinyStacks
+## Cannot see certain repositories in TinyStacks
 
 If someone in your organization configured a GitHub connection to only allow access to certain repositories, you may not see a repository that you'd like to launch with TinyStacks. 
 
@@ -80,6 +80,6 @@ From there, click **Configure** next to **TinyStacks**. From there, you can eith
 
 ![TinyStacks - configure available GitHub repos 2](img/github-configure-repos-2.png)
 
-### Can't connect to bastion host
+## Can't connect to bastion host
 
 Occasionally, your bastion host needs to be re-provisioned or swapped out for another instance. This can cause your bastion endpoint to change. 
