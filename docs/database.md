@@ -22,7 +22,7 @@ To add a new database to a stage, select your stack from the **Your stacks** das
 
 ![Select the databases for your stage](img/select-stage-dbs.png)
 
-From the **Databases** page, you can click the **+ Add database** text to add a new database to the stack. 
+From the **Databases** page, click the **+ Add database** text to add a new database to the stack. 
 
 ![Add another database to a stage](img/databases-add-multiple.png)
 
