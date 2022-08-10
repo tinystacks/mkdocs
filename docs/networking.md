@@ -63,3 +63,37 @@ If your application doesn't require connecting to the public Internet, you can s
 By default, we do not allow any Internet connectivity directly to your database. However, your team may need to access the database outside of your application (e.g., to run ad hoc queries or troubleshoot issues). 
 
 To facilitate this, TinyStacks supports creating a <a href="https://aws.amazon.com/premiumsupport/knowledge-center/rds-connect-using-bastion-host-linux/" target="_blank">bastion host</a> for your database. The bastion host is an Amazon EC2 instance that sits in one of your public subnets and to which you can connect via SSH using a cryptographic key. Once on the bastion host, you can connect directly to your database in its isolated subnets.
+
+## Adding an existing VPC to your stack
+
+If you plan to use your own custom VPC, there are a few things you should keep in mind. Most of these are related to the subnet types (Public, Private, and Isolated) discussed at the beginning of this article. 
+
+Depending on the resources you plan the launch in this VPC and their networking needs, you will need a combination of the Public, Private, and Isolated subnets. Here are a few common requirements:
+
+### Databases
+
+Databases need at least two Isolated subnets in different Availability Zones.
+
+### Applications
+
+Applications that connect to resources over the Internet either need to be placed in a Public subnet, if direct incoming traffic is also acceptable, or in a Private subnet when traffic needs to be controlled through a centralized point like an ALB or API Gateway. 
+
+Certain AWS resources (particularly global ones) require Internet connectivity.  So if an application will connect to (for example) an Amazon S3 bucket, it will require Internet access via one of the methods previously mentioned.
+
+### Proxy resources
+
+Resources that act as a proxy between other resources (like bastion instances and NAT instances) should be placed in Public subnets.
+
+### AWS Lambda 
+
+Lambda functions that connect to resources within a VPC will require a VPC with Private subnets.  This is due to how AWS constructs the ENI for Lambda functions, as well as a few other networking quirks.
+
+### Other considerations
+
+Some Availability Zones are less frequently updated than others.  If you need a specific instance type (i.e. if you're launching a database or running containers in an Amazon ECS cluster), check the instance types available in an Availability Zone before creating your subnet.  
+
+For example, our default database configuration uses a `db.t3.micro` instance type. To see which Availability Zones in your region support this instance type, run the following AWS CLI command, replacing `us-east-1` with your target AWS region:
+
+```shell
+aws ec2 describe-instance-type-offerings --location-type availability-zone --filters Name=instance-type,Values=t3.micro --region us-east-1 --output table
+```

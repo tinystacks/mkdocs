@@ -59,7 +59,7 @@ nav:
     - 'Serverless': 'serverless.md'    
     - 'Autoscaling': 'autoscaling.md'
     - 'Networking': 'networking.md'
-    - 'Database': 'database.md'
+    - 'Databases': 'database.md'
     - 'Stages': 'stages.md'
     - 'Environment variables': 'environment-variables.md'
     - 'Load balancers': 'load-balancers.md'
@@ -68,6 +68,7 @@ nav:
     - 'Logging and monitoring': 'logging-monitoring.md'
     - 'Customizing your stacks': 'customizing.md'
     - 'Data retention': 'data-retention.md'
+    - 'Integrating other DevOps services' : 'integrations.md'    
     - 'Managing service connections': 'connections-manage.md'
   - 'Troubleshooting':
     - 'Troubleshooting guide': 'troubleshooting.md'  
