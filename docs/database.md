@@ -1,4 +1,4 @@
-TinyStacks supports creating a database as part of your stack. You can also choose to pass in a database you have already created in your AWS account. 
+TinyStacks supports creating one or more databases as part of your stack. You can also choose to pass in a database you have already created in your AWS account. 
 
 ## Changing your stack's database settings
 
@@ -8,11 +8,31 @@ You will see two different screens here depending on whether your stage currentl
 
 ![TinyStacks - change database settings for a stack](img/tinystacks-database-1.png)
 
-If your stage currently has no database, you will see the following screen. You can either add a new Postgres or MySQL database, or add another existing AWS database to your stack. 
+If your stage currently has no database, you will see the following screen. You can either add a new Postgres, MySQL, or Redis database. You can also add another existing AWS database to your stack. 
 
 ![TinyStacks - change database settings for a stack](img/tinystacks-database-2.png)
 
 *Note*: Saving your changes will trigger a rebuild of your stage. Your application may not be accessible on this stage until the rebuild and redeploy has completed. 
+
+## Adding multiple databases to a stage
+
+You can add multiple databases to a stage once it is created. You can add one instance apiece of a Postgres, MySQL, or Redis database to each stage. 
+
+To add a new database to a stage, select your stack from the **Your stacks** dashboard to view all of its stages. From the **Stages** page, click the database icon for the stage where you will add your database. This will take you to the **Databases** settings page.
+
+![Select the databases for your stage](img/select-stage-dbs.png)
+
+From the **Databases** page, click the **+ Add database** text to add a new database to the stack. 
+
+![Add another database to a stage](img/databases-add-multiple.png)
+
+On the **Add a database** dialog, select the database you wish to add from the supported types. 
+
+![Add new database](img/select-database-type.png)
+
+After you click **Add database**, TinyStacks will launch an update of your stack to create the new resource in your AWS account. 
+
+![New database being added to your stage](img/multiple-database-listing.png)
 
 ## Connecting to your database from your application
 
@@ -32,7 +52,22 @@ For MySQL, the variables are:
 * **MYSQL_CREDENTIALS_SECRET**: The password for connecting to your MySQL database
 * **MYSQL_DATABASE**: The name of the database on the database host server
 
+For Redis, the variables are: 
+
+* **REDIS_HOST**: The IP address
+* **REDIS_PORT**: The port on which your Redis database is running
+* **REDIS_CREDENTIALS_SECRET**: The password for connecting to your Redis database
+* **REDIS_DATABASE**: The name of the database on the database host server
+
 Your application code should be able to access these values the same as it would any other environment variable (e.g., <a href="https://nodejs.dev/learn/how-to-read-environment-variables-from-nodejs" target="_blank">`process.env` in Node.js</a> or <a href="https://www.nylas.com/blog/making-use-of-environment-variables-in-python/" target="_blank">`os.environ.get()` in Python</a>).
+
+## Redis support
+
+TinyStacks supports adding a Redis database to your stages. 
+
+Redis is an in-memory key-value store that provides rapid access to cached data. Using an in-memory database is a common design pattern that enables applications to access data without repeated reads to a disk-based database. This reduces congestion on your database, which in turn increases request response times and reduces the risk of database timeouts during high-traffic periods. Your application can also use an in-memory database to store calculated values (e.g., a user's Most Recently Used list) that can be accessed safely by multiple nodes in your application cluster.
+
+TinyStacks creates a Redis instance in your AWS account using <a href="https://aws.amazon.com/elasticache/redis/" target="_blank">AWS ElastiCache for Redis</a>.
 
 ## Creating a read replica
 
@@ -44,7 +79,9 @@ Read replicas can also help with application performance. By placing read replic
 
 Finally, you can promote a read replica to primary in the event your primary suffers a service disruption (e.g., the Availability Zone hosting it becomes unavailable). This helps ensure continuity of business.
 
-For more information on read replicas on AWS, <a href="https://aws.amazon.com/rds/features/read-replicas/" target="_blank">check out the documentation on AWS's web site</a>. 
+Read replicas are only available for Postgres and MySQL databases.
+
+For more information on read replicas on AWS, <a href="https://aws.amazon.com/rds/features/read-replicas/" target="_blank">see the documentation on AWS's web site</a>. 
 
 ### Creating a read replica
 

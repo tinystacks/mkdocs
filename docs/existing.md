@@ -120,7 +120,9 @@ Note that serverless applications, by default, do not run in a VPC. You can, how
 
 ### Add a Database
 
-Click **Enable** to create an Amazon RDS Postgres or MySQL database for your account. Use the settings option to select an existing database inside of your AWS account instead and to configure other database-related options. 
+Click **Enable** to create an Amazon RDS Postgres database, an Amazon RDS MySQL database, or a Redis in-memory database for your account. Use the settings option to select an existing database instead and to configure other database-related options. 
+
+You can add one database at stack creation time. After the stack's first stage finishes deploying, you can add other databases of different types via the stack's **Settings** page. For more information, see [Databases](database.md).
 
 ### Amazon ECS (container architecture only)
 
