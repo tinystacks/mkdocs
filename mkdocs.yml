@@ -54,7 +54,7 @@ nav:
     - 'Full AWS IAM Policy used by TinyStacks': 'iam-policy.md' 
   - 'Features':
     - 'Basic settings' : 'basic-settings.md'
-    - 'Builds and releases': 'builds-releases.md'  
+    - 'Builds, releases, and deployments': 'builds-releases.md'  
     - 'Compute': 'compute.md'
     - 'Serverless': 'serverless.md'    
     - 'Autoscaling': 'autoscaling.md'

@@ -2,15 +2,19 @@ TinyStacks maintains separate logs for each stage of your application's stack.
 
 TinyStacks maintains three logs viewable directly in the TinyStacks dashboard for your stack. 
 
-### Build Log
+### Build log
 
 The Build Log displays all output from your Docker container's build. If your container fails to build, you can find the error here and diagnose any issues.
 
-## Runtime Logs
+## Release log
+
+The Release log displays all output from the Docker container's release. Here you can debug issues with tagging and deploying your release. 
+
+## Runtime log
 
 Your Runtime Logs show any output from your running containers. Any application output written to standard output (e.g., `console.log()` in Node.js) from within your container will appear in this log. 
 
-## Access Logs
+## Access log
 
 Access Logs show who has been visiting your application. The format of the access logs will differ based on which endpoint technology you are using. An application that utilizes Amazon API Gateway will receive logs <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html" target="_blank">in API Gateway JSON format</a>:
 
@@ -21,7 +25,7 @@ Access Logs show who has been visiting your application. The format of the acces
 An application utilizing Application Load Balancer will receive logs in standard Apache Common Log Format: 
 
 ```
-
+[Fri Sep 09 10:42:29.902022 2011] [core:error] [pid 35708:tid 4328636416] [client 72.15.99.187] File does not exist: /usr/local/apache2/htdocs/favicon.ico
 ```
 
 ## Accessing log data outside of TinyStacks
