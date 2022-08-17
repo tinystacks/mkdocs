@@ -1,8 +1,8 @@
 Deploying your application on TinyStacks is as easy as checking a change into source control. Behind the scenes, the process is divided into three parts: 
 
-* **Build**. Compiles your new container containing your application.
+* **Build**. Compiles your new container image containing your application.
 * **Release**. Tags the new container image, pushes it to your Elastic Container Repository (ECR), and initiates the deployment.
-* **Deployment**. Runs your container on your serverless endpoints or your ECS cluster instances. 
+* **Deployment**. Runs your container image on your serverless endpoints or your ECS cluster instances. 
 
 The results of each process are logged in separate logs in the TinyStacks console. For more, see [Logging and Monitoring](logging-monitoring.md).
 
@@ -102,7 +102,7 @@ phases:
         fi
 ```
 
-For serverless deployments, the release will deploy your built container to the AWS Lambda function hosting your application. For container deployments, it will update your Elastic Container Services (ECS) cluster nodes with the latest container image. 
+For serverless deployments, the release will deploy your container image to the AWS Lambda function hosting your application. For container deployments, it will update your Elastic Container Services (ECS) cluster nodes with the latest container image. 
 
 The release is configured so that your code can be deployed to any region. This enables multi-region deployments in TinyStacks - i.e., having multiple production stages that exist in different AWS regions. For more information, see [Stages](stages.md).
 
