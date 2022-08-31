@@ -29,7 +29,7 @@ extra:
   generator: false
   homepage: https://www.tinystacks.com
   social:
-    - icon: fontawesome/solid/home
+    - icon: fontawesome/solid/house
       link: https://www.tinystacks.com
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/channel/UC21VAvNozfMxrcappmJ8EBA
@@ -42,37 +42,39 @@ extra:
     - icon: fontawesome/solid/envelope
       link: mailto:support@tinystacks.com
 nav:
-  - 'Introduction' : 'index.md'
-  - 'Get Started':
-    - 'Configure AWS and Git service connections': 'service-connections.md'
-    - 'Create your first stack': 'create-stack.md'
-    - 'Deploy an existing application': 'existing.md'    
-  - 'How It Works':
-    - 'Architecture': 'architecture.md' 
-    - 'Concepts' : 'concepts.md'
-    - 'How we secure your stack': 'security.md' 
-    - 'Full AWS IAM Policy used by TinyStacks': 'iam-policy.md' 
-  - 'Features':
-    - 'Basic settings' : 'basic-settings.md'
-    - 'Builds, releases, and deployments': 'builds-releases.md'  
-    - 'Compute': 'compute.md'
-    - 'Serverless': 'serverless.md'    
-    - 'Autoscaling': 'autoscaling.md'
-    - 'Networking': 'networking.md'
-    - 'Databases': 'database.md'
-    - 'Stages': 'stages.md'
-    - 'Environment variables': 'environment-variables.md'
-    - 'Load balancers': 'load-balancers.md'
-    - 'Domain names and HTTPS': 'domain-names-https.md'
-    - 'Sidecars' : 'sidecars.md'
-    - 'Logging and monitoring': 'logging-monitoring.md'
-    - 'Customizing your stacks': 'customizing.md'
-    - 'Integrations with other systems': 'integrations.md'
-    - 'Data retention': 'data-retention.md'
-    - 'Integrating other DevOps services' : 'integrations.md'    
-    - 'Managing service connections': 'connections-manage.md'
-  - 'Troubleshooting':
-    - 'Troubleshooting guide': 'troubleshooting.md'  
-  - 'The TinyStacks Advantage':
-    - 'How TinyStacks stacks up': 'comparisons.md'
+  - 'For App Developers':
+    - 'Introduction' : 'index.md'
+    - 'Get Started':
+      - 'Configure AWS and Git service connections': 'service-connections.md'
+      - 'Create your first stack': 'create-stack.md'
+      - 'Deploy an existing application': 'existing.md'    
+      - 'How It Works':
+        - 'Architecture': 'architecture.md' 
+        - 'Concepts' : 'concepts.md'
+        - 'How we secure your stack': 'security.md' 
+        - 'Full AWS IAM Policy used by TinyStacks': 'iam-policy.md' 
+      - 'Features':
+        - 'Basic settings' : 'basic-settings.md'
+        - 'Builds, releases, and deployments': 'builds-releases.md'  
+        - 'Compute': 'compute.md'
+        - 'Serverless': 'serverless.md'    
+        - 'Autoscaling': 'autoscaling.md'
+        - 'Networking': 'networking.md'
+        - 'Databases': 'database.md'
+        - 'Stages': 'stages.md'
+        - 'Environment variables': 'environment-variables.md'
+        - 'Load balancers': 'load-balancers.md'
+        - 'Domain names and HTTPS': 'domain-names-https.md'
+        - 'Sidecars' : 'sidecars.md'
+        - 'Logging and monitoring': 'logging-monitoring.md'
+        - 'Customizing your stacks': 'customizing.md'
+        - 'Integrations with other systems': 'integrations.md'
+        - 'Data retention': 'data-retention.md'
+        - 'Integrating other DevOps services' : 'integrations.md'    
+        - 'Managing service connections': 'connections-manage.md'
+      - 'Troubleshooting':
+        - 'Troubleshooting guide': 'troubleshooting.md'  
+      - 'The TinyStacks Advantage':
+        - 'How TinyStacks stacks up': 'comparisons.md'
+  - 'For Vendors': 'vendors.md'
 
