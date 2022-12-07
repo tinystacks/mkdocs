@@ -1,0 +1,517 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://docs.tinystacks.com/stages/" rel="canonical"/>
+<link href="../assets/tinystacks.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
+<title>Stages - TinyStacks Documentation</title>
+<link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<meta content="#000000" name="theme-color"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PP279NG');
+  </script>
+<!-- End Google Tag Manager -->
+</head>
+<body data-md-color-accent="" data-md-color-primary="black" data-md-color-scheme="slate" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#stage-ordering">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="TinyStacks Documentation" class="md-header__button md-logo" data-md-component="logo" href="https://www.tinystacks.com" title="TinyStacks Documentation">
+<img alt="logo" src="../assets/tinystacks.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            TinyStacks Documentation
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Stages
+            
+          </span>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="TinyStacks Documentation" class="md-nav__button md-logo" data-md-component="logo" href="https://www.tinystacks.com" title="TinyStacks Documentation">
+<img alt="logo" src="../assets/tinystacks.png"/>
+</a>
+    TinyStacks Documentation
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1">
+          For App Developers
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="For App Developers" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          For App Developers
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" id="__nav_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1_2">
+          Get Started
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Get Started" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_1_2">
+<span class="md-nav__icon md-icon"></span>
+          Get Started
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../service-connections/">
+        Configure AWS and Git service connections
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../create-stack/">
+        Create your first stack
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../existing/">
+        Deploy an existing application
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_4" id="__nav_1_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1_2_4">
+          How It Works
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="How It Works" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_1_2_4">
+<span class="md-nav__icon md-icon"></span>
+          How It Works
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../architecture/">
+        Architecture
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../concepts/">
+        Concepts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../security/">
+        How we secure your stack
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../iam-policy/">
+        Full AWS IAM Policy used by TinyStacks
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_5" id="__nav_1_2_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1_2_5">
+          Features
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Features" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_1_2_5">
+<span class="md-nav__icon md-icon"></span>
+          Features
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../basic-settings/">
+        Basic settings
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../builds-releases/">
+        Builds, releases, and deployments
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../compute/">
+        Compute
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../serverless/">
+        Serverless
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../autoscaling/">
+        Autoscaling
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../networking/">
+        Networking
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../database/">
+        Databases
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Stages
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Stages
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stage-ordering">
+    Stage ordering
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stage-flow">
+    Stage Flow
+  </a>
+<nav aria-label="Stage Flow" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#automatic-and-manual-approvals">
+    Automatic and manual approvals
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adding-a-new-stage">
+    Adding a new stage
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deleting-a-stage">
+    Deleting a stage
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#switching-a-stage-from-automatic-to-manual-approvals">
+    Switching a stage from automatic to manual approvals
+  </a>
+<nav aria-label="Switching a stage from automatic to manual approvals" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#new-stages-pending-and-manual-approvals">
+    New stages pending and manual approvals
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuring-multi-region-deployments">
+    Configuring multi-region deployments
+  </a>
+<nav aria-label="Configuring multi-region deployments" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#canary-region">
+    Canary region
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../environment-variables/">
+        Environment variables
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../load-balancers/">
+        Load balancers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../domain-names-https/">
+        Domain names and HTTPS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sidecars/">
+        Sidecars
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../logging-monitoring/">
+        Logging and monitoring
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../customizing/">
+        Customizing your stacks
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../integrations/">
+        Integrations with other systems
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-retention/">
+        Data retention
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../integrations/">
+        Integrating other DevOps services
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../connections-manage/">
+        Managing service connections
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_6" id="__nav_1_2_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1_2_6">
+          Troubleshooting
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Troubleshooting" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_1_2_6">
+<span class="md-nav__icon md-icon"></span>
+          Troubleshooting
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../troubleshooting/">
+        Troubleshooting guide
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_7" id="__nav_1_2_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1_2_7">
+          The TinyStacks Advantage
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="The TinyStacks Advantage" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_1_2_7">
+<span class="md-nav__icon md-icon"></span>
+          The TinyStacks Advantage
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../comparisons/">
+        How TinyStacks stacks up
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../vendors/">
+        For Vendors
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../api/">
+        API Guide
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1>Stages</h1>
+<p>As discussed in <a href="../concepts/">Concepts</a>, stages are one of the fundamental building blocks of a TinyStacks release. A stage represents a deployment for a specific use case in the development process - such as development, testing, production release, etc. You can also use stages to manage multiple production deployments - e.g., for supporting multi-region deployments. </p>
+<p>By default, </p>
+<h2 id="stage-ordering">Stage ordering</h2>
+<p>Stages are executed in the order shown in the TinyStacks dashboard. </p>
+<p>You can always add a new stage and insert it anywhere in the deployment order. It is not otherwise possible to change the position of a stage once it has been created; in that case, you will need to delete and re-create the stage.</p>
+<h2 id="stage-flow">Stage Flow</h2>
+<p>A check-in to a stack’s Git repository will flow through each stage in the order shown on the TinyStacks Dashboard. Each stage will build and deploy the checked-in changes to that stage’s stack. If the build and deployment are successful, the changes flow to the next stage, where they are also built and deployed. </p>
+<p>If an error occurs, the change will not flow to the next stage. This prevents changes that have failed to build or release in a given stage from propagating to later stages - e.g., your production environment. Stopping such failures earlier in the release process helps preserve the integrity and performance of your production application. </p>
+<h3 id="automatic-and-manual-approvals">Automatic and manual approvals</h3>
+<p>By default, if a change checked into a branch is built and deployed successfully by one stage, it will propagate automatically to the next stage. In most cases, however, your team will want to test and approve changes manually before pushing them into certain critical stages, such as production environments. </p>
+<p>TinyStacks enables you to configure any stage so that it requires a manual approval before changes flow from the previous stage. Manual approvals are done via the TinyStacks dashboard. </p>
+<h2 id="adding-a-new-stage">Adding a new stage</h2>
+<p>When TinyStacks created your stack, we created a single stage for you called <code>dev</code>. As discussed <a href="../concepts/">in our concepts documentation</a>, your team will likely want at least two stages - one for development and one for production. This allows you to test changes in your dev stage before releasing them to customers. </p>
+<p>To add a second stage, <a href="https://tinystacks.com/stacks" target="_blank">navigate to your Stacks page</a> and select your stack by clicking on its name. </p>
+<p><img alt="TinyStacks - select stack" src="../img/tinystacks-add-stage-1.png"/></p>
+<p>The next page will show all of the stages currently defined for your stack. To add a new stage, click the <strong>Add stage</strong> button.</p>
+<p><img alt="TinyStacks - add stage button" src="../img/tinystacks-add-stage-2.png"/></p>
+<p>On the <strong>New stack stage</strong> screen, you can configure your new stage. In the next screenshot, we've supplied a sample dialog for a <code>prod</code> stage that we explain in detail below:</p>
+<p><img alt="TinyStacks - add stack stage dialog" src="../img/tinystacks-add-stage-3.png"/></p>
+<ul>
+<li><strong>Stage name</strong>. Must be unique within this stack. Should indicate the role that this stage plays in your stack - e.g., dev, test, staging, prod, etc. In this case, we use the name <code>prod</code> to represent our production stage. </li>
+<li><strong>Database</strong>. Enables adding a new database or another existing Amazon RDS database to your stack. For now, we'll leave this option blank.</li>
+<li><strong>Require manual approval</strong>. Since we're creating a production stage here, we'll check this box. </li>
+<li><strong>Amazon API Gateway vs. Application Load Balancer</strong>. Here, you can choose how you want to route requests to your application based on whether you expect your application will need to operate at standard scale or hyperscale. For now, we'll leave this to the default of Amazon API Gateway. For more information on scale settings, <a href="../architecture/">consult our architectural overview</a>.</li>
+<li><strong>Enable caching</strong>. Whether to cache responses through API Gateway. This option is only available if using Amazon API Gateway. </li>
+</ul>
+<p>Once you've configured your stage to suit your needs, click <strong>Create new stage</strong>. The new stage will run and create, building the code that you most recently checked in to the stack's associated Git branch.</p>
+<h2 id="deleting-a-stage">Deleting a stage</h2>
+<p>You can delete a stage from the stage's settings page. To delete the stage, select <strong>Stack Details</strong> and click the <strong>Delete stack</strong> button. When prompted, confirm the deletion by typing the word <code>delete</code>. </p>
+<h2 id="switching-a-stage-from-automatic-to-manual-approvals">Switching a stage from automatic to manual approvals</h2>
+<p>Sometimes, you'll want to move a stage from an automatic to manual approval. To do this, navigate to <strong>Stack settings</strong>. Underneath <strong>Stage settings</strong>, choose the stage you want to modify from the drop-down and then choose <strong>Stage details</strong>. Here you can mark the checkbox Requires manual approval to turn on manual approvals for the currently selected stage.</p>
+<p><img alt="TinyStacks - add manual approval for a stage" src="../img/manual-approval-change.png"/></p>
+<h3 id="new-stages-pending-and-manual-approvals">New stages pending and manual approvals</h3>
+<p>It's possible to insert a new stage before a stage that has a pending manual approval. In this case, the new stage will deploy the changes from its previous stage immediately. If you approve the release to the next stage, the deployment will occur immediately, even if the new stage is still in the middle of its deployment. </p>
+<h2 id="configuring-multi-region-deployments">Configuring multi-region deployments</h2>
+<p>Many projects need to deploy their application to multiple regions for various reasons: </p>
+<ul>
+<li>To support higher availability from clients in different locations around the world</li>
+<li>To deploy into a "canary" or test region</li>
+<li>To enable a backup or disaster recovery version of your application</li>
+</ul>
+<p>You can easily support multi-region deployments by creating a new stage that targets a different AWS region. For example, let's say your existing production release targets AWS' us-east-1 region. You can create a second production deployment after that region that deploys the same infrastructure into a second region, such as us-west-2.</p>
+<h3 id="canary-region">Canary region</h3>
+<p>One common pattern for multi-region deployments is for your initial production deployment to occur in <a href="https://blog.tinystacks.com/canary-testing-backend-api-aws" target="_blank">a canary region</a>. This is a "test" region that behaves exactly like production but is only used by your team (and, potentially, stakeholders or early adopters) to validate that a new release installs correctly and is performing in line with expectations. </p>
+<p>On TinyStacks, you can set up a canary region deployment easily. Assuming your application is primarily hosted in us-east-1 and that you wanted to set up a canary in us-west-2, you would: </p>
+<ul>
+<li>Enable manual approvals on the production stage</li>
+<li>Create a new stage before the production stage (called something like <code>canary</code>) that installs into us-west-2</li>
+<li>Copy any build and runtime environment variables that your production stage uses into the new stage</li>
+<li>Wait for the deployment to finish and then test your application in us-west-2</li>
+<li>If the tests succeed, manually approve promotion of your changes to the production stage</li>
+</ul>
+<p>Keep in mind that standing up another copy of your stack will incur additional costs for every minute it is running. Currently, y   ou can control costs in such deployments by reducing the amount of running infrastructure - e.g., by setting the number of desired instances in your ECS cluster to zero. </p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Databases" class="md-footer__link md-footer__link--prev" href="../database/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Databases
+            </div>
+</div>
+</a>
+<a aria-label="Next: Environment variables" class="md-footer__link md-footer__link--next" href="../environment-variables/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              Environment variables
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://www.tinystacks.com" rel="noopener" target="_blank" title="www.tinystacks.com">
+<svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40h-16c-1.1 0-2.2 0-3.3-.1-1.4.1-2.8.1-4.2.1H392c-22.1 0-40-17.9-40-40v-88c0-17.7-14.3-32-32-32h-64c-17.7 0-32 14.3-32 32v88c0 22.1-17.9 40-40 40h-55.9c-1.5 0-3-.1-4.5-.2-1.2.1-2.4.2-3.6.2h-16c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9.1-2.8v-69.6H32c-18 0-32-14-32-32.1 0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7l255.4 224.5c8 7 12 15 11 24z"></path></svg>
+</a>
+<a class="md-social__link" href="https://www.youtube.com/channel/UC21VAvNozfMxrcappmJ8EBA" rel="noopener" target="_blank" title="www.youtube.com">
+<svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>
+</a>
+<a class="md-social__link" href="https://twitter.com/Tiny_Stacks" rel="noopener" target="_blank" title="twitter.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+</a>
+<a class="md-social__link" href="https://www.linkedin.com/company/tinystacks" rel="noopener" target="_blank" title="www.linkedin.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+</a>
+<a class="md-social__link" href="https://github.com/tinystacks" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-social__link" href="mailto:support@tinystacks.com" rel="noopener" target="_blank" title="">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4l217.6 163.2c11.4 8.5 27 8.5 38.4 0l217.6-163.2c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48H48zM0 176v208c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V176L294.4 339.2a63.9 63.9 0 0 1-76.8 0L0 176z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "toc.expand"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+</body>
+</html>

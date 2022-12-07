@@ -1,0 +1,587 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://docs.tinystacks.com/architecture/" rel="canonical"/>
+<link href="../assets/tinystacks.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
+<title>Architecture - TinyStacks Documentation</title>
+<link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<meta content="#000000" name="theme-color"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PP279NG');
+  </script>
+<!-- End Google Tag Manager -->
+</head>
+<body data-md-color-accent="" data-md-color-primary="black" data-md-color-scheme="slate" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#the-role-of-containers">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="TinyStacks Documentation" class="md-header__button md-logo" data-md-component="logo" href="https://www.tinystacks.com" title="TinyStacks Documentation">
+<img alt="logo" src="../assets/tinystacks.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            TinyStacks Documentation
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Architecture
+            
+          </span>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="TinyStacks Documentation" class="md-nav__button md-logo" data-md-component="logo" href="https://www.tinystacks.com" title="TinyStacks Documentation">
+<img alt="logo" src="../assets/tinystacks.png"/>
+</a>
+    TinyStacks Documentation
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1">
+          For App Developers
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="For App Developers" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          For App Developers
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" id="__nav_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1_2">
+          Get Started
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Get Started" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_1_2">
+<span class="md-nav__icon md-icon"></span>
+          Get Started
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../service-connections/">
+        Configure AWS and Git service connections
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../create-stack/">
+        Create your first stack
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../existing/">
+        Deploy an existing application
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_4" id="__nav_1_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1_2_4">
+          How It Works
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="How It Works" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_1_2_4">
+<span class="md-nav__icon md-icon"></span>
+          How It Works
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Architecture
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Architecture
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-role-of-containers">
+    The role of containers
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#two-ways-to-run-your-application">
+    Two ways to run your application
+  </a>
+<nav aria-label="Two ways to run your application" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#serverless">
+    Serverless
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#elastic-container-service-ecs">
+    Elastic Container Service (ECS)
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#architectural-components">
+    Architectural components
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#networking">
+    Networking
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#application-flow">
+    Application flow
+  </a>
+<nav aria-label="Application flow" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#github-stack-creation">
+    GitHub stack creation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#continuous-integration-with-code-pipeline">
+    Continuous Integration with Code Pipeline
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pushing-changes-to-amazon-ecr-and-amazon-ecs">
+    Pushing changes to Amazon ECR and Amazon ECS
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#managed-api-endpoints">
+    Managed API endpoints
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#amazon-cloudwatch-for-auto-scaling">
+    Amazon CloudWatch for auto scaling
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cost-of-a-tinystacks-stack">
+    Cost of a TinyStacks stack
+  </a>
+<nav aria-label="Cost of a TinyStacks stack" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#traffic-costs">
+    Traffic costs
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#amazon-ecs-cluster-costs">
+    Amazon ECS cluster costs
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../concepts/">
+        Concepts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../security/">
+        How we secure your stack
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../iam-policy/">
+        Full AWS IAM Policy used by TinyStacks
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_5" id="__nav_1_2_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1_2_5">
+          Features
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Features" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_1_2_5">
+<span class="md-nav__icon md-icon"></span>
+          Features
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../basic-settings/">
+        Basic settings
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../builds-releases/">
+        Builds, releases, and deployments
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../compute/">
+        Compute
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../serverless/">
+        Serverless
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../autoscaling/">
+        Autoscaling
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../networking/">
+        Networking
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../database/">
+        Databases
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../stages/">
+        Stages
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../environment-variables/">
+        Environment variables
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../load-balancers/">
+        Load balancers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../domain-names-https/">
+        Domain names and HTTPS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sidecars/">
+        Sidecars
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../logging-monitoring/">
+        Logging and monitoring
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../customizing/">
+        Customizing your stacks
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../integrations/">
+        Integrations with other systems
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-retention/">
+        Data retention
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../integrations/">
+        Integrating other DevOps services
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../connections-manage/">
+        Managing service connections
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_6" id="__nav_1_2_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1_2_6">
+          Troubleshooting
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Troubleshooting" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_1_2_6">
+<span class="md-nav__icon md-icon"></span>
+          Troubleshooting
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../troubleshooting/">
+        Troubleshooting guide
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_7" id="__nav_1_2_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1_2_7">
+          The TinyStacks Advantage
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="The TinyStacks Advantage" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_1_2_7">
+<span class="md-nav__icon md-icon"></span>
+          The TinyStacks Advantage
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../comparisons/">
+        How TinyStacks stacks up
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../vendors/">
+        For Vendors
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../api/">
+        API Guide
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1>Architecture</h1>
+<p>When you create a new stack with TinyStacks, we stand up a number of resources in your AWS account. This section describes how each AWS resource fits into your stack, as well as the average costs for each AWS resource. </p>
+<h2 id="the-role-of-containers">The role of containers</h2>
+<p>A Docker container is a lightweight virtualized operating system that runs on top of other operating systems such as Linux or Windows. </p>
+<p>Before Docker, deploying applications at scale was fraught with difficulty. To run successfully, an application requires the correct configuration - the right version of its programming language runtime, shared libraries, and local state (environment variables, file system permissions, etc.). But system administrators were often forced to deploy applications across multiple servers with mismatched configurations. </p>
+<p>Docker simplifies deployment by packaging an application in a virtualized operating system that contains everything the application needs to run successfully, virtually eliminating the dependency issue. Once an application is verified to run successfully in its container, you can deploy as many running copies as you need to support your users at scale. You can also avoid bloat by shipping the application with <strong>exactly</strong> the dependencies it needs and nothing more. </p>
+<h2 id="two-ways-to-run-your-application">Two ways to run your application</h2>
+<p>TinyStacks stores your built application as a container in 
+<strong>Amazon Elastic Container Registry (ECR)</strong>. Storing your Docker images in Amazon ECR makes it easy to deploy running instances of the image. It also provides a historical repository of images that simplifies version rollback. </p>
+<p>From there, you have a choice as to how to deploy your application. </p>
+<h3 id="serverless">Serverless</h3>
+<p>A "serverless" application is one that doesn't require you to provision computing resources (such as Amazon EC2 instances) in your own AWS account. Instead, AWS simply takes your code (in this case, packaged as a Docker container) and runs it on an available computing instance that it maintains for you behind the scenes. </p>
+<p>TinyStacks serverless stacks run your application using AWS's original serverless technology, <a href="https://aws.amazon.com/lambda/" target="_blank">AWS Lambda</a>. Serverless is a great option for pre-production stacks (dev stacks) as well as for production applications with bursting usage patterns - i.e., apps with punctuated periods of high and low activity.</p>
+<p>For more information, see <a href="../serverless/">Serverless</a>.</p>
+<h3 id="elastic-container-service-ecs">Elastic Container Service (ECS)</h3>
+<p>ECS is a container orchestration service that enables running Docker containers quickly and easily. Containers can be run on a set of virtual machines (a cluster) that you run and manage in your own account. Alternatively, they may be run using <a href="https://aws.amazon.com/fargate">AWS Fargate</a>, a serverless component of Amazon ECS that runs containers on computing capacity managed by AWS. For most deployments, TinyStacks manages its own ECS clusters on behalf of our customers. </p>
+<p>For more information on how to control cluster configuration and scaling, see <a href="../compute/">Compute</a>.</p>
+<h2 id="architectural-components">Architectural components</h2>
+<p>A stack consists of an application written on a specific application framework (such as Express, Flask, Django, Spring, etc.) packaged inside of a Docker container. TinyStacks creates the necessary architecture inside of your AWS account to run this Dockerized application in a scalable and highly available architecture on AWS. </p>
+<p>The following diagram shows the major architectural components in a stack for a container architecture:</p>
+<p><img alt="TinyStacks - architectural diagram for container apps" src="../img/arch-diagram-containers.png"/></p>
+<p>Following are the components used for serverless architectures: </p>
+<p><img alt="TinyStacks - architectural diagram for serverless apps" src="../img/arch-diagram-serverless.png"/></p>
+<p><strong><a href="https://github.com">GitHub</a></strong>. A source code repository application based on the source control program Git. Stores the code for your application as well as some ancillary files needed in the stack deployment process. (TinyStacks also supports using <a href="https://about.gitlab.com/">GitLab</a> as one’s repository.)</p>
+<p><strong><a href="https://aws.amazon.com/codepipeline/">AWS CodePipeline</a></strong>. A continuous integration and continuous deployment service. Responsible for coordinating the build and deployment of the Docker container. </p>
+<p><strong><a href="https://aws.amazon.com/codebuild/">AWS CodeBuild</a></strong>. A managed continuous integration service that builds source code into deployable applications. Comprises the steps in the CodePipeline. </p>
+<p><strong><a href="https://aws.amazon.com/ecr/">Amazon Elastic Container Registry (ECR)</a></strong>. Docker container storage service. Stores the Dockerized version of the application. </p>
+<p><strong><a href="https://aws.amazon.com/ecs/">Amazon Elastic Container Service (ECS)</a></strong>. Docker container orchestration service. Runs the latest version of the application. </p>
+<p><strong><a href="https://aws.amazon.com/lambda/">AWS Lambda</a></strong>. Serverless execution technology for running code directly in the AWS cloud without standing up compute directly in your AWS account. </p>
+<p><strong><a href="https://aws.amazon.com/cloudwatch/">Amazon CloudWatch</a></strong>. Amazon’s metrics, monitoring, and alerting service. Provides some basic alerts around application health and build/release status. </p>
+<p><strong><a href="https://aws.amazon.com/api-gateway/">Amazon API Gateway</a></strong>. A service for creating managed Application Programming Interfaces (API) at scale. Creates endpoints to the API functions defined by the application residing in the Docker container. </p>
+<p><strong><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html">Amazon Application Load Balancer</a></strong>. An alternative to API Gateway that is more suitable for applications serving over one million requests/month. </p>
+<h2 id="networking">Networking</h2>
+<p>AWS resources run in virtual networks called Virtual Private Clouds (VPCs). TinyStacks builds its own VPC for your application that is secure by default. Alternatively, you can use your own VPC that already exists in your AWS account, assuming it meets certain criteria.</p>
+<p>For more information, see <a href="../networking/">Networking</a>.</p>
+<h2 id="application-flow">Application flow</h2>
+<h3 id="github-stack-creation">GitHub stack creation</h3>
+<p>When you create a new stack in TinyStacks, you can choose whether to use a starter project or use an existing project already defined in your GitHub account. </p>
+<p>When you use a starter project, TinyStacks creates a new repository in your GitHub account that contains a basic Create/Read/Update/Delete (CRUD) data application with a handful of REST API endpoints. It also creates two YAML files that are used by TinyStacks for the AWS CodePipeline portion of the deployment:</p>
+<p><strong>build.yml</strong>. Builds the Docker container and pushes it into the Amazon ECR instance. 
+<strong>release.yml</strong>. Updates the running service in your Amazon ECS cluster. </p>
+<p>If you use an existing GitHub project, you will need to find the build.yml and release.yml files in the relevant TinyStacks template in Github and check them into your existing Github repository. </p>
+<p>For more information, including information on how to manage "monorepos" (repositories containing multiple releases and multiple build/release files), see <a href="../builds-releases/">Builds and Releases</a>.</p>
+<h3 id="continuous-integration-with-code-pipeline">Continuous Integration with Code Pipeline</h3>
+<p>Your GitHub repository is connected to an AWS CodePipeline project. TinyStacks uses AWS CodePipeline to enable: </p>
+<ul>
+<li><strong>Continuous integration</strong>, which ensures that your project is always built, packaged, and ready to be deployed. </li>
+<li><strong>Continuous deployment</strong>, which deploys the latest package of your running project into the target environment. </li>
+</ul>
+<p>When you create a stack, you specify which branch of your GitHub repository you wish to connect to your AWS CodePipeline project. Whenever you commit a change to this branch, an AWS Lambda function does a full clone of the repository, creates a new ZIP file for the application, and uploads it to an Amazon S3 bucket. This change to the key in Amazon S3 triggers AWS CodePipeline to build and deploy your latest changes. </p>
+<h3 id="pushing-changes-to-amazon-ecr-and-amazon-ecs">Pushing changes to Amazon ECR and Amazon ECS</h3>
+<p>Your running application is hosted in Amazon ECS using an image stored in an Amazon ECR registry. TinyStacks creates both of these resources for you when it stands up your stack. </p>
+<p>Your ECS configuration consists of <a href="https://aws.amazon.com/blogs/compute/building-blocks-of-amazon-ecs/">the following building blocks</a>: </p>
+<p>An ECS <strong>cluster</strong>, a collection of virtual machines on which containers are run. TinyStacks manages its own ECS clusters on behalf of our customers’ deployments.
+A <strong>task definition</strong> that specifies the container to run for your service. 
+One or more running <strong>tasks</strong>, which correspond to a running instance of your container. 
+A <strong>service</strong>, which ensures that a set number of running tasks are always accepting requests. By default, TinyStacks creates a single task for your service. However, this may be increased automatically up to five running tasks if your API is subject to high demand. (See below for more information on auto scaling.) </p>
+<p>Deployments through ECR and ECS are driven by your AWS CodePipeline project. This project contains two AWS CodeBuild projects: </p>
+<ul>
+<li>Build (specified by your project’s build.yaml file). The Build project runs first and compiles a new Docker image containing your application’s latest changes. It then pushes this new image up to the Amazon ECR container repository that TinyStacks created for your project.  </li>
+<li>Release (specified by your project’s release.yml file). After Build has run successfully, the Release project downloads and re-labels the current image pushed by the Build project to Amazon ECR. It then updates the running task definition on your Amazon Fargate cluster to ensure that your application is using the latest image. </li>
+</ul>
+<p>The output of both of these projects is available in the AWS CodePipeline console. TinyStacks also stores this output in Amazon CloudWatch Logs.</p>
+<h3 id="managed-api-endpoints">Managed API endpoints</h3>
+<p>By default, your Amazon ECS container is hosted on an instance in a public subnet. However, the instance itself does not have a public IP address. TinyStacks uses Amazon API Gateway or Application Load Balancer to provide a publicly accessible endpoint onto your container’s REST API methods. </p>
+<p>Amazon API Gateway provides you with fine-grained control over your REST API with support for configuring authorization, usage throttling, and advanced request routing, among other features. Application Load Balancer also provides routing support in addition to balancing requests across resource targets to avoid overwhelming any single resource. </p>
+<p>When you create a stack, you have a choice to use either API Gateway or Application Load Balancer. For more details on the differences, which to choose, and how this effects your application, see <a href="../load-balancers/">Load Balancers</a>. </p>
+<h3 id="amazon-cloudwatch-for-auto-scaling">Amazon CloudWatch for auto scaling</h3>
+<p>TinyStacks uses Amazon CloudWatch to set up metrics and alerts to help scale out and scale in your application in proportion to the traffic it's receiving. For more information, see <a href="../autoscaling/">Autoscaling</a>.</p>
+<h2 id="cost-of-a-tinystacks-stack">Cost of a TinyStacks stack</h2>
+<p><em>Note: Prices based on pricing of services in the US East (Virginia) data center as of July 2021. Pricing is subject to change without notice. Prices do not include any relevant taxes.</em></p>
+<p>The TinyStacks stack is designed, not just for reliability and scalability, but for cost-effectiveness as well. We estimate that running a typical stack in a development capacity will cost around $46 per month.</p>
+<p>Note that your actual costs may vary based on a couple of factors: </p>
+<ul>
+<li><strong>Free Tier</strong>. If you have a new AWS account, you can consume a set amount of key AWS services for free every month for the first 12 months of your account’s lifetime. If you exceed the free tier limits, you will incur additional charges and your costs will exceed those documented here. </li>
+<li><strong>Usage</strong>. The estimates cited above assume light usage in a development/test environment. High-volume, production applications will incur higher costs. </li>
+</ul>
+<p>As end user usage of your application increases, costs will increase concomitantly. This is because the cloud services that support your application will automatically scale up and out to meet the increased demand, thus using additional computing resources. The two factors driving costs are the amount of traffic your application handles and the number of virtual machines required in your Amazon ECS cluster.</p>
+<h3 id="traffic-costs">Traffic costs</h3>
+<p>TinyStacks supports both standard scale (using Amazon API Gateway) and hyperscale (using Application Load Balancer) configurations. Your costs will scale differently on each configuration as your usage increases. In general, a hyperscale configuration will prove more cost-effective at a volume of 500,000 or more application requests per month.</p>
+<p>In a standard scale application, API Gateway costs will increase by around $1 for every additional million requests your application handles. </p>
+<p>In a hyperscale application, your costs will vary based on the number of Load Balancer Capacity Units (LCUs) your application consumes. LCUs are a complex metric, with a single LCU providing the following resources: </p>
+<ul>
+<li>25 new connections per second</li>
+<li>3,000 active connections every minute</li>
+<li>1 GB of data sent to the Amazon EC2 instances in your Amazon ECS cluster</li>
+<li>1,000 rules evaluated every second</li>
+</ul>
+<p>If your application exceeds any of these resource limits, you will pay for another LCU at a cost of around USD $0.008 per hour. You will pay for the largest number of LCUs required to accommodate your most demanding resource. </p>
+<p>For example, say that your application is receiving an average of 10,000 new connections every minute and is processing 3 GB of data every hour. In this instance, three LCUs would be enough to cover 3 GB of data. However, you will need 6.68 LCUs to cover 10,000 connections every minute (around 167 connections/second). According to the <a href="https://calculator.aws/">AWS Pricing Calculator</a>, this would bring your LCU charges in us-east-1 up to around $40/month. </p>
+<p>Note that, in the above example, an application using API Gateway would be serving around 432 million connections per month for a total additional cost of $432/month. This makes it clear how much more economical it is to use Application Load Balancer when running at hyperscale.</p>
+<h3 id="amazon-ecs-cluster-costs">Amazon ECS cluster costs</h3>
+<p>All Docker containers are hosted in an Amazon ECS cluster in your AWS account. An ECS cluster contains one or more instances of an Amazon EC2 virtual machine. By default, Tinystacks runs once EC2 instance in your cluster. As demand on your application grows, we will scale out and create a new cluster instance when the average CPU utilization across all cluster instances exceeds 70% for five minutes or longer. </p>
+<p>You can configure what instance size to use for your application when you create your stack. For standard scale applications, the t3.micro size is a good starter size that will limit your AWS spend (t3.micro instances will only run around USD $8/month). For hyperscale applications serving over 1 million requests/month, select m3.medium or m3.large depending on how CPU-intensive your workload is. </p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Deploy an existing application" class="md-footer__link md-footer__link--prev" href="../existing/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Deploy an existing application
+            </div>
+</div>
+</a>
+<a aria-label="Next: Concepts" class="md-footer__link md-footer__link--next" href="../concepts/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              Concepts
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://www.tinystacks.com" rel="noopener" target="_blank" title="www.tinystacks.com">
+<svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40h-16c-1.1 0-2.2 0-3.3-.1-1.4.1-2.8.1-4.2.1H392c-22.1 0-40-17.9-40-40v-88c0-17.7-14.3-32-32-32h-64c-17.7 0-32 14.3-32 32v88c0 22.1-17.9 40-40 40h-55.9c-1.5 0-3-.1-4.5-.2-1.2.1-2.4.2-3.6.2h-16c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9.1-2.8v-69.6H32c-18 0-32-14-32-32.1 0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7l255.4 224.5c8 7 12 15 11 24z"></path></svg>
+</a>
+<a class="md-social__link" href="https://www.youtube.com/channel/UC21VAvNozfMxrcappmJ8EBA" rel="noopener" target="_blank" title="www.youtube.com">
+<svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>
+</a>
+<a class="md-social__link" href="https://twitter.com/Tiny_Stacks" rel="noopener" target="_blank" title="twitter.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+</a>
+<a class="md-social__link" href="https://www.linkedin.com/company/tinystacks" rel="noopener" target="_blank" title="www.linkedin.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+</a>
+<a class="md-social__link" href="https://github.com/tinystacks" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-social__link" href="mailto:support@tinystacks.com" rel="noopener" target="_blank" title="">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4l217.6 163.2c11.4 8.5 27 8.5 38.4 0l217.6-163.2c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48H48zM0 176v208c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V176L294.4 339.2a63.9 63.9 0 0 1-76.8 0L0 176z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "toc.expand"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+</body>
+</html>
