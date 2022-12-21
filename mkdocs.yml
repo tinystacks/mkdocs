@@ -77,4 +77,5 @@ nav:
       - 'The TinyStacks Advantage':
         - 'How TinyStacks stacks up': 'comparisons.md'
   - 'For Vendors': 'vendors.md'
+    - 'Vendor API Getting Started Guide' : 'vendor-api.md'
 
