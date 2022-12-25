@@ -1,5 +1,7 @@
 site_name: TinyStacks Documentation
 site_url: https://docs.tinystacks.com
+plugins:
+   - swagger-ui-tag
 theme:
   name: material
   custom_dir: overrides
@@ -78,4 +80,5 @@ nav:
         - 'How TinyStacks stacks up': 'comparisons.md'
   - 'For Vendors': 'vendors.md'
     - 'Vendor API Getting Started Guide' : 'vendor-api.md'
+  - 'API Guide': 'api.md'
 
