@@ -45,5 +45,10 @@ extra:
       link: mailto:support@tinystacks.com
 nav:
   - 'Introduction' : 'index.md'
+  - 'Getting Started': 'get-started.md'
+  - 'Installation': 'installation.md'
+  - 'Deployment': 'deployment.md'
+  - 'Usage': 'usage.md'
+  - 'Concepts': 'concepts.md'
   - 'API Reference': 'api.md'
 
