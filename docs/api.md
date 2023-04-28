@@ -1,1 +1,1 @@
-<swagger-ui src="api.json"/>
+<swagger-ui src="https://raw.githubusercontent.com/tinystacks/ops-model/try-host/api/openapi.json"/>

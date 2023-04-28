@@ -1,36 +1,34 @@
 # Introduction
 
-It’s not easy shipping software to the cloud. A team aiming to deploy its application backends to a cloud provider such as Amazon Web Services needs to understand a dozen or more AWS features just to stand up a small project. And as the scale and size of your project grows, so does the complexity of its deployment. Many companies soon find themselves spending more time making their cloud applications secure and scalable than they do writing its core functionality. 
+Welcome to the TinyStacks documentation. Let's get started in making your own Ops Console.
 
-TinyStacks takes the drudgery out of deployment. Using TinyStacks, development teams can: 
+OpsConsole is an open-source console for cloud operations that delivers a dashboard and workflow engine so developers can organize resources in sensible ways, view key service metadata in one place and automate cloud workflows. With a low-code, widget-based approach, developers can design custom dashboards and workflows and even build their own custom widgets.
 
-* Create a multi-stage (dev/test/stage/prod) CI/CD pipeline. TinyStacks deploys directly to your own AWS account, making it easy to deploy onto the cloud quickly while also providing transparency and flexibility. 
-* Use your favorite languages and frameworks 
-* Deploy applications to production to the cloud with minimal overhead
-* Scale applications and APIs from hundreds of users to millions with little additional effort
+With the Ops Console, engineering and DevOps teams can: 
 
-By deploying with TinyStacks, your team can spend less time building out DevOps architecture and more time building out the core features that make your application unique! 
+✅ Organize cloud resources with a single pane of glass<br/>
+✅ Build deep operational health dashboards<br/>
+✅ Share and run operational scripts via the CLI plugin<br/>
+✅ Manage cloud sprawl and automate resolution for underutilized resources
 
-## What TinyStacks Does
+The platform comes with default plugins that offer a variety of features such as widgets for AWS ECS services and deployments, IAM JSON Policy viewers, and an AWS CLI, among others. The widgets are interactive and can exchange information, which enables the creation of dynamic and robust dashboards. With a provider and plugin model, developers can customize and extend the Ops Console as much as they wish. The [samples/](https://github.com/tinystacks/opsconsole/tree/main/samples) folder includes several samples of dashboards that can be configured via YAML.
 
-Below are some of the benefits that applications gain by deploying with TinyStacks. 
+### What problems is the Ops Console intended to serve? 
 
-**Use Your Favorite Languages and Frameworks.** TinyStacks is language- and framework-agnostic. Our deployment processes will work with any application deployed via a Docker container. If your application currently isn’t Dockerized, we have pre-built template files for the Node.js, Django, Express, and Flask frameworks to get you started. 
+1. Cloud sprawl is real - modern cloud applications are built with hundreds of cloud services and resources and difficult to manage. 
+2. Viewing and organizing cloud resources (to your choice) is difficult especially when debugging or monitoring deployments. 
+3. The daily workflows of engineers involve guessing through tens of screens and clicks to find information with no ability to save or build repeatable workflows. 
+4. Inability for developers to centralize and evaluate cloud configurations alongside observability tools.
 
-**Full-Stack Architecture.** TinyStacks creates everything your application requires to run on the cloud. It can even provision a database for data storage. 
+### Why does cloud sprawl matter? 
 
-**Multi-Stage Deployments.** TinyStacks supports defining as many development stages as you need. By default, we create a dev stage for development purposes. Using the TinyStacks dashboard, you can easily add a production stage and any intermediate stages - such as testing and staging - to your deployment process. 
+Our founders spent six years at AWS and witnessed thousands of customer issued, that frankly shouldn't exist. 
 
-**Continuous Integration and Continuous Deployment.** A TinyStacks stack is wired to a repository you own in GitHub or GitLab. By default, any changes you make to a stack’s corresponding branch will be automatically compiled and updated in the currently running environment. You can also define manual approvals for any stage. 
+1. Unable to find a resource because they were looking at the wrong region. 
+2. Debugging a critical issue and facing difficulty reconciling info across observability tools and tens of service consoles. 
+3. Navigating through endless screens and clicks just to find out which version of the container image is currently deployed. 
+4. Broken glass syndrome of cleaning up resources and driving down costs. 
 
-**Security by Default.** TinyStacks incorporates the latest security best practices for cloud-based applications.
+### What can customers do with the Ops Console?
 
-**Cost Efficiency.** Controlling costs on the cloud is difficult. Finding the best price point for your application can require hundreds of hours of testing and experimentation. TinyStacks constantly monitor, test, and change the way we deploy stacks for our customers to get the best performance at the lowest price. (Read about [a major change we made to our deployments that saved up to 40% on stack costs](https://blog.tinystacks.com/ecs-serverless-or-not-fargate-vs-ec2-clusters) for our customers.) 
-
-## What TinyStacks Doesn’t Do 
-
-While TinyStacks conveys many benefits to development teams, it can’t do *everything*. The following areas remain your responsibility: 
-
-**Hosting.** TinyStacks is a DevOps orchestration framework, not a cloud hosting provider. All provisioned cloud capacity is run in your own cloud provider’s accounts and you are directly responsible for all costs incurred. 
-
-**End to End Security.** TinyStacks cannot make an insecure application secure. While Tinystacks takes multiple measures to ensure your infrastructure is secure by default, it does not *guarantee* the security of your application. It is up to you and your team to design and implement applications that adhere to the tenets of good security, such as defensive programming and the principle of least privilege. 
+Developers can connect their cloud accounts and organize resources in sensible ways providing immediate cloud comprehensibility. Developers can then build dashboards with common widgets for deployments, environment variables, logs, alarms and even write their own. Teams can share and run operational scripts via the CLI widget embedded directly in the relavent dashboards. 
