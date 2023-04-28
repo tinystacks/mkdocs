@@ -5,17 +5,18 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://docs.tinystacks.com/" rel="canonical"/>
-<link href="get-started/" rel="next"/>
-<link href="assets/tinystacks.png" rel="icon"/>
+<link href="https://docs.tinystacks.com/installation/" rel="canonical"/>
+<link href="../get-started/" rel="prev"/>
+<link href="../deployment/" rel="next"/>
+<link href="../assets/tinystacks.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.8" name="generator"/>
-<title>TinyStacks - Ops Console Docs</title>
-<link href="assets/stylesheets/main.ded33207.min.css" rel="stylesheet"/>
-<link href="assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
+<title>Installation - TinyStacks - Ops Console Docs</title>
+<link href="../assets/stylesheets/main.ded33207.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -30,7 +31,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#introduction">
+<a class="md-skip" href="#installation-and-deploying">
           Skip to content
         </a>
 </div>
@@ -39,7 +40,7 @@
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
 <a aria-label="TinyStacks - Ops Console Docs" class="md-header__button md-logo" data-md-component="logo" href="https://www.tinystacks.com" title="TinyStacks - Ops Console Docs">
-<img alt="logo" src="assets/tinystacks.png"/>
+<img alt="logo" src="../assets/tinystacks.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -54,7 +55,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Introduction
+              Installation
             
           </span>
 </div>
@@ -71,19 +72,29 @@
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
 <a aria-label="TinyStacks - Ops Console Docs" class="md-nav__button md-logo" data-md-component="logo" href="https://www.tinystacks.com" title="TinyStacks - Ops Console Docs">
-<img alt="logo" src="assets/tinystacks.png"/>
+<img alt="logo" src="../assets/tinystacks.png"/>
 </a>
     TinyStacks - Ops Console Docs
   </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../get-started/">
+        Getting Started
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          Introduction
+          Installation
           <span class="md-nav__icon md-icon"></span>
 </label>
-<a class="md-nav__link md-nav__link--active" href=".">
-        Introduction
+<a class="md-nav__link md-nav__link--active" href="./">
+        Installation
       </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -92,50 +103,40 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-problems-is-the-ops-console-intended-to-serve">
-    What problems is the Ops Console intended to serve?
+<a class="md-nav__link" href="#pre-requisites">
+    Pre-requisites
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why-does-cloud-sprawl-matter">
-    Why does cloud sprawl matter?
+<a class="md-nav__link" href="#install-from-the-global-npm-registry">
+    Install from the Global NPM registry
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-can-customers-do-with-the-ops-console">
-    What can customers do with the Ops Console?
+<a class="md-nav__link" href="#local-installation">
+    Local Installation
   </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="get-started/">
-        Getting Started
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="installation/">
-        Installation
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="deployment/">
+<a class="md-nav__link" href="../deployment/">
         Deployment
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="usage/">
+<a class="md-nav__link" href="../usage/">
         Usage
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="concepts/">
+<a class="md-nav__link" href="../concepts/">
         Concepts
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="api/">
+<a class="md-nav__link" href="../api/">
         API Reference
       </a>
 </li>
@@ -146,32 +147,34 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="introduction">Introduction</h1>
-<p>Welcome to the TinyStacks documentation. Let's get started in making your own Ops Console.</p>
-<p>OpsConsole is an open-source console for cloud operations that delivers a dashboard and workflow engine so developers can organize resources in sensible ways, view key service metadata in one place and automate cloud workflows. With a low-code, widget-based approach, developers can design custom dashboards and workflows and even build their own custom widgets.</p>
-<p>With the Ops Console, engineering and DevOps teams can: </p>
-<p>✅ Organize cloud resources with a single pane of glass<br/>
-✅ Build deep operational health dashboards<br/>
-✅ Share and run operational scripts via the CLI plugin<br/>
-✅ Manage cloud sprawl and automate resolution for underutilized resources</p>
-<p>The platform comes with default plugins that offer a variety of features such as widgets for AWS ECS services and deployments, IAM JSON Policy viewers, and an AWS CLI, among others. The widgets are interactive and can exchange information, which enables the creation of dynamic and robust dashboards. With a provider and plugin model, developers can customize and extend the Ops Console as much as they wish. The <a href="https://github.com/tinystacks/opsconsole/tree/main/samples">samples/</a> folder includes several samples of dashboards that can be configured via YAML.</p>
-<h3 id="what-problems-is-the-ops-console-intended-to-serve">What problems is the Ops Console intended to serve?</h3>
-<ol>
-<li>Cloud sprawl is real - modern cloud applications are built with hundreds of cloud services and resources and difficult to manage. </li>
-<li>Viewing and organizing cloud resources (to your choice) is difficult especially when debugging or monitoring deployments. </li>
-<li>The daily workflows of engineers involve guessing through tens of screens and clicks to find information with no ability to save or build repeatable workflows. </li>
-<li>Inability for developers to centralize and evaluate cloud configurations alongside observability tools.</li>
-</ol>
-<h3 id="why-does-cloud-sprawl-matter">Why does cloud sprawl matter?</h3>
-<p>Our founders spent six years at AWS and witnessed thousands of customer issued, that frankly shouldn't exist. </p>
-<ol>
-<li>Unable to find a resource because they were looking at the wrong region. </li>
-<li>Debugging a critical issue and facing difficulty reconciling info across observability tools and tens of service consoles. </li>
-<li>Navigating through endless screens and clicks just to find out which version of the container image is currently deployed. </li>
-<li>Broken glass syndrome of cleaning up resources and driving down costs. </li>
-</ol>
-<h3 id="what-can-customers-do-with-the-ops-console">What can customers do with the Ops Console?</h3>
-<p>Developers can connect their cloud accounts and organize resources in sensible ways providing immediate cloud comprehensibility. Developers can then build dashboards with common widgets for deployments, environment variables, logs, alarms and even write their own. Teams can share and run operational scripts via the CLI widget embedded directly in the relavent dashboards. </p>
+<h1 id="installation-and-deploying">Installation and Deploying</h1>
+<h2 id="pre-requisites">Pre-requisites</h2>
+<p>To use the default installation, you need to have <a href="https://docs.docker.com/get-docker/">docker installed</a>.</p>
+<p><strong>Windows users</strong> must have Docker Desktop running.</p>
+<p>Also please make sure that ports 8000 and 3000 are open, as those ports are used by the <a href="https://github.com/tinystacks/ops-api">API</a> and <a href="https://github.com/tinystacks/ops-frontend">frontend</a>. If these ports are reserved, you can pull down the docker images for each of these packages and change the docker run to map ports separately.</p>
+<h2 id="install-from-the-global-npm-registry">Install from the Global NPM registry</h2>
+<pre><code class="language-bash"># Install from the public npm registry
+npm i -g @tinystacks/opsconsole;
+
+# Use the CLI, refer to the usage guide below
+opsconsole -v;
+
+</code></pre>
+<h2 id="local-installation">Local Installation</h2>
+<pre><code class="language-bash"># Clone this package
+git clone https://github.com/tinystacks/opsconsole.git;
+
+# Install dependencies and build
+npm i; npm run build;
+
+# Install the CLI globally
+# Using the -g option installs the ops cli to your shell scope instead of the package scope. 
+#  It adds the CLI command to bin, allowing you to call opsconsole from anywhere
+npm i -g;
+
+# Use the CLI, refer to the usage guide below
+opsconsole -v;
+</code></pre>
 </article>
 </div>
 </div>
@@ -208,8 +211,8 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": ".", "features": ["toc.integrate", "toc.expand"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="assets/javascripts/bundle.51198bba.min.js"></script>
+<script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "toc.expand"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.51198bba.min.js"></script>
 <script>document$.subscribe(() => {
             window.update_swagger_ui_iframe_height = function (id) {
                 var iFrameID = document.getElementById(id);
