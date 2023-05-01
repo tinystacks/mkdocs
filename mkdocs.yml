@@ -2,12 +2,15 @@ site_name: TinyStacks - Ops Console Docs
 site_url: https://docs.tinystacks.com
 plugins:
    - swagger-ui-tag
+   - search
 theme:
   name: material
   custom_dir: overrides
   features:
     - toc.integrate
     - toc.expand
+    - navigation.tabs
+    - navigation.tabs.sticky
   static_templates:
     - 404.html
   palette:
@@ -27,6 +30,8 @@ theme:
 markdown_extensions:
 - attr_list
 - md_in_html
+repo_url: https://github.com/tinystacks/opsconsole
+repo_name: tinystacks/opsconsole
 extra:
   generator: false
   homepage: https://www.tinystacks.com
@@ -51,4 +56,3 @@ nav:
   - 'Usage': 'usage.md'
   - 'Concepts': 'concepts.md'
   - 'API Reference': 'api.md'
-
