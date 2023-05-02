@@ -8,10 +8,10 @@ npm i -g @tinystacks/opsconsole;
 
 # Make sure you have Docker installed and ports 3000 and 8000 open.
 ```
-### Run sample dashboard 
+### Run a sample dashboard 
 #### AWS
 
-This package includes other sample dashboard as well. As an example, it includes a sample dashboard that has ECS and AWS account info. To use that, follow these steps:
+The [opsconsole repository](https://github.com/tinystacks/opsconsole/tree/main/samples) includes multiple sample dashboards. As an example, it includes a sample dashboard that has ECS and AWS account info. To use that, follow these steps:
 
 ```
 curl https://raw.githubusercontent.com/tinystacks/opsconsole/main/samples/ecs-dashboard-sample.yml -o ecs-dashboard-sample.yml
