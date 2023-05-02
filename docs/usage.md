@@ -26,15 +26,20 @@ Updates the Ops Console CLI to the latest version
 
 
 ## Customizing Dashboards
+For reference, see one of the samples in the [opsconsole repository](https://github.com/tinystacks/opsconsole/tree/main/samples).
+
 ### Using widgets
 1. Define the widget in the `widgets` section of YAML
 2. Reference the widget in a dashboard
 3. Add the widget's source to the `dependencies` section of the YAML in the format `widget name: 'dependency package'`
 
 ### Using providers
-Providers provide data to widgets from an external provider.
+Providers provide data to widgets. They are backend-only code and can interact with the filesystem, keep data around, and do other more traditionally backend tasks. They are also the best way to provide credentials so that they don't leak through to the client.
+
 1. Define the provider in the `providers` section
-2. Reference the provider as a list item in widget.
+2. Reference the provider as a list item in a widget.
+
+See the [AWS ECS sample](https://github.com/tinystacks/opsconsole/blob/main/samples/aws-sample.yml#L4) for reference.
 
 ### Sharing data between widgets
 Any property in a widget’s YAML can be substituted for either the props or data of another widget. 
