@@ -16,7 +16,7 @@ The platform comes with default plugins that offer a variety of features such as
 ### What problems is the Ops Console intended to serve? 
 
 1. Cloud sprawl is real - modern cloud applications are built with hundreds of cloud services and resources. It's tough to manage the sprawl. 
-2. Viewing and organizing cloud resources (to your preferecne) is difficult especially when debugging or monitoring deployments.
+2. Viewing and organizing cloud resources (to your preference) is difficult especially when debugging or monitoring deployments.
 3. The daily workflows of engineers involve guessing through tens of screens and clicks to find information. There's no way to save these steps or build repeatable workflows.
 4. Inability for developers to centralize and evaluate cloud configurations alongside observability tools.
 
