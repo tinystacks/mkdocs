@@ -32,3 +32,28 @@ Our founders spent six years at AWS and witnessed thousands of customer issues t
 ### What can customers do with the Ops Console?
 
 Developers can connect their cloud accounts and organize resources in sensible ways providing immediate cloud comprehensibility. Developers can then build dashboards with common widgets for deployments, environment variables, logs, alarms and even write their own. Teams can share and run operational scripts via the CLI widget embedded directly in the relavent dashboards. 
+
+## Roadmap
+- [x] CLI widget to save and run scripts
+- [x] Executable actions within widgets (ex. kill task for AWS ECS)
+- [x] Hosted dashboards via `opsconsole deploy` 
+- [x] Cost dashboard: reduce cloud spend with 1-click delete, scale down or optimize workflows
+- [ ] SSO credentials support
+- [ ] Additonal Providers
+    * [ ] GitHub
+    * [ ] Google Cloud
+    * [ ] Cloudflare
+    * [ ] MongoDB
+- [ ] Additional Widgets
+    * [ ] CI/CD 
+    * [ ] Database Info
+    * [ ] CDN Info
+    * [ ] Edit Environment Variables
+- [ ] Groups support and granular permissions
+- [ ] Integrations
+    * [ ] Backstage 
+    * [ ] Grafana
+
+
+
+ 
