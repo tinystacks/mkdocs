@@ -17,10 +17,11 @@ opsconsole signup;
 opsconsole configure
 # paste your token here
 
+# Ensure you have set an access and secret key for AWS credentials
 # deploy your Ops Console to the TinyStacks cloud!
 opsconsole deploy -c DASHBOARD-NAME.yaml
 ```
 
 That's it! Deployments take a few minutes. 
 
-* Please note that when deploying a hosted version of the Ops Console, local AWS profiles in the AWS provider will not work. Instead, an access/secret key pair needs to be used.
+:warning: When deploying a hosted version of the Ops Console, an access/secret key pair must be used. Local credentials are not saved by the Ops Console and will not work in a hosted version of Ops Console. 

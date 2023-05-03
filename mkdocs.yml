@@ -30,6 +30,10 @@ theme:
 markdown_extensions:
 - attr_list
 - md_in_html
+- pymdownx.emoji:
+    emoji_index: !!python/name:materialx.emoji.twemoji
+    emoji_generator: !!python/name:materialx.emoji.to_svg
+
 repo_url: https://github.com/tinystacks/opsconsole
 repo_name: tinystacks/opsconsole
 extra:
@@ -53,6 +57,6 @@ nav:
   - 'Getting Started': 'get-started.md'
   - 'Installation': 'installation.md'
   - 'Deployment': 'deployment.md'
-  - 'Usage': 'usage.md'
-  - 'Concepts': 'concepts.md'
+  - 'Dashboards': 'dashboards.md'
+  - 'CLI Reference': 'cli-reference.md'
   - 'API Reference': 'api.md'

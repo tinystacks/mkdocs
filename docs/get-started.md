@@ -1,5 +1,5 @@
 # Getting started
-Follow installation instructions below to get the CLI installed. For a very basic dashboard that contains all the default layout elements, simply run
+Follow installation instructions below to get the CLI installed.
 
 ## Installation
 ```bash
@@ -22,6 +22,7 @@ curl https://raw.githubusercontent.com/tinystacks/opsconsole/main/samples/ecs-da
 opsconsole up -c ecs-dashboard-sample.yml
 ```
 #### Basic
+For a very basic dashboard that contains all the default layout elements, simply run:
 ```
 opsconsole init;
 opsconsole up;
