@@ -204,19 +204,68 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#providers">
-    Providers
+<a class="md-nav__link" href="#concepts">
+    Concepts
   </a>
-<nav aria-label="Providers" class="md-nav">
+<nav aria-label="Concepts" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#aws">
-    AWS
+<a class="md-nav__link" href="#console">
+    Console
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#enabling-providers-in-cli">
-    Enabling Providers in CLI
+<a class="md-nav__link" href="#dashboard">
+    Dashboard
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#widgets">
+    Widgets
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#providers">
+    Providers
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#constants">
+    Constants
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#parameters">
+    Parameters
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-dashboards">
+    Sample Dashboards
+  </a>
+<nav aria-label="Sample Dashboards" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#basic-layout">
+    Basic Layout 
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#aws-dashboard">
+    AWS Dashboard 
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ecs-dashboard">
+    ECS Dashboard 
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sqs-dashboard">
+    SQS Dashboard 
   </a>
 </li>
 </ul>
@@ -233,14 +282,33 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#constants">
+<a class="md-nav__link" href="#constants_1">
     Constants
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#parameters">
+<a class="md-nav__link" href="#parameters_1">
     Parameters
   </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#providers_1">
+    Providers
+  </a>
+<nav aria-label="Providers" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#aws">
+    AWS
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#enabling-providers-in-cli">
+    Enabling Providers in CLI
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#customizing-dashboards">
@@ -287,56 +355,48 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="dashboards">Dashboards</h1>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Console</td>
-<td>A console is a top level construct. It includes a name to identify itself, as well as dashboards, widgets, providers and dependencies.</td>
-</tr>
-<tr>
-<td>Dashboard</td>
-<td>A dashboard is a page that consists of an id, a route, and list of widget references.</td>
-</tr>
-<tr>
-<td>Widget</td>
-<td>Widgets are components that have two functions: render and getData. getData is called in the API’s server and is used to make external requests, do computations, etc. Once it is called, it sets some data on the widget itself that’s passed back to the frontend, where render is called to display the widget.</td>
-</tr>
-<tr>
-<td>Provider</td>
-<td>Providers are data sources for widgets. They are only executed server side and can be used to offload complex logic from a widget's <code>getData</code> function.  Providers can also be used across multiple widgets and are therefore better suited for any processes that involve caching, credentials management, or fetching data required by multiple widgets. Provider definitions are also currently read-only from the perspective of the API, so any additional data attached to a provider during runtime will not leak back into the yaml on save whereas a widget requires explicit filtering of class properties via its <code>toJson</code> function to prevent properties from being persisted to the yaml.</td>
-</tr>
-<tr>
-<td>Constant</td>
-<td>Constants are static values that can be shared across dashboards.</td>
-</tr>
-<tr>
-<td>Parameter</td>
-<td>Parameters are dynamic values at the dashboard level that can be override with URL parameters.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="providers">Providers</h3>
-<p>Currently supports AWS with plans to add others! AWS provider can be configured with local profiles or Access/Secret keys.  </p>
-<h4 id="aws">AWS</h4>
-<pre><code>providers:
-  AwsLocalProvider:
-    id: AwsLocalProvider
-    type: AwsCredentialsProvider
-    credentials:
-      # Option A: local credentials
-      profileName: default 
-      # Option B: Access/Secret keys (required when deploying with opsconsole deploy)
-      # AwsAccessKeyId:
-      # AwsSecretAccessKey: 
+<h3 id="concepts">Concepts</h3>
+<h4 id="console">Console</h4>
+<p>A console is a top level construct. It includes a name to identify itself, as well as dashboards, widgets, providers and dependencies. </p>
+<h4 id="dashboard">Dashboard</h4>
+<p>A dashboard is a page that consists of an id, a route and list of widget references. </p>
+<h4 id="widgets">Widgets</h4>
+<p>Widgets are components that have two functions: render and getData. getData is called in the API’s server and is used to make external requests, do computations, etc. Once it is called, it sets some data on the widget itself that’s passed back to the frontend, where render is called to display the widget.</p>
+<h4 id="providers">Providers</h4>
+<p>Providers provide data to widgets. They are backend-only code and can interact with the filesystem, keep data around, or do other more traditionally backend tasks. They can be long running and run in the background. They may be passed to widgets to provide sensitive information or long-lived information, whereas widgets are better written as quick request/response styled objects. </p>
+<h4 id="constants">Constants</h4>
+<p>Constants are static values that can be shared across dashboards.</p>
+<h4 id="parameters">Parameters</h4>
+<p>Parameters are dynamic values at the dashboard level that can be override with URL parameters.</p>
+<h3 id="sample-dashboards">Sample Dashboards</h3>
+<h4 id="basic-layout">Basic Layout <a href="https://github.com/tinystacks/opsconsole/blob/main/samples/layout-sample.yml"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"></path></svg></span></a></h4>
+<p>Basic layout dashboard showcasing different widgets.</p>
+<pre><code>curl https://raw.githubusercontent.com/tinystacks/opsconsole/main/samples/layout-sample.yml -o ecs-dashboard-sample.yml
+
+opsconsole up -c ecs-dashboard-sample.yml
 </code></pre>
-<h4 id="enabling-providers-in-cli">Enabling Providers in CLI</h4>
-<p>To enable Provider usage in the CLI widget, the Provider must implement <a href="https://github.com/tinystacks/ops-core-widgets/blob/main/src/cli-environment-provider.ts">CliEnvironmentProvider</a>.</p>
+<h4 id="aws-dashboard">AWS Dashboard <a href="https://github.com/tinystacks/opsconsole/blob/main/samples/aws-sample.yml"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"></path></svg></span></a></h4>
+<p>Basic AWS dashboard featuring metrics, logs and CLI widgets.</p>
+<pre><code>curl https://raw.githubusercontent.com/tinystacks/opsconsole/main/samples/aws-sample.yml -o aws-sample.yml
+
+# Modify line 6 by changing [your AWS profile] to your local AWS profile name
+opsconsole up -c aws-sample.yml
+</code></pre>
+<h4 id="ecs-dashboard">ECS Dashboard <a href="https://github.com/tinystacks/opsconsole/blob/main/samples/ecs-dashboard-sample.yml"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"></path></svg></span></a></h4>
+<p>Pre-built dashboard for ECS clusters featuring ECS info, tasks, metrics, logs and CLI widgets. </p>
+<pre><code>curl https://raw.githubusercontent.com/tinystacks/opsconsole/main/samples/ecs-dashboard-sample.yml -o ecs-dashboard-sample.yml
+
+# Modify line 6 by changing [your AWS profile] to your local AWS profile name
+# Modify lines [22-24] by changing the region, ecs clustername, and ecs service names to match resources in your account
+opsconsole up -c ecs-dashboard-sample.yml
+</code></pre>
+<h4 id="sqs-dashboard">SQS Dashboard <a href="https://github.com/tinystacks/opsconsole/blob/main/samples/sqs-sample.yml"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"></path></svg></span></a></h4>
+<p>Pre-built dashboard for SQS queues featuring SQS info, metrics and CLI widgets. </p>
+<pre><code>curl https://raw.githubusercontent.com/tinystacks/opsconsole/main/samples/sqs-sample.yml -o sqs-sample.yml
+
+# Modify lines [6-12] by changing the region, queue names and  AWS profile to match to your account
+opsconsole up -c sqs-sample.yml
+</code></pre>
 <h3 id="core-widgets">Core widgets <a href="https://github.com/tinystacks/ops-core-widgets"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"></path></svg></span></a></h3>
 <table>
 <thead>
@@ -395,7 +455,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="constants">Constants</h3>
+<h3 id="constants_1">Constants</h3>
 <p>Constants are defined at the console level and can be shared across dashboards. To reference a constant, use the name of the constant prefixed with <code>$const.</code>. ex. <code>$const.const1</code>.</p>
 <p>Example for defining constants:</p>
 <pre><code>Console:
@@ -414,7 +474,7 @@
       value: '2022-04-27'
       type: date
 </code></pre>
-<h3 id="parameters">Parameters</h3>
+<h3 id="parameters_1">Parameters</h3>
 <p>Parameters are dynamic values at the dashboard level that can be override with URL parameters. To reference a parameter, use the name of the parameter prefixed with <code>$param.</code> ex. <code>$param.text</code>.</p>
 <p>Example for defining parameters:</p>
 <pre><code>dashboards:
@@ -430,6 +490,22 @@
         - name: date
           type: date
 </code></pre>
+<h3 id="providers_1">Providers</h3>
+<p>Currently supports AWS with plans to add others! AWS provider can be configured with local profiles or Access/Secret keys.  </p>
+<h4 id="aws">AWS</h4>
+<pre><code>providers:
+  AwsLocalProvider:
+    id: AwsLocalProvider
+    type: AwsCredentialsProvider
+    credentials:
+      # Option A: local credentials
+      profileName: default 
+      # Option B: Access/Secret keys (required when deploying with opsconsole deploy)
+      # AwsAccessKeyId:
+      # AwsSecretAccessKey: 
+</code></pre>
+<h4 id="enabling-providers-in-cli">Enabling Providers in CLI</h4>
+<p>To enable Provider usage in the CLI widget, the Provider must implement <a href="https://github.com/tinystacks/ops-core-widgets/blob/main/src/cli-environment-provider.ts">CliEnvironmentProvider</a>.</p>
 <h3 id="customizing-dashboards">Customizing Dashboards</h3>
 <p>For reference, see one of the samples in the <a href="https://github.com/tinystacks/opsconsole/tree/main/samples">opsconsole repository</a>.</p>
 <h4 id="using-widgets">Using widgets</h4>
@@ -507,7 +583,7 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "toc.expand", "navigation.tabs", "navigation.tabs.sticky"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "toc.expand", "navigation.tabs", "navigation.tabs.sticky", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
 <script src="../assets/javascripts/bundle.51198bba.min.js"></script>
 <script>document$.subscribe(() => {
             window.update_swagger_ui_iframe_height = function (id) {
