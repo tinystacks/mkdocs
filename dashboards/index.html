@@ -5,12 +5,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://docs.tinystacks.com/usage/" rel="canonical"/>
+<link href="https://docs.tinystacks.com/dashboards/" rel="canonical"/>
 <link href="../deployment/" rel="prev"/>
-<link href="../concepts/" rel="next"/>
+<link href="../cli-reference/" rel="next"/>
 <link href="../assets/tinystacks.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.8" name="generator"/>
-<title>Usage - TinyStacks - Ops Console Docs</title>
+<title>Dashboards - TinyStacks - Ops Console Docs</title>
 <link href="../assets/stylesheets/main.ded33207.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -31,7 +31,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#usage">
+<a class="md-skip" href="#dashboards">
           Skip to content
         </a>
 </div>
@@ -55,7 +55,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Usage
+              Dashboards
             
           </span>
 </div>
@@ -127,12 +127,12 @@
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link md-tabs__link--active" href="./">
-      Usage
+      Dashboards
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../concepts/">
-      Concepts
+<a class="md-tabs__link" href="../cli-reference/">
+      CLI Reference
     </a>
 </li>
 <li class="md-tabs__item">
@@ -191,11 +191,11 @@
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          Usage
+          Dashboards
           <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        Usage
+        Dashboards
       </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -204,38 +204,43 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#cli-commands">
-    CLI Commands
+<a class="md-nav__link" href="#providers">
+    Providers
   </a>
-<nav aria-label="CLI Commands" class="md-nav">
+<nav aria-label="Providers" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#opsconsole">
-    opsconsole
+<a class="md-nav__link" href="#aws">
+    AWS
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#opsconsole-init">
-    opsconsole init
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#opsconsole-up">
-    opsconsole up
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#opsconsole-update">
-    opsconsole update
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#additional-options">
-    Additional Options
+<a class="md-nav__link" href="#enabling-providers-in-cli">
+    Enabling Providers in CLI
   </a>
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#core-widgets">
+    Core widgets 
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#aws-widgets">
+    AWS widgets 
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#constants">
+    Constants
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#parameters">
+    Parameters
+  </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#customizing-dashboards">
@@ -265,8 +270,8 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../concepts/">
-        Concepts
+<a class="md-nav__link" href="../cli-reference/">
+        CLI Reference
       </a>
 </li>
 <li class="md-nav__item">
@@ -281,70 +286,166 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="usage">Usage</h1>
-<h2 id="cli-commands">CLI Commands</h2>
-<h5 id="opsconsole">opsconsole</h5>
-<p>Shows usage and help information</p>
-<h4 id="opsconsole-init">opsconsole init</h4>
-<p>Creates a sample config file that includes a basic template. If you don't </p>
-<h4 id="opsconsole-up">opsconsole up</h4>
-<p>Starts the ops console by pulling down the docker images for the ops api (public.ecr.aws/tinystacks/ops-api) and frontend (public.ecr.aws/tinystacks/ops-frontend) and rebuilding them using dependencies included in your yaml file. This may take several minutes depending on your system's available resources. It creates a docker networking bridge called ops-console through which the containers communicate with each other.</p>
-<h4 id="opsconsole-update">opsconsole update</h4>
-<p>Updates the Ops Console CLI to the latest version</p>
-<h4 id="additional-options">Additional Options</h4>
+<h1 id="dashboards">Dashboards</h1>
 <table>
 <thead>
 <tr>
-<th>Flag</th>
-<th>Arguments</th>
+<th>Name</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>-a, --arch</td>
-<td>\&lt;arch&gt;</td>
-<td>Specifies the architecture. Defaults to 'x86'. Options: 'x86', 'arm'</td>
+<td>Console</td>
+<td>A console is a top level construct. It includes a name to identify itself, as well as dashboards, widgets, providers and dependencies.</td>
 </tr>
 <tr>
-<td>-c, --config-file</td>
-<td>\&lt;config-file&gt;</td>
-<td>Specifies a config file. See the <code>samples</code> folder in this repo for sample config files. Looks for config.yml in the current working directory by default.</td>
+<td>Dashboard</td>
+<td>A dashboard is a page that consists of an id, a route, and list of widget references.</td>
 </tr>
 <tr>
-<td>-V, --verbose</td>
-<td></td>
-<td>Displays additional logs.</td>
+<td>Widget</td>
+<td>Widgets are components that have two functions: render and getData. getData is called in the API’s server and is used to make external requests, do computations, etc. Once it is called, it sets some data on the widget itself that’s passed back to the frontend, where render is called to display the widget.</td>
 </tr>
 <tr>
-<td>-b, --backend-port</td>
-<td>\&lt;backend-port&gt;</td>
-<td>Specifies the port to be exposed by the backend service. Defaults to port 8000.</td>
+<td>Provider</td>
+<td>Providers are data sources for widgets. They are only executed server side and can be used to offload complex logic from a widget's <code>getData</code> function.  Providers can also be used across multiple widgets and are therefore better suited for any processes that involve caching, credentials management, or fetching data required by multiple widgets. Provider definitions are also currently read-only from the perspective of the API, so any additional data attached to a provider during runtime will not leak back into the yaml on save whereas a widget requires explicit filtering of class properties via its <code>toJson</code> function to prevent properties from being persisted to the yaml.</td>
 </tr>
 <tr>
-<td>-f, --frontend-port</td>
-<td>\&lt;frontend-port&gt;</td>
-<td>Specifies the port to be exposed by the frontend service. Defaults to port 3000.</td>
+<td>Constant</td>
+<td>Constants are static values that can be shared across dashboards.</td>
 </tr>
 <tr>
-<td>-h, --help</td>
-<td></td>
-<td>display help for this command</td>
+<td>Parameter</td>
+<td>Parameters are dynamic values at the dashboard level that can be override with URL parameters.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="customizing-dashboards">Customizing Dashboards</h2>
-<h3 id="using-widgets">Using widgets</h3>
+<h3 id="providers">Providers</h3>
+<p>Currently supports AWS with plans to add others! AWS provider can be configured with local profiles or Access/Secret keys.  </p>
+<h4 id="aws">AWS</h4>
+<pre><code>providers:
+  AwsLocalProvider:
+    id: AwsLocalProvider
+    type: AwsCredentialsProvider
+    credentials:
+      # Option A: local credentials
+      profileName: default 
+      # Option B: Access/Secret keys (required when deploying with opsconsole deploy)
+      # AwsAccessKeyId:
+      # AwsSecretAccessKey: 
+</code></pre>
+<h4 id="enabling-providers-in-cli">Enabling Providers in CLI</h4>
+<p>To enable Provider usage in the CLI widget, the Provider must implement <a href="https://github.com/tinystacks/ops-core-widgets/blob/main/src/cli-environment-provider.ts">CliEnvironmentProvider</a>.</p>
+<h3 id="core-widgets">Core widgets <a href="https://github.com/tinystacks/ops-core-widgets"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"></path></svg></span></a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/tinystacks/ops-core-widgets#panel">Panel</a></td>
+<td>This widget renders multiple internal widgets in a single direction, either vertical or horizontal.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tinystacks/ops-core-widgets#tabs">Tabs</a></td>
+<td>This widget renders multiple internal widgets in a tab view. Combine with panel or grid to make robust views.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tinystacks/ops-core-widgets#grid">Grid</a></td>
+<td>This widget renders multiple internal widgets in a grid.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tinystacks/ops-core-widgets#markdown">Markdown</a></td>
+<td>This widget renders markdown.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tinystacks/ops-core-widgets#cli">CLI</a></td>
+<td>This widget runs a bash command. The command may be multiple commands separated by ';'. You can also reference scripts that exist in the same directory as your config. (currently, only supported locally)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="aws-widgets">AWS widgets <a href="https://github.com/tinystacks/ops-aws-core-plugins"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"></path></svg></span></a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/tinystacks/ops-aws-core-plugins#cloudwatch-logs">CloudWatch Logs</a></td>
+<td>Renders a widget containing logs from a CloudWatchLogs log group or log stream.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tinystacks/ops-aws-core-widgets#cloudwatch-metric-graph">CloudWatch Graph</a></td>
+<td>Renders a widget containing graphs populated by one or many CloudWatch metrics.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tinystacks/ops-aws-core-widgets#ecs-info">ECS Info</a></td>
+<td>Renders a widget containing information about an ECS Service.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tinystacks/ops-aws-core-widgets#ecs-deployments">ECS Deployments</a></td>
+<td>Renders a widget containing information about an ECS Service's current deployments.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="constants">Constants</h3>
+<p>Constants are defined at the console level and can be shared across dashboards. To reference a constant, use the name of the constant prefixed with <code>$const.</code>. ex. <code>$const.const1</code>.</p>
+<p>Example for defining constants:</p>
+<pre><code>Console:
+  name: console
+  constants:
+    const1:
+      type: string
+      value: 'text'
+    const2: 
+      value: true
+      type: boolean
+    const3:
+      value: 123456
+      type: number
+    const4:
+      value: '2022-04-27'
+      type: date
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<p>Parameters are dynamic values at the dashboard level that can be override with URL parameters. To reference a parameter, use the name of the parameter prefixed with <code>$param.</code> ex. <code>$param.text</code>.</p>
+<p>Example for defining parameters:</p>
+<pre><code>dashboards:
+    LayoutDashboard:
+      parameters:
+        - name: text
+          default: test 123
+        - name: num
+          type: number
+          default: 42
+        - name: bool
+          type: boolean
+        - name: date
+          type: date
+</code></pre>
+<h3 id="customizing-dashboards">Customizing Dashboards</h3>
+<p>For reference, see one of the samples in the <a href="https://github.com/tinystacks/opsconsole/tree/main/samples">opsconsole repository</a>.</p>
+<h4 id="using-widgets">Using widgets</h4>
 <ol>
 <li>Define the widget in the <code>widgets</code> section of YAML</li>
 <li>Reference the widget in a dashboard</li>
 <li>Add the widget's source to the <code>dependencies</code> section of the YAML in the format <code>widget name: 'dependency package'</code></li>
 </ol>
-<h3 id="using-providers">Using providers</h3>
-<p>Providers provide data to widgets from an external provider.
-1. Define the provider in the <code>providers</code> section
-2. Reference the provider as a list item in widget.</p>
-<h3 id="sharing-data-between-widgets">Sharing data between widgets</h3>
+<h4 id="using-providers">Using providers</h4>
+<p>Providers provide data to widgets. They are backend-only code and can interact with the filesystem, keep data around, and do other more traditionally backend tasks. They are also the best way to provide credentials so that they don't leak through to the client.</p>
+<ol>
+<li>Define the provider in the <code>providers</code> section</li>
+<li>Reference the provider as a list item in a widget.</li>
+</ol>
+<p>See the <a href="https://github.com/tinystacks/opsconsole/blob/main/samples/aws-sample.yml#L4">AWS sample</a> for reference.</p>
+<h4 id="sharing-data-between-widgets">Sharing data between widgets</h4>
 <p>Any property in a widget’s YAML can be substituted for either the props or data of another widget. </p>
 <table>
 <thead>

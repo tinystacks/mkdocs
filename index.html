@@ -125,13 +125,13 @@
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="usage/">
-      Usage
+<a class="md-tabs__link" href="dashboards/">
+      Dashboards
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="concepts/">
-      Concepts
+<a class="md-tabs__link" href="cli-reference/">
+      CLI Reference
     </a>
 </li>
 <li class="md-tabs__item">
@@ -216,13 +216,13 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="usage/">
-        Usage
+<a class="md-nav__link" href="dashboards/">
+        Dashboards
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="concepts/">
-        Concepts
+<a class="md-nav__link" href="cli-reference/">
+        CLI Reference
       </a>
 </li>
 <li class="md-nav__item">
@@ -248,18 +248,18 @@
 <p>The platform comes with default plugins that offer a variety of features such as widgets for AWS ECS services and deployments, IAM JSON Policy viewers, and an AWS CLI, among others. The widgets are interactive and can exchange information, which enables the creation of dynamic and robust dashboards. With a provider and plugin model, developers can customize and extend the Ops Console as much as they wish. The <a href="https://github.com/tinystacks/opsconsole/tree/main/samples">samples/</a> folder includes several samples of dashboards that can be configured via YAML.</p>
 <h3 id="what-problems-is-the-ops-console-intended-to-serve">What problems is the Ops Console intended to serve?</h3>
 <ol>
-<li>Cloud sprawl is real - modern cloud applications are built with hundreds of cloud services and resources and difficult to manage. </li>
-<li>Viewing and organizing cloud resources (to your choice) is difficult especially when debugging or monitoring deployments. </li>
-<li>The daily workflows of engineers involve guessing through tens of screens and clicks to find information with no ability to save or build repeatable workflows. </li>
+<li>Cloud sprawl is real - modern cloud applications are built with hundreds of cloud services and resources. It's tough to manage the sprawl. </li>
+<li>Viewing and organizing cloud resources (to your preference) is difficult especially when debugging or monitoring deployments.</li>
+<li>The daily workflows of engineers involve guessing through tens of screens and clicks to find information. There's no way to save these steps or build repeatable workflows.</li>
 <li>Inability for developers to centralize and evaluate cloud configurations alongside observability tools.</li>
 </ol>
 <h3 id="why-does-cloud-sprawl-matter">Why does cloud sprawl matter?</h3>
-<p>Our founders spent six years at AWS and witnessed thousands of customer issued, that frankly shouldn't exist. </p>
+<p>Our founders spent six years at AWS and witnessed thousands of customer issues that frankly shouldn't exist. </p>
 <ol>
 <li>Unable to find a resource because they were looking at the wrong region. </li>
 <li>Debugging a critical issue and facing difficulty reconciling info across observability tools and tens of service consoles. </li>
 <li>Navigating through endless screens and clicks just to find out which version of the container image is currently deployed. </li>
-<li>Broken glass syndrome of cleaning up resources and driving down costs. </li>
+<li>Inability to clean up resources or drive down costs for fear of impacting production services or developer workflow.</li>
 </ol>
 <h3 id="what-can-customers-do-with-the-ops-console">What can customers do with the Ops Console?</h3>
 <p>Developers can connect their cloud accounts and organize resources in sensible ways providing immediate cloud comprehensibility. Developers can then build dashboards with common widgets for deployments, environment variables, logs, alarms and even write their own. Teams can share and run operational scripts via the CLI widget embedded directly in the relavent dashboards. </p>

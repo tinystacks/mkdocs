@@ -126,13 +126,13 @@
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../usage/">
-      Usage
+<a class="md-tabs__link" href="../dashboards/">
+      Dashboards
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../concepts/">
-      Concepts
+<a class="md-tabs__link" href="../cli-reference/">
+      CLI Reference
     </a>
 </li>
 <li class="md-tabs__item">
@@ -217,13 +217,13 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../usage/">
-        Usage
+<a class="md-nav__link" href="../dashboards/">
+        Dashboards
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../concepts/">
-        Concepts
+<a class="md-nav__link" href="../cli-reference/">
+        CLI Reference
       </a>
 </li>
 <li class="md-nav__item">
@@ -242,7 +242,7 @@
 <h2 id="pre-requisites">Pre-requisites</h2>
 <p>To use the default installation, you need to have <a href="https://docs.docker.com/get-docker/">docker installed</a>.</p>
 <p><strong>Windows users</strong> must have Docker Desktop running.</p>
-<p>Also please make sure that ports 8000 and 3000 are open, as those ports are used by the <a href="https://github.com/tinystacks/ops-api">API</a> and <a href="https://github.com/tinystacks/ops-frontend">frontend</a>. If these ports are reserved, you can pull down the docker images for each of these packages and change the docker run to map ports separately.</p>
+<p>Also please make sure that ports 8000 and 3000 are open, as those ports are used by the <a href="https://github.com/tinystacks/ops-api">API</a> and <a href="https://github.com/tinystacks/ops-frontend">frontend</a>. If these ports are reserved, you can specify different ports using the <code>--backend-port</code> and <code>--frontend-port</code> flags on the <code>opsconsole up</code> command.</p>
 <h2 id="install-from-the-global-npm-registry">Install from the Global NPM registry</h2>
 <pre><code class="language-bash"># Install from the public npm registry
 npm i -g @tinystacks/opsconsole;

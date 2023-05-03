@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://docs.tinystacks.com/deployment/" rel="canonical"/>
 <link href="../installation/" rel="prev"/>
-<link href="../usage/" rel="next"/>
+<link href="../dashboards/" rel="next"/>
 <link href="../assets/tinystacks.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.8" name="generator"/>
 <title>Deployment - TinyStacks - Ops Console Docs</title>
@@ -126,13 +126,13 @@
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../usage/">
-      Usage
+<a class="md-tabs__link" href="../dashboards/">
+      Dashboards
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../concepts/">
-      Concepts
+<a class="md-tabs__link" href="../cli-reference/">
+      CLI Reference
     </a>
 </li>
 <li class="md-tabs__item">
@@ -212,13 +212,13 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../usage/">
-        Usage
+<a class="md-nav__link" href="../dashboards/">
+        Dashboards
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../concepts/">
-        Concepts
+<a class="md-nav__link" href="../cli-reference/">
+        CLI Reference
       </a>
 </li>
 <li class="md-nav__item">
@@ -246,13 +246,12 @@ opsconsole signup;
 opsconsole configure
 # paste your token here
 
+# Ensure you have set an access and secret key for AWS credentials
 # deploy your Ops Console to the TinyStacks cloud!
 opsconsole deploy -c DASHBOARD-NAME.yaml
 </code></pre>
 <p>That's it! Deployments take a few minutes. </p>
-<ul>
-<li>Please note that when deploying a hosted version of the Ops Console, local AWS profiles in the AWS provider will not work. Instead, an access/secret key pair needs to be used.</li>
-</ul>
+<p><img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/26a0.svg" title=":warning:"> When deploying a hosted version of the Ops Console, an access/secret key pair must be used. Local credentials are not saved by the Ops Console and will not work in a hosted version of Ops Console. </img></p>
 </article>
 </div>
 </div>

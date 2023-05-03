@@ -2,37 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.tinystacks.com/</loc>
-         <lastmod>2023-05-01</lastmod>
+         <lastmod>2023-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/api/</loc>
-         <lastmod>2023-05-01</lastmod>
+         <lastmod>2023-05-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/cli-reference/</loc>
+         <lastmod>2023-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/concepts/</loc>
-         <lastmod>2023-05-01</lastmod>
+         <lastmod>2023-05-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/dashboards/</loc>
+         <lastmod>2023-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/deployment/</loc>
-         <lastmod>2023-05-01</lastmod>
+         <lastmod>2023-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/get-started/</loc>
-         <lastmod>2023-05-01</lastmod>
+         <lastmod>2023-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/installation/</loc>
-         <lastmod>2023-05-01</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.tinystacks.com/usage/</loc>
-         <lastmod>2023-05-01</lastmod>
+         <lastmod>2023-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
