@@ -5,10 +5,11 @@
 |Console|A console is a top level construct. It includes a name to identify itself, as well as dashboards, widgets, providers and dependencies. 
 |Dashboard|A dashboard is a page that consists of an id, a route and list of widget references. 
 |Widget|Widgets are components that have two functions: render and getData. getData is called in the API’s server and is used to make external requests, do computations, etc. Once it is called, it sets some data on the widget itself that’s passed back to the frontend, where render is called to display the widget.
-|Providers|Providers are the beating hearts of the Console. They can be long running and run in the background. They may be passed to widgets to provide sensitive information or long-lived information, whereas widgets are better written as quick request/response styled objects. 
+|Providers|Providers provide data to widgets. They are backend-only code and can interact with the filesystem, keep data around, or do other more traditionally backend tasks. They can be long running and run in the background. They may be passed to widgets to provide sensitive information or long-lived information, whereas widgets are better written as quick request/response styled objects. 
 
 ### Providers
-Currently supports AWS with plans to add others! AWS provider can be configured with local profiles or Access/Secret keys.  
+Currently supports AWS with plans to add others! AWS provider can be configured with local profiles or Access/Secret keys.
+
 #### AWS
 ```
 providers:

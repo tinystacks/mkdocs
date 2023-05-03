@@ -5,7 +5,7 @@ To use the default installation, you need to have [docker installed](https://doc
 
 **Windows users** must have Docker Desktop running.
 
-Also please make sure that ports 8000 and 3000 are open, as those ports are used by the [API](https://github.com/tinystacks/ops-api) and [frontend](https://github.com/tinystacks/ops-frontend). If these ports are reserved, you can pull down the docker images for each of these packages and change the docker run to map ports separately.
+Also please make sure that ports 8000 and 3000 are open, as those ports are used by the [API](https://github.com/tinystacks/ops-api) and [frontend](https://github.com/tinystacks/ops-frontend). If these ports are reserved, you can specify different ports using the `--backend-port` and `--frontend-port` flags on the `opsconsole up` command.
 
 ## Install from the Global NPM registry
 ```bash
