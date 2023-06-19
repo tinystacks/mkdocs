@@ -65,3 +65,4 @@ nav:
   - 'Dashboards': 'dashboards.md'
   - 'CLI Reference': 'cli-reference.md'
   - 'API Reference': 'api.md'
+  - 'Module Reference': 'modules.md'
