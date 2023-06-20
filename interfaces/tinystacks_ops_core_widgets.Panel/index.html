@@ -5,18 +5,16 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://docs.tinystacks.com/api/" rel="canonical"/>
-<link href="../cli-reference/" rel="prev"/>
-<link href="../modules/" rel="next"/>
-<link href="../assets/tinystacks.png" rel="icon"/>
+<link href="https://docs.tinystacks.com/interfaces/tinystacks_ops_core_widgets.Panel/" rel="canonical"/>
+<link href="../../assets/tinystacks.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.8" name="generator"/>
-<title>API Reference - TinyStacks - Ops Console Docs</title>
-<link href="../assets/stylesheets/main.ded33207.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
+<title>tinystacks ops core widgets.Panel - TinyStacks - Ops Console Docs</title>
+<link href="../../assets/stylesheets/main.ded33207.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -31,13 +29,16 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#interface-panel">
+          Skip to content
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
 <a aria-label="TinyStacks - Ops Console Docs" class="md-header__button md-logo" data-md-component="logo" href="https://www.tinystacks.com" title="TinyStacks - Ops Console Docs">
-<img alt="logo" src="../assets/tinystacks.png"/>
+<img alt="logo" src="../../assets/tinystacks.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -52,7 +53,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              API Reference
+              tinystacks ops core widgets.Panel
             
           </span>
 </div>
@@ -103,42 +104,42 @@
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="..">
+<a class="md-tabs__link" href="../..">
       Introduction
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../get-started/">
+<a class="md-tabs__link" href="../../get-started/">
       Getting Started
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../installation/">
+<a class="md-tabs__link" href="../../installation/">
       Installation
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../deployment/">
+<a class="md-tabs__link" href="../../deployment/">
       Deployment
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../dashboards/">
+<a class="md-tabs__link" href="../../dashboards/">
       Dashboards
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../cli-reference/">
+<a class="md-tabs__link" href="../../cli-reference/">
       CLI Reference
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="./">
+<a class="md-tabs__link" href="../../api/">
       API Reference
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../modules/">
+<a class="md-tabs__link" href="../../modules/">
       Module Reference
     </a>
 </li>
@@ -155,7 +156,7 @@
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
 <a aria-label="TinyStacks - Ops Console Docs" class="md-nav__button md-logo" data-md-component="logo" href="https://www.tinystacks.com" title="TinyStacks - Ops Console Docs">
-<img alt="logo" src="../assets/tinystacks.png"/>
+<img alt="logo" src="../../assets/tinystacks.png"/>
 </a>
     TinyStacks - Ops Console Docs
   </label>
@@ -171,43 +172,42 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="..">
+<a class="md-nav__link" href="../..">
         Introduction
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../get-started/">
+<a class="md-nav__link" href="../../get-started/">
         Getting Started
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../installation/">
+<a class="md-nav__link" href="../../installation/">
         Installation
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../deployment/">
+<a class="md-nav__link" href="../../deployment/">
         Deployment
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../dashboards/">
+<a class="md-nav__link" href="../../dashboards/">
         Dashboards
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../cli-reference/">
+<a class="md-nav__link" href="../../cli-reference/">
         CLI Reference
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../api/">
         API Reference
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../modules/">
+<a class="md-nav__link" href="../../modules/">
         Module Reference
       </a>
 </li>
@@ -218,8 +218,122 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>API Reference</h1>
-<p><iframe class="swagger-ui-iframe" frameborder="0" id="d216f057" src="swagger-d216f057.html" style="overflow:hidden;width:100%;" width="100%"></iframe></p>
+<p><a href="../../modules/">Module Reference</a> / <a href="../../modules/tinystacks_ops_core_widgets/">@tinystacks/ops-core-widgets</a> / Panel</p>
+<h1 id="interface-panel">Interface: Panel</h1>
+<p><a href="../../modules/tinystacks_ops_core_widgets/">@tinystacks/ops-core-widgets</a>.Panel</p>
+<p><strong><code>Example</code></strong></p>
+<pre><code class="language-yaml">HorizontalPanel:
+   type: Panel
+   displayName: Panel with horizontal layout
+   orientation: horizontal
+   children:
+     - $ref: '#/Console/widgets/Md1'
+     - $ref: '#/Console/widgets/Md2'
+</code></pre>
+<h2 id="hierarchy">Hierarchy</h2>
+<ul>
+<li><a href="../../modules/tinystacks_ops_model/#widget"><code>Widget</code></a></li>
+</ul>
+<p>↳ <strong><code>Panel</code></strong></p>
+<h2 id="table-of-contents">Table of contents</h2>
+<h3 id="properties">Properties</h3>
+<ul>
+<li><a href="./#additionalproperties">additionalProperties</a></li>
+<li><a href="./#childrenids">childrenIds</a></li>
+<li><a href="./#description">description</a></li>
+<li><a href="./#displayname">displayName</a></li>
+<li><a href="./#displayoptions">displayOptions</a></li>
+<li><a href="./#id">id</a></li>
+<li><a href="./#orientation">orientation</a></li>
+<li><a href="./#providerids">providerIds</a></li>
+<li><a href="./#type">type</a></li>
+</ul>
+<h2 id="properties_1">Properties</h2>
+<h3 id="additionalproperties">additionalProperties</h3>
+<p>• <code>Optional</code> <strong>additionalProperties</strong>: <code>any</code></p>
+<h4 id="inherited-from">Inherited from</h4>
+<p>Widget.additionalProperties</p>
+<h4 id="defined-in">Defined in</h4>
+<p>node_modules/@tinystacks/ops-model/dist/models/Widget.d.ts:30</p>
+<hr/>
+<h3 id="childrenids">childrenIds</h3>
+<p>• <code>Optional</code> <strong>childrenIds</strong>: <code>string</code>[]</p>
+<h4 id="inherited-from_1">Inherited from</h4>
+<p>Widget.childrenIds</p>
+<h4 id="defined-in_1">Defined in</h4>
+<p>node_modules/@tinystacks/ops-model/dist/models/Widget.d.ts:18</p>
+<hr/>
+<h3 id="description">description</h3>
+<p>• <code>Optional</code> <strong>description</strong>: <code>string</code></p>
+<h4 id="inherited-from_2">Inherited from</h4>
+<p>Widget.description</p>
+<h4 id="defined-in_2">Defined in</h4>
+<p>node_modules/@tinystacks/ops-model/dist/models/Widget.d.ts:19</p>
+<hr/>
+<h3 id="displayname">displayName</h3>
+<p>• <strong>displayName</strong>: <code>string</code></p>
+<p>A human-readable display name, usually used to title a widget</p>
+<h4 id="inherited-from_3">Inherited from</h4>
+<p>Widget.displayName</p>
+<h4 id="defined-in_3">Defined in</h4>
+<p>node_modules/@tinystacks/ops-model/dist/models/Widget.d.ts:12</p>
+<hr/>
+<h3 id="displayoptions">displayOptions</h3>
+<p>• <code>Optional</code> <strong>displayOptions</strong>: <code>Object</code></p>
+<h4 id="type-declaration">Type declaration</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>showDescription?</code></td>
+<td align="left"><code>boolean</code></td>
+<td align="left">Whether to show the description</td>
+</tr>
+<tr>
+<td align="left"><code>showDisplayName?</code></td>
+<td align="left"><code>boolean</code></td>
+<td align="left">Whether to show the display name</td>
+</tr>
+</tbody>
+</table>
+<h4 id="inherited-from_4">Inherited from</h4>
+<p>Widget.displayOptions</p>
+<h4 id="defined-in_4">Defined in</h4>
+<p>node_modules/@tinystacks/ops-model/dist/models/Widget.d.ts:20</p>
+<hr/>
+<h3 id="id">id</h3>
+<p>• <strong>id</strong>: <code>string</code></p>
+<p>Unique Id for this widget.</p>
+<h4 id="inherited-from_5">Inherited from</h4>
+<p>Widget.id</p>
+<h4 id="defined-in_5">Defined in</h4>
+<p>node_modules/@tinystacks/ops-model/dist/models/Widget.d.ts:8</p>
+<hr/>
+<h3 id="orientation">orientation</h3>
+<p>• <code>Optional</code> <strong>orientation</strong>: <code>"horizontal"</code> | <code>"vertical"</code></p>
+<h4 id="defined-in_6">Defined in</h4>
+<p>node_modules/@tinystacks/ops-core-widgets/dist/ops-types.d.ts:136</p>
+<hr/>
+<h3 id="providerids">providerIds</h3>
+<p>• <code>Optional</code> <strong>providerIds</strong>: <code>string</code>[]</p>
+<h4 id="inherited-from_6">Inherited from</h4>
+<p>Widget.providerIds</p>
+<h4 id="defined-in_7">Defined in</h4>
+<p>node_modules/@tinystacks/ops-model/dist/models/Widget.d.ts:17</p>
+<hr/>
+<h3 id="type">type</h3>
+<p>• <strong>type</strong>: <code>string</code></p>
+<p>This describes how this widget should be rendered. The "type" should be equivalent to the Object definition's name of the widget you are trying to render.</p>
+<h4 id="inherited-from_7">Inherited from</h4>
+<p>Widget.type</p>
+<h4 id="defined-in_8">Defined in</h4>
+<p>node_modules/@tinystacks/ops-model/dist/models/Widget.d.ts:16</p>
 </article>
 </div>
 </div>
@@ -256,8 +370,8 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "toc.expand", "navigation.tabs", "navigation.tabs.sticky", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.51198bba.min.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "toc.expand", "navigation.tabs", "navigation.tabs.sticky", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.51198bba.min.js"></script>
 <script>document$.subscribe(() => {
             window.update_swagger_ui_iframe_height = function (id) {
                 var iFrameID = document.getElementById(id);
@@ -274,7 +388,7 @@
                 iframe_id_list.push(iframes[i].getAttribute("id"))
             }
         
-            let ticking = false;
+            let ticking = true;
             
             document.addEventListener('scroll', function(e) {
                 if (!ticking) {

@@ -5,12 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://docs.tinystacks.com/api/" rel="canonical"/>
-<link href="../cli-reference/" rel="prev"/>
-<link href="../modules/" rel="next"/>
+<link href="https://docs.tinystacks.com/modules/" rel="canonical"/>
+<link href="../api/" rel="prev"/>
 <link href="../assets/tinystacks.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.8" name="generator"/>
-<title>API Reference - TinyStacks - Ops Console Docs</title>
+<title>Module Reference - TinyStacks - Ops Console Docs</title>
 <link href="../assets/stylesheets/main.ded33207.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -31,6 +30,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#modules">
+          Skip to content
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -52,7 +54,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              API Reference
+              Module Reference
             
           </span>
 </div>
@@ -133,12 +135,12 @@
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="./">
+<a class="md-tabs__link" href="../api/">
       API Reference
     </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../modules/">
+<a class="md-tabs__link md-tabs__link--active" href="./">
       Module Reference
     </a>
 </li>
@@ -200,16 +202,33 @@
         CLI Reference
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../api/">
         API Reference
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../modules/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Module Reference
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         Module Reference
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#modules">
+    Modules
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -218,8 +237,14 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>API Reference</h1>
-<p><iframe class="swagger-ui-iframe" frameborder="0" id="d216f057" src="swagger-d216f057.html" style="overflow:hidden;width:100%;" width="100%"></iframe></p>
+<h1>Module Reference</h1>
+<h3 id="modules">Modules</h3>
+<ul>
+<li><a href="tinystacks_ops_aws_core_widgets/">@tinystacks/ops-aws-core-widgets</a></li>
+<li><a href="tinystacks_ops_aws_utilization_widgets/">@tinystacks/ops-aws-utilization-widgets</a></li>
+<li><a href="tinystacks_ops_core_widgets/">@tinystacks/ops-core-widgets</a></li>
+<li><a href="tinystacks_ops_model/">@tinystacks/ops-model</a></li>
+</ul>
 </article>
 </div>
 </div>
@@ -274,7 +299,7 @@
                 iframe_id_list.push(iframes[i].getAttribute("id"))
             }
         
-            let ticking = false;
+            let ticking = true;
             
             document.addEventListener('scroll', function(e) {
                 if (!ticking) {

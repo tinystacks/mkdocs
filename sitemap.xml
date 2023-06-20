@@ -2,37 +2,252 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.tinystacks.com/</loc>
-         <lastmod>2023-05-03</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/api/</loc>
-         <lastmod>2023-05-03</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/cli-reference/</loc>
-         <lastmod>2023-05-03</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/dashboards/</loc>
-         <lastmod>2023-05-03</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/deployment/</loc>
-         <lastmod>2023-05-03</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/get-started/</loc>
-         <lastmod>2023-05-03</lastmod>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.tinystacks.com/installation/</loc>
-         <lastmod>2023-05-03</lastmod>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/modules/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/enums/tinystacks_ops_aws_core_widgets.TimeUnit/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/enums/tinystacks_ops_model.Constant.type/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/enums/tinystacks_ops_model.Parameter.type/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_aws_core_widgets.AbsoluteTimeRange/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_aws_core_widgets.AwsAssumedRole/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_aws_core_widgets.AwsCloudWatchLogs/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_aws_core_widgets.AwsCloudWatchMetricGraph/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_aws_core_widgets.AwsCodePipeline/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_aws_core_widgets.AwsCredentialsProvider/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_aws_core_widgets.AwsEcsDeployments/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_aws_core_widgets.AwsEcsInfo/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_aws_core_widgets.AwsIamJson/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_aws_core_widgets.AwsJsonTree/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_aws_core_widgets.AwsKeys/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_aws_core_widgets.KeyValuePair/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_aws_core_widgets.LocalAwsProfile/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_aws_core_widgets.Metric/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_aws_core_widgets.MetricData/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_aws_core_widgets.Pipeline/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_aws_core_widgets.PipelineAction/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_aws_core_widgets.PipelineStage/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_aws_core_widgets.RelativeTime/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_aws_core_widgets.StageAction/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_aws_utilization_widgets.AwsUtilization/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_aws_utilization_widgets.AwsUtilizationProvider/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_aws_utilization_widgets.AwsUtilizationRecommendations/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_core_widgets.Cli/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_core_widgets.Github/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_core_widgets.GithubAction/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_core_widgets.GithubCredentials/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_core_widgets.GithubCredentialsProvider/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_core_widgets.Grid/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_core_widgets.JsonFilter/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_core_widgets.Markdown/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_core_widgets.Panel/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/interfaces/tinystacks_ops_core_widgets.Tabs/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/modules/tinystacks_ops_aws_core_widgets/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/modules/tinystacks_ops_aws_utilization_widgets/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/modules/tinystacks_ops_core_widgets/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/modules/tinystacks_ops_model.Constant/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/modules/tinystacks_ops_model.Parameter/</loc>
+         <lastmod>2023-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.tinystacks.com/modules/tinystacks_ops_model/</loc>
+         <lastmod>2023-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
